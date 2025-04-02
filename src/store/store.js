@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './reducers/cartReducer';
+import userReducer from './reducers/userReducer';
 
 // const allReducers = combineReducers({
 //     cart: cartReducer, // Key 'cart' dùng trong useSelector(state => state.cart)
@@ -14,7 +15,8 @@ import cartReducer from './reducers/cartReducer';
 
 const store = configureStore({
     reducer: {
-      cart: cartReducer, // Key 'cart' dùng trong useSelector(state => state.cart)
+      cart: cartReducer,
+      user: userReducer 
     },
   });
   
