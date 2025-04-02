@@ -1,0 +1,93 @@
+[
+    {
+        "_id": {
+            "$oid": "65ef1234abcd5678ef901234"
+        },
+        "title": "PC Thiết Kế Đồ Họa 3D",
+        "slug": "pc-thiet-ke-do-hoa-3d"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef345678"
+        },
+        "title": "PC Render, Edit Video",
+        "slug": "pc-render-edit-video"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef345679"
+        },
+        "title": "Phần mềm bản quyền",
+        "slug": "phan-mem-ban-quyen"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef34567a"
+        },
+        "title": "PC Đẹp",
+        "slug": "pc-dep"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef34567b"
+        },
+        "title": "PC Gaming",
+        "slug": "pc-gaming"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef34567c"
+        },
+        "title": "PC Văn Phòng",
+        "slug": "pc-van-phong"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef34567d"
+        },
+        "title": "Màn hình máy tính",
+        "slug": "man-hinh-may-tinh"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef34567e"
+        },
+        "title": "Machine Learning / AI",
+        "slug": "machine-learning-ai"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef34567f"
+        },
+        "title": "Laptop Notebook",
+        "slug": "laptop-notebook"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef345680"
+        },
+        "title": "Linh kiện máy tính",
+        "slug": "linh-kien-may-tinh"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef345681"
+        },
+        "title": "Tản nhiệt",
+        "slug": "tan-nhiet"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef345682"
+        },
+        "title": "HDD-SSD-NAS",
+        "slug": "hdd-ssd-nas"
+    },
+    {
+        "_id": {
+            "$oid": "65ef5678abcd9012ef345683"
+        },
+        "title": "Gaming Gear",
+        "slug": "gaming-gear"
+    }
+]
