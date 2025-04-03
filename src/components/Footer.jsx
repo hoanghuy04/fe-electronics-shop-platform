@@ -20,7 +20,7 @@ import tiktok from '../assets/tiktok.png'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-10">
+    <footer className="bg-gray-800 text-white py-10 z-21">
       <div className="container text-lg mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Thông tin cơ bản */}
         <div>
@@ -106,6 +106,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
 
         {/* Cách thức thanh toán */}
         <div>
