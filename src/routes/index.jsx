@@ -14,7 +14,7 @@ const routes = [
     element: <DefaultLayout />,
     children: [
       { path: "", element: <Home /> },
-      { path: "products/:id", element: <ProductDetail /> },
+      { path: "products/:slug", element: <ProductDetail /> },
       { path: "cart", element: <Cart /> },
       { path: "*", element: <Navigate to="/not-found" /> },
     ],

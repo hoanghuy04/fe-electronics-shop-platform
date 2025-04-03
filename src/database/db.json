@@ -2718,5 +2718,1347 @@
             "discount": 0.1,
             "slug": "pc-van-phong-core-i7-13700-16g-ssd-512gb"
         }
+    ],
+    "categories": [
+        {
+            "_id": {
+                "$oid": "65ef1234abcd5678ef901234"
+            },
+            "title": "PC Thiết Kế Đồ Họa 3D",
+            "slug": "pc-thiet-ke-do-hoa-3d"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef345678"
+            },
+            "title": "PC Render, Edit Video",
+            "slug": "pc-render-edit-video"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef345679"
+            },
+            "title": "Phần mềm bản quyền",
+            "slug": "phan-mem-ban-quyen"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef34567a"
+            },
+            "title": "PC Đẹp",
+            "slug": "pc-dep"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef34567b"
+            },
+            "title": "PC Gaming",
+            "slug": "pc-gaming"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef34567c"
+            },
+            "title": "PC Văn Phòng",
+            "slug": "pc-van-phong"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef34567d"
+            },
+            "title": "Màn hình máy tính",
+            "slug": "man-hinh-may-tinh"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef34567e"
+            },
+            "title": "Machine Learning / AI",
+            "slug": "machine-learning-ai"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef34567f"
+            },
+            "title": "Laptop Notebook",
+            "slug": "laptop-notebook"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef345680"
+            },
+            "title": "Linh kiện máy tính",
+            "slug": "linh-kien-may-tinh"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef345681"
+            },
+            "title": "Tản nhiệt",
+            "slug": "tan-nhiet"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef345682"
+            },
+            "title": "HDD-SSD-NAS",
+            "slug": "hdd-ssd-nas"
+        },
+        {
+            "_id": {
+                "$oid": "65ef5678abcd9012ef345683"
+            },
+            "title": "Gaming Gear",
+            "slug": "gaming-gear"
+        }
+    ],
+    "orders": [
+        {
+            "_id": {
+                "$oid": "67d240c2af1150e0403e78d8"
+            },
+            "userInfo": {
+                "user_id": {
+                    "$oid": "67d23e4a8dfcc45cf323618d"
+                },
+                "fullName": "Karen",
+                "phone": "0987654321",
+                "address": "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
+                "note": "",
+                "email": "elaina17102004@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124c"
+                    },
+                    "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
+                    "unitPrice": 12320000,
+                    "quanlity": 2,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d240c2af1150e0403e78d9"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901248"
+                    },
+                    "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
+                    "unitPrice": 22500000,
+                    "quanlity": 3,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d240c2af1150e0403e78da"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901249"
+                    },
+                    "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
+                    "unitPrice": 33250000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d240c2af1150e0403e78db"
+                    }
+                }
+            ],
+            "totalPrice": 125390000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d240d3af1150e0403e78e5"
+            },
+            "userInfo": {
+                "user_id": {
+                    "$oid": "67d23e4a8dfcc45cf323618d"
+                },
+                "fullName": "Karen",
+                "phone": "0987654321",
+                "address": "Number 12 Nguyen Van Bao, Ward 4, Go Vap District, Ho Chi Minh City.",
+                "note": "",
+                "email": "elaina17102004@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901240"
+                    },
+                    "name": "Microsoft Office 365 - Bản Quyền 1 Năm",
+                    "unitPrice": 1200000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d240d3af1150e0403e78e6"
+                    }
+                }
+            ],
+            "totalPrice": 1200000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d82715d6b260d20605d332"
+            },
+            "userInfo": {
+                "user_id": {
+                    "$oid": "67d53854b6286d27db0e4b91"
+                },
+                "fullName": "Nguyễn Thị Mỹ Hoa ",
+                "phone": "0987654321",
+                "address": "tp HCM, quận Gò Vấp, 12 Nguyễn Văn Bảo Phường 4",
+                "note": "Để trước cửa nhà",
+                "email": "hoanguyen.15042000@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901249"
+                    },
+                    "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
+                    "unitPrice": 33250000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d82715d6b260d20605d333"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124b"
+                    },
+                    "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
+                    "unitPrice": 67500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d82715d6b260d20605d334"
+                    }
+                }
+            ],
+            "totalPrice": 100750000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d8461856788f78ec214ed7"
+            },
+            "userInfo": {
+                "user_id": {
+                    "$oid": "67d8457956788f78ec214eca"
+                },
+                "fullName": "Phạm Minh Hiếu",
+                "phone": "0378995155",
+                "address": "Hồ Chí Minh",
+                "note": "123",
+                "email": "22693491.hieu@student.iuh.edu.vn"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124c"
+                    },
+                    "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
+                    "unitPrice": 12320000,
+                    "quanlity": 4,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d8461856788f78ec214ed8"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901249"
+                    },
+                    "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
+                    "unitPrice": 33250000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d8461856788f78ec214ed9"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124a"
+                    },
+                    "name": "PC GAMING CORE i7 12700K | 32G | RTX 3080 Ti",
+                    "unitPrice": 41400000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d8461856788f78ec214eda"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124b"
+                    },
+                    "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
+                    "unitPrice": 67500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d8461856788f78ec214edb"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901248"
+                    },
+                    "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
+                    "unitPrice": 22500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d8461856788f78ec214edc"
+                    }
+                }
+            ],
+            "totalPrice": 213930000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d92595d6c9dd77192f0ab5"
+            },
+            "userInfo": {
+                "user_id": {
+                    "$oid": "67d0fbcd31bce9119708f304"
+                },
+                "fullName": "Xuân Hồ",
+                "phone": "0985252104",
+                "address": "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
+                "note": "Dong goi can than",
+                "email": "mayman1710@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901249"
+                    },
+                    "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
+                    "unitPrice": 33250000,
+                    "quanlity": 3,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d92595d6c9dd77192f0ab6"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124a"
+                    },
+                    "name": "PC GAMING CORE i7 12700K | 32G | RTX 3080 Ti",
+                    "unitPrice": 41400000,
+                    "quanlity": 4,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d92595d6c9dd77192f0ab7"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124c"
+                    },
+                    "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
+                    "unitPrice": 12320000,
+                    "quanlity": 3,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d92595d6c9dd77192f0ab8"
+                    }
+                }
+            ],
+            "totalPrice": 302310000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d9385d55fc5d4f084a8326"
+            },
+            "userInfo": {
+                "user_id": "userVangLai",
+                "fullName": "Hồ Nguyễn Xuân",
+                "phone": "0985252104",
+                "address": "Number 12 Nguyen Van Bao, Ward 4, Go Vap District, Ho Chi Minh City.",
+                "note": "123123",
+                "email": "123mia@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901248"
+                    },
+                    "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
+                    "unitPrice": 22500000,
+                    "quanlity": 2,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d9385d55fc5d4f084a8327"
+                    }
+                }
+            ],
+            "totalPrice": 45000000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d938b855fc5d4f084a8332"
+            },
+            "userInfo": {
+                "user_id": "userVangLai",
+                "fullName": "Hồ Nguyễn Xuân",
+                "phone": "0985252104",
+                "address": "Number 12 Nguyen Van Bao, Ward 4, Go Vap District, Ho Chi Minh City.",
+                "note": "123123",
+                "email": "mayman1710@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901270"
+                    },
+                    "name": "CHUỘT LOGITECH G Pro X Superlight",
+                    "unitPrice": 3150000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d938b855fc5d4f084a8333"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901273"
+                    },
+                    "name": "LÓT CHUỘT STEELSERIES QcK Prism RGB",
+                    "unitPrice": 1395000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d938b855fc5d4f084a8334"
+                    }
+                }
+            ],
+            "totalPrice": 4545000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d938cc55fc5d4f084a833f"
+            },
+            "userInfo": {
+                "user_id": "67d0fbcd31bce9119708f304",
+                "fullName": "Xuân Hồ",
+                "phone": "0985252104",
+                "address": "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
+                "note": "",
+                "email": "mayman1710@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124c"
+                    },
+                    "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
+                    "unitPrice": 12320000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d938cc55fc5d4f084a8340"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124b"
+                    },
+                    "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
+                    "unitPrice": 67500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d938cc55fc5d4f084a8341"
+                    }
+                }
+            ],
+            "totalPrice": 79820000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d93938a88283b9a9ee542b"
+            },
+            "userInfo": {
+                "user_id": "userVangLai",
+                "fullName": "Hồ Nguyễn Xuân",
+                "phone": "0985252104",
+                "address": "Number 12 Nguyen Van Bao, Ward 4, Go Vap District, Ho Chi Minh City.",
+                "note": "123123",
+                "email": "mayman1710@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901248"
+                    },
+                    "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
+                    "unitPrice": 22500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d93938a88283b9a9ee542c"
+                    }
+                }
+            ],
+            "totalPrice": 22500000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d940a5a88283b9a9ee543c"
+            },
+            "userInfo": {
+                "user_id": "userVangLai",
+                "fullName": "Hồ Nguyễn Xuân",
+                "phone": "0985252104",
+                "address": "Number 12 Nguyen Van Bao, Ward 4, Go Vap District, Ho Chi Minh City.",
+                "note": "",
+                "email": "mayman1710@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901255"
+                    },
+                    "name": "MÀN HÌNH ASUS TUF Gaming 24 inch 165Hz",
+                    "unitPrice": 4400000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d940a5a88283b9a9ee543d"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901256"
+                    },
+                    "name": "MÀN HÌNH ACER Nitro 27 inch 2K 144Hz",
+                    "unitPrice": 7200000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d940a5a88283b9a9ee543e"
+                    }
+                }
+            ],
+            "totalPrice": 11600000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d943b9bc5be7b095721c86"
+            },
+            "userInfo": {
+                "user_id": "67d0fbcd31bce9119708f304",
+                "fullName": "Xuân Hồ",
+                "phone": "0985252104",
+                "address": "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
+                "note": "",
+                "email": "mayman1710@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124b"
+                    },
+                    "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
+                    "unitPrice": 67500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d943b9bc5be7b095721c87"
+                    }
+                }
+            ],
+            "totalPrice": 67500000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d975d6778190df0d3de553"
+            },
+            "userInfo": {
+                "user_id": "67d53854b6286d27db0e4b91",
+                "fullName": "Nguyễn Thị Mỹ Hoa ",
+                "phone": "0963059030",
+                "address": "tp HCM, quận Gò Vấp, 12 Nguyễn Văn Bảo Phường 4",
+                "note": "",
+                "email": "hoanguyen.15042000@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901250"
+                    },
+                    "name": "PC VĂN PHÒNG RYZEN 3 4100 | 8G | SSD 256GB",
+                    "unitPrice": 6800000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d975d6778190df0d3de554"
+                    }
+                }
+            ],
+            "totalPrice": 6800000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d9799d778190df0d3de574"
+            },
+            "userInfo": {
+                "user_id": "67d53854b6286d27db0e4b91",
+                "fullName": "Nguyễn Thị Mỹ Hoa ",
+                "phone": "0963059030",
+                "address": "tp HCM, quận Gò Vấp, 12 Nguyễn Văn Bảo Phường 4",
+                "note": "giao trong 30p",
+                "email": "hoanguyen.15042000@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124c"
+                    },
+                    "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
+                    "unitPrice": 12320000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d9799d778190df0d3de575"
+                    }
+                }
+            ],
+            "totalPrice": 12320000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d99a327ad790797452b8c1"
+            },
+            "userInfo": {
+                "user_id": "userVangLai",
+                "fullName": "Phạm Minh Hiếu",
+                "phone": "0123456789",
+                "address": "Hồ Chí Minh",
+                "note": "Vận Chuyển Nhẹ Nhàng",
+                "email": "22693491.hieu@student.iuh.edu.vn"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124c"
+                    },
+                    "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
+                    "unitPrice": 12320000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d99a327ad790797452b8c2"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901248"
+                    },
+                    "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
+                    "unitPrice": 22500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d99a327ad790797452b8c3"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901249"
+                    },
+                    "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
+                    "unitPrice": 33250000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d99a327ad790797452b8c4"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124b"
+                    },
+                    "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
+                    "unitPrice": 67500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d99a327ad790797452b8c5"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124a"
+                    },
+                    "name": "PC GAMING CORE i7 12700K | 32G | RTX 3080 Ti",
+                    "unitPrice": 41400000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67d99a327ad790797452b8c6"
+                    }
+                }
+            ],
+            "totalPrice": 176970000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67da6208a25ea8dfcd31d48d"
+            },
+            "userInfo": {
+                "user_id": {
+                    "$oid": "67da61d8a25ea8dfcd31d487"
+                },
+                "fullName": "Huỳnh Lệ Hoan",
+                "phone": "0931481507",
+                "address": "TPHCM",
+                "note": "",
+                "email": "huynhlehoan151@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901248"
+                    },
+                    "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
+                    "unitPrice": 22500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67da6208a25ea8dfcd31d48e"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901249"
+                    },
+                    "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
+                    "unitPrice": 33250000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67da6208a25ea8dfcd31d48f"
+                    }
+                }
+            ],
+            "totalPrice": 55750000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67daa2fcbf0ca9e6c2db866d"
+            },
+            "userInfo": {
+                "user_id": "userVangLai",
+                "fullName": "Phạm Minh Hiếu",
+                "phone": "123456789",
+                "address": "Hồ Chí Minh",
+                "note": "123",
+                "email": "22693491.hieu@student.iuh.edu.vn"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901248"
+                    },
+                    "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
+                    "unitPrice": 22500000,
+                    "quanlity": 3,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67daa2fcbf0ca9e6c2db866e"
+                    }
+                }
+            ],
+            "totalPrice": 67500000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67dae36c20d6f42937c8b9ca"
+            },
+            "userInfo": {
+                "user_id": "67d0fbcd31bce9119708f304",
+                "fullName": "Xuân Hồ",
+                "phone": "0985252104",
+                "address": "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
+                "note": "",
+                "email": "mayman1710@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901248"
+                    },
+                    "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
+                    "unitPrice": 22500000,
+                    "quanlity": 2,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dae36c20d6f42937c8b9cb"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901249"
+                    },
+                    "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
+                    "unitPrice": 33250000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dae36c20d6f42937c8b9cc"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90126c"
+                    },
+                    "name": "HDD WD Blue 2TB 3.5 inch",
+                    "unitPrice": 1425000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dae36c20d6f42937c8b9cd"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90126d"
+                    },
+                    "name": "SSD KINGSTON NV2 2TB NVMe",
+                    "unitPrice": 4140000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dae36c20d6f42937c8b9ce"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901238"
+                    },
+                    "name": "PC ĐỒ HỌA CORE i5 13400F | 16G | NVIDIA RTX 3060 12G",
+                    "unitPrice": 19360000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dae36c20d6f42937c8b9cf"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901209"
+                    },
+                    "name": "PC WORKSTATION CORE i7 13700K | 64G | NVIDIA RTX A2000 12G",
+                    "unitPrice": 6.044999999999999E+07,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dae36c20d6f42937c8b9d0"
+                    }
+                }
+            ],
+            "totalPrice": 163625000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67dbb0fda86dac51cb226d19"
+            },
+            "userInfo": {
+                "user_id": {
+                    "$oid": "67dbabd4a86dac51cb226ce4"
+                },
+                "fullName": "Trần Đình ",
+                "phone": "0123123123",
+                "address": "ttt",
+                "note": "ttt",
+                "email": "hoanvg78@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901239"
+                    },
+                    "name": "PC RENDER CORE i9 12900K | 64G | NVIDIA RTX 3090 24G",
+                    "unitPrice": 58500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dbb0fda86dac51cb226d1a"
+                    }
+                }
+            ],
+            "totalPrice": 58500000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67dbb106e01bbdae11b1ba7a"
+            },
+            "userInfo": {
+                "user_id": {
+                    "$oid": "67da61d8a25ea8dfcd31d487"
+                },
+                "fullName": "Huỳnh Lệ Hoan",
+                "phone": "0938689730",
+                "address": "TPHCM",
+                "note": "",
+                "email": "huynhlehoan151@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901240"
+                    },
+                    "name": "Microsoft Office 365 - Bản Quyền 1 Năm",
+                    "unitPrice": 1200000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dbb106e01bbdae11b1ba7b"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901248"
+                    },
+                    "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
+                    "unitPrice": 22500000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dbb106e01bbdae11b1ba7c"
+                    }
+                }
+            ],
+            "totalPrice": 23700000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67dbb402e01bbdae11b1ba98"
+            },
+            "userInfo": {
+                "user_id": {
+                    "$oid": "67da61d8a25ea8dfcd31d487"
+                },
+                "fullName": "Huỳnh Lệ Hoan",
+                "phone": "0338493072",
+                "address": "TPHCM",
+                "note": "",
+                "email": "huynhlehoan151@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90123b"
+                    },
+                    "name": "PC RENDER CORE i7 12700F | 32G | NVIDIA RTX 3060 Ti",
+                    "unitPrice": 27600000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dbb402e01bbdae11b1ba99"
+                    }
+                }
+            ],
+            "totalPrice": 27600000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67dcd17298f64d3614fec611"
+            },
+            "userInfo": {
+                "user_id": "userVangLai",
+                "fullName": "Trần Đình Hoan",
+                "phone": "0336207643",
+                "address": "Khánh Hòa",
+                "note": "ttt",
+                "email": "hoanvg78@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90123a"
+                    },
+                    "name": "PC RENDER RYZEN 7 7700X | 32G | AMD RX 7900 XT",
+                    "unitPrice": 42750000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dcd17298f64d3614fec612"
+                    }
+                }
+            ],
+            "totalPrice": 42750000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67dcd41198f64d3614fec619"
+            },
+            "userInfo": {
+                "user_id": "userVangLai",
+                "fullName": "aaaa",
+                "phone": "aaaa",
+                "address": "aaaa",
+                "note": "aaaa",
+                "email": "aaaa"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90123b"
+                    },
+                    "name": "PC RENDER CORE i7 12700F | 32G | NVIDIA RTX 3060 Ti",
+                    "unitPrice": 27600000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dcd41198f64d3614fec61a"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90123c"
+                    },
+                    "name": "PC RENDER RYZEN 5 5600X | 16G | NVIDIA RTX 3050 8G",
+                    "unitPrice": 18000000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dcd41198f64d3614fec61b"
+                    }
+                }
+            ],
+            "totalPrice": 45600000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67dcdef898f64d3614fec625"
+            },
+            "userInfo": {
+                "user_id": "userVangLai",
+                "fullName": "Trần Đình Hoan",
+                "phone": "0336207643",
+                "address": "Khánh Hòa",
+                "note": "aaa",
+                "email": "hoanvg78@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901237"
+                    },
+                    "name": "PC ĐỒ HỌA RYZEN 9 5900X | 32G | NVIDIA RTX 3070 8G",
+                    "unitPrice": 32300000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dcdef898f64d3614fec626"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901236"
+                    },
+                    "name": "PC ĐỒ HỌA CORE i9 13900K | 64G | NVIDIA RTX 4080 16G",
+                    "unitPrice": 50600000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dcdef898f64d3614fec627"
+                    }
+                }
+            ],
+            "totalPrice": 82900000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67dd4218ab2fee10cc747949"
+            },
+            "userInfo": {
+                "user_id": "67d8457956788f78ec214eca",
+                "fullName": "Phạm Minh Hiếu",
+                "phone": "0123456789",
+                "address": "Hồ Chí Minh",
+                "note": "Vận Chuyển Nhẹ Nhàng",
+                "email": "22693491.hieu@student.iuh.edu.vn"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90124b"
+                    },
+                    "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
+                    "unitPrice": 67500000,
+                    "quanlity": 2,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dd4218ab2fee10cc74794a"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef90125e"
+                    },
+                    "name": "LAPTOP MSI Katana 15 | i7 13620H | 16G | RTX 4060",
+                    "unitPrice": 30400000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dd4218ab2fee10cc74794b"
+                    }
+                }
+            ],
+            "totalPrice": 165400000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67dd8d3bb013e30369b52d2b"
+            },
+            "userInfo": {
+                "user_id": "67d8457956788f78ec214eca",
+                "fullName": "Phạm Minh Hiếu",
+                "phone": "0378995155",
+                "address": "Hồ Chí Minh",
+                "note": "",
+                "email": "22693491.hieu@student.iuh.edu.vn"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901243"
+                    },
+                    "name": "PC ĐẸP CORE i5 12400F | 16G | RTX 3060 | CASE KÍNH RGB",
+                    "unitPrice": 20700000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dd8d3bb013e30369b52d2c"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901244"
+                    },
+                    "name": "PC ĐẸP RYZEN 5 5600G | 16G | CASE TRẮNG LED",
+                    "unitPrice": 14250000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dd8d3bb013e30369b52d2d"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901245"
+                    },
+                    "name": "PC ĐẸP CORE i7 13700K | 32G | RTX 4070 | CASE RGB FULL",
+                    "unitPrice": 38640000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dd8d3bb013e30369b52d2e"
+                    }
+                }
+            ],
+            "totalPrice": 73590000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67dd8e5db013e30369b52d47"
+            },
+            "userInfo": {
+                "user_id": "67d8457956788f78ec214eca",
+                "fullName": "Phạm Minh Hiếu",
+                "phone": "0378995155",
+                "address": "Hồ Chí Minh",
+                "note": "Vận Chuyển Nhanh",
+                "email": "22693491.hieu@student.iuh.edu.vn"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901236"
+                    },
+                    "name": "PC ĐỒ HỌA CORE i9 13900K | 64G | NVIDIA RTX 4080 16G",
+                    "unitPrice": 50600000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67dd8e5db013e30369b52d48"
+                    }
+                }
+            ],
+            "totalPrice": 50600000,
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67de4d706f6149dc41f2f77d"
+            },
+            "userInfo": {
+                "user_id": "67dbabd4a86dac51cb226ce4",
+                "fullName": "Trần Đình ",
+                "phone": "0336207643",
+                "address": "Khánh Hòa",
+                "note": "12321",
+                "email": "hoanvg78@gmail.com"
+            },
+            "products": [
+                {
+                    "product_id": {
+                        "$oid": "63efabcd92750175ef901238"
+                    },
+                    "name": "PC Gaming Ryzen 7 5800X | 32G | AMD RX 6800XT 16G",
+                    "unitPrice": 26320000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67de4d706f6149dc41f2f77e"
+                    }
+                },
+                {
+                    "product_id": {
+                        "$oid": "65efabcd12345678ef901234"
+                    },
+                    "name": "PC ĐỒ HỌA CORE i7 13700K | 32G | NVIDIA RTX 4070 12G",
+                    "unitPrice": 33250000,
+                    "quanlity": 1,
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "67de4d706f6149dc41f2f77f"
+                    }
+                }
+            ],
+            "totalPrice": 59570000,
+            "__v": 0
+        }
+    ],
+    "users": [
+        {
+            "_id": {
+                "$oid": "67d0f8866317ef0131b37e1d"
+            },
+            "fullname": "Hồ Nguyễn Xuân",
+            "address": [
+                "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
+                "Đồng Nai, Vĩnh Cử, 830D tổ 18 ấp 9"
+            ],
+            "email": "xuanhodcbas@gmail.com",
+            "password": "4297f44b13955235245b2497399d7a93",
+            "token": "mzyXwLWHnZfgpMQF4IEM",
+            "__v": 0,
+            "phone": "0987654321"
+        },
+        {
+            "_id": {
+                "$oid": "67d0fbcd31bce9119708f304"
+            },
+            "fullname": "Xuân Hồ",
+            "address": [
+                "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3"
+            ],
+            "email": "mayman1710@gmail.com",
+            "password": "f5bb0c8de146c67b44babbf4e6584cc0",
+            "token": "lKYyCRYLnlYbwqMtS5QT",
+            "__v": 0,
+            "phone": "0985252104"
+        },
+        {
+            "_id": {
+                "$oid": "67d23e4a8dfcc45cf323618d"
+            },
+            "fullname": "Karen",
+            "address": [
+                "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
+                "Đồng Nai, Vĩnh Cửu, 903A tổ 16 ấp 8"
+            ],
+            "email": "elaina17102004@gmail.com",
+            "password": "4297f44b13955235245b2497399d7a93",
+            "token": "7kWAjxgrjlnlNKclTGt9",
+            "__v": 0,
+            "phone": "0987654321"
+        },
+        {
+            "_id": {
+                "$oid": "67d53854b6286d27db0e4b91"
+            },
+            "fullname": "Nguyễn Thị Mỹ Hoa ",
+            "address": [
+                "tp HCM, quận Gò Vấp, 12 Nguyễn Văn Bảo Phường 4"
+            ],
+            "email": "hoanguyen.15042000@gmail.com",
+            "password": "e10adc3949ba59abbe56e057f20f883e",
+            "token": "j0PaSUiLNA0xW6wfcAC8",
+            "__v": 0
+        },
+        {
+            "_id": {
+                "$oid": "67d8457956788f78ec214eca"
+            },
+            "fullname": "Phạm Minh Hiếu",
+            "address": [
+                "TPHCM, Gò Vấp, 0123456789"
+            ],
+            "email": "22693491.hieu@student.iuh.edu.vn",
+            "password": "81dc9bdb52d04dc20036dbd8313ed055",
+            "token": "0Vj8TxrDKx6xilLXEbF5",
+            "__v": 0,
+            "phone": "0378995155"
+        },
+        {
+            "_id": {
+                "$oid": "67da61d8a25ea8dfcd31d487"
+            },
+            "fullname": "Huỳnh Lệ Hoan",
+            "address": [
+                "TPHCM, Gò Vấp, 12 NVB"
+            ],
+            "email": "huynhlehoan151@gmail.com",
+            "password": "77752b804cdb66ac58834b19c684bf6c",
+            "token": "UPEldoXjlzGSYwmDPdwV",
+            "__v": 0,
+            "phone": "0338493072"
+        },
+        {
+            "_id": {
+                "$oid": "67dbabd4a86dac51cb226ce4"
+            },
+            "fullname": "Trần Đình ",
+            "address": [],
+            "email": "hoanvg78@gmail.com",
+            "password": "f5bb0c8de146c67b44babbf4e6584cc0",
+            "token": "0JenNyjDua3qXahWxkyF",
+            "__v": 0
+        }
     ]
 }
