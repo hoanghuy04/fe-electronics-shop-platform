@@ -5,3 +5,17 @@
 .ant-carousel .slick-prev{
     color: black;
 }
+
+html {
+    height: 100%;
+    line-height: 1.2;
+}
+
+body {
+    background-color: var(--color-body-bg);   
+}
+
+@theme {
+    --color-body-bg: #ECECEC;
+    --color-title: #333333
+}
