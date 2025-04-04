@@ -6,8 +6,7 @@ import Footer from '../components/Footer'
 
 export default function DefaultLayout() {
   return (
-    <div>
-      <div className="layout-default bg-gray-200">
+      <div className="layout-default bg-gray-200 min-h-screen flex flex-col justify-between">
         <Header />
 
         <main className="layout-default__main">
@@ -15,7 +14,6 @@ export default function DefaultLayout() {
         </main>
 
         <Footer />
-      </div>
     </div>
   )
 }

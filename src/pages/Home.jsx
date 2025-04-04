@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'antd';
 import productsData from '../database/products.json'
 import ProductCard from '../components/ProductCard';
+import { searchProductsByTitle } from '../services/productService';
 
 const Home = () => {
+  const [laptops, setLaptops] = useState([])
+  const [pcs, setPCs] = useState([])
+  const [others, setOthers] = useState([])
   // Dữ liệu giả lập cho carousel và banner
   const carouselImages = [
     'https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_web_slider_800x400.jpg',
@@ -31,20 +35,24 @@ const Home = () => {
     'https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_sticky_230x697.jpg', // Banner bên phải
   ];
 
-  const laptops = productsData.products.filter((product) =>
-    product.title.toUpperCase().includes('LAPTOP')
-  );
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const products = await searchProductsByTitle('laptop');
+        setLaptops(products)
 
-  const pcs = productsData.products.filter((product) =>
-    product.title.toUpperCase().includes('PC')
-  );
+        const pcs = await searchProductsByTitle('pc');
+        setPCs(pcs)
 
-  const others = productsData.products.filter((product) =>
-    !product.title.toUpperCase().includes('LAPTOP') && !product.title.toUpperCase().includes('PC')
-  );
+        const others = await searchProductsByTitle('adobe');
+        setOthers(others)
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-  console.log(laptops);
-
+    fetchProducts();
+  }, []);
 
   return (
     <div className="container mx-auto px-6 lg:px-8 py-8">
@@ -124,9 +132,15 @@ const Home = () => {
               autoplay
               className="p-6"
             >
-              {laptops.map((laptop) => {
-                return <ProductCard key={laptop._id.$oid} product={laptop} />
-              })}
+              {laptops.length > 0 ? (
+                laptops.map((laptop) => (
+                  <div key={laptop._id.$oid}>
+                    <ProductCard product={laptop} />
+                  </div>
+                ))
+              ) : (
+                <div>Không có laptop nào để hiển thị</div>
+              )}
             </Carousel>
           </div>
 
@@ -139,9 +153,15 @@ const Home = () => {
               autoplay
               className="p-6"
             >
-              {pcs.map((pc) => {
-                return <ProductCard key={pc._id.$oid} product={pc} />
-              })}
+              {pcs.length > 0 ? (
+                pcs.map((pc) => (
+                  <div key={pc._id.$oid}>
+                    <ProductCard product={pc} />
+                  </div>
+                ))
+              ) : (
+                <div>Không có PC nào để hiển thị</div>
+              )}
             </Carousel>
           </div>
 
@@ -154,9 +174,15 @@ const Home = () => {
               autoplay
               className="p-6"
             >
-              {others.map((p) => {
-                return <ProductCard key={p._id.$oid} product={p} />
-              })}
+              {others.length > 0 ? (
+                others.map((p) => (
+                  <div key={p._id.$oid}>
+                    <ProductCard product={p} />
+                  </div>
+                ))
+              ) : (
+                <div>Không có sản phẩm nào để hiển thị</div>
+              )}
             </Carousel>
           </div>
         </div>
