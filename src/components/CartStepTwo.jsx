@@ -1,25 +1,30 @@
 import React from "react";
 import { Form, Input, Radio, Select, Checkbox, Button } from "antd";
 import { useNavigate, useOutletContext } from "react-router-dom";
+import CartMini from "./CartMini";
 
 const { Option } = Select;
 
 export default function CartStepTwo() {
   const setCurrentStep = useOutletContext();
-
   const navigate = useNavigate();
+  const [form] = Form.useForm();
 
   const handlePlaceOrder = () => {
     setCurrentStep(2);
     navigate("/cart/step-three");
   };
-  const [form] = Form.useForm();
+
+  const onFinish = (values) => {
+    console.log(values);
+  };
 
   return (
     <div className="p-5 bg-white">
       <Form
         form={form}
         layout="vertical"
+        onFinish={onFinish}
         initialValues={{
           gender: "Anh",
           shipping: true,

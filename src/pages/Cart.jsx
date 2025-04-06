@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import Breadcrumb from "../components/Breadcrumb";
 import StepCart from "../components/StepCart";
 
 export default function Cart() {
   const [currentStep, setCurrentStep] = useState(0);
+  const params = useParams();
+  console.log(params);
 
   return (
     <div className="max-w-3xl mx-auto">
