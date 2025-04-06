@@ -16,7 +16,9 @@ export default function CartItem({ item }) {
             >
               <img
                 className="  block object-contain"
-                src="https://product.hstatic.net/200000722513/product/lg_27gs65f-b_gearvn_2650af629116476588bb61972092b90f.jpg"
+                src={
+                  item.image_url && item.image_url[0] ? item.image_url[0] : ""
+                }
                 alt={item.title}
               />
             </Link>

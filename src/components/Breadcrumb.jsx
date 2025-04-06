@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-const Breadcrumbs = ({ current, setCurrent }) => {
+const Breadcrumbs = ({ current }) => {
   const navigate = useNavigate();
 
   const forwardTab = () => {
-    setCurrent(current - 1);
     navigate(-1);
   };
 

@@ -1,19 +1,13 @@
 import React from "react";
 import { Form, Input, Radio, Select, Checkbox, Button } from "antd";
-import { useNavigate, useOutletContext } from "react-router-dom";
-import CartMini from "./CartMini";
+import { useOutletContext } from "react-router-dom";
+import { path } from "../constants/path";
 
 const { Option } = Select;
 
 export default function CartStepTwo() {
-  const setCurrentStep = useOutletContext();
-  const navigate = useNavigate();
+  const { handlePlaceOrder } = useOutletContext();
   const [form] = Form.useForm();
-
-  const handlePlaceOrder = () => {
-    setCurrentStep(2);
-    navigate("/cart/step-three");
-  };
 
   const onFinish = (values) => {
     console.log(values);
@@ -128,7 +122,9 @@ export default function CartStepTwo() {
 
         <Form.Item className="!mt-6">
           <Button
-            onClick={handlePlaceOrder}
+            onClick={() => {
+              handlePlaceOrder(path.cartStepThree);
+            }}
             type="primary"
             htmlType="submit"
             block

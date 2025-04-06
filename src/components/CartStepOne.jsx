@@ -1,22 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CartItem from "./CartItem";
 import { ChevronUp, ChevronDown, TicketPercent } from "lucide-react";
 import { Input } from "antd";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import EmptyCart from "./EmptyCart";
+import { path } from "../constants/path";
 
 export default function CartStepOne() {
-  const setCurrentStep = useOutletContext();
   const [showInput, setShowInput] = useState(false);
   const [code, setCode] = useState("");
-  const navigate = useNavigate();
   const { cart, totalPrice } = useCart();
 
-  const handlePlaceOrder = () => {
-    setCurrentStep(1);
-    navigate("/cart/step-two");
-  };
+  const { handlePlaceOrder } = useOutletContext();
 
   return (
     <div className="bg-white p-5">
@@ -66,7 +62,9 @@ export default function CartStepOne() {
           <div className="w-full bg-white mt-5">
             <div className=" w-full">
               <button
-                onClick={handlePlaceOrder}
+                onClick={() => {
+                  handlePlaceOrder(path.cartStepTwo);
+                }}
                 className="w-full p-3 rounded-sm bg-blue-500 !text-white text-xl font-bold cursor-pointer"
               >
                 Đặt hàng ngay

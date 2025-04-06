@@ -5,6 +5,7 @@ import CartStepOne from "../components/CartStepOne";
 import CartStepTwo from "../components/CartStepTwo";
 import CartStepThree from "../components/CartStepThree";
 import CartStepFour from "../components/CartStepFour";
+import { path } from "../constants/path";
 
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
@@ -14,13 +15,13 @@ const NotFound = lazy(() => import("../pages/NotFound"));
 
 const routes = [
   {
-    path: "/",
+    path: path.home,
     element: <DefaultLayout />,
     children: [
       { path: "", element: <Home /> },
-      { path: "products/:slug", element: <ProductDetail /> },
+      { path: path.productDetail, element: <ProductDetail /> },
       {
-        path: "cart",
+        path: path.cart,
         element: <Cart />,
         children: [
           { path: "", element: <CartStepOne /> },
@@ -29,10 +30,10 @@ const routes = [
           { path: "step-four", element: <CartStepFour /> },
         ],
       },
-      { path: "*", element: <Navigate to="/not-found" /> },
+      { path: "*", element: <Navigate to={path.notFound} /> },
     ],
   },
-  { path: "/not-found", element: <NotFound /> },
+  { path: path.notFound, element: <NotFound /> },
 ];
 
 export default routes;

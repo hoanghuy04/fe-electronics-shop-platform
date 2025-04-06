@@ -3,7 +3,7 @@ import { IdCard, ShoppingBag, CreditCard, ShieldCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function StepCart(props) {
-  const { current, setCurrent } = props;
+  const { current } = props;
   const navigate = useNavigate();
   const items = [
     {
@@ -25,7 +25,6 @@ export default function StepCart(props) {
   ];
 
   const onChange = (value) => {
-    setCurrent(value);
     console.log("value", value);
     if (value === 0) {
       navigate("/cart");
