@@ -11,7 +11,11 @@ export default function CartNotification({ product }) {
       <div className="grid grid-cols-3 gap-3 w-full h-full">
         <img
           className="w-full h-full"
-          src={product.image_url[0]}
+          src={
+            product.image_url && product.image_url[0]
+              ? product.image_url[0]
+              : null
+          }
           alt={product.title}
         />
         <div className="col-span-2">
