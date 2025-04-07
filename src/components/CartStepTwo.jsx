@@ -33,7 +33,7 @@ export default function CartStepTwo() {
         gender: savedUser.gender === "Anh" ? "Anh" : "Chị",
         name: savedUser.name || "",
         phone: savedUser.phone || "",
-        address: savedUser.address || "",
+        street: savedUser.street || "",
         province: savedUser.province || "",
         district: savedUser.district || "",
         ward: savedUser.ward || "",

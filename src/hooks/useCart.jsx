@@ -56,6 +56,13 @@ export default function CartProvider({ children }) {
     });
   };
 
+  const increaseQuantity = (id) => {
+    const updatedCart = cart.map((item) =>
+      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCart(updatedCart);
+  };
+
   const totalPrice = cart.reduce(
     (sum, product) =>
       sum + product.quantity * product.price * (1 - product.discount),
@@ -70,6 +77,7 @@ export default function CartProvider({ children }) {
         removeFromCart,
         totalItem,
         decreaseQuantity,
+        increaseQuantity,
         totalPrice,
         justAdded,
       }}
