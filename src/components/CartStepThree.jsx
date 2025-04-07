@@ -145,7 +145,7 @@ export default function CartStepThree() {
       <div className=" w-full mt-8">
         <button
           onClick={handleClick}
-          className="w-full p-3 rounded-sm bg-primary !text-white text-xl font-bold cursor-pointer"
+          className="w-full !p-4.5 rounded-sm bg-primary !text-white text-xl font-bold cursor-pointer"
         >
           THANH TOÁN NGAY
         </button>

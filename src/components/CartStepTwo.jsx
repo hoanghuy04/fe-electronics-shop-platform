@@ -78,7 +78,7 @@ export default function CartStepTwo() {
         onFinish={onFinish}
         initialValues={{
           gender: "Anh",
-          shipping: true,
+          shipping: "free",
           delivery: "home",
         }}
       >
@@ -189,8 +189,12 @@ export default function CartStepTwo() {
         </Form.Item>
 
         <h2 className="font-semibold text-base mt-4">Dịch vụ giao hàng</h2>
-        <Form.Item name="shipping" valuePropName="checked">
-          <Checkbox>Miễn phí vận chuyển (Giao hàng tiêu chuẩn)</Checkbox>
+        <Form.Item name="shipping">
+          <Radio.Group>
+            <Radio value="free">
+              Miễn phí vận chuyển (Giao hàng tiêu chuẩn)
+            </Radio>
+          </Radio.Group>
         </Form.Item>
 
         <div className="flex justify-between mt-4">
@@ -206,14 +210,14 @@ export default function CartStepTwo() {
         </div>
 
         <Form.Item className="!mt-6">
-          <Button
+          <button
             type="primary"
             block
             htmlType="submit"
-            className="w-full !p-5 rounded-sm bg-blue-500 !text-white text-xl !font-bold cursor-pointer"
+            className="w-full !p-4.5 rounded-sm !bg-primary !text-white text-xl !font-bold cursor-pointer"
           >
             ĐẶT HÀNG NGAY
-          </Button>
+          </button>
         </Form.Item>
 
         <p className="text-center text-sm text-gray-500">

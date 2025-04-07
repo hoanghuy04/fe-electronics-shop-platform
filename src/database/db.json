@@ -1363,6 +1363,62 @@
         }
       },
       "note": "aaa"
+    },
+    {
+      "id": "HD080420255599",
+      "customer_id": 1,
+      "products": [
+        {
+          "id": "1",
+          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
+          "quantity": 1,
+          "price": 24490000,
+          "discount": 0.09
+        }
+      ],
+      "total_price": 22285900,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-07T17:12:01.161Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Tran Huyen",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "ward": "Thị trấn An Phú",
+          "district": "Huyện An Phú",
+          "province": "Tỉnh An Giang"
+        }
+      },
+      "note": "hehe"
+    },
+    {
+      "id": "HD080420252714",
+      "customer_id": 1,
+      "products": [
+        {
+          "id": "2",
+          "title": "Laptop ASUS ZenBook 14 UX425EA",
+          "quantity": 1,
+          "price": 28400000,
+          "discount": 0.07
+        }
+      ],
+      "total_price": 26412000,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-07T17:15:12.016Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Tran Huyen",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "ward": "Xã Kim Long",
+          "district": "Huyện Châu Đức",
+          "province": "Tỉnh Bà Rịa "
+        }
+      },
+      "note": "hehe"
     }
   ],
   "users": [
