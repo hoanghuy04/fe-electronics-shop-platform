@@ -11,8 +11,13 @@ export default function CartStepOne() {
   const [showInput, setShowInput] = useState(false);
   const [code, setCode] = useState("");
   const { cart, totalPrice } = useCart();
-
   const { handlePlaceOrder } = useOutletContext();
+
+  const handleNext = () => {
+    if (cart.length > 0) {
+      handlePlaceOrder(path.cartStepTwo);
+    }
+  };
 
   return (
     <div className="bg-white p-5">
@@ -62,9 +67,7 @@ export default function CartStepOne() {
           <div className="w-full bg-white mt-5">
             <div className=" w-full">
               <button
-                onClick={() => {
-                  handlePlaceOrder(path.cartStepTwo);
-                }}
+                onClick={handleNext}
                 className="w-full p-3 rounded-sm bg-blue-500 !text-white text-xl font-bold cursor-pointer"
               >
                 Đặt hàng ngay

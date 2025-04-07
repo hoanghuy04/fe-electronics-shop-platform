@@ -25,7 +25,6 @@ export default function StepCart(props) {
   ];
 
   const onChange = (value) => {
-    console.log("value", value);
     if (value === 0) {
       navigate("/cart");
     } else if (value === 1) {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Form, Input, Radio, Select, Checkbox, Button, Spin } from "antd";
+import { Form, Input, Radio, Select, Checkbox, Button } from "antd";
 import { useOutletContext } from "react-router-dom";
 import { path } from "../constants/path";
 import { useCart } from "../hooks/useCart";
@@ -14,7 +14,7 @@ export default function CartStepTwo() {
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [wards, setWards] = useState([]);
-  const [_, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   const fetchProvinces = async () => {
     const provinceData = await getAllProvinces();
@@ -79,7 +79,7 @@ export default function CartStepTwo() {
         initialValues={{
           gender: "Anh",
           shipping: true,
-          place: true,
+          delivery: "home",
         }}
       >
         <h2 className="font-semibold text-base mb-2">
@@ -121,7 +121,7 @@ export default function CartStepTwo() {
           className="mt-2"
           rules={[{ required: true, message: "Vui lòng chọn cách nhận hàng" }]}
         >
-          <Radio.Group value={"home"} name="place">
+          <Radio.Group>
             <Radio value="home">Giao hàng tận nơi</Radio>
           </Radio.Group>
         </Form.Item>
@@ -136,7 +136,7 @@ export default function CartStepTwo() {
               placeholder="Chọn tỉnh/thành phố"
               onChange={handleChangeProvince}
             >
-              <Option>Chọn tỉnh/thành phố</Option>
+              <Option value="default">Chọn tỉnh/thành phố</Option>
               {provinces.map((item) => (
                 <Option key={item.id} value={`${item.id}-${item.full_name}`}>
                   {item.full_name}
@@ -151,7 +151,7 @@ export default function CartStepTwo() {
             rules={[{ required: true, message: "Vui lòng chọn quận/huyện" }]}
           >
             <Select placeholder="Chọn quận/huyện" onChange={handleChangeWard}>
-              <Option>Chọn quận/huyện</Option>
+              <Option value="default">Chọn quận/huyện</Option>
               {districts.map((item) => (
                 <Option key={item.id} value={`${item.id}-${item.full_name}`}>
                   {item.full_name}
@@ -166,7 +166,7 @@ export default function CartStepTwo() {
             rules={[{ required: true, message: "Vui lòng chọn phường/xã" }]}
           >
             <Select placeholder="Chọn phường/xã">
-              <Option>Chọn phường/xã</Option>
+              <Option value="default">Chọn phường/xã</Option>
               {wards.map((item) => (
                 <Option key={item.id} value={`${item.id}-${item.full_name}`}>
                   {item.full_name}
