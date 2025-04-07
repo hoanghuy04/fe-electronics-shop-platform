@@ -28,7 +28,7 @@ export default function CartProvider({ children }) {
       setJustAdded({ ...existingItem, quantity: existingItem.quantity + 1 });
     } else {
       tmp = [...cart, { ...product, quantity: 1 }];
-      setJustAdded({ ...existingItem, quantity: 1 });
+      setJustAdded({ ...product, quantity: 1 });
     }
     setCart(tmp);
   };

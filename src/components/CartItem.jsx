@@ -16,9 +16,7 @@ export default function CartItem({ item }) {
             >
               <img
                 className="  block object-contain"
-                src={
-                  item.image_url && item.image_url[0] ? item.image_url[0] : ""
-                }
+                src={item.image_url[0]}
                 alt={item.title}
               />
             </Link>

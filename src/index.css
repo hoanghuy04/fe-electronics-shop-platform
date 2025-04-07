@@ -16,6 +16,42 @@ body {
 }
 
 @theme {
+   --color-primary: #E30019;
+    --color-secondary: #6D6E72;
+    --color-sub: #1982F9;
+    --color-state-info: #1982F9;
+    --color-state-success: #24B400;
+    --color-state-warning: #FDD835;
+    --color-state-error: #E30019;
+    --color-state-question: #FF8A00;
+    --color-text: #111111;
+    --color-title: #333333;
+    --color-hover: #E30019;
+    --color-line-border: #CFCFCF;
+    --color-text-link: #0568d6;
     --color-body-bg: #ECECEC;
-    --color-title: #333333
+    --color-body-bg-loading: rgba(255, 255, 255, 0.5);
+    --color-price: #2c3c4d;
+    --color-old-price: #e2231a;
+    --color-new-price: #E30019;
+    --color-input-bg: #f6f7fa;
+    --color-input-text: #2c3c4d;
+    --color-input-fill: #CFCFCF;
+    --color-input-fill-sucess: #1E9800;
+    --color-input-fill-error: #E30019;
+    --color-input-bg-active: var(--color-body-bg);
+    --shadow: 0px 4px 20px rgba(22, 19, 69, 0.13);
+    --radius: 10px;
+    --radius-input: 4px;
+    --radius-button: 4px;
+    --radius-badge1: 3px;
+    --radius-badge2: 16px;
+    --radius-checkbox: 4px;
+    --radius-image: 4px;
+    --radius-label-percent: 2px;
+    --radius-progress: 16px;
+    --home-coupon-bg: #ffffff;
+    --home-coupon-light: #ffffff;
+    --home-coupon-border: #f8d0d3;
+    --home-coupon-text: #333333;
 }
