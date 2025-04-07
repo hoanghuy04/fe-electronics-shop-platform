@@ -1,4072 +1,1115 @@
 {
   "products": [
     {
-      "_id": {
-        "$oid": "65efabcd12345678ef901234"
-      },
-      "title": "PC ĐỒ HỌA CORE i7 13700K | 32G | NVIDIA RTX 4070 12G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 13700K up 5.4GHz | 16 CORE | 24 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5200 MHz",
-        "VGA": "NVIDIA RTX 4070 12GB GDDR6X"
-      },
-      "price": 35000000,
-      "discount": 0.05,
-      "slug": "pc-do-hoa-core-i7-13700k-32g-nvidia-rtx-4070-12g"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901235"
-      },
-      "title": "PC ĐỒ HỌA RYZEN 7 5800X | 32G | AMD RX 6800 XT",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 7 5800X up 4.7GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3600 MHz",
-        "VGA": "AMD RX 6800 XT 16GB GDDR6"
-      },
-      "price": 32000000,
-      "discount": 0.1,
-      "slug": "pc-do-hoa-ryzen-7-5800x-32g-amd-rx-6800-xt"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901236"
-      },
-      "title": "PC ĐỒ HỌA CORE i9 13900K | 64G | NVIDIA RTX 4080 16G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "INTEL CORE i9 13900K up 5.8GHz | 24 CORE | 32 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 5600 MHz",
-        "VGA": "NVIDIA RTX 4080 16GB GDDR6X"
-      },
-      "price": 55000000,
-      "discount": 0.08,
-      "slug": "pc-do-hoa-core-i9-13900k-64g-nvidia-rtx-4080-16g"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901237"
-      },
-      "title": "PC ĐỒ HỌA RYZEN 9 5900X | 32G | NVIDIA RTX 3070 8G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 9 5900X up 4.8GHz | 12 CORE | 24 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3200 MHz",
-        "VGA": "NVIDIA RTX 3070 8GB GDDR6"
-      },
-      "price": 38000000,
-      "discount": 0.15,
-      "slug": "pc-do-hoa-ryzen-9-5900x-32g-nvidia-rtx-3070-8g"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901238"
-      },
-      "title": "PC ĐỒ HỌA CORE i5 13400F | 16G | NVIDIA RTX 3060 12G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 13400F up 4.6GHz | 10 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (1x16G) 3200 MHz",
-        "VGA": "NVIDIA RTX 3060 12GB GDDR6"
-      },
-      "price": 22000000,
-      "discount": 0.12,
-      "slug": "pc-do-hoa-core-i5-13400f-16g-nvidia-rtx-3060-12g"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901239"
-      },
-      "title": "PC RENDER CORE i9 12900K | 64G | NVIDIA RTX 3090 24G",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "INTEL CORE i9 12900K up 5.2GHz | 16 CORE | 24 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 5200 MHz",
-        "VGA": "NVIDIA RTX 3090 24GB GDDR6X"
-      },
-      "price": 65000000,
-      "discount": 0.1,
-      "slug": "pc-render-core-i9-12900k-64g-nvidia-rtx-3090-24g"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90123a"
-      },
-      "title": "PC RENDER RYZEN 7 7700X | 32G | AMD RX 7900 XT",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 7 7700X up 5.4GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5600 MHz",
-        "VGA": "AMD RX 7900 XT 20GB GDDR6"
-      },
-      "price": 45000000,
-      "discount": 0.05,
-      "slug": "pc-render-ryzen-7-7700x-32g-amd-rx-7900-xt"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90123b"
-      },
-      "title": "PC RENDER CORE i7 12700F | 32G | NVIDIA RTX 3060 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 12700F up 4.9GHz | 12 CORE | 20 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3200 MHz",
-        "VGA": "NVIDIA RTX 3060 Ti 8GB GDDR6"
-      },
-      "price": 30000000,
-      "discount": 0.08,
-      "slug": "pc-render-core-i7-12700f-32g-nvidia-rtx-3060-ti"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90123c"
-      },
-      "title": "PC RENDER RYZEN 5 5600X | 16G | NVIDIA RTX 3050 8G",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 5 5600X up 4.6GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (1x16G) 3200 MHz",
-        "VGA": "NVIDIA RTX 3050 8GB GDDR6"
-      },
-      "price": 20000000,
-      "discount": 0.1,
-      "slug": "pc-render-ryzen-5-5600x-16g-nvidia-rtx-3050-8g"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90123d"
-      },
-      "title": "PC RENDER CORE i5 13600K | 32G | NVIDIA RTX 4070 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 13600K up 5.1GHz | 14 CORE | 20 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5200 MHz",
-        "VGA": "NVIDIA RTX 4070 Ti 12GB GDDR6X"
-      },
-      "price": 40000000,
-      "discount": 0.07,
-      "slug": "pc-render-core-i5-13600k-32g-nvidia-rtx-4070-ti"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90123e"
-      },
-      "title": "Adobe Premiere Pro 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Adobe Premiere Pro 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Chỉnh sửa video chuyên nghiệp, hỗ trợ 4K/8K"
-      },
-      "price": 6500000,
-      "discount": 0.15,
-      "slug": "adobe-premiere-pro-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90123f"
-      },
-      "title": "Autodesk Maya 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Autodesk Maya 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Thiết kế 3D, mô phỏng, animation"
-      },
-      "price": 45000000,
-      "discount": 0.1,
-      "slug": "autodesk-maya-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901240"
-      },
-      "title": "Microsoft Office 365 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Microsoft Office 365",
-        "License": "1 năm sử dụng",
-        "Features": "Word, Excel, PowerPoint, OneDrive 1TB"
-      },
-      "price": 1500000,
-      "discount": 0.2,
-      "slug": "microsoft-office-365-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901241"
-      },
-      "title": "DaVinci Resolve Studio 18 - Bản Quyền Vĩnh Viễn",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "DaVinci Resolve Studio 18",
-        "License": "Vĩnh viễn",
-        "Features": "Chỉnh sửa video, color grading, VFX"
-      },
-      "price": 7500000,
-      "discount": 0.05,
-      "slug": "davinci-resolve-studio-18-ban-quyen-vinh-vien"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901242"
-      },
-      "title": "Blender Pro License - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Blender Pro",
-        "License": "1 năm sử dụng",
-        "Features": "3D modeling, rendering, animation"
-      },
-      "price": 2500000,
-      "discount": 0.1,
-      "slug": "blender-pro-license-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901243"
-      },
-      "title": "PC ĐẸP CORE i5 12400F | 16G | RTX 3060 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12400F up 4.4GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz RGB",
-        "VGA": "NVIDIA RTX 3060 12GB GDDR6"
-      },
-      "price": 23000000,
-      "discount": 0.1,
-      "slug": "pc-dep-core-i5-12400f-16g-rtx-3060-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901244"
-      },
-      "title": "PC ĐẸP RYZEN 5 5600G | 16G | CASE TRẮNG LED",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 5 5600G up 4.4GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz RGB",
-        "VGA": "Integrated Radeon Graphics"
-      },
-      "price": 15000000,
-      "discount": 0.05,
-      "slug": "pc-dep-ryzen-5-5600g-16g-case-trang-led"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901245"
-      },
-      "title": "PC ĐẸP CORE i7 13700K | 32G | RTX 4070 | CASE RGB FULL",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 13700K up 5.4GHz | 16 CORE | 24 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5200 MHz RGB",
-        "VGA": "NVIDIA RTX 4070 12GB GDDR6X"
-      },
-      "price": 42000000,
-      "discount": 0.08,
-      "slug": "pc-dep-core-i7-13700k-32g-rtx-4070-case-rgb-full"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901246"
-      },
-      "title": "PC ĐẸP RYZEN 7 5800X | 32G | RTX 3080 | CASE ĐEN KÍNH",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 7 5800X up 4.7GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3600 MHz RGB",
-        "VGA": "NVIDIA RTX 3080 10GB GDDR6X"
-      },
-      "price": 38000000,
-      "discount": 0.12,
-      "slug": "pc-dep-ryzen-7-5800x-32g-rtx-3080-case-den-kinh"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901247"
-      },
-      "title": "PC ĐẸP CORE i3 13100F | 8G | GTX 1650 | CASE NHỎ GỌN RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "INTEL CORE i3 13100F up 4.5GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz RGB",
-        "VGA": "NVIDIA GTX 1650 4GB GDDR6"
-      },
-      "price": 13000000,
-      "discount": 0.15,
-      "slug": "pc-dep-core-i3-13100f-8g-gtx-1650-case-nho-gon-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901248"
-      },
-      "title": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 13400F up 4.6GHz | 10 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "NVIDIA RTX 4060 Ti 8GB GDDR6"
-      },
-      "price": 25000000,
-      "discount": 0.1,
-      "slug": "pc-gaming-core-i5-13400f-16g-rtx-4060-ti"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901249"
-      },
-      "title": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 5 7600X up 5.3GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5200 MHz",
-        "VGA": "AMD RX 7800 XT 16GB GDDR6"
-      },
-      "price": 35000000,
-      "discount": 0.05,
-      "slug": "pc-gaming-ryzen-5-7600x-32g-rx-7800-xt"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90124a"
-      },
-      "title": "PC GAMING CORE i7 12700K | 32G | RTX 3080 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 12700K up 5.0GHz | 12 CORE | 20 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5200 MHz",
-        "VGA": "NVIDIA RTX 3080 Ti 12GB GDDR6X"
-      },
-      "price": 45000000,
-      "discount": 0.08,
-      "slug": "pc-gaming-core-i7-12700k-32g-rtx-3080-ti"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90124b"
-      },
-      "title": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 9 7950X up 5.7GHz | 16 CORE | 32 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 5600 MHz",
-        "VGA": "NVIDIA RTX 4090 24GB GDDR6X"
-      },
-      "price": 75000000,
-      "discount": 0.1,
-      "slug": "pc-gaming-ryzen-9-7950x-64g-rtx-4090"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90124c"
-      },
-      "title": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i3 12100F up 4.3GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "NVIDIA GTX 1660 Super 6GB GDDR6"
-      },
-      "price": 14000000,
-      "discount": 0.12,
-      "slug": "pc-gaming-core-i3-12100f-8g-gtx-1660-super"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90124d"
-      },
-      "title": "PC VĂN PHÒNG CORE i3 13100 | 8G | SSD 256GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i3 13100 up 4.5GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 730"
-      },
-      "price": 9000000,
-      "discount": 0.05,
-      "slug": "pc-van-phong-core-i3-13100-8g-ssd-256gb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90124e"
-      },
-      "title": "PC VĂN PHÒNG RYZEN 5 4600G | 16G | SSD 512GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 5 4600G up 4.2GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "Integrated Radeon Graphics"
-      },
-      "price": 11000000,
-      "discount": 0.1,
-      "slug": "pc-van-phong-ryzen-5-4600g-16g-ssd-512gb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90124f"
-      },
-      "title": "PC VĂN PHÒNG CORE i5 12400 | 16G | SSD 1TB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12400 up 4.4GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 730"
-      },
-      "price": 13000000,
-      "discount": 0.08,
-      "slug": "pc-van-phong-core-i5-12400-16g-ssd-1tb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901250"
-      },
-      "title": "PC VĂN PHÒNG RYZEN 3 4100 | 8G | SSD 256GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 3 4100 up 4.0GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Integrated Radeon Graphics"
-      },
-      "price": 8000000,
-      "discount": 0.15,
-      "slug": "pc-van-phong-ryzen-3-4100-8g-ssd-256gb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901251"
-      },
-      "title": "PC VĂN PHÒNG CORE i7 12700 | 32G | SSD 1TB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 12700 up 4.9GHz | 12 CORE | 20 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5200 MHz",
-        "VGA": "Integrated UHD Graphics 770"
-      },
-      "price": 20000000,
-      "discount": 0.07,
-      "slug": "pc-van-phong-core-i7-12700-32g-ssd-1tb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901252"
-      },
-      "title": "MÀN HÌNH LG 24MP400 24 inch Full HD",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "24 inch",
-        "Resolution": "1920x1080 Full HD",
-        "Panel": "IPS, 75Hz"
-      },
-      "price": 3500000,
-      "discount": 0.1,
-      "slug": "man-hinh-lg-24mp400-24-inch-full-hd"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901253"
-      },
-      "title": "MÀN HÌNH SAMSUNG Odyssey G5 27 inch QHD",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "27 inch",
-        "Resolution": "2560x1440 QHD",
-        "Panel": "VA, 144Hz, Cong"
-      },
-      "price": 6500000,
-      "discount": 0.05,
-      "slug": "man-hinh-samsung-odyssey-g5-27-inch-qhd"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901254"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 32 inch 4K",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "32 inch",
-        "Resolution": "3840x2160 4K",
-        "Panel": "IPS, 60Hz"
-      },
-      "price": 15000000,
-      "discount": 0.08,
-      "slug": "man-hinh-dell-ultrasharp-32-inch-4k"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901255"
-      },
-      "title": "MÀN HÌNH ASUS TUF Gaming 24 inch 165Hz",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "24 inch",
-        "Resolution": "1920x1080 Full HD",
-        "Panel": "IPS, 165Hz"
-      },
-      "price": 5000000,
-      "discount": 0.12,
-      "slug": "man-hinh-asus-tuf-gaming-24-inch-165hz"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901256"
-      },
-      "title": "MÀN HÌNH ACER Nitro 27 inch 2K 144Hz",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "27 inch",
-        "Resolution": "2560x1440 QHD",
-        "Panel": "IPS, 144Hz"
-      },
-      "price": 8000000,
-      "discount": 0.1,
-      "slug": "man-hinh-acer-nitro-27-inch-2k-144hz"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901257"
-      },
-      "title": "PC AI CORE i9 13900K | 128G | RTX 4090",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567e"
-      },
-      "description": {
-        "CPU": "INTEL CORE i9 13900K up 5.8GHz | 24 CORE | 32 THREAD",
-        "RAM": "DDR5 128GB (4x32G) 5600 MHz",
-        "VGA": "NVIDIA RTX 4090 24GB GDDR6X"
-      },
-      "price": 85000000,
-      "discount": 0.05,
-      "slug": "pc-ai-core-i9-13900k-128g-rtx-4090"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901258"
-      },
-      "title": "PC AI RYZEN 9 7950X | 64G | RTX 4080",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567e"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 9 7950X up 5.7GHz | 16 CORE | 32 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 5600 MHz",
-        "VGA": "NVIDIA RTX 4080 16GB GDDR6X"
-      },
-      "price": 65000000,
-      "discount": 0.08,
-      "slug": "pc-ai-ryzen-9-7950x-64g-rtx-4080"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901259"
-      },
-      "title": "PC AI CORE i7 13700K | 64G | RTX 3090",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567e"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 13700K up 5.4GHz | 16 CORE | 24 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 5200 MHz",
-        "VGA": "NVIDIA RTX 3090 24GB GDDR6X"
-      },
-      "price": 55000000,
-      "discount": 0.1,
-      "slug": "pc-ai-core-i7-13700k-64g-rtx-3090"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90125a"
-      },
-      "title": "PC AI RYZEN 7 7700X | 32G | RTX 4070 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567e"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 7 7700X up 5.4GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5200 MHz",
-        "VGA": "NVIDIA RTX 4070 Ti 12GB GDDR6X"
-      },
-      "price": 40000000,
-      "discount": 0.07,
-      "slug": "pc-ai-ryzen-7-7700x-32g-rtx-4070-ti"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90125b"
-      },
-      "title": "PC AI CORE i5 13600K | 32G | RTX 3060",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567e"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 13600K up 5.1GHz | 14 CORE | 20 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5200 MHz",
-        "VGA": "NVIDIA RTX 3060 12GB GDDR6"
-      },
-      "price": 30000000,
-      "discount": 0.12,
-      "slug": "pc-ai-core-i5-13600k-32g-rtx-3060"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90125c"
-      },
-      "title": "LAPTOP ASUS ZenBook 14 | i7 13700H | 16G | OLED",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567f"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 13700H up 5.0GHz | 14 CORE | 20 THREAD",
-        "RAM": "DDR5 16GB",
-        "VGA": "Integrated Iris Xe Graphics"
-      },
-      "price": 28000000,
-      "discount": 0.1,
-      "slug": "laptop-asus-zenbook-14-i7-13700h-16g-oled"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90125d"
-      },
-      "title": "LAPTOP DELL XPS 13 | i5 1340P | 16G | 13.4 inch",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567f"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 1340P up 4.6GHz | 12 CORE | 16 THREAD",
-        "RAM": "DDR5 16GB",
-        "VGA": "Integrated Iris Xe Graphics"
-      },
-      "price": 25000000,
-      "discount": 0.08,
-      "slug": "laptop-dell-xps-13-i5-1340p-16g-13-4-inch"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90125e"
-      },
-      "title": "LAPTOP MSI Katana 15 | i7 13620H | 16G | RTX 4060",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567f"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 13620H up 4.9GHz | 10 CORE | 16 THREAD",
-        "RAM": "DDR5 16GB",
-        "VGA": "NVIDIA RTX 4060 8GB GDDR6"
-      },
-      "price": 32000000,
-      "discount": 0.05,
-      "slug": "laptop-msi-katana-15-i7-13620h-16g-rtx-4060"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90125f"
-      },
-      "title": "LAPTOP HP Pavilion 14 | Ryzen 5 5625U | 8G",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567f"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 5 5625U up 4.3GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 8GB",
-        "VGA": "Integrated Radeon Graphics"
-      },
-      "price": 15000000,
-      "discount": 0.12,
-      "slug": "laptop-hp-pavilion-14-ryzen-5-5625u-8g"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901260"
-      },
-      "title": "LAPTOP LENOVO Legion 5 | Ryzen 7 6800H | 16G | RTX 3060",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567f"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 7 6800H up 4.7GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR5 16GB",
-        "VGA": "NVIDIA RTX 3060 6GB GDDR6"
-      },
-      "price": 35000000,
-      "discount": 0.1,
-      "slug": "laptop-lenovo-legion-5-ryzen-7-6800h-16g-rtx-3060"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901261"
-      },
-      "title": "CPU INTEL CORE i5 13400F",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345680"
-      },
-      "description": {
-        "Type": "CPU",
-        "Spec": "10 CORE | 16 THREAD | up 4.6GHz"
-      },
-      "price": 5500000,
-      "discount": 0.05,
-      "slug": "cpu-intel-core-i5-13400f"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901262"
-      },
-      "title": "RAM DDR5 32GB (2x16G) 5200 MHz",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345680"
-      },
-      "description": {
-        "Type": "RAM",
-        "Spec": "32GB (2x16G) | 5200 MHz"
-      },
-      "price": 3500000,
-      "discount": 0.1,
-      "slug": "ram-ddr5-32gb-2x16g-5200-mhz"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901263"
-      },
-      "title": "VGA NVIDIA RTX 3060 12GB GDDR6",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345680"
-      },
-      "description": {
-        "Type": "VGA",
-        "Spec": "12GB GDDR6"
-      },
-      "price": 8500000,
-      "discount": 0.08,
-      "slug": "vga-nvidia-rtx-3060-12gb-gddr6"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901264"
-      },
-      "title": "MAINBOARD ASUS ROG STRIX B760-F",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345680"
-      },
-      "description": {
-        "Type": "Mainboard",
-        "Spec": "Socket LGA 1700 | DDR5"
-      },
-      "price": 6500000,
-      "discount": 0.07,
-      "slug": "mainboard-asus-rog-strix-b760-f"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901265"
-      },
-      "title": "PSU CORSAIR RM750x 750W 80+ Gold",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345680"
-      },
-      "description": {
-        "Type": "PSU",
-        "Spec": "750W | 80+ Gold"
-      },
-      "price": 3000000,
-      "discount": 0.1,
-      "slug": "psu-corsair-rm750x-750w-80-gold"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901266"
-      },
-      "title": "TẢN NHIỆT NƯỚC NZXT Kraken X63 RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345681"
-      },
-      "description": {
-        "Type": "Water Cooling",
-        "Spec": "280mm | RGB"
-      },
-      "price": 3500000,
-      "discount": 0.1,
-      "slug": "tan-nhiet-nuoc-nzxt-kraken-x63-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901267"
-      },
-      "title": "TẢN NHIỆT KHÍ COOLER MASTER Hyper 212",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345681"
-      },
-      "description": {
-        "Type": "Air Cooling",
-        "Spec": "120mm Fan"
-      },
-      "price": 900000,
-      "discount": 0.05,
-      "slug": "tan-nhiet-khi-cooler-master-hyper-212"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901268"
-      },
-      "title": "TẢN NHIỆT NƯỚC ASUS ROG Strix LC 360",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345681"
-      },
-      "description": {
-        "Type": "Water Cooling",
-        "Spec": "360mm | RGB"
-      },
-      "price": 4500000,
-      "discount": 0.08,
-      "slug": "tan-nhiet-nuoc-asus-rog-strix-lc-360"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901269"
-      },
-      "title": "TẢN NHIỆT KHÍ NOCTUA NH-U12S",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345681"
-      },
-      "description": {
-        "Type": "Air Cooling",
-        "Spec": "120mm Fan | Premium"
-      },
-      "price": 2000000,
-      "discount": 0.07,
-      "slug": "tan-nhiet-khi-noctua-nh-u12s"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90126a"
-      },
-      "title": "TẢN NHIỆT NƯỚC CORSAIR iCUE H150i",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345681"
-      },
-      "description": {
-        "Type": "Water Cooling",
-        "Spec": "360mm | RGB"
-      },
-      "price": 5000000,
-      "discount": 0.1,
-      "slug": "tan-nhiet-nuoc-corsair-icue-h150i"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90126b"
-      },
-      "title": "SSD SAMSUNG 970 EVO Plus 1TB NVMe",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345682"
-      },
-      "description": {
-        "Type": "SSD",
-        "Spec": "1TB | NVMe M.2"
-      },
-      "price": 3000000,
-      "discount": 0.1,
-      "slug": "ssd-samsung-970-evo-plus-1tb-nvme"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90126c"
-      },
-      "title": "HDD WD Blue 2TB 3.5 inch",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345682"
-      },
-      "description": {
-        "Type": "HDD",
-        "Spec": "2TB | 5400RPM"
-      },
-      "price": 1500000,
-      "discount": 0.05,
-      "slug": "hdd-wd-blue-2tb-3-5-inch"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90126d"
-      },
-      "title": "SSD KINGSTON NV2 2TB NVMe",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345682"
-      },
-      "description": {
-        "Type": "SSD",
-        "Spec": "2TB | NVMe M.2"
-      },
-      "price": 4500000,
-      "discount": 0.08,
-      "slug": "ssd-kingston-nv2-2tb-nvme"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90126e"
-      },
-      "title": "NAS SYNOLOGY DS220+ 2-Bay",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345682"
-      },
-      "description": {
-        "Type": "NAS",
-        "Spec": "2-Bay | RAID Support"
-      },
-      "price": 9000000,
-      "discount": 0.07,
-      "slug": "nas-synology-ds220-2-bay"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef90126f"
-      },
-      "title": "HDD SEAGATE IronWolf 4TB NAS",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345682"
-      },
-      "description": {
-        "Type": "HDD",
-        "Spec": "4TB | 7200RPM"
-      },
-      "price": 3500000,
-      "discount": 0.1,
-      "slug": "hdd-seagate-ironwolf-4tb-nas"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901270"
-      },
-      "title": "CHUỘT LOGITECH G Pro X Superlight",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345683"
-      },
-      "description": {
-        "Type": "Mouse",
-        "Spec": "Wireless | 25K DPI"
-      },
-      "price": 3500000,
-      "discount": 0.1,
-      "slug": "chuot-logitech-g-pro-x-superlight"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901271"
-      },
-      "title": "BÀN PHÍM CORSAIR K95 RGB Platinum",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345683"
-      },
-      "description": {
-        "Type": "Keyboard",
-        "Spec": "Mechanical | RGB"
-      },
-      "price": 4500000,
-      "discount": 0.05,
-      "slug": "ban-phim-corsair-k95-rgb-platinum"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901272"
-      },
-      "title": "TAI NGHE RAZER BlackShark V2 Pro",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345683"
-      },
-      "description": {
-        "Type": "Headset",
-        "Spec": "Wireless | THX 7.1"
-      },
-      "price": 4000000,
-      "discount": 0.08,
-      "slug": "tai-nghe-razer-blackshark-v2-pro"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901273"
-      },
-      "title": "LÓT CHUỘT STEELSERIES QcK Prism RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345683"
-      },
-      "description": {
-        "Type": "Mousepad",
-        "Spec": "RGB | 900x300mm"
-      },
-      "price": 1500000,
-      "discount": 0.07,
-      "slug": "lot-chuot-steelseries-qck-prism-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901274"
-      },
-      "title": "TAY CẦM XBOX Series Wireless Controller",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345683"
-      },
-      "description": {
-        "Type": "Controller",
-        "Spec": "Wireless | Bluetooth"
-      },
-      "price": 1500000,
-      "discount": 0.1,
-      "slug": "tay-cam-xbox-series-wireless-controller"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd12345678ef901209"
-      },
-      "title": "PC WORKSTATION CORE i7 13700K | 64G | NVIDIA RTX A2000 12G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 13700K up 5.4GHz | 16 CORE | 24 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 5200 MHz",
-        "VGA": "NVIDIA RTX A2000 12GB GDDR6"
-      },
-      "price": 65000000,
-      "discount": 0.07,
-      "slug": "pc-workstation-core-i7-13700k-64g-nvidia-rtx-a2000-12g"
-    },
-    {
-      "_id": {
-        "$oid": "63efabcd92750175ef901238"
-      },
-      "title": "PC Gaming Ryzen 7 5800X | 32G | AMD RX 6800XT 16G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "AMD Ryzen 7 5800X up 4.7GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3600 MHz",
-        "VGA": "AMD Radeon RX 6800XT 16GB GDDR6"
-      },
-      "price": 28000000,
-      "discount": 0.06,
-      "slug": "pc-gaming-ryzen-7-5800x-32g-amd-rx-6800xt-16g"
-    },
-    {
-      "_id": {
-        "$oid": "63efabcd92750175ef90123a"
-      },
-      "title": "PC Văn Phòng Ryzen 5 5600G | 8G | AMD Radeon Vega 7",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "AMD Ryzen 5 5600G up 4.4GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "AMD Radeon Vega 7"
-      },
-      "price": 8500000,
-      "discount": 0.02,
-      "slug": "pc-van-phong-ryzen-5-5600g-8g-amd-radeon-vega-7"
-    },
-    {
-      "_id": {
-        "$oid": "63efabcd92750175ef90123d"
-      },
-      "title": "PC Đồ Họa Ryzen 9 5900X | 64G | AMD RX 7900XT 20G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "AMD Ryzen 9 5900X up 4.8GHz | 12 CORE | 24 THREAD",
-        "RAM": "DDR4 64GB (4x16G) 3600 MHz",
-        "VGA": "AMD Radeon RX 7900XT 20GB GDDR6"
-      },
-      "price": 45000000,
+      "id": 1,
+      "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
+      "category_id": 1,
+      "description": {
+        "CPU": "Intel® Core™ Ultra 7 155H, 16C (6P + 8E + 2LPE) / 22T, Max Turbo up to 4.8GHz, 24MB",
+        "RAM": "32GB Soldered LPDDR5x-7467",
+        "SSD": "512GB SSD M.2 2242 PCIe® 4.0x4 NVMe® (1 slot, nâng cấp tối đa 1TB)",
+        "Card đồ họa": "Integrated Intel® Arc™ Graphics"
+      },
+      "price": 24490000,
       "discount": 0.09,
-      "slug": "pc-do-hoa-ryzen-9-5900x-64g-amd-rx-7900xt-20g"
+      "brand": "LENOVO",
+      "slug": "laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
     },
     {
-      "_id": {
-        "$oid": "63efabcd92750175ef90123e"
-      },
-      "title": "PC Văn Phòng Core i3 13100 | 8G | Intel UHD 730",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
+      "id": 2,
+      "title": "Laptop ASUS ZenBook 14 UX425EA",
+      "category_id": 1,
       "description": {
-        "CPU": "INTEL CORE i3 13100 up 4.5GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Intel UHD Graphics 730"
+        "CPU": "Intel® Core™ i7-1165G7 Processor 2.8 GHz (12M Cache, up to 4.7 GHz, 4 cores)",
+        "RAM": "16GB LPDDR4X on board",
+        "SSD": "1TB SSD M.2 NVMe™ PCIe® 3.0",
+        "Card đồ họa": "Intel® Iris® Xe Graphics"
       },
-      "price": 7000000,
-      "discount": 0.01,
-      "slug": "pc-van-phong-core-i3-13100-8g-intel-uhd-730"
-    },
-    {
-      "_id": {
-        "$oid": "63efabcd92750175ef901236"
-      },
-      "title": "PC Văn Phòng Core i5 13400 | 16G | Intel UHD 730",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 13400 up 4.6GHz | 10 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "Intel UHD Graphics 730"
-      },
-      "price": 12000000,
-      "discount": 0.03,
-      "slug": "pc-van-phong-core-i5-13400-16g-intel-uhd-730"
-    },
-    {
-      "_id": {
-        "$oid": "63efabcd92750175ef901235"
-      },
-      "title": "PC Gaming Ryzen 9 7950X | 64G | NVIDIA RTX 4090 24G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "AMD Ryzen 9 7950X up 5.7GHz | 16 CORE | 32 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 6000 MHz",
-        "VGA": "NVIDIA RTX 4090 24GB GDDR6X"
-      },
-      "price": 65000000,
-      "discount": 0.1,
-      "slug": "pc-gaming-ryzen-9-7950x-64g-nvidia-rtx-4090-24g"
-    },
-    {
-      "_id": {
-        "$oid": "63efabcd92750175ef901239"
-      },
-      "title": "PC Workstation Threadripper 5995WX | 128G | NVIDIA A6000",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "AMD Threadripper 5995WX up 4.5GHz | 64 CORE | 128 THREAD",
-        "RAM": "DDR4 128GB (4x32G) 3200 MHz",
-        "VGA": "NVIDIA Quadro A6000 48GB GDDR6"
-      },
-      "price": 150000000,
-      "discount": 0.15,
-      "slug": "pc-workstation-threadripper-5995wx-128g-nvidia-a6000"
-    },
-    {
-      "_id": {
-        "$oid": "63efabcd92750175ef90123c"
-      },
-      "title": "PC Gaming Core i5 13600K | 32G | NVIDIA RTX 3070 8G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 13600K up 5.1GHz | 14 CORE | 20 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5200 MHz",
-        "VGA": "NVIDIA RTX 3070 8GB GDDR6"
-      },
-      "price": 30000000,
-      "discount": 0.05,
-      "slug": "pc-gaming-core-i5-13600k-32g-nvidia-rtx-3070-8g"
-    },
-    {
-      "_id": {
-        "$oid": "63efabcd92750175ef901237"
-      },
-      "title": "PC Đồ Họa Core i9 13900K | 32G | NVIDIA RTX 4080 16G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "INTEL CORE i9 13900K up 5.8GHz | 24 CORE | 32 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5600 MHz",
-        "VGA": "NVIDIA RTX 4080 16GB GDDR6X"
-      },
-      "price": 52000000,
-      "discount": 0.08,
-      "slug": "pc-do-hoa-core-i9-13900k-32g-nvidia-rtx-4080-16g"
-    },
-    {
-      "_id": {
-        "$oid": "63efabcd92750175ef90123b"
-      },
-      "title": "PC Đồ Họa Core i7 12700KF | 16G | NVIDIA RTX 3060 12G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 12700KF up 5.0GHz | 12 CORE | 20 THREAD",
-        "RAM": "DDR5 16GB (2x8G) 4800 MHz",
-        "VGA": "NVIDIA RTX 3060 12GB GDDR6"
-      },
-      "price": 22000000,
+      "price": 28400000,
       "discount": 0.07,
-      "slug": "pc-do-hoa-core-i7-12700kf-16g-nvidia-rtx-3060-12g"
+      "brand": "ASUS",
+      "slug": "laptop-asus-zenbook-14-ux425ea",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/laptop_asus_zenbook_ux425ea_ki439t_320ab92b6b17426b8218f29b760eaf28_17ca6ece3e094aa49d17e8d1bd96dc2e_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/-laptop-asus-zenbook-ux425ea-ki429t-2_719203fb0e4241e0994003a0408d47a3_5c370d05d934479ebde93a63a4035df1_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/-laptop-asus-zenbook-ux425ea-ki429t-3_1881182235fd4f0b95380bbeed14b0a1_429b5bbd95bf4c2aa509b5a828f597d8_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/-laptop-asus-zenbook-ux425ea-ki429t-4_c7899f1ed9504c40bb70d6cf3b1929b6_8f2bcf4857304a7f88c3b944bc0d4bb9_1024x1024.png"
+      ]
     },
     {
-      "_id": {
-        "$oid": "63efabcd92750175ef90123f"
-      },
-      "title": "PC Gaming Core i9 13980HX | 48G | NVIDIA RTX 4080 Super 16G",
-      "product_category_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
+      "id": 3,
+      "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+      "category_id": 2,
       "description": {
-        "CPU": "INTEL CORE i9 13980HX up 5.6GHz | 24 CORE | 32 THREAD",
-        "RAM": "DDR5 48GB (3x16G) 5600 MHz",
-        "VGA": "NVIDIA RTX 4080 Super 16GB GDDR6X"
+        "CPU": "Intel® Core™ i7-12700H, 14C/20T, Max Turbo up to 4.7GHz, 24MB",
+        "RAM": "16GB DDR4-3200",
+        "SSD": "512GB SSD NVMe PCIe Gen4",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3050 Ti 4GB GDDR6"
       },
-      "price": 58000000,
-      "discount": 0.12,
-      "slug": "pc-gaming-core-i9-13980hx-48g-nvidia-rtx-4080-super-16g"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd91846573ef9012f2"
-      },
-      "title": "PC VĂN PHÒNG INTEL CORE i7 13700 up 5.2GHz | 16 CORE | 24 THREAD | DDR4 8GB (1x8G) 3200 MHz | RTX 3050 8GB GDDR6",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 13400 up 4.6GHz | 10 CORE | 16 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 730"
-      },
-      "price": 8565505,
-      "discount": 0.08,
-      "slug": "pc-vanphong-0"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd83916582ef90123a"
-      },
-      "title": "PC RENDER RYZEN 7 7800X | 64G | NVIDIA RTX 4080",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 7 7800X up 5.6GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 6000 MHz",
-        "VGA": "NVIDIA RTX 4080 16GB GDDR6X"
-      },
-      "price": 55000000,
-      "discount": 0.05,
-      "slug": "pc-render-ryzen-7-7800x-64g-nvidia-rtx-4080"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef901243"
-      },
-      "title": "PC ĐẸP CORE i5 12600K | 16G | RTX 3070 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12600K up to 4.9GHz | 10 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3600 MHz RGB",
-        "VGA": "NVIDIA RTX 3070 8GB GDDR6"
-      },
-      "price": 25000000,
-      "discount": 0.12,
-      "slug": "pc-dep-core-i5-12600k-16g-rtx-3070-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef901244"
-      },
-      "title": "PC ĐẸP CORE i7 12700K | 32G | RTX 3080 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 12700K up to 5.0GHz | 12 CORE | 20 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3200 MHz RGB",
-        "VGA": "NVIDIA RTX 3080 10GB GDDR6X"
-      },
-      "price": 35000000,
+      "price": 28990000,
       "discount": 0.15,
-      "slug": "pc-dep-core-i7-12700k-32g-rtx-3080-case-kinh-rgb"
+      "brand": "MSI",
+      "slug": "laptop-gaming-msi-katana-gf66-12ud",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/1205vn_da651643e91047bfa9729c53f93ffc6e_large_39f1561f3448481c94add35d7fda7dc4_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-1_a336f129fc874587a476e4c7dfecabdf_0c12a98a67b34ec2882cca1f36106763_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-2_2e289c7ac8514d2ba14d4c73c885a0bb_582c356fef73423ea48a3fac1dd7e63a_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-3_2d450979c0d847a2b7cf5a12e366cea7_26f2a5646027421a9e5b3bacadb335f5_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-4_dbc0252c879b4e49801c4a569244ae70_c12c8dfd0e1c44cd86160f5ed03b9290_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-5_e3ac8d246b9446d497eaf7676f94e265_8ae9b4769d23443eb9644c7dc2885e1d_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-6_194702ae6ec94939843530fb56c1d880_aac9a124f63b40a38ff2a4aad0b80e0f_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-7_55172d4c9837409ea3b16fa1308fc8d6_d9bacd36e27c4fe6b0e64ce4d07493e8_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-8_d24dc0524cb3494da30d26ebfa759f4e_28a1b97fecbf4490a0cd9cf49bcdc568_1024x1024.jpg"
+      ]
     },
     {
-      "_id": {
-        "$oid": "65efabcd71628572ef901245"
-      },
-      "title": "PC ĐẸP AMD Ryzen 5 5600X | 16G | RTX 3060 Ti | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
+      "id": 4,
+      "title": "PC GVN Intel i5-13400F",
+      "category_id": 3,
       "description": {
-        "CPU": "AMD Ryzen 5 5600X up to 4.6GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz RGB",
-        "VGA": "NVIDIA RTX 3060 Ti 8GB GDDR6"
+        "CPU": "Intel® Core™ i5-13400F, 10C/16T, Max Turbo up to 4.6GHz",
+        "RAM": "16GB DDR4-3200",
+        "SSD": "500GB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® GTX 1660 Super 6GB"
       },
-      "price": 22000000,
-      "discount": 0.1,
-      "slug": "pc-dep-amd-ryzen-5-5600x-16g-rtx-3060-ti-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef901246"
-      },
-      "title": "PC ĐẸP CORE i9 12900K | 64G | RTX 3090 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "INTEL CORE i9 12900K up to 5.2GHz | 16 CORE | 24 THREAD",
-        "RAM": "DDR4 64GB (2x32G) 3600 MHz RGB",
-        "VGA": "NVIDIA RTX 3090 24GB GDDR6X"
-      },
-      "price": 45000000,
-      "discount": 0.18,
-      "slug": "pc-dep-core-i9-12900k-64g-rtx-3090-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef901247"
-      },
-      "title": "PC ĐẸP AMD Ryzen 7 5800X | 32G | RTX 3070 Ti | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "AMD Ryzen 7 5800X up to 4.7GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3200 MHz RGB",
-        "VGA": "NVIDIA RTX 3070 Ti 8GB GDDR6X"
-      },
-      "price": 32000000,
-      "discount": 0.14,
-      "slug": "pc-dep-amd-ryzen-7-5800x-32g-rtx-3070-ti-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef901248"
-      },
-      "title": "PC ĐẸP CORE i5 11600K | 16G | RTX 3060 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 11600K up to 4.9GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz RGB",
-        "VGA": "NVIDIA RTX 3060 12GB GDDR6"
-      },
-      "price": 24000000,
-      "discount": 0.1,
-      "slug": "pc-dep-core-i5-11600k-16g-rtx-3060-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef901249"
-      },
-      "title": "PC ĐẸP AMD Ryzen 5 3600 | 16G | GTX 1660 Ti | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "AMD Ryzen 5 3600 up to 4.2GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3000 MHz RGB",
-        "VGA": "NVIDIA GTX 1660 Ti 6GB GDDR5"
-      },
-      "price": 18000000,
+      "price": 15990000,
       "discount": 0.08,
-      "slug": "pc-dep-amd-ryzen-5-3600-16g-gtx-1660-ti-case-kinh-rgb"
+      "brand": "GVN",
+      "slug": "pc-gvn-intel-i5-13400f",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/69185_mb520_mesh_black_046710cfb36f4eefa6b474bffb1aa81c_1024x1024.jpg"
+      ]
     },
     {
-      "_id": {
-        "$oid": "65efabcd71628572ef90124a"
-      },
-      "title": "PC ĐẸP CORE i5 11400F | 16G | GTX 1650 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
+      "id": 5,
+      "title": "Mainboard ASUS ROG Strix Z790-E",
+      "category_id": 4,
       "description": {
-        "CPU": "INTEL CORE i5 11400F up to 4.4GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 2933 MHz RGB",
-        "VGA": "NVIDIA GTX 1650 4GB GDDR5"
+        "Chipset": "Intel® Z790",
+        "Socket": "LGA 1700",
+        "RAM Support": "Up to 128GB DDR5-7200+",
+        "Features": "PCIe 5.0, WiFi 6E"
       },
-      "price": 15000000,
+      "price": 10990000,
+      "discount": 0.05,
+      "brand": "ASUS",
+      "slug": "mainboard-asus-rog-strix-z790-e",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-01_13f2ec4b1afe43d2bd763fc5bc31bada_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-02_f3db0628f5a9456c9127feb6b8cbb600_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-03_b51a25507d4e4b9291522ba650837059_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-04_977babc4b5b940d491dcb985ecc16ab4_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-05_6ddeef78ca574188bf6921eb0a3f8850_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-06_62a4fc9128e84a0e88b39fb88460bcfc_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-07_d8687737e9e445ac843cab696c6879e1_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-08_b6bbce255c1c40948fe5a9680e7f8182_1024x1024.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Case Cooler Master MasterBox TD500",
+      "category_id": 5,
+      "description": {
+        "Type": "Mid Tower",
+        "Material": "Tempered Glass, Steel",
+        "Cooling": "Support up to 7 fans",
+        "Features": "RGB Lighting"
+      },
+      "price": 2490000,
+      "discount": 0.10,
+      "brand": "COOLER MASTER",
+      "slug": "case-cooler-master-masterbox-td500",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "SSD Samsung 990 Pro 1TB",
+      "category_id": 6,
+      "description": {
+        "Capacity": "1TB",
+        "Interface": "PCIe 4.0 NVMe",
+        "Read Speed": "Up to 7450MB/s",
+        "Write Speed": "Up to 6900MB/s"
+      },
+      "price": 3990000,
       "discount": 0.07,
-      "slug": "pc-dep-core-i5-11400f-16g-gtx-1650-case-kinh-rgb"
+      "brand": "SAMSUNG",
+      "slug": "ssd-samsung-990-pro-1tb",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
     },
     {
-      "_id": {
-        "$oid": "65efabcd71628572ef90124b"
-      },
-      "title": "PC ĐẸP AMD Ryzen 9 5900X | 64G | RTX 3080 Ti | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
+      "id": 8,
+      "title": "Loa Bluetooth JBL Flip 6",
+      "category_id": 7,
       "description": {
-        "CPU": "AMD Ryzen 9 5900X up to 4.8GHz | 12 CORE | 24 THREAD",
-        "RAM": "DDR4 64GB (2x32G) 3600 MHz RGB",
-        "VGA": "NVIDIA RTX 3080 Ti 12GB GDDR6X"
+        "Power": "20W RMS",
+        "Battery": "12 hours",
+        "Features": "Waterproof IPX7",
+        "Connectivity": "Bluetooth 5.1"
       },
-      "price": 42000000,
-      "discount": 0.2,
-      "slug": "pc-dep-amd-ryzen-9-5900x-64g-rtx-3080-ti-case-kinh-rgb"
+      "price": 2990000,
+      "discount": 0.20,
+      "brand": "JBL",
+      "slug": "loa-bluetooth-jbl-flip-6",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
     },
     {
-      "_id": {
-        "$oid": "65efabcd71628572ef90124c"
-      },
-      "title": "PC ĐẸP CORE i7 11700K | 32G | RTX 3070 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
+      "id": 9,
+      "title": "Màn hình Dell UltraSharp U2723QE 27 inch",
+      "category_id": 8,
       "description": {
-        "CPU": "INTEL CORE i7 11700K up to 5.0GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3200 MHz RGB",
-        "VGA": "NVIDIA RTX 3070 8GB GDDR6"
+        "Size": "27 inch",
+        "Resolution": "4K UHD (3840x2160)",
+        "Panel": "IPS",
+        "Refresh Rate": "60Hz"
       },
-      "price": 30000000,
+      "price": 13990000,
+      "discount": 0.06,
+      "brand": "DELL",
+      "slug": "man-hinh-dell-ultrasharp-u2723qe",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Bàn phím cơ Logitech G Pro X",
+      "category_id": 9,
+      "description": {
+        "Switch": "Hot-swappable (GX Blue Clicky)",
+        "Layout": "Tenkeyless",
+        "Lighting": "RGB",
+        "Connectivity": "USB"
+      },
+      "price": 3490000,
+      "discount": 0.15,
+      "brand": "LOGITECH",
+      "slug": "ban-phim-co-logitech-g-pro-x",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Chuột Logitech MX Master 3S",
+      "category_id": 10,
+      "description": {
+        "Sensor": "Darkfield 8000 DPI",
+        "Buttons": "7 programmable buttons",
+        "Battery": "Up to 70 days",
+        "Connectivity": "USB-C, Wireless"
+      },
+      "price": 2690000,
+      "discount": 0.10,
+      "brand": "LOGITECH",
+      "slug": "chuot-logitech-mx-master-3s",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Tai nghe Sony WH-1000XM5",
+      "category_id": 11,
+      "description": {
+        "Type": "Over-ear",
+        "Noise Cancelling": "Yes, Industry-leading",
+        "Battery": "30 hours",
+        "Connectivity": "Bluetooth 5.2"
+      },
+      "price": 8990000,
+      "discount": 0.05,
+      "brand": "SONY",
+      "slug": "tai-nghe-sony-wh-1000xm5",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf484十一e45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Laptop gaming HP OMEN 16 wf0129TX 8W943PA",
+      "category_id": 1,
+      "description": {
+        "CPU": "AMD Ryzen™ 7 7735U, 8C/16T, Max Boost up to 4.75GHz",
+        "RAM": "16GB LPDDR5-6400",
+        "SSD": "512GB PCIe NVMe SSD",
+        "Card đồ họa": "AMD Radeon™ Graphics"
+      },
+      "price": 64990000,
+      "discount": 0.08,
+      "brand": "HP - Pavilion",
+      "slug": "laptop-gaming-hp-omen-16-wf0129tx-8w943pa",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/1_2c90b3c9a87b4eeeb92f9f0562e7fb5a_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/2_f14e6aa33f5c4b7e9ab12a464ee8a9d7_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/khung-laptop-23_45586436bb10427bb88d0ad8047c873e_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/omen-16-wf0129tx-8w943pa-i9-13900hx_3_64a45634dc464aa1b8bd85dc350ca91b_36a98f9fcb5d45b5a01878a23aeea568_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/omen-16-wf0129tx-8w943pa-i9-13900hx_4_72263fddaf6045dd9922c428befa45d6_580ba3c9517c4779956c4b9f5d00e04f_1024x1024.png"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Laptop Gaming Acer Nitro 5 AN515-58",
+      "category_id": 2,
+      "description": {
+        "CPU": "Intel® Core™ i9-12900H, 14C/20T, Max Turbo up to 5.0GHz",
+        "RAM": "32GB DDR5-4800",
+        "SSD": "1TB PCIe NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3060 6GB GDDR6"
+      },
+      "price": 34990000,
+      "discount": 0.10,
+      "brand": "ACER",
+      "slug": "laptop-gaming-acer-nitro-5-an515-58",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/773y_a8b891d89f3b4d81a01777e2160b644c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/eec226f57c41a7865fdc18004a57c8_master_f56fd9b017244342821d65c8c49efe28_989a9cb595aa4f2080160f8289688ba2_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/ec7e6f7d614e22bc068cded6d505ea_master_3a1475a0c7cd4f588a5cd624f2a1daf3_457929a869514b1db22d2d32ca1fac0b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/179678a2954c9e8cea64ec72945b3c_master_fbcc31c55d5f43c1860085135f5b0a0e_1acd14cee8384aa986c9214f52079aa8_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/179678a2954c9e8cea64ec72945b3c_master_fbcc31c55d5f43c1860085135f5b0a0e_1acd14cee8384aa986c9214f52079aa8_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/fe2769ba0040c59929f58641d85409_master_1b48676e034340379d49fab4078b5949_c025782cba2f47baa0131afac8e5ad30_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/e3c50335064d65b15e572f95612ed0_master_6facf058e2694df78f8371089f4200f0_9acc1d50a9bf4c85afc9fc35c0b6fc7e_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/b671b00815405fb9b89d57fd75fcdb_master_75687ca028984d6a8f5e60f5ba841733_2352d5edd30b4993b04b81adc364bf21_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/46b1da48a74ec5bb334ba865736f22_master_90122c0857e7471bb6165765a3d39a0c_5535d3bc45d84ff9b40b3b4398e96723_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/5cc96deb4a422486449aa2dd6a4499_master_f3d6b9eceeca4dfc912c63f4e635da2a_945ef69382b044e3be84253431b09bb2_1024x1024.png"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "PC GVN AMD Ryzen 5 7600X",
+      "category_id": 3,
+      "description": {
+        "CPU": "AMD Ryzen™ 5 7600X, 6C/12T, Max Boost up to 5.3GHz",
+        "RAM": "32GB DDR5-5200",
+        "SSD": "1TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 4060 8GB"
+      },
+      "price": 25990000,
+      "discount": 0.07,
+      "brand": "GVN",
+      "slug": "pc-gvn-amd-ryzen-5-7600x",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "VGA MSI GeForce RTX 4070 Ti",
+      "category_id": 4,
+      "description": {
+        "GPU": "NVIDIA® GeForce® RTX 4070 Ti",
+        "Memory": "12GB GDDR6X",
+        "Boost Clock": "Up to 2610 MHz",
+        "Cooling": "TRI FROZR 3"
+      },
+      "price": 22990000,
+      "discount": 0.12,
+      "brand": "MSI",
+      "slug": "vga-msi-geforce-rtx-4070-ti",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Nguồn Corsair RM850x",
+      "category_id": 5,
+      "description": {
+        "Wattage": "850W",
+        "Efficiency": "80 PLUS Gold",
+        "Modular": "Fully Modular",
+        "Cooling": "135mm Magnetic Levitation Fan"
+      },
+      "price": 3990000,
+      "discount": 0.05,
+      "brand": "CORSAIR",
+      "slug": "nguon-corsair-rm850x",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "RAM Corsair Vengeance 32GB DDR5",
+      "category_id": 6,
+      "description": {
+        "Capacity": "32GB (2x16GB)",
+        "Speed": "DDR5-6000",
+        "Latency": "CL36",
+        "Features": "RGB Lighting"
+      },
+      "price": 4990000,
+      "discount": 0.08,
+      "brand": "CORSAIR",
+      "slug": "ram-corsair-vengeance-32gb-ddr5",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Micro HyperX QuadCast S",
+      "category_id": 7,
+      "description": {
+        "Type": "Condenser",
+        "Polar Patterns": "Stereo, Omnidirectional, Cardioid, Bidirectional",
+        "Features": "RGB Lighting, Anti-Vibration",
+        "Connectivity": "USB"
+      },
+      "price": 3990000,
+      "discount": 0.15,
+      "brand": "HYPERX",
+      "slug": "micro-hyperx-quadcast-s",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Màn hình LG UltraGear 27GP950-B",
+      "category_id": 8,
+      "description": {
+        "Size": "27 inch",
+        "Resolution": "4K UHD (3840x2160)",
+        "Panel": "Nano IPS",
+        "Refresh Rate": "144Hz (Overclock 160Hz)"
+      },
+      "price": 19990000,
+      "discount": 0.10,
+      "brand": "LG - Gram",
+      "slug": "man-hinh-lg-ultragear-27gp950-b",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Bàn phím Razer BlackWidow V4 Pro",
+      "category_id": 9,
+      "description": {
+        "Switch": "Razer Green Mechanical",
+        "Layout": "Full-size",
+        "Lighting": "Razer Chroma RGB",
+        "Features": "Wrist Rest, Multi-function Dial"
+      },
+      "price": 5990000,
+      "discount": 0.12,
+      "brand": "RAZER",
+      "slug": "ban-phim-razer-blackwidow-v4-pro",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Chuột SteelSeries Rival 5",
+      "category_id": 10,
+      "description": {
+        "Sensor": "TrueMove Air, 18000 DPI",
+        "Buttons": "9 programmable buttons",
+        "Lighting": "RGB",
+        "Weight": "85g"
+      },
+      "price": 1790000,
+      "discount": 0.10,
+      "brand": "STEELSERIES",
+      "slug": "chuot-steelseries-rival-5",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Tai nghe Razer Barracuda X",
+      "category_id": 11,
+      "description": {
+        "Type": "Wireless Over-ear",
+        "Drivers": "40mm",
+        "Battery": "20 hours",
+        "Connectivity": "2.4GHz Wireless, Bluetooth 5.2"
+      },
+      "price": 2490000,
+      "discount": 0.08,
+      "brand": "RAZER",
+      "slug": "tai-nghe-razer-barracuda-x",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Laptop ASUS Vivobook 14 A1407CA LY008WS",
+      "category_id": 1,
+      "description": {
+        "CPU": "Intel® Core™ i5-1135G7, 4 nhân, 8 luồng, Max Turbo 4.2GHz",
+        "RAM": "8GB DDR4 3200MHz",
+        "SSD": "512GB SSD M.2 NVMe",
+        "Card đồ họa": "Intel® Iris Xe Graphics"
+      },
+      "price": 12990000,
+      "discount": 0.1,
+      "brand": "ASUS",
+      "slug": "laptop-asus-vivobook-14-a1407ca-ly008ws",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/a1407ca-ly008ws_eba5146a3513490499521adcea66b98b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_1_4065402643f84b3fb84dd79434caf692_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_2_cee0cdd35abb4925a4346dc30dd4a14c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_3_5304a993a9ab413296e7b2fdb7b293d8_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_4_4e6ef45b0e484a97974c289db8e1808a_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_6_adb612c508884cf6b916b0848e212dae_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_7_9059a87fdf924b32873b7f96e31e5860_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_9_4ace837607a9411f861160f3ccc54d77_1024x1024.png"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Laptop ACER Aspire 5 A515-45",
+      "category_id": 2,
+      "description": {
+        "CPU": "AMD Ryzen 5 5500U, 6 nhân, 12 luồng, Max Turbo 4.0GHz",
+        "RAM": "16GB DDR4 3200MHz",
+        "SSD": "512GB SSD NVMe",
+        "Card đồ họa": "AMD Radeon Vega 7"
+      },
+      "price": 15990000,
+      "discount": 0.05,
+      "brand": "ACER",
+      "slug": "laptop-acer-aspire-5-a515-45",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/ava_23fd058fa70a49d3820477678e2e8a49_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1_d21202e1b01745b1985532ed26f08cce_0c6c719df49e4e66b559b37e677f397e_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1_d21202e1b01745b1985532ed26f08cce_0c6c719df49e4e66b559b37e677f397e_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/3_7bca6b7fdd10450db4e38fdec32f0e30_c6807e3a36f647c7a8355384659b3045_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/3_7bca6b7fdd10450db4e38fdec32f0e30_c6807e3a36f647c7a8355384659b3045_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/4_f617aa0b51a7486e8db7b64fdbac2f7a_8bb80f5755724cf6a8e5556e504432ea_1024x1024.png"
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Laptop MSI Prestige 14 AI Studio C1VEG 056VN",
+      "category_id": 3,
+      "description": {
+        "CPU": "Intel® Core™ i7-10750H, 6 nhân, 12 luồng, Max Turbo 5.0GHz",
+        "RAM": "8GB DDR4 2933MHz",
+        "SSD": "512GB SSD NVMe",
+        "Card đồ họa": "NVIDIA® GeForce® GTX 1650 Ti"
+      },
+      "price": 32990000,
+      "discount": 0.15,
+      "brand": "MSI",
+      "slug": "laptop-msi-prestige-14-ai-studio-c1veg-056vn",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/ava_e10fafc0165e4a2cb5380668574e512d_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024__1__51da43ccf4d7474a96cac0be97ce938d_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024__2__75b72195b1f64cf0b00ef5018698aa0e_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024__4__4bf54c10eb7942d3b36f4139fc8be525_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024__4__4bf54c10eb7942d3b36f4139fc8be525_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024__4__4bf54c10eb7942d3b36f4139fc8be525_1024x1024.png"
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Laptop LENOVO IdeaPad 3 15ADA6",
+      "category_id": 4,
+      "description": {
+        "CPU": "AMD Ryzen 3 5300U, 4 nhân, 8 luồng, Max Turbo 3.8GHz",
+        "RAM": "8GB DDR4 3200MHz",
+        "SSD": "256GB SSD NVMe",
+        "Card đồ họa": "AMD Radeon Graphics"
+      },
+      "price": 10990000,
+      "discount": 0.12,
+      "brand": "LENOVO",
+      "slug": "laptop-lenovo-ideapad-3-15ada6",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/82h803rsvn_2aa1769ff2cc4459877e0d7f0abc0b3f_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/ideapad_3_14iau7_ct2_04_7d6a3c4d4a1d4074bdccac7f82264587_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/ideapad_3_14iau7_ct2_03_ac2ba52446a24d25a3b6e83ae56c7734_1024x1024.png"
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Laptop DELL Inspiron 15 5000",
+      "category_id": 5,
+      "description": {
+        "CPU": "Intel® Core™ i5-1135G7, 4 nhân, 8 luồng, Max Turbo 4.2GHz",
+        "RAM": "16GB DDR4 3200MHz",
+        "SSD": "512GB SSD M.2 PCIe",
+        "Card đồ họa": "Intel® Iris Xe Graphics"
+      },
+      "price": 16990000,
+      "discount": 0.1,
+      "brand": "DELL",
+      "slug": "laptop-dell-inspiron-15-5000",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/ava_bb5d57d896da4c98b70ea4353e8867d3_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/2_eba8ce3d06404a5bba58b4022b1c2ee8_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/notebook-inspiron-15-3520-black-gallery-4_39ed983e14654b478119009a3f248e5a_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/in3520-xnb-01-bk_4b2c2617532645f585dca60ee1135e61_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/in3520nt-cnb-00060lb055-bk_13f7074cc2694e6e95dca984d32a2cd0_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/in3520nt-cnb-00060rb055-bk_f9f025b16d1049f4a7f3b5c49387d7b7_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/in3520nt-cnb-00180bf090-bk_9d452c64927e4e33b7d0fd3427a2db98_1024x1024.png"
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Laptop HP Pavilion 14",
+      "category_id": 6,
+      "description": {
+        "CPU": "Intel® Core™ i7-1165G7, 4 nhân, 8 luồng, Max Turbo 4.7GHz",
+        "RAM": "16GB DDR4 3200MHz",
+        "SSD": "512GB SSD NVMe",
+        "Card đồ họa": "Intel® Iris Xe Graphics"
+      },
+      "price": 17990000,
+      "discount": 0.08,
+      "brand": "HP - Pavilion",
+      "slug": "laptop-hp-pavilion-14",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/aptop-hp-pavilion-15-eg0506tx-46m05pa_3f2e2cb97f6b4ed192752aa774e1b9b4_7514240edc9a4ee98c2f88b18c0fc039_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/top-hp-pavilion-15-eg0506tx-46m05pa-1_a04f18486f014aa38e272a7d85460bda_938e2d4541b741aeb6869212713d08d3_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/top-hp-pavilion-15-eg0506tx-46m05pa-2_8b54d9c584924366a0a6a3bd9e5c74f7_b808000e08264c4682f5c3323dc21d9e_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/top-hp-pavilion-15-eg0506tx-46m05pa-3_0a956ddfd0cb4c379851f02e50668eed_f2db73ad0737440a9215b15acdcc66ba_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/top-hp-pavilion-15-eg0506tx-46m05pa-4_2f59df3abcf3441c84a0f76920071e9f_c140e0b0c2d446f5b1909bc2bd2308c4_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/top-hp-pavilion-15-eg0506tx-46m05pa-4_2f59df3abcf3441c84a0f76920071e9f_c140e0b0c2d446f5b1909bc2bd2308c4_1024x1024.jpg"
+      ]
+    },
+    {
+      "id": 30,
+      "title": "Laptop LG Gram 14",
+      "category_id": 7,
+      "description": {
+        "CPU": "Intel® Core™ i5-1135G7, 4 nhân, 8 luồng, Max Turbo 4.2GHz",
+        "RAM": "8GB LPDDR4X",
+        "SSD": "512GB SSD M.2 PCIe",
+        "Card đồ họa": "Intel® Iris Xe Graphics"
+      },
+      "price": 21990000,
+      "discount": 0.12,
+      "brand": "LG - Gram",
+      "slug": "laptop-lg-gram-14",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/lg-gram-16-2023_1931fb9a41a14aef8a831b48c1156e5b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/5.hinhanhsanpham1_91cb12ab3aab44059bd5158a09f430c6_668b4c66e2e5412c805d9c1e40c41c0b_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/6.hinhanhsanpham3_57d9eb66f67f470191b98bbc66e1636d_44a8741204274ca6af4c389857d92b75_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/7.hinhanhsanpham3_81d79ee5be1b44ec996e293c65d07ce0_b654bd4f3ed04b07877ddd235001a063_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/4.kichthuocmay_7b1a2e5d22274903b9241869062b56dd_20e8bb5e2e5d4e0f9bc22466c6946bd9_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/90r-g-17-flexible-connectivity-mobile_8b536225d6d74cf9b54535917c181d17_9218a07858534b34a28989266077cca8_1024x1024.jpg"
+      ]
+    },
+    {
+      "id": 31,
+      "title": "Laptop ASUS ZenBook 14",
+      "category_id": 8,
+      "description": {
+        "CPU": "Intel® Core™ i7-1165G7, 4 nhân, 8 luồng, Max Turbo 4.7GHz",
+        "RAM": "16GB LPDDR4X",
+        "SSD": "512GB SSD NVMe",
+        "Card đồ họa": "Intel® Iris Xe Graphics"
+      },
+      "price": 21990000,
+      "discount": 0.05,
+      "brand": "ASUS",
+      "slug": "laptop-asus-zenbook-14",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/ux3407qa-qd299ws_1_e0a9f6e222304bf7923b5ee2b33b6ac8_1024x1024.jpg",
+        "https://product.hstatic.net/200000722513/product/zenbook_a14_ux3407_product_photo_zabriskie_beige_01_067ae1f51b54482499321e5ba898c3ec_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/zenbook_a14_ux3407_product_photo_zabriskie_beige_01_067ae1f51b54482499321e5ba898c3ec_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/zenbook_a14_ux3407_product_photo_zabriskie_beige_04_a2de245d3d9540b4bfb5e7264bff030e_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/zenbook_a14_ux3407_product_photo_zabriskie_beige_05_13b5a645facc439083f0ed3636f4766c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/zenbook_a14_ux3407_product_photo_zabriskie_beige_08__1__ce26a0ea080c431d866191fc81fc3a39_1024x1024.png"
+      ]
+    },
+    {
+      "id": 32,
+      "title": "Laptop ACER Nitro 5 AN515-45",
+      "category_id": 9,
+      "description": {
+        "CPU": "AMD Ryzen 7 5800H, 8 nhân, 16 luồng, Max Turbo 4.4GHz",
+        "RAM": "16GB DDR4 3200MHz",
+        "SSD": "1TB SSD M.2 PCIe",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3060"
+      },
+      "price": 24990000,
+      "discount": 0.1,
+      "brand": "ACER",
+      "slug": "laptop-acer-nitro-5-an515-45",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/773y_a8b891d89f3b4d81a01777e2160b644c_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/eec226f57c41a7865fdc18004a57c8_master_f56fd9b017244342821d65c8c49efe28_989a9cb595aa4f2080160f8289688ba2_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/ec7e6f7d614e22bc068cded6d505ea_master_3a1475a0c7cd4f588a5cd624f2a1daf3_457929a869514b1db22d2d32ca1fac0b_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/179678a2954c9e8cea64ec72945b3c_master_fbcc31c55d5f43c1860085135f5b0a0e_1acd14cee8384aa986c9214f52079aa8_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/fe2769ba0040c59929f58641d85409_master_1b48676e034340379d49fab4078b5949_c025782cba2f47baa0131afac8e5ad30_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/e3c50335064d65b15e572f95612ed0_master_6facf058e2694df78f8371089f4200f0_9acc1d50a9bf4c85afc9fc35c0b6fc7e_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/b671b00815405fb9b89d57fd75fcdb_master_75687ca028984d6a8f5e60f5ba841733_2352d5edd30b4993b04b81adc364bf21_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/46b1da48a74ec5bb334ba865736f22_master_90122c0857e7471bb6165765a3d39a0c_5535d3bc45d84ff9b40b3b4398e96723_1024x1024.png"
+      ]
+    },
+    {
+      "id": 33,
+      "title": "Laptop MSI Creator M16 HX C14VFG 040VN",
+      "category_id": 10,
+      "description": {
+        "CPU": "Intel® Core™ i7-10750H, 6 nhân, 12 luồng, Max Turbo 5.0GHz",
+        "RAM": "16GB DDR4 2933MHz",
+        "SSD": "512GB SSD NVMe",
+        "Card đồ họa": "NVIDIA® GeForce® GTX 1660 Ti"
+      },
+      "price": 42990000,
       "discount": 0.13,
-      "slug": "pc-dep-core-i7-11700k-32g-rtx-3070-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef90124d"
-      },
-      "title": "PC ĐẸP AMD Ryzen 5 3400G | 8G | GTX 1650 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "AMD Ryzen 5 3400G up to 4.2GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 2933 MHz RGB",
-        "VGA": "NVIDIA GTX 1650 4GB GDDR5"
-      },
-      "price": 12000000,
-      "discount": 0.05,
-      "slug": "pc-dep-amd-ryzen-5-3400g-8g-gtx-1650-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef90124e"
-      },
-      "title": "PC ĐẸP CORE i9 10850K | 64G | RTX 3090 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "INTEL CORE i9 10850K up to 5.2GHz | 10 CORE | 20 THREAD",
-        "RAM": "DDR4 64GB (2x32G) 3600 MHz RGB",
-        "VGA": "NVIDIA RTX 3090 24GB GDDR6X"
-      },
-      "price": 47000000,
-      "discount": 0.18,
-      "slug": "pc-dep-core-i9-10850k-64g-rtx-3090-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef90124f"
-      },
-      "title": "PC ĐẸP AMD Ryzen 7 3800X | 32G | RTX 3060 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "AMD Ryzen 7 3800X up to 4.5GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3200 MHz RGB",
-        "VGA": "NVIDIA RTX 3060 12GB GDDR6"
-      },
-      "price": 29000000,
-      "discount": 0.12,
-      "slug": "pc-dep-amd-ryzen-7-3800x-32g-rtx-3060-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef901250"
-      },
-      "title": "PC ĐẸP CORE i5 10400F | 16G | GTX 1660 SUPER | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 10400F up to 4.3GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 2933 MHz RGB",
-        "VGA": "NVIDIA GTX 1660 SUPER 6GB GDDR5"
-      },
-      "price": 16000000,
-      "discount": 0.09,
-      "slug": "pc-dep-core-i5-10400f-16g-gtx-1660-super-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd71628572ef901251"
-      },
-      "title": "PC ĐẸP AMD Ryzen 9 3900X | 64G | RTX 3080 | CASE KÍNH RGB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "description": {
-        "CPU": "AMD Ryzen 9 3900X up to 4.6GHz | 12 CORE | 24 THREAD",
-        "RAM": "DDR4 64GB (2x32G) 3600 MHz RGB",
-        "VGA": "NVIDIA RTX 3080 10GB GDDR6X"
-      },
-      "price": 42000000,
-      "discount": 0.17,
-      "slug": "pc-dep-amd-ryzen-9-3900x-64g-rtx-3080-case-kinh-rgb"
-    },
-    {
-      "_id": {
-        "$oid": "65efabcd82650185ef90123e"
-      },
-      "title": "Microsoft Office 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Microsoft Office 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Word, Excel, PowerPoint, Outlook, OneNote"
-      },
-      "price": 5500000,
-      "discount": 0.1,
-      "slug": "microsoft-office-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef901255"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 27 inch 4K",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "27 inch",
-        "Resolution": "3840x2160 4K",
-        "Panel": "IPS, 60Hz"
-      },
-      "price": 13000000,
-      "discount": 0.07,
-      "slug": "man-hinh-dell-ultrasharp-27-inch-4k"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef901256"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 24 inch Full HD",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "24 inch",
-        "Resolution": "1920x1080 Full HD",
-        "Panel": "IPS, 75Hz"
-      },
-      "price": 8000000,
-      "discount": 0.05,
-      "slug": "man-hinh-dell-ultrasharp-24-inch-full-hd"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef901257"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 32 inch 5K",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "32 inch",
-        "Resolution": "5120x2880 5K",
-        "Panel": "IPS, 60Hz"
-      },
-      "price": 25000000,
-      "discount": 0.1,
-      "slug": "man-hinh-dell-ultrasharp-32-inch-5k"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef901258"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 34 inch Curved",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "34 inch",
-        "Resolution": "3440x1440 WQHD",
-        "Panel": "IPS, 60Hz"
-      },
-      "price": 22000000,
-      "discount": 0.12,
-      "slug": "man-hinh-dell-ultrasharp-34-inch-curved"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef901259"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 32 inch 1440p",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "32 inch",
-        "Resolution": "2560x1440 QHD",
-        "Panel": "IPS, 75Hz"
-      },
-      "price": 18000000,
-      "discount": 0.08,
-      "slug": "man-hinh-dell-ultrasharp-32-inch-1440p"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef90125a"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 27 inch 2K",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "27 inch",
-        "Resolution": "2560x1440 2K",
-        "Panel": "IPS, 75Hz"
-      },
-      "price": 10000000,
-      "discount": 0.06,
-      "slug": "man-hinh-dell-ultrasharp-27-inch-2k"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef90125b"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 34 inch 4K Curved",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "34 inch",
-        "Resolution": "3840x2160 4K",
-        "Panel": "IPS, 60Hz"
-      },
-      "price": 28000000,
-      "discount": 0.15,
-      "slug": "man-hinh-dell-ultrasharp-34-inch-4k-curved"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef90125c"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 29 inch Full HD",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "29 inch",
-        "Resolution": "1920x1080 Full HD",
-        "Panel": "IPS, 60Hz"
-      },
-      "price": 9500000,
-      "discount": 0.05,
-      "slug": "man-hinh-dell-ultrasharp-29-inch-full-hd"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef90125d"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 38 inch Curved 4K",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "38 inch",
-        "Resolution": "3840x1600 4K",
-        "Panel": "IPS, 75Hz"
-      },
-      "price": 35000000,
-      "discount": 0.18,
-      "slug": "man-hinh-dell-ultrasharp-38-inch-curved-4k"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef90125e"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 23 inch Full HD",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "23 inch",
-        "Resolution": "1920x1080 Full HD",
-        "Panel": "IPS, 60Hz"
-      },
-      "price": 7000000,
-      "discount": 0.04,
-      "slug": "man-hinh-dell-ultrasharp-23-inch-full-hd"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef90125f"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 28 inch 4K",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "28 inch",
-        "Resolution": "3840x2160 4K",
-        "Panel": "IPS, 60Hz"
-      },
-      "price": 17000000,
-      "discount": 0.09,
-      "slug": "man-hinh-dell-ultrasharp-28-inch-4k"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef901260"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 30 inch Curved",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "30 inch",
-        "Resolution": "2560x1600 WQHD",
-        "Panel": "IPS, 75Hz"
-      },
-      "price": 24000000,
-      "discount": 0.13,
-      "slug": "man-hinh-dell-ultrasharp-30-inch-curved"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef901261"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 34 inch 2K Curved",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "34 inch",
-        "Resolution": "2560x1440 2K",
-        "Panel": "IPS, 75Hz"
-      },
-      "price": 21000000,
-      "discount": 0.14,
-      "slug": "man-hinh-dell-ultrasharp-34-inch-2k-curved"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef901262"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 32 inch 144Hz",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "32 inch",
-        "Resolution": "2560x1440 QHD",
-        "Panel": "IPS, 144Hz"
-      },
-      "price": 21000000,
-      "discount": 0.16,
-      "slug": "man-hinh-dell-ultrasharp-32-inch-144hz"
-    },
-    {
-      "_id": {
-        "$oid": "65f0abcd12345678ef901263"
-      },
-      "title": "MÀN HÌNH DELL UltraSharp 32 inch 4K Touch",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "description": {
-        "Size": "32 inch",
-        "Resolution": "3840x2160 4K",
-        "Panel": "IPS, 60Hz",
-        "Features": "Touchscreen"
-      },
-      "price": 30000000,
-      "discount": 0.12,
-      "slug": "man-hinh-dell-ultrasharp-32-inch-4k-touch"
-    },
-    {
-      "_id": {
-        "$oid": "65f1abcd12345678ef901247"
-      },
-      "title": "CyberLink PowerDirector 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "CyberLink PowerDirector 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Chỉnh sửa video, hỗ trợ 4K, công cụ hiệu ứng mạnh"
-      },
-      "price": 5500000,
-      "discount": 0.15,
-      "slug": "cyberlink-powerdirector-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65f1abcd12345678ef901249"
-      },
-      "title": "Final Cut Pro 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Final Cut Pro 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Chỉnh sửa video chuyên nghiệp, hiệu suất cao"
-      },
-      "price": 7500000,
-      "discount": 0.12,
-      "slug": "final-cut-pro-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65f1abcd12345678ef90124a"
-      },
-      "title": "Filmora 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Filmora 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Chỉnh sửa video đơn giản, hiệu ứng phong phú"
-      },
-      "price": 4800000,
-      "discount": 0.14,
-      "slug": "filmora-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65f1abcd12345678ef90124b"
-      },
-      "title": "DaVinci Resolve 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "DaVinci Resolve 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Chỉnh sửa video, hiệu ứng màu sắc chuyên nghiệp"
-      },
-      "price": 5400000,
-      "discount": 0.18,
-      "slug": "davinci-resolve-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65f1abcd12345678ef90124c"
-      },
-      "title": "Pinnacle Studio 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Pinnacle Studio 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Chỉnh sửa video chuyên nghiệp, hỗ trợ nhiều định dạng"
-      },
-      "price": 5600000,
-      "discount": 0.19,
-      "slug": "pinnacle-studio-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65f1abcd12345678ef90124d"
-      },
-      "title": "ESET NOD32 Antivirus 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "ESET NOD32 Antivirus 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Bảo vệ máy tính khỏi virus, phần mềm độc hại"
-      },
-      "price": 4000000,
-      "discount": 0.11,
-      "slug": "eset-nod32-antivirus-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65f1abcd12345678ef90124e"
-      },
-      "title": "Trend Micro Maximum Security 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Trend Micro Maximum Security 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Bảo vệ máy tính, diệt virus, bảo mật thông tin"
-      },
-      "price": 4900000,
-      "discount": 0.1,
-      "slug": "trend-micro-maximum-security-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65f1abcd12345678ef901241"
-      },
-      "title": "Autodesk AutoCAD 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Autodesk AutoCAD 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Thiết kế kỹ thuật 2D/3D, công cụ xây dựng mạnh mẽ"
-      },
-      "price": 7000000,
-      "discount": 0.12,
-      "slug": "autodesk-autocad-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "65f1abcd12345678ef901242"
-      },
-      "title": "Adobe Photoshop 2024 - Bản Quyền 1 Năm",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "description": {
-        "Software": "Adobe Photoshop 2024",
-        "License": "1 năm sử dụng",
-        "Features": "Chỉnh sửa ảnh, retouching, hỗ trợ AI"
-      },
-      "price": 6500000,
-      "discount": 0.14,
-      "slug": "adobe-photoshop-2024-ban-quyen-1-nam"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a123458"
-      },
-      "title": "PC RENDER RYZEN 9 7950X | 64G | AMD RX 7900 XTX",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 9 7950X up 5.7GHz | 16 CORE | 32 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 6200 MHz",
-        "VGA": "AMD RX 7900 XTX 24GB GDDR6"
-      },
-      "price": 75000000,
-      "discount": 0.07,
-      "slug": "pc-render-ryzen-9-7950x-64g-amd-rx-7900-xtx"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a123459"
-      },
-      "title": "PC RENDER INTEL i7 13700K | 32G | NVIDIA RTX 4060 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "Intel Core i7 13700K up 5.4GHz | 16 CORE | 24 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5600 MHz",
-        "VGA": "NVIDIA RTX 4060 Ti 8GB GDDR6"
-      },
-      "price": 42000000,
-      "discount": 0.05,
-      "slug": "pc-render-intel-i7-13700k-32g-nvidia-rtx-4060-ti"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a12345a"
-      },
-      "title": "PC RENDER RYZEN 5 7600X | 16G | NVIDIA RTX 4060",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 5 7600X up 5.3GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR5 16GB (2x8G) 5200 MHz",
-        "VGA": "NVIDIA RTX 4060 8GB GDDR6"
-      },
-      "price": 35000000,
-      "discount": 0.03,
-      "slug": "pc-render-ryzen-5-7600x-16g-nvidia-rtx-4060"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a12345b"
-      },
-      "title": "PC RENDER INTEL i5 13600KF | 16G | NVIDIA RTX 4060",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "Intel Core i5 13600KF up 5.1GHz | 14 CORE | 20 THREAD",
-        "RAM": "DDR5 16GB (2x8G) 5200 MHz",
-        "VGA": "NVIDIA RTX 4060 8GB GDDR6"
-      },
-      "price": 33000000,
-      "discount": 0.04,
-      "slug": "pc-render-intel-i5-13600kf-16g-nvidia-rtx-4060"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a12345c"
-      },
-      "title": "PC RENDER RYZEN 9 7950X | 64G | NVIDIA RTX 4090",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 9 7950X up 5.7GHz | 16 CORE | 32 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 6000 MHz",
-        "VGA": "NVIDIA RTX 4090 24GB GDDR6X"
-      },
-      "price": 90000000,
-      "discount": 0.07,
-      "slug": "pc-render-ryzen-9-7950x-64g-nvidia-rtx-4090"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a12345d"
-      },
-      "title": "PC RENDER INTEL i9 13900K | 64G | NVIDIA RTX 4080",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "Intel Core i9 13900K up 5.8GHz | 24 CORE | 32 THREAD",
-        "RAM": "DDR5 64GB (2x32G) 6000 MHz",
-        "VGA": "NVIDIA RTX 4080 16GB GDDR6X"
-      },
-      "price": 75000000,
-      "discount": 0.06,
-      "slug": "pc-render-intel-i9-13900k-64g-nvidia-rtx-4080"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a12345e"
-      },
-      "title": "PC RENDER RYZEN 7 7800X3D | 32G | AMD RX 7800 XT",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 7 7800X3D up 5.0GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5600 MHz",
-        "VGA": "AMD RX 7800 XT 16GB GDDR6"
-      },
-      "price": 42000000,
-      "discount": 0.05,
-      "slug": "pc-render-ryzen-7-7800x3d-32g-amd-rx-7800-xt"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a12345f"
-      },
-      "title": "PC RENDER INTEL i7 13700K | 32G | NVIDIA RTX 4070 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "Intel Core i7 13700K up 5.4GHz | 16 CORE | 24 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 5600 MHz",
-        "VGA": "NVIDIA RTX 4070 Ti 12GB GDDR6X"
-      },
-      "price": 52000000,
-      "discount": 0.04,
-      "slug": "pc-render-intel-i7-13700k-32g-nvidia-rtx-4070-ti"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a123460"
-      },
-      "title": "PC RENDER RYZEN 5 7600X | 16G | AMD RX 7700 XT",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "AMD RYZEN 5 7600X up 5.3GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR5 16GB (2x8G) 5200 MHz",
-        "VGA": "AMD RX 7700 XT 12GB GDDR6"
-      },
-      "price": 35000000,
-      "discount": 0.03,
-      "slug": "pc-render-ryzen-5-7600x-16g-amd-rx-7700-xt"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a123461"
-      },
-      "title": "Gaming PC Intel i5 13600K | 16G | RTX 4070",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "Intel Core i5 13600K up to 5.1GHz | 14 CORE | 20 THREAD",
-        "RAM": "DDR5 16GB (2x8G) 6000 MHz",
-        "VGA": "NVIDIA GeForce RTX 4070 12GB GDDR6X"
-      },
-      "price": 38000000,
-      "discount": 0.1,
-      "slug": "gaming-pc-intel-i5-13600k-16g-rtx-4070"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a123462"
-      },
-      "title": "Workstation PC Xeon W-2225 | 64G | RTX A4000",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "Intel Xeon W-2225 up to 4.6GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 64GB (4x16G) 3200 MHz",
-        "VGA": "NVIDIA RTX A4000 16GB GDDR6"
-      },
-      "price": 55000000,
-      "discount": 0,
-      "slug": "workstation-pc-xeon-w-2225-64g-rtx-a4000"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a123463"
-      },
-      "title": "Budget Gaming PC Ryzen 5 5600X | 16G | RX 6600",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "AMD Ryzen 5 5600X up to 4.6GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "AMD Radeon RX 6600 8GB GDDR6"
-      },
-      "price": 22000000,
-      "discount": 0.15,
-      "slug": "budget-gaming-pc-ryzen-5-5600x-16g-rx-6600"
-    },
-    {
-      "_id": {
-        "$oid": "660b8f1a3e9d2c4f8a123464"
-      },
-      "title": "High-End Gaming PC Intel i9 13900K | 32G | RTX 4080",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "description": {
-        "CPU": "Intel Core i9 13900K up to 5.8GHz | 24 CORE | 32 THREAD",
-        "RAM": "DDR5 32GB (2x16G) 6000 MHz",
-        "VGA": "NVIDIA GeForce RTX 4080 16GB GDDR6X"
-      },
-      "price": 65000000,
-      "discount": 0.03,
-      "slug": "high-end-gaming-pc-intel-i9-13900k-32g-rtx-4080"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b123401"
-      },
-      "title": "PC GAMING CORE i5 13400F | 16G | RTX 4070 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 13400F up to 4.6GHz | 10 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "NVIDIA RTX 4070 Ti 8GB GDDR6"
-      },
-      "price": 28000000,
-      "discount": 0.1,
-      "slug": "pc-gaming-core-i5-13400f-16g-rtx-4070-ti"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b123402"
-      },
-      "title": "PC GAMING CORE i7 13700F | 16G | RTX 4080",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 13700F up to 5.0GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3600 MHz",
-        "VGA": "NVIDIA RTX 4080 12GB GDDR6"
-      },
-      "price": 35000000,
-      "discount": 0.12,
-      "slug": "pc-gaming-core-i7-13700f-16g-rtx-4080"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b123403"
-      },
-      "title": "PC GAMING CORE i5 12600K | 16G | RTX 4060",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12600K up to 4.9GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "NVIDIA RTX 4060 8GB GDDR6"
-      },
-      "price": 24000000,
-      "discount": 0.1,
-      "slug": "pc-gaming-core-i5-12600k-16g-rtx-4060"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b123404"
-      },
-      "title": "PC GAMING CORE i5 12400F | 32G | RTX 3060 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12400F up to 4.4GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3200 MHz",
-        "VGA": "NVIDIA RTX 3060 Ti 8GB GDDR6"
-      },
-      "price": 26000000,
-      "discount": 0.1,
-      "slug": "pc-gaming-core-i5-12400f-32g-rtx-3060-ti"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b123405"
-      },
-      "title": "PC GAMING CORE i3 13100 | 8G | GTX 1660 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i3 13100 up to 4.5GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "NVIDIA GTX 1660 Ti 6GB GDDR5"
-      },
-      "price": 18000000,
-      "discount": 0.08,
-      "slug": "pc-gaming-core-i3-13100-8g-gtx-1660-ti"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b123406"
-      },
-      "title": "PC GAMING CORE i7 12700F | 16G | RTX 3070 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 12700F up to 4.9GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3600 MHz",
-        "VGA": "NVIDIA RTX 3070 Ti 8GB GDDR6"
-      },
-      "price": 33000000,
-      "discount": 0.12,
-      "slug": "pc-gaming-core-i7-12700f-16g-rtx-3070-ti"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b123407"
-      },
-      "title": "PC GAMING CORE i5 13400F | 16G | RTX 3060",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 13400F up to 4.6GHz | 10 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "NVIDIA RTX 3060 12GB GDDR6"
-      },
-      "price": 24000000,
-      "discount": 0.1,
-      "slug": "pc-gaming-core-i5-13400f-16g-rtx-3060"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b123408"
-      },
-      "title": "PC GAMING CORE i9 13900F | 32G | RTX 4090",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i9 13900F up to 5.2GHz | 16 CORE | 24 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3600 MHz",
-        "VGA": "NVIDIA RTX 4090 24GB GDDR6X"
-      },
-      "price": 50000000,
-      "discount": 0.15,
-      "slug": "pc-gaming-core-i9-13900f-32g-rtx-4090"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b123409"
-      },
-      "title": "PC GAMING CORE i7 13700F | 32G | RTX 3060 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 13700F up to 5.0GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3200 MHz",
-        "VGA": "NVIDIA RTX 3060 Ti 8GB GDDR6"
-      },
-      "price": 34000000,
-      "discount": 0.13,
-      "slug": "pc-gaming-core-i7-13700f-32g-rtx-3060-ti"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b12340a"
-      },
-      "title": "PC GAMING CORE i5 12600F | 16G | RTX 3050",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12600F up to 4.8GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "NVIDIA RTX 3050 8GB GDDR6"
-      },
-      "price": 22000000,
-      "discount": 0.1,
-      "slug": "pc-gaming-core-i5-12600f-16g-rtx-3050"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b12340b"
-      },
-      "title": "PC GAMING CORE i9 12900K | 16G | RTX 3080",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i9 12900K up to 5.2GHz | 16 CORE | 24 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3600 MHz",
-        "VGA": "NVIDIA RTX 3080 10GB GDDR6X"
-      },
-      "price": 42000000,
-      "discount": 0.12,
-      "slug": "pc-gaming-core-i9-12900k-16g-rtx-3080"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b12340c"
-      },
-      "title": "PC GAMING CORE i7 11700F | 16G | RTX 3070",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 11700F up to 4.9GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "NVIDIA RTX 3070 8GB GDDR6"
-      },
-      "price": 29000000,
-      "discount": 0.11,
-      "slug": "pc-gaming-core-i7-11700f-16g-rtx-3070"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b12340d"
-      },
-      "title": "PC GAMING CORE i5 13400F | 32G | RTX 4070 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 13400F up to 4.6GHz | 10 CORE | 16 THREAD",
-        "RAM": "DDR4 32GB (2x16G) 3200 MHz",
-        "VGA": "NVIDIA RTX 4070 Ti 8GB GDDR6"
-      },
-      "price": 29000000,
-      "discount": 0.1,
-      "slug": "pc-gaming-core-i5-13400f-32g-rtx-4070-ti"
-    },
-    {
-      "_id": {
-        "$oid": "660b9a2b4f8e3d5a9b12340e"
-      },
-      "title": "PC GAMING CORE i5 12400F | 16G | RTX 3060 Ti",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12400F up to 4.4GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "NVIDIA RTX 3060 Ti 8GB GDDR6"
-      },
-      "price": 25000000,
-      "discount": 0.1,
-      "slug": "pc-gaming-core-i5-12400f-16g-rtx-3060-ti"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef90124d"
-      },
-      "title": "PC VĂN PHÒNG CORE i5 12400 | 8G | SSD 512GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12400 up 4.4GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 730"
-      },
-      "price": 13000000,
-      "discount": 0.07,
-      "slug": "pc-van-phong-core-i5-12400-8g-ssd-512gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef90124e"
-      },
-      "title": "PC VĂN PHÒNG CORE i3 12100 | 8G | SSD 128GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i3 12100 up 4.3GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 2666 MHz",
-        "VGA": "Integrated UHD Graphics 730"
-      },
-      "price": 7500000,
-      "discount": 0.05,
-      "slug": "pc-van-phong-core-i3-12100-8g-ssd-128gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef90124f"
-      },
-      "title": "PC VĂN PHÒNG CORE i7 12700 | 16G | SSD 1TB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 12700 up to 4.9GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 770"
-      },
-      "price": 22000000,
-      "discount": 0.1,
-      "slug": "pc-van-phong-core-i7-12700-16g-ssd-1tb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901250"
-      },
-      "title": "PC VĂN PHÒNG CORE i5 12600 | 16G | SSD 512GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12600 up to 4.8GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 770"
-      },
-      "price": 18000000,
-      "discount": 0.08,
-      "slug": "pc-van-phong-core-i5-12600-16g-ssd-512gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901251"
-      },
-      "title": "PC VĂN PHÒNG CORE i3 13100 | 8G | HDD 1TB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i3 13100 up to 4.5GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 730"
-      },
-      "price": 8500000,
-      "discount": 0.06,
-      "slug": "pc-van-phong-core-i3-13100-8g-hdd-1tb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901252"
-      },
-      "title": "PC VĂN PHÒNG CORE i5 11400 | 8G | SSD 256GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 11400 up to 4.4GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 730"
-      },
-      "price": 12000000,
-      "discount": 0.07,
-      "slug": "pc-van-phong-core-i5-11400-8g-ssd-256gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901253"
-      },
-      "title": "PC VĂN PHÒNG CORE i7 13700 | 16G | SSD 1TB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 13700 up to 5.0GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 770"
-      },
-      "price": 25000000,
-      "discount": 0.12,
-      "slug": "pc-van-phong-core-i7-13700-16g-ssd-1tb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901254"
-      },
-      "title": "PC VĂN PHÒNG CORE i3 12100 | 8G | SSD 256GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i3 12100 up to 4.3GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 730"
-      },
-      "price": 9500000,
-      "discount": 0.05,
-      "slug": "pc-van-phong-core-i3-12100-8g-ssd-256gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901255"
-      },
-      "title": "PC VĂN PHÒNG CORE i5 12500 | 16G | SSD 512GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12500 up to 4.6GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 770"
-      },
-      "price": 16000000,
-      "discount": 0.09,
-      "slug": "pc-van-phong-core-i5-12500-16g-ssd-512gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901256"
-      },
-      "title": "PC VĂN PHÒNG CORE i7 11700 | 8G | SSD 256GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 11700 up to 4.9GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 750"
-      },
-      "price": 17000000,
-      "discount": 0.08,
-      "slug": "pc-van-phong-core-i7-11700-8g-ssd-256gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901257"
-      },
-      "title": "PC VĂN PHÒNG CORE i3 13100 | 8G | SSD 512GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i3 13100 up to 4.5GHz | 4 CORE | 8 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 730"
-      },
-      "price": 10500000,
-      "discount": 0.06,
-      "slug": "pc-van-phong-core-i3-13100-8g-ssd-512gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901258"
-      },
-      "title": "PC VĂN PHÒNG CORE i7 12700 | 16G | SSD 256GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 12700 up to 4.9GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 770"
-      },
-      "price": 21000000,
-      "discount": 0.11,
-      "slug": "pc-van-phong-core-i7-12700-16g-ssd-256gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901259"
-      },
-      "title": "PC VĂN PHÒNG CORE i5 11400 | 8G | SSD 128GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 11400 up to 4.4GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 8GB (1x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 730"
-      },
-      "price": 9500000,
-      "discount": 0.05,
-      "slug": "pc-van-phong-core-i5-11400-8g-ssd-128gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901260"
-      },
-      "title": "PC VĂN PHÒNG CORE i5 12600 | 16G | SSD 256GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i5 12600 up to 4.8GHz | 6 CORE | 12 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 770"
-      },
-      "price": 17500000,
-      "discount": 0.08,
-      "slug": "pc-van-phong-core-i5-12600-16g-ssd-256gb"
-    },
-    {
-      "_id": {
-        "$oid": "65f2abcd12345678ef901261"
-      },
-      "title": "PC VĂN PHÒNG CORE i7 13700 | 16G | SSD 512GB",
-      "product_category_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "description": {
-        "CPU": "INTEL CORE i7 13700 up to 5.0GHz | 8 CORE | 16 THREAD",
-        "RAM": "DDR4 16GB (2x8G) 3200 MHz",
-        "VGA": "Integrated UHD Graphics 770"
-      },
-      "price": 24000000,
-      "discount": 0.1,
-      "slug": "pc-van-phong-core-i7-13700-16g-ssd-512gb"
+      "brand": "MSI",
+      "slug": "laptop-msi-creator-m16-hx-c14vfg-040vn",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/ava_25460ee3a28147a2b15a774f6035ee98_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024__1__389c660e3b0347059bb51da01de4c1de_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024__2__34b618d746df464d9e6c991bfc23bab7_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024__2__34b618d746df464d9e6c991bfc23bab7_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024__3__3a8cef647e9340ea94e231f764232d62_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024__4__4023a88a25bd474c896c86c3fcf8ebfe_1024x1024.png",
+        "https://product.hstatic.net/200000722513/product/1024_997277b1fa94401893e37e032814f346_1024x1024.png"
+      ]
     }
   ],
-  "product_category": [
+  "brands": [
     {
-      "_id": {
-        "$oid": "65ef1234abcd5678ef901234"
-      },
-      "title": "PC Thiết Kế Đồ Họa 3D",
-      "slug": "pc-thiet-ke-do-hoa-3d"
+      "id": 1,
+      "name": "ASUS",
+      "slug": "asus"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef345678"
-      },
-      "title": "PC Render, Edit Video",
-      "slug": "pc-render-edit-video"
+      "id": 2,
+      "name": "ACER",
+      "slug": "acer"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef345679"
-      },
-      "title": "Phần mềm bản quyền",
-      "slug": "phan-mem-ban-quyen"
+      "id": 3,
+      "name": "MSI",
+      "slug": "msi"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef34567a"
-      },
-      "title": "PC Đẹp",
-      "slug": "pc-dep"
+      "id": 4,
+      "name": "LENOVO",
+      "slug": "lenovo"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef34567b"
-      },
-      "title": "PC Gaming",
-      "slug": "pc-gaming"
+      "id": 5,
+      "name": "DELL",
+      "slug": "dell"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef34567c"
-      },
-      "title": "PC Văn Phòng",
-      "slug": "pc-van-phong"
+      "id": 6,
+      "name": "HP - Pavilion",
+      "slug": "hp-pavilion"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef34567d"
-      },
-      "title": "Màn hình máy tính",
-      "slug": "man-hinh-may-tinh"
+      "id": 7,
+      "name": "LG - Gram",
+      "slug": "lg-gram"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "slug": "laptop"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef34567e"
-      },
-      "title": "Machine Learning / AI",
-      "slug": "machine-learning-ai"
+      "id": 2,
+      "name": "Laptop Gaming",
+      "slug": "laptop-gaming"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef34567f"
-      },
-      "title": "Laptop Notebook",
-      "slug": "laptop-notebook"
+      "id": 3,
+      "name": "PC GVN",
+      "slug": "pc-gvn"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef345680"
-      },
-      "title": "Linh kiện máy tính",
-      "slug": "linh-kien-may-tinh"
+      "id": 4,
+      "name": "Main, CPU, VGA",
+      "slug": "main-cpu-vga"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef345681"
-      },
-      "title": "Tản nhiệt",
-      "slug": "tan-nhiet"
+      "id": 5,
+      "name": "Case, Nguồn, Tản",
+      "slug": "case-nguon-tan"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef345682"
-      },
-      "title": "HDD-SSD-NAS",
-      "slug": "hdd-ssd-nas"
+      "id": 6,
+      "name": "Ổ cứng, RAM, Thẻ nhớ",
+      "slug": "o-cung-ram-thenho"
     },
     {
-      "_id": {
-        "$oid": "65ef5678abcd9012ef345683"
-      },
-      "title": "Gaming Gear",
-      "slug": "gaming-gear"
+      "id": 7,
+      "name": "Loa, Micro, Webcam",
+      "slug": "loa-micro-webcam"
     },
     {
-      "_id": {
-        "$oid": "huy"
-      },
-      "title": "DuongHoangHuy",
-      "slug": "DuongHoangHuy",
-      "id": "09f3"
+      "id": 8,
+      "name": "Màn hình",
+      "slug": "man-hinh"
+    },
+    {
+      "id": 9,
+      "name": "Bàn phím",
+      "slug": "ban-phim"
+    },
+    {
+      "id": 10,
+      "name": "Chuột + Lót chuột",
+      "slug": "chuot-lot-chuot"
+    },
+    {
+      "id": 11,
+      "name": "Tai Nghe",
+      "slug": "tai-nghe"
     }
   ],
   "orders": [
     {
-      "_id": {
-        "$oid": "67d240c2af1150e0403e78d8"
-      },
-      "userInfo": {
-        "user_id": {
-          "$oid": "67d23e4a8dfcc45cf323618d"
-        },
-        "fullName": "Karen",
-        "phone": "0987654321",
-        "address": "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
-        "note": "",
-        "email": "elaina17102004@gmail.com"
-      },
+      "id": "HD060420250002",
+      "customer_id": 1,
       "products": [
         {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124c"
-          },
-          "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
-          "unitPrice": 12320000,
-          "quanlity": 2,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d240c2af1150e0403e78d9"
-          }
+          "id": 1,
+          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
+          "quantity": 1,
+          "price": 24490000,
+          "discount": 0.09
         },
         {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901248"
-          },
-          "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
-          "unitPrice": 22500000,
-          "quanlity": 3,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d240c2af1150e0403e78da"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901249"
-          },
-          "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
-          "unitPrice": 33250000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d240c2af1150e0403e78db"
-          }
+          "id": 2,
+          "title": "Laptop ASUS ZenBook 14 UX425EA",
+          "quantity": 1,
+          "price": 28400000,
+          "discount": 0.07
         }
       ],
-      "totalPrice": 125390000,
-      "__v": 0
+      "total_price": 45713000,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-06T10:30:00Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
+      }
     },
     {
-      "_id": {
-        "$oid": "67d240d3af1150e0403e78e5"
-      },
-      "userInfo": {
-        "user_id": {
-          "$oid": "67d23e4a8dfcc45cf323618d"
-        },
-        "fullName": "Karen",
-        "phone": "0987654321",
-        "address": "Number 12 Nguyen Van Bao, Ward 4, Go Vap District, Ho Chi Minh City.",
-        "note": "",
-        "email": "elaina17102004@gmail.com"
-      },
+      "id": "HD060420250003",
+      "customer_id": 1,
       "products": [
         {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901240"
-          },
-          "name": "Microsoft Office 365 - Bản Quyền 1 Năm",
-          "unitPrice": 1200000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d240d3af1150e0403e78e6"
-          }
+          "id": 3,
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
         }
       ],
-      "totalPrice": 1200000,
-      "__v": 0
+      "total_price": 24641500,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-06T11:00:00Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
+      }
     },
     {
-      "_id": {
-        "$oid": "67d82715d6b260d20605d332"
-      },
-      "userInfo": {
-        "user_id": {
-          "$oid": "67d53854b6286d27db0e4b91"
-        },
-        "fullName": "Nguyễn Thị Mỹ Hoa ",
-        "phone": "0987654321",
-        "address": "tp HCM, quận Gò Vấp, 12 Nguyễn Văn Bảo Phường 4",
-        "note": "Để trước cửa nhà",
-        "email": "hoanguyen.15042000@gmail.com"
-      },
+      "id": "HD060420250004",
+      "customer_id": 1,
       "products": [
         {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901249"
-          },
-          "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
-          "unitPrice": 33250000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d82715d6b260d20605d333"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124b"
-          },
-          "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
-          "unitPrice": 67500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d82715d6b260d20605d334"
-          }
+          "id": 4,
+          "title": "PC GVN Intel i5-13400F",
+          "quantity": 1,
+          "price": 15990000,
+          "discount": 0.08
         }
       ],
-      "totalPrice": 100750000,
-      "__v": 0
+      "total_price": 14712000,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-06T12:00:00Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
+      }
     },
     {
-      "_id": {
-        "$oid": "67d8461856788f78ec214ed7"
-      },
-      "userInfo": {
-        "user_id": {
-          "$oid": "67d8457956788f78ec214eca"
-        },
-        "fullName": "Phạm Minh Hiếu",
-        "phone": "0378995155",
-        "address": "Hồ Chí Minh",
-        "note": "123",
-        "email": "22693491.hieu@student.iuh.edu.vn"
-      },
+      "id": "HD060420250005",
+      "customer_id": 1,
       "products": [
         {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124c"
-          },
-          "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
-          "unitPrice": 12320000,
-          "quanlity": 4,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d8461856788f78ec214ed8"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901249"
-          },
-          "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
-          "unitPrice": 33250000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d8461856788f78ec214ed9"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124a"
-          },
-          "name": "PC GAMING CORE i7 12700K | 32G | RTX 3080 Ti",
-          "unitPrice": 41400000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d8461856788f78ec214eda"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124b"
-          },
-          "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
-          "unitPrice": 67500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d8461856788f78ec214edb"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901248"
-          },
-          "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
-          "unitPrice": 22500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d8461856788f78ec214edc"
-          }
+          "id": 5,
+          "title": "Mainboard ASUS ROG Strix Z790-E",
+          "quantity": 1,
+          "price": 10990000,
+          "discount": 0.05
         }
       ],
-      "totalPrice": 213930000,
-      "__v": 0
+      "total_price": 10440500,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-06T13:00:00Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
+      }
     },
     {
-      "_id": {
-        "$oid": "67d92595d6c9dd77192f0ab5"
-      },
-      "userInfo": {
-        "user_id": {
-          "$oid": "67d0fbcd31bce9119708f304"
-        },
-        "fullName": "Xuân Hồ",
-        "phone": "0985252104",
-        "address": "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
-        "note": "Dong goi can than",
-        "email": "mayman1710@gmail.com"
-      },
+      "id": "HD060420250006",
+      "customer_id": 1,
       "products": [
         {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901249"
-          },
-          "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
-          "unitPrice": 33250000,
-          "quanlity": 3,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d92595d6c9dd77192f0ab6"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124a"
-          },
-          "name": "PC GAMING CORE i7 12700K | 32G | RTX 3080 Ti",
-          "unitPrice": 41400000,
-          "quanlity": 4,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d92595d6c9dd77192f0ab7"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124c"
-          },
-          "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
-          "unitPrice": 12320000,
-          "quanlity": 3,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d92595d6c9dd77192f0ab8"
-          }
+          "id": 6,
+          "title": "Case Cooler Master MasterBox TD500",
+          "quantity": 1,
+          "price": 2490000,
+          "discount": 0.10
         }
       ],
-      "totalPrice": 302310000,
-      "__v": 0
+      "total_price": 2241000,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-06T14:00:00Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
+      }
     },
     {
-      "_id": {
-        "$oid": "67d9385d55fc5d4f084a8326"
-      },
-      "userInfo": {
-        "user_id": "userVangLai",
-        "fullName": "Hồ Nguyễn Xuân",
-        "phone": "0985252104",
-        "address": "Number 12 Nguyen Van Bao, Ward 4, Go Vap District, Ho Chi Minh City.",
-        "note": "123123",
-        "email": "123mia@gmail.com"
-      },
+      "id": "HD060420250007",
+      "customer_id": 1,
       "products": [
         {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901248"
-          },
-          "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
-          "unitPrice": 22500000,
-          "quanlity": 2,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d9385d55fc5d4f084a8327"
-          }
+          "id": 7,
+          "title": "SSD Samsung 990 Pro 1TB",
+          "quantity": 1,
+          "price": 3990000,
+          "discount": 0.07
         }
       ],
-      "totalPrice": 45000000,
-      "__v": 0
+      "total_price": 3710700,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-06T15:00:00Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
+      }
     },
     {
-      "_id": {
-        "$oid": "67d938b855fc5d4f084a8332"
-      },
-      "userInfo": {
-        "user_id": "userVangLai",
-        "fullName": "Hồ Nguyễn Xuân",
-        "phone": "0985252104",
-        "address": "Number 12 Nguyen Van Bao, Ward 4, Go Vap District, Ho Chi Minh City.",
-        "note": "123123",
-        "email": "mayman1710@gmail.com"
-      },
+      "id": "HD060420250008",
+      "customer_id": 1,
       "products": [
         {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901270"
-          },
-          "name": "CHUỘT LOGITECH G Pro X Superlight",
-          "unitPrice": 3150000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d938b855fc5d4f084a8333"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901273"
-          },
-          "name": "LÓT CHUỘT STEELSERIES QcK Prism RGB",
-          "unitPrice": 1395000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d938b855fc5d4f084a8334"
-          }
+          "id": 8,
+          "title": "Loa Bluetooth JBL Flip 6",
+          "quantity": 1,
+          "price": 2990000,
+          "discount": 0.20
         }
       ],
-      "totalPrice": 4545000,
-      "__v": 0
+      "total_price": 2392000,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-06T16:00:00Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
+      }
     },
     {
-      "_id": {
-        "$oid": "67d938cc55fc5d4f084a833f"
-      },
-      "userInfo": {
-        "user_id": "67d0fbcd31bce9119708f304",
-        "fullName": "Xuân Hồ",
-        "phone": "0985252104",
-        "address": "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
-        "note": "",
-        "email": "mayman1710@gmail.com"
-      },
+      "id": "HD060420250009",
+      "customer_id": 1,
       "products": [
         {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124c"
-          },
-          "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
-          "unitPrice": 12320000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d938cc55fc5d4f084a8340"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124b"
-          },
-          "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
-          "unitPrice": 67500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d938cc55fc5d4f084a8341"
-          }
+          "id": 9,
+          "title": "Màn hình Dell UltraSharp U2723QE 27 inch",
+          "quantity": 1,
+          "price": 13990000,
+          "discount": 0.06
         }
       ],
-      "totalPrice": 79820000,
-      "__v": 0
+      "total_price": 13140600,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-06T17:00:00Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
+      }
     },
     {
-      "_id": {
-        "$oid": "67d93938a88283b9a9ee542b"
-      },
-      "userInfo": {
-        "user_id": "userVangLai",
-        "fullName": "Hồ Nguyễn Xuân",
-        "phone": "0985252104",
-        "address": "Number 12 Nguyen Van Bao, Ward 4, Go Vap District, Ho Chi Minh City.",
-        "note": "123123",
-        "email": "mayman1710@gmail.com"
-      },
+      "id": "HD060420250010",
+      "customer_id": 1,
       "products": [
         {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901248"
-          },
-          "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
-          "unitPrice": 22500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d93938a88283b9a9ee542c"
-          }
+          "id": 10,
+          "title": "Bàn phím cơ Logitech G Pro X",
+          "quantity": 1,
+          "price": 3490000,
+          "discount": 0.15
         }
       ],
-      "totalPrice": 22500000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67d940a5a88283b9a9ee543c"
-      },
-      "userInfo": {
-        "user_id": "userVangLai",
-        "fullName": "Hồ Nguyễn Xuân",
-        "phone": "0985252104",
-        "address": "Number 12 Nguyen Van Bao, Ward 4, Go Vap District, Ho Chi Minh City.",
-        "note": "",
-        "email": "mayman1710@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901255"
-          },
-          "name": "MÀN HÌNH ASUS TUF Gaming 24 inch 165Hz",
-          "unitPrice": 4400000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d940a5a88283b9a9ee543d"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901256"
-          },
-          "name": "MÀN HÌNH ACER Nitro 27 inch 2K 144Hz",
-          "unitPrice": 7200000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d940a5a88283b9a9ee543e"
-          }
-        }
-      ],
-      "totalPrice": 11600000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67d943b9bc5be7b095721c86"
-      },
-      "userInfo": {
-        "user_id": "67d0fbcd31bce9119708f304",
-        "fullName": "Xuân Hồ",
-        "phone": "0985252104",
-        "address": "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
-        "note": "",
-        "email": "mayman1710@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124b"
-          },
-          "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
-          "unitPrice": 67500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d943b9bc5be7b095721c87"
-          }
-        }
-      ],
-      "totalPrice": 67500000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67d975d6778190df0d3de553"
-      },
-      "userInfo": {
-        "user_id": "67d53854b6286d27db0e4b91",
-        "fullName": "Nguyễn Thị Mỹ Hoa ",
-        "phone": "0963059030",
-        "address": "tp HCM, quận Gò Vấp, 12 Nguyễn Văn Bảo Phường 4",
-        "note": "",
-        "email": "hoanguyen.15042000@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901250"
-          },
-          "name": "PC VĂN PHÒNG RYZEN 3 4100 | 8G | SSD 256GB",
-          "unitPrice": 6800000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d975d6778190df0d3de554"
-          }
-        }
-      ],
-      "totalPrice": 6800000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67d9799d778190df0d3de574"
-      },
-      "userInfo": {
-        "user_id": "67d53854b6286d27db0e4b91",
-        "fullName": "Nguyễn Thị Mỹ Hoa ",
-        "phone": "0963059030",
-        "address": "tp HCM, quận Gò Vấp, 12 Nguyễn Văn Bảo Phường 4",
-        "note": "giao trong 30p",
-        "email": "hoanguyen.15042000@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124c"
-          },
-          "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
-          "unitPrice": 12320000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d9799d778190df0d3de575"
-          }
-        }
-      ],
-      "totalPrice": 12320000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67d99a327ad790797452b8c1"
-      },
-      "userInfo": {
-        "user_id": "userVangLai",
-        "fullName": "Phạm Minh Hiếu",
-        "phone": "0123456789",
-        "address": "Hồ Chí Minh",
-        "note": "Vận Chuyển Nhẹ Nhàng",
-        "email": "22693491.hieu@student.iuh.edu.vn"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124c"
-          },
-          "name": "PC GAMING CORE i3 12100F | 8G | GTX 1660 Super",
-          "unitPrice": 12320000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d99a327ad790797452b8c2"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901248"
-          },
-          "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
-          "unitPrice": 22500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d99a327ad790797452b8c3"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901249"
-          },
-          "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
-          "unitPrice": 33250000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d99a327ad790797452b8c4"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124b"
-          },
-          "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
-          "unitPrice": 67500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d99a327ad790797452b8c5"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124a"
-          },
-          "name": "PC GAMING CORE i7 12700K | 32G | RTX 3080 Ti",
-          "unitPrice": 41400000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67d99a327ad790797452b8c6"
-          }
-        }
-      ],
-      "totalPrice": 176970000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67da6208a25ea8dfcd31d48d"
-      },
-      "userInfo": {
-        "user_id": {
-          "$oid": "67da61d8a25ea8dfcd31d487"
-        },
-        "fullName": "Huỳnh Lệ Hoan",
-        "phone": "0931481507",
-        "address": "TPHCM",
-        "note": "",
-        "email": "huynhlehoan151@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901248"
-          },
-          "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
-          "unitPrice": 22500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67da6208a25ea8dfcd31d48e"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901249"
-          },
-          "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
-          "unitPrice": 33250000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67da6208a25ea8dfcd31d48f"
-          }
-        }
-      ],
-      "totalPrice": 55750000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67daa2fcbf0ca9e6c2db866d"
-      },
-      "userInfo": {
-        "user_id": "userVangLai",
-        "fullName": "Phạm Minh Hiếu",
-        "phone": "123456789",
-        "address": "Hồ Chí Minh",
-        "note": "123",
-        "email": "22693491.hieu@student.iuh.edu.vn"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901248"
-          },
-          "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
-          "unitPrice": 22500000,
-          "quanlity": 3,
-          "status": "pending",
-          "_id": {
-            "$oid": "67daa2fcbf0ca9e6c2db866e"
-          }
-        }
-      ],
-      "totalPrice": 67500000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67dae36c20d6f42937c8b9ca"
-      },
-      "userInfo": {
-        "user_id": "67d0fbcd31bce9119708f304",
-        "fullName": "Xuân Hồ",
-        "phone": "0985252104",
-        "address": "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
-        "note": "",
-        "email": "mayman1710@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901248"
-          },
-          "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
-          "unitPrice": 22500000,
-          "quanlity": 2,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dae36c20d6f42937c8b9cb"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901249"
-          },
-          "name": "PC GAMING RYZEN 5 7600X | 32G | RX 7800 XT",
-          "unitPrice": 33250000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dae36c20d6f42937c8b9cc"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90126c"
-          },
-          "name": "HDD WD Blue 2TB 3.5 inch",
-          "unitPrice": 1425000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dae36c20d6f42937c8b9cd"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90126d"
-          },
-          "name": "SSD KINGSTON NV2 2TB NVMe",
-          "unitPrice": 4140000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dae36c20d6f42937c8b9ce"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901238"
-          },
-          "name": "PC ĐỒ HỌA CORE i5 13400F | 16G | NVIDIA RTX 3060 12G",
-          "unitPrice": 19360000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dae36c20d6f42937c8b9cf"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901209"
-          },
-          "name": "PC WORKSTATION CORE i7 13700K | 64G | NVIDIA RTX A2000 12G",
-          "unitPrice": 60449999.99999999,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dae36c20d6f42937c8b9d0"
-          }
-        }
-      ],
-      "totalPrice": 163625000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67dbb0fda86dac51cb226d19"
-      },
-      "userInfo": {
-        "user_id": {
-          "$oid": "67dbabd4a86dac51cb226ce4"
-        },
-        "fullName": "Trần Đình ",
-        "phone": "0123123123",
-        "address": "ttt",
-        "note": "ttt",
-        "email": "hoanvg78@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901239"
-          },
-          "name": "PC RENDER CORE i9 12900K | 64G | NVIDIA RTX 3090 24G",
-          "unitPrice": 58500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dbb0fda86dac51cb226d1a"
-          }
-        }
-      ],
-      "totalPrice": 58500000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67dbb106e01bbdae11b1ba7a"
-      },
-      "userInfo": {
-        "user_id": {
-          "$oid": "67da61d8a25ea8dfcd31d487"
-        },
-        "fullName": "Huỳnh Lệ Hoan",
-        "phone": "0938689730",
-        "address": "TPHCM",
-        "note": "",
-        "email": "huynhlehoan151@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901240"
-          },
-          "name": "Microsoft Office 365 - Bản Quyền 1 Năm",
-          "unitPrice": 1200000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dbb106e01bbdae11b1ba7b"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901248"
-          },
-          "name": "PC GAMING CORE i5 13400F | 16G | RTX 4060 Ti",
-          "unitPrice": 22500000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dbb106e01bbdae11b1ba7c"
-          }
-        }
-      ],
-      "totalPrice": 23700000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67dbb402e01bbdae11b1ba98"
-      },
-      "userInfo": {
-        "user_id": {
-          "$oid": "67da61d8a25ea8dfcd31d487"
-        },
-        "fullName": "Huỳnh Lệ Hoan",
-        "phone": "0338493072",
-        "address": "TPHCM",
-        "note": "",
-        "email": "huynhlehoan151@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90123b"
-          },
-          "name": "PC RENDER CORE i7 12700F | 32G | NVIDIA RTX 3060 Ti",
-          "unitPrice": 27600000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dbb402e01bbdae11b1ba99"
-          }
-        }
-      ],
-      "totalPrice": 27600000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67dcd17298f64d3614fec611"
-      },
-      "userInfo": {
-        "user_id": "userVangLai",
-        "fullName": "Trần Đình Hoan",
-        "phone": "0336207643",
-        "address": "Khánh Hòa",
-        "note": "ttt",
-        "email": "hoanvg78@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90123a"
-          },
-          "name": "PC RENDER RYZEN 7 7700X | 32G | AMD RX 7900 XT",
-          "unitPrice": 42750000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dcd17298f64d3614fec612"
-          }
-        }
-      ],
-      "totalPrice": 42750000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67dcd41198f64d3614fec619"
-      },
-      "userInfo": {
-        "user_id": "userVangLai",
-        "fullName": "aaaa",
-        "phone": "aaaa",
-        "address": "aaaa",
-        "note": "aaaa",
-        "email": "aaaa"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90123b"
-          },
-          "name": "PC RENDER CORE i7 12700F | 32G | NVIDIA RTX 3060 Ti",
-          "unitPrice": 27600000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dcd41198f64d3614fec61a"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90123c"
-          },
-          "name": "PC RENDER RYZEN 5 5600X | 16G | NVIDIA RTX 3050 8G",
-          "unitPrice": 18000000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dcd41198f64d3614fec61b"
-          }
-        }
-      ],
-      "totalPrice": 45600000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67dcdef898f64d3614fec625"
-      },
-      "userInfo": {
-        "user_id": "userVangLai",
-        "fullName": "Trần Đình Hoan",
-        "phone": "0336207643",
-        "address": "Khánh Hòa",
-        "note": "aaa",
-        "email": "hoanvg78@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901237"
-          },
-          "name": "PC ĐỒ HỌA RYZEN 9 5900X | 32G | NVIDIA RTX 3070 8G",
-          "unitPrice": 32300000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dcdef898f64d3614fec626"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901236"
-          },
-          "name": "PC ĐỒ HỌA CORE i9 13900K | 64G | NVIDIA RTX 4080 16G",
-          "unitPrice": 50600000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dcdef898f64d3614fec627"
-          }
-        }
-      ],
-      "totalPrice": 82900000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67dd4218ab2fee10cc747949"
-      },
-      "userInfo": {
-        "user_id": "67d8457956788f78ec214eca",
-        "fullName": "Phạm Minh Hiếu",
-        "phone": "0123456789",
-        "address": "Hồ Chí Minh",
-        "note": "Vận Chuyển Nhẹ Nhàng",
-        "email": "22693491.hieu@student.iuh.edu.vn"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90124b"
-          },
-          "name": "PC GAMING RYZEN 9 7950X | 64G | RTX 4090",
-          "unitPrice": 67500000,
-          "quanlity": 2,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dd4218ab2fee10cc74794a"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef90125e"
-          },
-          "name": "LAPTOP MSI Katana 15 | i7 13620H | 16G | RTX 4060",
-          "unitPrice": 30400000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dd4218ab2fee10cc74794b"
-          }
-        }
-      ],
-      "totalPrice": 165400000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67dd8d3bb013e30369b52d2b"
-      },
-      "userInfo": {
-        "user_id": "67d8457956788f78ec214eca",
-        "fullName": "Phạm Minh Hiếu",
-        "phone": "0378995155",
-        "address": "Hồ Chí Minh",
-        "note": "",
-        "email": "22693491.hieu@student.iuh.edu.vn"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901243"
-          },
-          "name": "PC ĐẸP CORE i5 12400F | 16G | RTX 3060 | CASE KÍNH RGB",
-          "unitPrice": 20700000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dd8d3bb013e30369b52d2c"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901244"
-          },
-          "name": "PC ĐẸP RYZEN 5 5600G | 16G | CASE TRẮNG LED",
-          "unitPrice": 14250000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dd8d3bb013e30369b52d2d"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901245"
-          },
-          "name": "PC ĐẸP CORE i7 13700K | 32G | RTX 4070 | CASE RGB FULL",
-          "unitPrice": 38640000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dd8d3bb013e30369b52d2e"
-          }
-        }
-      ],
-      "totalPrice": 73590000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67dd8e5db013e30369b52d47"
-      },
-      "userInfo": {
-        "user_id": "67d8457956788f78ec214eca",
-        "fullName": "Phạm Minh Hiếu",
-        "phone": "0378995155",
-        "address": "Hồ Chí Minh",
-        "note": "Vận Chuyển Nhanh",
-        "email": "22693491.hieu@student.iuh.edu.vn"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901236"
-          },
-          "name": "PC ĐỒ HỌA CORE i9 13900K | 64G | NVIDIA RTX 4080 16G",
-          "unitPrice": 50600000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67dd8e5db013e30369b52d48"
-          }
-        }
-      ],
-      "totalPrice": 50600000,
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67de4d706f6149dc41f2f77d"
-      },
-      "userInfo": {
-        "user_id": "67dbabd4a86dac51cb226ce4",
-        "fullName": "Trần Đình ",
-        "phone": "0336207643",
-        "address": "Khánh Hòa",
-        "note": "12321",
-        "email": "hoanvg78@gmail.com"
-      },
-      "products": [
-        {
-          "product_id": {
-            "$oid": "63efabcd92750175ef901238"
-          },
-          "name": "PC Gaming Ryzen 7 5800X | 32G | AMD RX 6800XT 16G",
-          "unitPrice": 26320000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67de4d706f6149dc41f2f77e"
-          }
-        },
-        {
-          "product_id": {
-            "$oid": "65efabcd12345678ef901234"
-          },
-          "name": "PC ĐỒ HỌA CORE i7 13700K | 32G | NVIDIA RTX 4070 12G",
-          "unitPrice": 33250000,
-          "quanlity": 1,
-          "status": "pending",
-          "_id": {
-            "$oid": "67de4d706f6149dc41f2f77f"
-          }
-        }
-      ],
-      "totalPrice": 59570000,
-      "__v": 0
+      "total_price": 2966500,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-06T18:00:00Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
+      }
     }
   ],
   "users": [
     {
-      "_id": {
-        "$oid": "67d0f8866317ef0131b37e1d"
-      },
-      "fullname": "Hồ Nguyễn Xuân",
+      "id": 1,
+      "fullname": "Trần Ngọc Huyền",
       "address": [
-        "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
-        "Đồng Nai, Vĩnh Cử, 830D tổ 18 ấp 9"
+        "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM",
+        "25/3 Võ Thị Sáu, Phường 2, Bảo Lộc, Lâm Đồng"
       ],
-      "email": "xuanhodcbas@gmail.com",
+      "email": "tranngochuyenn1909@gmail.com",
       "password": "4297f44b13955235245b2497399d7a93",
-      "token": "mzyXwLWHnZfgpMQF4IEM",
-      "__v": 0,
-      "phone": "0987654321"
-    },
-    {
-      "_id": {
-        "$oid": "67d0fbcd31bce9119708f304"
-      },
-      "fullname": "Xuân Hồ",
-      "address": [
-        "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3"
-      ],
-      "email": "mayman1710@gmail.com",
-      "password": "f5bb0c8de146c67b44babbf4e6584cc0",
-      "token": "lKYyCRYLnlYbwqMtS5QT",
-      "__v": 0,
-      "phone": "0985252104"
-    },
-    {
-      "_id": {
-        "$oid": "67d23e4a8dfcc45cf323618d"
-      },
-      "fullname": "Karen",
-      "address": [
-        "Hồ Chí Minh, Gò Vấp, 860A tổ 12 ấp 3",
-        "Đồng Nai, Vĩnh Cửu, 903A tổ 16 ấp 8"
-      ],
-      "email": "elaina17102004@gmail.com",
-      "password": "4297f44b13955235245b2497399d7a93",
-      "token": "7kWAjxgrjlnlNKclTGt9",
-      "__v": 0,
-      "phone": "0987654321"
-    },
-    {
-      "_id": {
-        "$oid": "67d53854b6286d27db0e4b91"
-      },
-      "fullname": "Nguyễn Thị Mỹ Hoa ",
-      "address": [
-        "tp HCM, quận Gò Vấp, 12 Nguyễn Văn Bảo Phường 4"
-      ],
-      "email": "hoanguyen.15042000@gmail.com",
-      "password": "e10adc3949ba59abbe56e057f20f883e",
-      "token": "j0PaSUiLNA0xW6wfcAC8",
-      "__v": 0
-    },
-    {
-      "_id": {
-        "$oid": "67d8457956788f78ec214eca"
-      },
-      "fullname": "Phạm Minh Hiếu",
-      "address": [
-        "TPHCM, Gò Vấp, 0123456789"
-      ],
-      "email": "22693491.hieu@student.iuh.edu.vn",
-      "password": "81dc9bdb52d04dc20036dbd8313ed055",
-      "token": "0Vj8TxrDKx6xilLXEbF5",
-      "__v": 0,
-      "phone": "0378995155"
-    },
-    {
-      "_id": {
-        "$oid": "67da61d8a25ea8dfcd31d487"
-      },
-      "fullname": "Huỳnh Lệ Hoan",
-      "address": [
-        "TPHCM, Gò Vấp, 12 NVB"
-      ],
-      "email": "huynhlehoan151@gmail.com",
-      "password": "77752b804cdb66ac58834b19c684bf6c",
-      "token": "UPEldoXjlzGSYwmDPdwV",
-      "__v": 0,
-      "phone": "0338493072"
-    },
-    {
-      "_id": {
-        "$oid": "67dbabd4a86dac51cb226ce4"
-      },
-      "fullname": "Trần Đình ",
-      "address": [],
-      "email": "hoanvg78@gmail.com",
-      "password": "f5bb0c8de146c67b44babbf4e6584cc0",
-      "token": "0JenNyjDua3qXahWxkyF",
-      "__v": 0
+      "phone": "0964424149"
     }
   ]
 }

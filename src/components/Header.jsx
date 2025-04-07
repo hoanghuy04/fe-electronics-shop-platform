@@ -1,36 +1,62 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Dropdown, Menu, Input, Button } from 'antd';
-import { SearchOutlined, PhoneOutlined, ShoppingCartOutlined, UserOutlined, DownOutlined, MenuOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from "react";
+// import { useSelector } from "react-redux";
+import { Dropdown, Menu, Input, Button, Modal } from "antd";
+import {
+  SearchOutlined,
+  PhoneOutlined,
+  ShoppingCartOutlined,
+  UserOutlined,
+  DownOutlined,
+  MenuOutlined,
+} from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import { useCart } from "../hooks/useCart";
+import CartNotification from "./CartNotification";
+import CartMini from "./CartMini";
 
 const { Search } = Input;
 
 const items = [
   {
     label: (
-      <a href="https://www.antgroup.com" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://www.antgroup.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Điện tử
       </a>
     ),
-    key: '0',
+    key: "0",
   },
   {
     label: (
-      <a href="https://www.aliyun.com" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://www.aliyun.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Lorem ipsum dolor sit, amet consectetur adipisicing el
       </a>
     ),
-    key: '1',
+    key: "1",
   },
   {
-    label: 'Sách',
-    key: '3',
+    label: "Sách",
+    key: "3",
   },
 ];
 
 const Header = () => {
-  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const { totalItem, justAdded } = useCart();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    if (!justAdded) return;
+    setProduct(justAdded);
+    const timer = setTimeout(() => setProduct(null), 1500);
+    return () => clearTimeout(timer);
+  }, [justAdded]);
 
   return (
     <header className="shadow-lg py-4 sticky top-0 z-10 bg-blue-500">
@@ -45,7 +71,7 @@ const Header = () => {
         {/* Dropdown "Danh mục" */}
         <Dropdown
           menu={{ items }}
-          trigger={['click']}
+          trigger={["click"]}
           overlayClassName="bg-white shadow-md rounded-md border border-gray-200"
           placement="bottomRight"
         >
@@ -85,16 +111,14 @@ const Header = () => {
         </Link>
 
         {/* Giỏ hàng */}
-        <Link
-          to="/cart"
-          className="flex items-center hover:text-blue-600 font-medium text-lg transition-colors duration-200"
-        >
-          <ShoppingCartOutlined className="mr-2 text-xl" />
-          <span>Giỏ hàng</span>
-        </Link>
+
+        <div className="relative">
+          <CartMini />
+          {product != null && <CartNotification product={product} />}
+        </div>
 
         {/* Tên user */}
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? (
           <div className="flex items-center text-gray-800 font-medium text-lg">
             <UserOutlined className="mr-2 text-xl" />
             <span className="truncate max-w-[120px]">{user?.username}</span>
@@ -107,7 +131,7 @@ const Header = () => {
             <UserOutlined className="mr-2 text-xl" />
             <span>Đăng nhập</span>
           </Link>
-        )}
+        )} */}
       </div>
     </header>
   );

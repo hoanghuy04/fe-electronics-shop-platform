@@ -1,51 +1,50 @@
-import React, { useEffect, useState } from 'react';
-import { Carousel } from 'antd';
-import productsData from '../database/products.json'
-import ProductCard from '../components/ProductCard';
-import { searchProductsByTitle } from '../services/productService';
+import React, { useEffect, useState } from "react";
+import { Carousel } from "antd";
+import ProductCard from "../components/ProductCard";
+import { searchProductsByTitle } from "../services/productService";
 
 const Home = () => {
-  const [laptops, setLaptops] = useState([])
-  const [pcs, setPCs] = useState([])
-  const [others, setOthers] = useState([])
+  const [laptops, setLaptops] = useState([]);
+  const [pcs, setPCs] = useState([]);
+  const [others, setOthers] = useState([]);
   // Dữ liệu giả lập cho carousel và banner
   const carouselImages = [
-    'https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_web_slider_800x400.jpg',
-    'https://file.hstatic.net/200000722513/file/thang_04_laptop_gaming_banner_web_slider_800x400.jpg',
-    'https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_800x400.jpg',
-    'https://file.hstatic.net/200000722513/file/thang_04_laptop_acer.png',
-    'https://file.hstatic.net/200000722513/file/thang_12_laptop_acer_swift_800x400.png',
+    "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_web_slider_800x400.jpg",
+    "https://file.hstatic.net/200000722513/file/thang_04_laptop_gaming_banner_web_slider_800x400.jpg",
+    "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_800x400.jpg",
+    "https://file.hstatic.net/200000722513/file/thang_04_laptop_acer.png",
+    "https://file.hstatic.net/200000722513/file/thang_12_laptop_acer_swift_800x400.png",
   ];
 
   const rightBanners = [
-    'https://file.hstatic.net/200000722513/file/thang_02_layout_web_-01.png',
-    'https://file.hstatic.net/200000722513/file/thang_02_layout_web_-02.png',
-    'https://file.hstatic.net/200000722513/file/thang_02_layout_web_-03.png',
+    "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-01.png",
+    "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-02.png",
+    "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-03.png",
   ];
 
   const bottomBanners = [
-    'https://file.hstatic.net/200000722513/file/thang_02_layout_web_-09_acdc7c6d37584f0eb1ce8d35ba45507e.png',
-    'https://file.hstatic.net/200000722513/file/thang_02_layout_web_-08.png',
-    'https://file.hstatic.net/200000722513/file/thang_02_layout_web_-07.png',
-    'https://file.hstatic.net/200000722513/file/thang_02_layout_web_-06.png',
+    "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-09_acdc7c6d37584f0eb1ce8d35ba45507e.png",
+    "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-08.png",
+    "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-07.png",
+    "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-06.png",
   ];
 
   const stickyBanners = [
-    'https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_side_web.jpg', // Banner bên trái
-    'https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_sticky_230x697.jpg', // Banner bên phải
+    "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_side_web.jpg", // Banner bên trái
+    "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_sticky_230x697.jpg", // Banner bên phải
   ];
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const products = await searchProductsByTitle('laptop');
-        setLaptops(products)
+        const products = await searchProductsByTitle("laptop");
+        setLaptops(products);
 
-        const pcs = await searchProductsByTitle('pc');
-        setPCs(pcs)
+        const pcs = await searchProductsByTitle("pc");
+        setPCs(pcs);
 
-        const others = await searchProductsByTitle('adobe');
-        setOthers(others)
+        const others = await searchProductsByTitle("adobe");
+        setOthers(others);
       } catch (error) {
         console.error(error);
       }
@@ -74,7 +73,12 @@ const Home = () => {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 ">
               {/* Carousel */}
               <div className="lg:col-span-3">
-                <Carousel autoplay duration={1} effect="fade" className="rounded-lg overflow-hidden ">
+                <Carousel
+                  autoplay
+                  duration={1}
+                  effect="fade"
+                  className="rounded-lg overflow-hidden "
+                >
                   {carouselImages.map((image, index) => (
                     <div key={index}>
                       <img
@@ -134,7 +138,7 @@ const Home = () => {
             >
               {laptops.length > 0 ? (
                 laptops.map((laptop) => (
-                  <div key={laptop._id.$oid}>
+                  <div key={laptop.id}>
                     <ProductCard product={laptop} />
                   </div>
                 ))
@@ -155,7 +159,7 @@ const Home = () => {
             >
               {pcs.length > 0 ? (
                 pcs.map((pc) => (
-                  <div key={pc._id.$oid}>
+                  <div key={pc.id}>
                     <ProductCard product={pc} />
                   </div>
                 ))
@@ -176,7 +180,7 @@ const Home = () => {
             >
               {others.length > 0 ? (
                 others.map((p) => (
-                  <div key={p._id.$oid}>
+                  <div key={p.id}>
                     <ProductCard product={p} />
                   </div>
                 ))
