@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import Breadcrumb from "../components/Breadcrumb";
 import StepCart from "../components/StepCart";
 import { path } from "../constants/path";
 import { useCart } from "../hooks/useCart";
+import Breadcrumbs from "../components/Breadcrumb";
 
 export default function Cart() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -25,7 +25,7 @@ export default function Cart() {
 
     const nextStep = stepMap[to];
     if (nextStep) {
-      if (nextStep > 1 && cart.length === 0) {
+      if (nextStep > 1 && cart.length === 0 && nextStep !== 4) {
         return;
       }
       const user = localStorage.getItem("user");
@@ -53,13 +53,14 @@ export default function Cart() {
     }
 
     const allowedStep = storedStep - 1;
-    if (cart.length === 0 && storedStep > 1) {
+
+    if (cart.length === 0 && storedStep > 1 && pathname !== path.cartStepFour) {
       sessionStorage.setItem("currentStep", "1");
       navigate(path.cart);
-    } else if (!user && storedStep > 2) {
+    } else if (!user && storedStep > 2 && pathname !== path.cartStepFour) {
       sessionStorage.setItem("currentStep", "2");
       navigate(path.cartStepTwo);
-    } else if (currentStep > allowedStep) {
+    } else if (currentStep > allowedStep && pathname !== path.cartStepFour) {
       const validPath = [
         path.cart,
         path.cartStepTwo,
@@ -72,7 +73,7 @@ export default function Cart() {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <Breadcrumb current={currentStep} />
+      <Breadcrumbs current={currentStep} />
       <StepCart current={currentStep} />
       <Outlet context={{ handlePlaceOrder }} />
     </div>

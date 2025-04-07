@@ -1,19 +1,35 @@
-import { Button, Card, Row, Col, Tag, Radio } from "antd";
-import { useCart } from "../hooks/useCart";
 import { useEffect, useState } from "react";
-import { Package, CircleCheckBig } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { get } from "../services/request";
+import { path } from "../constants/path";
+import { getLatestOrder } from "../services/orderService";
+import { CircleCheckBig } from "lucide-react";
+import { Button } from "antd";
+
 export default function CartStepFour() {
-  const { cart, totalPrice } = useCart();
-  const [user, setUser] = useState(null);
+  const [order, setOrder] = useState(null);
+  const { state } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const savedUser = JSON.parse(localStorage.getItem("user"));
-    if (savedUser) {
-      setUser(savedUser);
-    }
-    console.log(savedUser);
-  }, []);
+    const fetchOrder = async () => {
+      if (state?.order) {
+        setOrder(state.order);
+      } else {
+        const lastOrder = await getLatestOrder();
+        if (lastOrder) {
+          setOrder(lastOrder);
+        } else {
+          throw new Error("No order found");
+        }
+      }
+    };
+
+    fetchOrder();
+    return () => {
+      sessionStorage.setItem("currentStep", "1");
+    };
+  }, [state, navigate]);
 
   return (
     <div className="p-5 bg-white">
@@ -33,7 +49,7 @@ export default function CartStepFour() {
       <div className="bg-body-bg p-5  ">
         <div className="flex justify-between items-center border-b border-secondary">
           <h2 className=" text-title py-3 ">
-            ĐƠN HÀNG <strong>#46465</strong>
+            ĐƠN HÀNG <strong className="ml-1">#{order?.id}</strong>
           </h2>
           <Link to="/" className="text-sub font-semibold">
             Quản lý đơn hàng
@@ -42,47 +58,53 @@ export default function CartStepFour() {
 
         <div className="space-y-4 mt-5">
           <div className="grid grid-cols-3 gap-4 mb-7">
-            <div className="font-semibold ">Khách hàng:</div>
-            <div className="col-span-2 ">{user?.name}</div>
+            <div className="font-semibold ">&#8226; Khách hàng:</div>
+            <div className="col-span-2 ">
+              {order?.shipping_address.full_name}
+            </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
-            <div className="font-semibold ">Số điện thoại:</div>
-            <div className="col-span-2">{user?.phone}</div>
+            <div className="font-semibold ">&#8226; Số điện thoại:</div>
+            <div className="col-span-2">{order?.shipping_address.phone}</div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
-            <div className="font-semibold ">Địa chỉ nhận hàng:</div>
+            <div className="font-semibold ">&#8226; Địa chỉ nhận hàng:</div>
             <div className="col-span-2">
-              {user?.street}, {user?.ward.split("-")[1]},{" "}
-              {user?.district.split("-")[1]}, {user?.province.split("-")[1]}
+              {order?.shipping_address.address.street},{" "}
+              {order?.shipping_address.address.ward},{" "}
+              {order?.shipping_address.address.district},{" "}
+              {order?.shipping_address.address.province}
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
-            <div className="font-semibold ">Tạm tính:</div>
-            <div className="text-primary font-semibold col-span-2">
-              {cart.length > 0 && totalPrice.toLocaleString()}₫
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 mb-7">
-            <div className="font-semibold ">Phí vận chuyển:</div>
+            <div className="font-semibold ">&#8226; Phí vận chuyển:</div>
             <div className="text-primary col-span-2 font-semibold">
               Miễn phí
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7 font-semibold">
-            <div className="">Tổng tiền:</div>
+            <div className="">&#8226; Tổng tiền:</div>
             <div className="text-primary col-span-2">
-              {cart.length > 0 && totalPrice.toLocaleString()}₫
+              {order?.total_price.toLocaleString()}₫
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7 ">
-            <div className="font-semibold">Hình thức thanh toán:</div>
+            <div className="font-semibold">&#8226; Ghi chú:</div>
+            <div className=" col-span-2">{order?.note}</div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4 mb-7 ">
+            <div className="font-semibold">&#8226; Hình thức thanh toán:</div>
             <div className="col-span-2 ">Thanh toán khi giao hàng</div>
+          </div>
+
+          <div className="text-primary italic mb-7 font-semibold">
+            * Tuyệt đối không chuyển khoản cho Shipper trước khi nhận hàng.
           </div>
         </div>
 
