@@ -1,14 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { useSelector } from "react-redux";
 import { Dropdown, Menu, Input, Button, Modal } from "antd";
-import {
-  SearchOutlined,
-  PhoneOutlined,
-  ShoppingCartOutlined,
-  UserOutlined,
-  DownOutlined,
-  MenuOutlined,
-} from "@ant-design/icons";
+import { SearchOutlined, PhoneOutlined, MenuOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import CartNotification from "./CartNotification";
@@ -48,7 +41,7 @@ const items = [
 ];
 
 const Header = () => {
-  const { totalItem, justAdded } = useCart();
+  const { justAdded } = useCart();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {

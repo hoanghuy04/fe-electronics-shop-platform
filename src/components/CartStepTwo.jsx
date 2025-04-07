@@ -2,15 +2,24 @@ import React from "react";
 import { Form, Input, Radio, Select, Checkbox, Button } from "antd";
 import { useOutletContext } from "react-router-dom";
 import { path } from "../constants/path";
+import { useCart } from "../hooks/useCart";
 
 const { Option } = Select;
 
 export default function CartStepTwo() {
   const { handlePlaceOrder } = useOutletContext();
+  const { totalPrice } = useCart();
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    console.log(values);
+    form
+      .validateFields()
+      .then(() => {
+        handlePlaceOrder(path.cartStepThree);
+      })
+      .catch((errorInfo) => {
+        console.log("Validation Failed:", errorInfo);
+      });
   };
 
   return (
@@ -27,7 +36,10 @@ export default function CartStepTwo() {
         <h2 className="font-semibold text-base mb-2">
           Thông tin khách mua hàng
         </h2>
-        <Form.Item name="gender">
+        <Form.Item
+          name="gender"
+          rules={[{ required: true, message: "Vui lòng chọn giới tính" }]}
+        >
           <Radio.Group>
             <Radio value="Anh">Anh</Radio>
             <Radio value="Chị">Chị</Radio>
@@ -55,7 +67,11 @@ export default function CartStepTwo() {
         </div>
 
         <h2 className="font-semibold text-base mt-4">Chọn cách nhận hàng</h2>
-        <Form.Item name="delivery" className="mt-2">
+        <Form.Item
+          name="delivery"
+          className="mt-2"
+          rules={[{ required: true, message: "Vui lòng chọn cách nhận hàng" }]}
+        >
           <Radio.Group>
             <Radio value="home">Giao hàng tận nơi</Radio>
           </Radio.Group>
@@ -117,17 +133,16 @@ export default function CartStepTwo() {
 
         <div className="total-price pt-5 flex justify-between ">
           <div className="font-bold text-xl">Tổng tiền: </div>
-          <div className="text-red-500 font-semibold text-3xl">25.150.000₫</div>
+          <div className="text-red-500 font-semibold text-3xl">
+            {totalPrice.toLocaleString()}₫
+          </div>
         </div>
 
         <Form.Item className="!mt-6">
           <Button
-            onClick={() => {
-              handlePlaceOrder(path.cartStepThree);
-            }}
             type="primary"
-            htmlType="submit"
             block
+            htmlType="submit"
             className="w-full !p-5 rounded-sm bg-blue-500 !text-white text-xl !font-bold cursor-pointer"
           >
             ĐẶT HÀNG NGAY
