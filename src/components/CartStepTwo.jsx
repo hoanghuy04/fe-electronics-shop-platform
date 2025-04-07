@@ -1,20 +1,68 @@
-import React from "react";
-import { Form, Input, Radio, Select, Checkbox, Button } from "antd";
+import React, { useEffect, useState } from "react";
+import { Form, Input, Radio, Select, Checkbox, Button, Spin } from "antd";
 import { useOutletContext } from "react-router-dom";
 import { path } from "../constants/path";
 import { useCart } from "../hooks/useCart";
+import { getAllProvinces, getDistricts, getWards } from "../services/address";
 
 const { Option } = Select;
 
 export default function CartStepTwo() {
   const { handlePlaceOrder } = useOutletContext();
-  const { totalPrice } = useCart();
+  const { cart, totalPrice } = useCart();
   const [form] = Form.useForm();
+  const [provinces, setProvinces] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [wards, setWards] = useState([]);
+  const [user, setUser] = useState(null);
+
+  const fetchProvinces = async () => {
+    const provinceData = await getAllProvinces();
+    setProvinces(provinceData.data);
+  };
+
+  useEffect(() => {
+    fetchProvinces();
+  }, []);
+
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (savedUser) {
+      setUser(savedUser);
+      const newForm = {
+        gender: savedUser.gender === "Anh" ? "Anh" : "Chị",
+        name: savedUser.name || "",
+        phone: savedUser.phone || "",
+        address: savedUser.address || "",
+        province: savedUser.province || "",
+        district: savedUser.district || "",
+        ward: savedUser.ward || "",
+        note: savedUser.note || "",
+        delivery: savedUser.delivery || "",
+        shipping: savedUser.shipping || "",
+      };
+      form.setFieldsValue(newForm);
+      handleChangeProvince(newForm.province);
+      handleChangeWard(newForm.district);
+    }
+  }, []);
+
+  const handleChangeProvince = async (e) => {
+    const districtData = await getDistricts(e.split("-")[0]);
+    setDistricts(districtData.data);
+  };
+
+  const handleChangeWard = async (e) => {
+    const wardData = await getWards(e.split("-")[0]);
+    setWards(wardData.data);
+  };
 
   const onFinish = (values) => {
     form
       .validateFields()
       .then(() => {
+        setUser(values);
+        localStorage.setItem("user", JSON.stringify(values));
         handlePlaceOrder(path.cartStepThree);
       })
       .catch((errorInfo) => {
@@ -31,6 +79,7 @@ export default function CartStepTwo() {
         initialValues={{
           gender: "Anh",
           shipping: true,
+          place: true,
         }}
       >
         <h2 className="font-semibold text-base mb-2">
@@ -72,7 +121,7 @@ export default function CartStepTwo() {
           className="mt-2"
           rules={[{ required: true, message: "Vui lòng chọn cách nhận hàng" }]}
         >
-          <Radio.Group>
+          <Radio.Group value={"home"} name="place">
             <Radio value="home">Giao hàng tận nơi</Radio>
           </Radio.Group>
         </Form.Item>
@@ -83,8 +132,16 @@ export default function CartStepTwo() {
             label="Tỉnh/Thành"
             rules={[{ required: true, message: "Vui lòng chọn tỉnh/thành" }]}
           >
-            <Select placeholder="Cà Mau">
-              <Option value="camau">Cà Mau</Option>
+            <Select
+              placeholder="Chọn tỉnh/thành phố"
+              onChange={handleChangeProvince}
+            >
+              <Option>Chọn tỉnh/thành phố</Option>
+              {provinces.map((item) => (
+                <Option key={item.id} value={`${item.id}-${item.full_name}`}>
+                  {item.full_name}
+                </Option>
+              ))}
             </Select>
           </Form.Item>
 
@@ -93,8 +150,13 @@ export default function CartStepTwo() {
             label="Quận/Huyện"
             rules={[{ required: true, message: "Vui lòng chọn quận/huyện" }]}
           >
-            <Select placeholder="Huyện Phú Tân">
-              <Option value="phutan">Huyện Phú Tân</Option>
+            <Select placeholder="Chọn quận/huyện" onChange={handleChangeWard}>
+              <Option>Chọn quận/huyện</Option>
+              {districts.map((item) => (
+                <Option key={item.id} value={`${item.id}-${item.full_name}`}>
+                  {item.full_name}
+                </Option>
+              ))}
             </Select>
           </Form.Item>
 
@@ -104,7 +166,12 @@ export default function CartStepTwo() {
             rules={[{ required: true, message: "Vui lòng chọn phường/xã" }]}
           >
             <Select placeholder="Chọn phường/xã">
-              <Option value="phuong1">Phường 1</Option>
+              <Option>Chọn phường/xã</Option>
+              {wards.map((item) => (
+                <Option key={item.id} value={`${item.id}-${item.full_name}`}>
+                  {item.full_name}
+                </Option>
+              ))}
             </Select>
           </Form.Item>
 
@@ -134,7 +201,7 @@ export default function CartStepTwo() {
         <div className="total-price pt-5 flex justify-between ">
           <div className="font-bold text-xl">Tổng tiền: </div>
           <div className="text-red-500 font-semibold text-3xl">
-            {totalPrice.toLocaleString()}₫
+            {cart.length > 0 && totalPrice.toLocaleString()}₫
           </div>
         </div>
 
