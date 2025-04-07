@@ -9,47 +9,23 @@ import {
   DownOutlined,
   MenuOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import CartNotification from "./CartNotification";
 import CartMini from "./CartMini";
+import { getListOfCategories } from "../services/productService";
 
 const { Search } = Input;
-
-const items = [
-  {
-    label: (
-      <a
-        href="https://www.antgroup.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Điện tử
-      </a>
-    ),
-    key: "0",
-  },
-  {
-    label: (
-      <a
-        href="https://www.aliyun.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Lorem ipsum dolor sit, amet consectetur adipisicing el
-      </a>
-    ),
-    key: "1",
-  },
-  {
-    label: "Sách",
-    key: "3",
-  },
-];
 
 const Header = () => {
   const { totalItem, justAdded } = useCart();
   const [product, setProduct] = useState(null);
+  const [categories, SetCategories] = useState([]);
+  const navigate = useNavigate();
+
+  const handleCategoryFilter = (slug) => {
+    navigate(`products/category/${slug}`);
+  };
 
   useEffect(() => {
     if (!justAdded) return;
@@ -57,6 +33,19 @@ const Header = () => {
     const timer = setTimeout(() => setProduct(null), 1500);
     return () => clearTimeout(timer);
   }, [justAdded]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const categories = await getListOfCategories();
+        SetCategories(categories);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   return (
     <header className="shadow-lg py-4 sticky top-0 z-10 bg-blue-500">
@@ -70,7 +59,20 @@ const Header = () => {
 
         {/* Dropdown "Danh mục" */}
         <Dropdown
-          menu={{ items }}
+          menu={{
+            items: [
+              {
+                label: "Tất cả",
+                key: "all",
+                onClick: () => handleCategoryFilter("all"), // bạn có thể lọc tất cả ở đây
+              },
+              ...categories?.map((item) => ({
+                label: item.name,
+                key: item.id,
+                onClick: () => handleCategoryFilter(item.slug),
+              })),
+            ],
+          }}
           trigger={["click"]}
           overlayClassName="bg-white shadow-md rounded-md border border-gray-200"
           placement="bottomRight"

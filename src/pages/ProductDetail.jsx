@@ -44,7 +44,7 @@ const ProductDetail = () => {
 
         if (foundProduct) {
           setProduct(foundProduct);
-          setMainImage(`https://picsum.photos/400/300?random=1`);
+          setMainImage(foundProduct.image_url[0]);
 
           const keyword = foundProduct.title.split(" ")[0].toUpperCase();
 
@@ -77,15 +77,11 @@ const ProductDetail = () => {
 
   const discountedPrice = product.price - product.price * product.discount;
 
-  // const thumbnailImages = [
-  //   'https://picsum.photos/100/100?random=1',
-  //   'https://picsum.photos/100/100?random=2',
-  //   'https://picsum.photos/100/100?random=3',
-  // ];
+  const thumbnailImages = product.image_url.filter((img) => img !== mainImage);
 
   return (
     <div className="container mx-auto px-6 lg:px-8 py-8">
-      <div className="">
+      <div className="h-[541px]">
         {loading ? (
           <div className="flex justify-center items-center">
             <Spin tip={"loading ..."} size="large" className="" />
@@ -116,23 +112,25 @@ const ProductDetail = () => {
                   />
                 </div>
                 {/* Hình ảnh phụ */}
-                {/* <div className="flex space-x-2 mt-4">
-              {thumbnailImages.map((img, index) => (
-                <div
-                  key={index}
-                  className={`w-20 h-20 rounded-md overflow-hidden cursor-pointer border-2 ${
-                    mainImage === img ? 'border-blue-500' : 'border-gray-300'
-                  }`}
-                  onClick={() => setMainImage(img)}
-                >
-                  <img
-                    src={img}
-                    alt={`Thumbnail ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="flex space-x-2 mt-4">
+                  {thumbnailImages.map((img, index) => (
+                    <div
+                      key={index}
+                      className={`w-20 h-20 rounded-md overflow-hidden cursor-pointer border-2 ${
+                        mainImage === img
+                          ? "border-blue-500"
+                          : "border-gray-300"
+                      }`}
+                      onClick={() => setMainImage(img)}
+                    >
+                      <img
+                        src={img}
+                        alt={`Thumbnail ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div> */}
               </div>
 
               {/* Thông tin sản phẩm */}

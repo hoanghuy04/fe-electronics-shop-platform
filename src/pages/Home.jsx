@@ -29,10 +29,10 @@ const Home = () => {
     "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-06.png",
   ];
 
-  const stickyBanners = [
-    "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_side_web.jpg", // Banner bên trái
-    "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_sticky_230x697.jpg", // Banner bên phải
-  ];
+  // const stickyBanners = [
+  //   "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_side_web.jpg", // Banner bên trái
+  //   "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_sticky_230x697.jpg", // Banner bên phải
+  // ];
 
   useEffect(() => {
     const fetchProducts = async () => {

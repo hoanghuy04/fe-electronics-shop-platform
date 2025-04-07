@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "serve-json": "json-server --watch src/database/db.json --port 3000"
+    "serve-json": "npx json-server --watch src/database/db.json --port 3000"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",

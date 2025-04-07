@@ -12,6 +12,7 @@ const Home = lazy(() => import("../pages/Home"));
 const ProductDetail = lazy(() => import("../pages/ProductDetail"));
 const Cart = lazy(() => import("../pages/Cart"));
 const NotFound = lazy(() => import("../pages/NotFound"));
+const ListProduct = lazy(() => import("../pages/ListProduct"));
 
 const routes = [
   {
@@ -20,6 +21,7 @@ const routes = [
     children: [
       { path: "", element: <Home /> },
       { path: path.productDetail, element: <ProductDetail /> },
+      { path: path.productCategory, element: <ListProduct /> },
       {
         path: path.cart,
         element: <Cart />,
