@@ -20,7 +20,7 @@ export default function CartStepThree() {
 
   return (
     <div className="p-5 bg-white ">
-      <section>
+      <div>
         <h2 className=" text-xl text-title !mb-7 !font-bold">
           Thông tin đặt hàng
         </h2>
@@ -96,7 +96,7 @@ export default function CartStepThree() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <div className=" w-full mt-8">
         <button

@@ -28,7 +28,7 @@ export default function Cart() {
       if (nextStep > 1 && cart.length === 0) {
         return;
       }
-      const user = sessionStorage.getItem("user");
+      const user = localStorage.getItem("user");
       if (nextStep > 2 && !user) {
         navigate(path.cartStepTwo);
         return;
