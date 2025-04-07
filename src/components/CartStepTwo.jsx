@@ -14,7 +14,7 @@ export default function CartStepTwo() {
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [wards, setWards] = useState([]);
-  const [user, setUser] = useState(null);
+  const [_, setUser] = useState(null);
 
   const fetchProvinces = async () => {
     const provinceData = await getAllProvinces();
@@ -176,7 +176,7 @@ export default function CartStepTwo() {
           </Form.Item>
 
           <Form.Item
-            name="address"
+            name="street"
             label="Số nhà, tên đường"
             rules={[{ required: true, message: "Vui lòng nhập địa chỉ" }]}
           >

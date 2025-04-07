@@ -9,10 +9,12 @@
 html {
     height: 100%;
     line-height: 1.2;
+    color: var(--color-text);
 }
 
 body {
-    background-color: var(--color-body-bg);   
+    background-color: var(--color-body-bg);
+    font-size: 16px;   
 }
 
 @theme {
