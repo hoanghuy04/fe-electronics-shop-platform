@@ -4,7 +4,7 @@ import { path } from "../constants/path";
 
 export function AccountSidebar() {
   return (
-    <div className="border-r border-gray-300 py-6 bg-white">
+    <div className="border-r border-gray-300 py-6 bg-white rounded-md h-full">
       <div className="flex items-center space-x-3 px-5 pb-5 border-line-border border-b">
         <div className="rounded-full flex justify-center items-center">
           <UserRound className="text-white p-2 w-12 h-12 rounded-full bg-secondary mr-2" />
