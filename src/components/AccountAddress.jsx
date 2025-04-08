@@ -4,6 +4,8 @@ import { AccountAddressModal } from "./AccountAddressModal";
 
 export function AccountAddress() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAdd, setIsAdd] = useState(false);
+
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -13,6 +15,7 @@ export function AccountAddress() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
   return (
     <div className="max-w-4xl mx-auto bg-white p-8 shadow-md rounded-lg h-full">
       <div className="flex items-center justify-between border-b border-line-border pb-5">
@@ -51,7 +54,7 @@ export function AccountAddress() {
 
       <Modal
         title="Địa chỉ mới"
-        width={600}
+        width={500}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}

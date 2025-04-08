@@ -4,6 +4,11 @@ import { useOutletContext } from "react-router-dom";
 import { path } from "../constants/path";
 import { useCart } from "../hooks/useCart";
 import { getAllProvinces, getDistricts, getWards } from "../services/address";
+import {
+  fetchDistrictsByProvince,
+  fetchProvinces,
+  fetchWardsByDistrict,
+} from "../utils/adressUtils";
 
 const { Option } = Select;
 
@@ -16,13 +21,12 @@ export default function CartStepTwo() {
   const [wards, setWards] = useState([]);
   const [user, setUser] = useState(null);
 
-  const fetchProvinces = async () => {
-    const provinceData = await getAllProvinces();
-    setProvinces(provinceData.data);
-  };
-
   useEffect(() => {
-    fetchProvinces();
+    const fetchData = async () => {
+      const provinceData = await fetchProvinces();
+      setProvinces(provinceData);
+    };
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -48,13 +52,13 @@ export default function CartStepTwo() {
   }, []);
 
   const handleChangeProvince = async (e) => {
-    const districtData = await getDistricts(e.split("-")[0]);
-    setDistricts(districtData.data);
+    const districtsData = await fetchDistrictsByProvince(e);
+    setDistricts(districtsData);
   };
 
   const handleChangeWard = async (e) => {
-    const wardData = await getWards(e.split("-")[0]);
-    setWards(wardData.data);
+    const wardsData = await fetchWardsByDistrict(e);
+    setWards(wardsData);
   };
 
   const onFinish = (values) => {
