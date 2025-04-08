@@ -57,3 +57,16 @@ export const getListOfCategories = async () => {
     console.error(error);
   }
 };
+
+export const getListOfBrands = async () => {
+  try {
+    const categories = await get(`brands`);
+
+    if (!categories || !Array.isArray(categories)) {
+      throw new Error("Dữ liệu hãng không hợp lệ");
+    } else return categories;
+  } catch (error) {
+    console.error(error);
+  }
+};
+

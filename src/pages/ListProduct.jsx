@@ -1,71 +1,103 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Card, Slider, Checkbox, Row, Col } from "antd";
-import { getProducts } from "../services/productService";
+import { Slider, Checkbox, Pagination } from "antd";
+import { getListOfBrands, getProducts } from "../services/productService";
+import ProductCard from "./../components/ProductCard";
+
+const normalizeGPU = (gpuName) => {
+  return gpuName
+    .replace(/Integrated\s*/i, '')
+    .replace(/NVIDIA\s*/gi, '')
+    .replace(/Intel\s*/gi, '')
+    .replace(/GeForce\s*/gi, '')
+    .replace(/®|™/g, '')
+    .replace(/Graphics/i, 'Graphics') // giữ lại từ "Graphics"
+    .trim(); 
+};
 
 const ListProduct = () => {
-  const { categorySlug } = useParams(); // Lấy categorySlug từ URL
+  const { categorySlug } = useParams();
+
+  const [productData, setProductData] = useState([]);
+  const [brandOptions, setBrandOptions] = useState([])
+  const [gpuOptions, setGpuOptions] = useState([])
+
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [priceRange, setPriceRange] = useState([0, 30000000]); // Khoảng giá
+  const [priceRange, setPriceRange] = useState([0, 3000000000]);
+  const [minMaxPrice, setMinMaxPrice] = useState([0, 0]);
   const [selectedCPUs, setSelectedCPUs] = useState([]);
   const [selectedRAMs, setSelectedRAMs] = useState([]);
   const [selectedGPUs, setSelectedGPUs] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState([]);
 
-  const [productData, setProductData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
-  // Danh sách tùy chọn lọc
   const cpuOptions = [
     "Intel® Core™ i5",
     "Intel® Core™ i7",
+    "Intel® Core™ i9",
     "Intel® Core™ Ultra 7",
   ];
-  const ramOptions = ["16GB", "32GB"];
-  const gpuOptions = [
-    "Integrated Intel® Arc™ Graphics",
-    "Intel® Iris® Xe Graphics",
-    "NVIDIA® GeForce® RTX 3050 Ti",
-    "NVIDIA® GeForce® GTX 1660 Super",
-  ];
-  const brandOptions = ["LENOVO", "ASUS", "MSI", "GVN"];
+  const ramOptions = ["8GB", "16GB", "32GB"];
+
 
   useEffect(() => {
     const fetchProductData = async () => {
-      const response = await getProducts();
+      const responseProducts = await getProducts();
+      if (Array.isArray(responseProducts)) {
+        setProductData(responseProducts);
+        const prices = responseProducts.map((product) => product.price);
+        const minPrice = Math.min(...prices);
+        const maxPrice = Math.max(...prices);
+        setPriceRange([minPrice, maxPrice]);
+        setMinMaxPrice([minPrice, maxPrice]);
 
-      if (Array.isArray(response)) {
-        setProductData(response);
+        const gpus = responseProducts
+          .map(p => p.description["Card đồ họa"])
+          .filter(Boolean) // loại bỏ undefined/null
+          .map(normalizeGPU) // chuẩn hóa chuỗi
+          .filter((value, index, self) => self.indexOf(value) === index) // loại trùng
+          .sort()
+
+          
+
+        setGpuOptions(gpus)
       }
-    };
 
+      const responseBrands = await getListOfBrands();
+      if (Array.isArray(responseBrands)) {
+        const brandsName = responseBrands.map((brand) => brand.name);
+        setBrandOptions(brandsName)
+      }
+
+
+    };
     fetchProductData();
   }, []);
 
-  // Lọc sản phẩm khi thay đổi các bộ lọc
   useEffect(() => {
     let filtered = productData.filter((product) => {
       const matchCategory =
         categorySlug && categorySlug !== "all"
           ? product.slug.includes(categorySlug)
           : true;
-
       const matchPrice =
         product.price >= priceRange[0] && product.price <= priceRange[1];
-
       const matchCPU =
         selectedCPUs.length === 0 ||
-        selectedCPUs.some((cpu) => product.description.CPU.includes(cpu));
-
+        (product.description?.CPU &&
+          selectedCPUs.some((cpu) => product.description.CPU.includes(cpu)));
       const matchRAM =
         selectedRAMs.length === 0 ||
-        selectedRAMs.some((ram) => product.description.RAM.includes(ram));
-
+        (product.description?.RAM &&
+          selectedRAMs.some((ram) => product.description.RAM.includes(ram)));
       const matchGPU =
         selectedGPUs.length === 0 ||
-        selectedGPUs.some((gpu) =>
-          product.description["Card đồ họa"].includes(gpu)
-        );
-
+        (product.description?.["Card đồ họa"] &&
+          selectedGPUs.some((gpu) =>
+            product.description["Card đồ họa"].includes(gpu)
+          ));
       const matchBrand =
         selectedBrands.length === 0 || selectedBrands.includes(product.brand);
 
@@ -78,7 +110,9 @@ const ListProduct = () => {
         matchBrand
       );
     });
+
     setFilteredProducts(filtered);
+    setCurrentPage(1); // Reset về trang 1 khi bộ lọc thay đổi
   }, [
     categorySlug,
     priceRange,
@@ -108,49 +142,53 @@ const ListProduct = () => {
     setSelectedBrands(checkedValues);
   };
 
+  // Tính toán sản phẩm hiển thị trên trang hiện tại
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentProducts = filteredProducts.slice(startIndex, endIndex);
+
+  // Xử lý khi người dùng chuyển trang
+  const onPageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Cuộn lên đầu trang
+  };
+
   return (
     <div className="container mx-auto p-4 flex">
       {/* Thanh lọc bên trái */}
-      <div className="w-1/4 p-4 bg-gray-100 rounded-lg">
+      <div className="w-1/4 p-4 h-fit bg-white shadow-lg rounded-lg">
         <h2 className="text-lg font-bold mb-4">Bộ lọc</h2>
-
-        {/* Lọc theo giá */}
         <div className="mb-6">
           <h3 className="font-semibold">Khoảng giá</h3>
           <Slider
             range
-            min={0}
-            max={30000000}
+            min={minMaxPrice[0]}
+            max={minMaxPrice[1]}
             step={1000000}
-            defaultValue={[0, 30000000]}
-            onChange={onPriceChange}
             value={priceRange}
+            onChange={onPriceChange}
           />
           <div className="flex justify-between text-sm">
             <span>{priceRange[0].toLocaleString()} VNĐ</span>
             <span>{priceRange[1].toLocaleString()} VNĐ</span>
           </div>
         </div>
-
-        {/* Lọc theo CPU */}
         <div className="mb-6">
           <h3 className="font-semibold">CPU</h3>
-          <Checkbox.Group options={cpuOptions} onChange={onCPUChange} />
+          <Checkbox.Group options={cpuOptions} onChange={onCPUChange} 
+            style={{display: "flex", flexDirection: "column", gap: "8px"}} />
         </div>
-
-        {/* Lọc theo RAM */}
         <div className="mb-6">
           <h3 className="font-semibold">RAM</h3>
-          <Checkbox.Group options={ramOptions} onChange={onRAMChange} />
+          <Checkbox.Group 
+            options={ramOptions} 
+            onChange={onRAMChange}/>
         </div>
-
-        {/* Lọc theo GPU */}
         <div className="mb-6">
           <h3 className="font-semibold">Card đồ họa</h3>
-          <Checkbox.Group options={gpuOptions} onChange={onGPUChange} />
+          <Checkbox.Group options={gpuOptions} onChange={onGPUChange}  
+            style={{display: "flex", flexDirection: "column", gap: "8px"}}/>
         </div>
-
-        {/* Lọc theo Brand */}
         <div className="mb-6">
           <h3 className="font-semibold">Thương hiệu</h3>
           <Checkbox.Group options={brandOptions} onChange={onBrandChange} />
@@ -158,40 +196,24 @@ const ListProduct = () => {
       </div>
 
       {/* Danh sách sản phẩm */}
-      <div className="w-3/4 p-4">
-        <Row gutter={[16, 16]}>
-          {filteredProducts.map((product) => (
-            <Col span={8} key={product.id}>
-              <Card
-                hoverable
-                cover={<img alt={product.title} src={product.image_url[0]} />}
-                className="h-full"
-              >
-                <Card.Meta
-                  title={product.title}
-                  description={
-                    <>
-                      <p className="text-red-500 font-bold">
-                        {(
-                          product.price *
-                          (1 - product.discount)
-                        ).toLocaleString()}{" "}
-                        VNĐ
-                      </p>
-                      <p className="line-through text-gray-500">
-                        {product.price.toLocaleString()} VNĐ
-                      </p>
-                      <p>CPU: {product.description.CPU}</p>
-                      <p>RAM: {product.description.RAM}</p>
-                      <p>GPU: {product.description["Card đồ họa"]}</p>
-                      <p>Brand: {product.brand}</p>
-                    </>
-                  }
-                />
-              </Card>
-            </Col>
+      <div className="w-3/4 p-4 pt-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+          {currentProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
-        </Row>
+        </div>
+        {/* Phân trang */}
+        {filteredProducts.length > itemsPerPage && (
+          <div className="mt-6 flex justify-center">
+            <Pagination
+              current={currentPage}
+              pageSize={itemsPerPage}
+              total={filteredProducts.length}
+              onChange={onPageChange}
+              showSizeChanger={false} // Ẩn tùy chọn thay đổi số sản phẩm trên trang
+            />
+          </div>
+        )}
       </div>
     </div>
   );

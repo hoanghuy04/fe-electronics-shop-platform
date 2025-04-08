@@ -81,7 +81,7 @@ const ProductDetail = () => {
 
   return (
     <div className="container mx-auto px-6 lg:px-8 py-8">
-      <div className="h-[541px]">
+      <div className="">
         {loading ? (
           <div className="flex justify-center items-center">
             <Spin tip={"loading ..."} size="large" className="" />
@@ -108,7 +108,7 @@ const ProductDetail = () => {
                   <img
                     src={mainImage}
                     alt={product.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 {/* Hình ảnh phụ */}

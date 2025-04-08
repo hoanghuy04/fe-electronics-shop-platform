@@ -6,26 +6,30 @@ export default function ProductCard(props) {
   const discountedPrice = product.price - product.price * product.discount;
 
   const navigate = useNavigate();
+
+
   return (
     <div
       key={product.id}
-      className="py-4 px-2 cursor-pointer"
+      className="px-2 mb-4 cursor-pointer"
       onClick={() => navigate(`/products/${product.slug}`)}
     >
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200 min-h-[487px]">
+      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200 flex flex-col">
         {/* Hình ảnh sản phẩm */}
-        <img
-          src={
-            product.image_url && product.image_url[0]
-              ? product.image_url[0]
-              : ""
-          }
-          alt={product.title}
-          className="w-full h-[200px] object-cover hover:scale-105 duration-200"
-        />
+        <div className="w-full aspect-[4/3] overflow-hidden">
+          <img
+            src={
+              product.image_url && product.image_url[0]
+                ? product.image_url[0]
+                : ""
+            }
+            alt={product.title}
+            className="w-full h-full object-fit hover:scale-105 transition-transform duration-200"
+          />
+        </div>
 
         {/* Thông tin sản phẩm */}
-        <div className="p-4">
+        <div className="p-4 flex flex-col">
           <h3 className="text-lg font-medium truncate">{product.title}</h3>
           <div className="mt-2 flex items-center space-x-2">
             <span className="text-lg font-bold text-blue-500">
@@ -38,17 +42,15 @@ export default function ProductCard(props) {
             )}
           </div>
           {product.discount > 0 && (
-            <span className="inline-block mt-1 px-2 py-1 bg-blue-100 text-blue-500 text-xs rounded">
+            <span className="inline-block mt-1 px-2 py-1 w-[40px] bg-blue-100 text-blue-500 text-xs rounded">
               -{Math.round(product.discount * 100)}%
             </span>
           )}
           <div className="mt-2 text-sm text-gray-500">
-            {Object.entries(product.description).map(([key, value]) => (
-              <div key={key} className="wrapper">
-                <p>
-                  {key}: {value}
-                </p>
-              </div>
+            { Object.entries(product.description).map(([key, value]) => (
+              <p key={key} className="truncate">
+                {key}: {value}
+              </p>
             ))}
           </div>
         </div>
