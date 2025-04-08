@@ -58,7 +58,7 @@ export default function Account() {
         {!loading && <AccountSidebar user={user} />}
         {loading && <SpinLoading />}
       </div>
-      <div className="col-span-8 rounded-sm">
+      <div className="col-span-9 rounded-sm">
         <Outlet context={{ user }} />
       </div>
     </div>

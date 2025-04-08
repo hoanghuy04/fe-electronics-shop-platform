@@ -23,10 +23,10 @@ export function AccountAddress() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto bg-white p-8 shadow-md rounded-lg h-full">
-      <div className="flex items-center justify-between border-b border-line-border pb-5">
-        <h2 className="text-xl !font-semibold text-left mb-6">
-          Thông tin địa chỉ
+    <div className="max-w-4xl mx-auto bg-white py-8 px-5 shadow-md rounded-lg h-full">
+      <div className="flex items-center justify-between border-b border-line-border">
+        <h2 className="text-lg !font-semibold text-left pb-4">
+          Thông tin tài khoản
         </h2>
         <Button
           className="!bg-blue-border !text-white !font-semibold border-blue-border"
