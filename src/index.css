@@ -26,6 +26,7 @@ body {
     --color-state-warning: #FDD835;
     --color-state-error: #E30019;
     --color-state-question: #FF8A00;
+    --color-blue-border: #005EC9;
     --color-text: #111111;
     --color-title: #333333;
     --color-hover: #E30019;
@@ -56,4 +57,5 @@ body {
     --home-coupon-light: #ffffff;
     --home-coupon-border: #f8d0d3;
     --home-coupon-text: #333333;
+    
 }

@@ -7,9 +7,9 @@ import CartStepThree from "../components/CartStepThree";
 import CartStepFour from "../components/CartStepFour";
 import { path } from "../constants/path";
 import Account from "../pages/Account";
-import AccountAddress from "../components/AccountAddress";
 import AccountOrderHistory from "../components/AccountOrderHistory";
 import { AccountProfile } from "../components/AccountProfile";
+import { AccountAddress } from "../components/AccountAddress";
 
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
