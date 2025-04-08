@@ -1452,14 +1452,26 @@
   "users": [
     {
       "id": "1",
-      "fullname": "Trần Ngọc Huyền",
-      "address": [
-        "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM",
-        "25/3 Võ Thị Sáu, Phường 2, Bảo Lộc, Lâm Đồng"
-      ],
+      "name": "Trần Ngọc Huyền",
+      "gender": "Nữ",
       "email": "tranngochuyenn1909@gmail.com",
-      "password": "4297f44b13955235245b2497399d7a93",
-      "phone": "0964424149"
+      "password": "123456789",
+      "phone": "0964424149",
+      "dob": "07/07/2023",
+      "address": [
+        {
+          "street": "14 Nguyễn Văn Bảo",
+          "ward": "Xã Khánh An",
+          "district": "Huyện An Phú",
+          "province": "Tỉnh An Giang"
+        },
+        {
+          "street": "12 Nguyễn Văn Bảo",
+          "ward": "Xã Khánh An",
+          "district": "Huyện An Phú",
+          "province": "Tỉnh An Giang"
+        }
+      ]
     }
   ]
 }

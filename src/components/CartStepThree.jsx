@@ -4,7 +4,8 @@ import { useCart } from "../hooks/useCart";
 import { Radio } from "antd";
 import { Package } from "lucide-react";
 import { useEffect, useState } from "react";
-import { generateOrderId, post } from "../services/request";
+import { post } from "../services/request";
+import { generateId } from "../utils/helpers";
 
 export default function CartStepThree() {
   const { handlePlaceOrder } = useOutletContext();
@@ -40,7 +41,7 @@ export default function CartStepThree() {
     };
 
     const order = {
-      id: generateOrderId(),
+      id: generateId("HD"),
       customer_id: 1,
       products: products,
       total_price: totalPrice,
