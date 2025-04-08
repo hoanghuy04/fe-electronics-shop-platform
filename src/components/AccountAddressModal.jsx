@@ -1,11 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Input, Select, Button } from "antd";
-import { PhoneOutlined } from "@ant-design/icons";
+import {
+  fetchDistrictsByProvince,
+  fetchProvinces,
+  fetchWardsByDistrict,
+} from "../utils/adressUtils";
 
 const { Option } = Select;
 
-export function AccountAddressModal() {
+export function AccountAddressModal({ isAdd, addressData }) {
   const [form] = Form.useForm();
+  const [provinces, setProvinces] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [wards, setWards] = useState([]);
+  // const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const provinceData = await fetchProvinces();
+      setProvinces(provinceData);
+    };
+    fetchData();
+  }, []);
+
+  const handleChangeProvince = async (e) => {
+    const districtsData = await fetchDistrictsByProvince(e);
+    setDistricts(districtsData);
+  };
+
+  const handleChangeWard = async (e) => {
+    const wardsData = await fetchWardsByDistrict(e);
+    setWards(wardsData);
+  };
+
+  useEffect(() => {
+    if (!isAdd && addressData) {
+      form.setFieldsValue(addressData);
+    } else {
+      form.resetFields();
+    }
+  }, [isAdd, addressData, form]);
 
   const onFinish = (values) => {
     console.log("Received values:", values);
@@ -54,10 +88,16 @@ export function AccountAddressModal() {
               label="Chọn Tỉnh/Thành phố"
               rules={[{ required: true }]}
             >
-              <Select placeholder="Chọn Tỉnh/Thành phố">
-                <Option value="HCM">Hồ Chí Minh</Option>
-                <Option value="HN">Hà Nội</Option>
-                <Option value="DN">Đà Nẵng</Option>
+              <Select
+                placeholder="Chọn Tỉnh/Thành phố"
+                onChange={handleChangeProvince}
+              >
+                <Option value="default">Chọn Tỉnh/Thành phố</Option>
+                {provinces.map((item) => (
+                  <Option key={item.id} value={`${item.id}-${item.full_name}`}>
+                    {item.full_name}
+                  </Option>
+                ))}
               </Select>
             </Form.Item>
           </div>
@@ -68,10 +108,13 @@ export function AccountAddressModal() {
               label="Chọn Quận/Huyện"
               rules={[{ required: true }]}
             >
-              <Select placeholder="Chọn Quận/Huyện">
-                <Option value="BinhTan">Bình Tân</Option>
-                <Option value="TanBinh">Tân Bình</Option>
-                <Option value="GoVap">Gò Vấp</Option>
+              <Select placeholder="Chọn Quận/Huyện" onChange={handleChangeWard}>
+                <Option value="default">Chọn Quận/Huyện</Option>
+                {districts.map((item) => (
+                  <Option key={item.id} value={`${item.id}-${item.full_name}`}>
+                    {item.full_name}
+                  </Option>
+                ))}
               </Select>
             </Form.Item>
           </div>
@@ -83,8 +126,12 @@ export function AccountAddressModal() {
               rules={[{ required: true }]}
             >
               <Select placeholder="Chọn Phường/Xã">
-                <Option value="PhuThoHoa">Phú Thọ Hòa</Option>
-                <Option value="TanQuy">Tân Quý</Option>
+                <Option value="default">Chọn Phường/Xã</Option>
+                {wards.map((item) => (
+                  <Option key={item.id} value={`${item.id}-${item.full_name}`}>
+                    {item.full_name}
+                  </Option>
+                ))}
               </Select>
             </Form.Item>
           </div>

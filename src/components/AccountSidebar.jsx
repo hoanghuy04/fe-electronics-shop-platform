@@ -2,14 +2,14 @@ import { NavLink } from "react-router-dom";
 import { UserRound, MapPin, LogOut, Package } from "lucide-react";
 import { path } from "../constants/path";
 
-export function AccountSidebar() {
+export function AccountSidebar({ user }) {
   return (
     <div className="border-r border-gray-300 py-6 bg-white rounded-md h-full">
       <div className="flex items-center space-x-3 px-5 pb-5 border-line-border border-b">
         <div className="rounded-full flex justify-center items-center">
           <UserRound className="text-white p-2 w-12 h-12 rounded-full bg-secondary mr-2" />
         </div>
-        <div className="text-lg font-semibold">Huyền Trần Ngọc</div>
+        <div className="text-lg font-semibold">{user.name}</div>
       </div>
 
       <div className="space-y-5 p-5">

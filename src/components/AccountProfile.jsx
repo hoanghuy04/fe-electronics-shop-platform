@@ -1,5 +1,7 @@
-import { Input, Button, DatePicker, Radio, Form, Row, Col } from "antd";
+import { Input, Button, DatePicker, Radio, Form, Row, Col, Select } from "antd";
 import dayjs from "dayjs";
+import { useOutletContext } from "react-router-dom";
+import { patch } from "../services/request";
 
 const layout = {
   labelCol: { span: 6 },
@@ -9,11 +11,34 @@ const tailLayout = {
   wrapperCol: { offset: 6, span: 16 },
 };
 
+const { Option } = Select;
+
 export function AccountProfile() {
   const [form] = Form.useForm();
+  const { user } = useOutletContext();
 
   const onFinish = (values) => {
-    console.log("Received values: ", values);
+    const dob = values.day + "/" + values.month + "/" + values.year.$y;
+
+    const newForm = {
+      ...values,
+      dob,
+    };
+
+    delete newForm.day;
+    delete newForm.month;
+    delete newForm.year;
+
+    form.setFieldsValue(newForm);
+
+    if (newForm) {
+      handleUpdateUser(newForm);
+    }
+  };
+
+  const handleUpdateUser = async (data) => {
+    const updateUser = await patch(`users/${data.id}`, data);
+    console.log(updateUser);
   };
 
   return (
@@ -30,14 +55,19 @@ export function AccountProfile() {
         style={{ maxWidth: 800 }}
         className="[&_.ant-form-item]:!mb-4"
         initialValues={{
-          name: "Huyền Trần Ngọc",
-          gender: "Nữ",
-          email: "tranngochuyen1909@gmail.com",
-          day: dayjs("04", "DD"),
-          month: dayjs("10", "MM"),
-          year: dayjs("2022", "YYYY"),
+          id: user.id || "",
+          name: user.name || "",
+          gender: (user.gender === 1 ? "Nam" : "Nữ") || "Nam",
+          email: user.email || "",
+          phone: user.phone || "",
+          day: user.dob ? user.dob.split("/")[0] : "",
+          month: user.dob ? user.dob.split("/")[1] : "",
+          year: user.dob ? dayjs(user.dob.split("/")[2], "YYYY") : "",
         }}
       >
+        <Form.Item name="id" hidden>
+          <Input />
+        </Form.Item>
         <Form.Item
           name="name"
           label="Họ Tên"
@@ -75,32 +105,37 @@ export function AccountProfile() {
           <Row gutter={8}>
             <Col span={8}>
               <Form.Item name="day">
-                <DatePicker
-                  picker="date"
-                  format="DD"
-                  placeholder="Ngày"
-                  style={{ width: "100%" }}
-                />
+                <Select placeholder="Ngày">
+                  <Option value="default">Ngày</Option>
+                  {Array.from({ length: 31 }, (_, index) => (
+                    <Option
+                      key={index + 1}
+                      value={String(index + 1).padStart(2, "0")}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </Option>
+                  ))}
+                </Select>
               </Form.Item>
             </Col>
             <Col span={8}>
               <Form.Item name="month">
-                <DatePicker
-                  picker="month"
-                  format="MM"
-                  placeholder="Tháng"
-                  style={{ width: "100%" }}
-                />
+                <Select placeholder="Tháng">
+                  <Option value="default">Tháng</Option>
+                  {Array.from({ length: 12 }, (_, index) => (
+                    <Option
+                      key={index + 1}
+                      value={String(index + 1).padStart(2, "0")}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </Option>
+                  ))}
+                </Select>
               </Form.Item>
             </Col>
             <Col span={8}>
               <Form.Item name="year">
-                <DatePicker
-                  picker="year"
-                  format="YYYY"
-                  placeholder="Năm"
-                  style={{ width: "100%" }}
-                />
+                <DatePicker picker="year" format="YYYY" placeholder="Năm" />
               </Form.Item>
             </Col>
           </Row>

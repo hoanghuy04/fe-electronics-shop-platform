@@ -4,13 +4,19 @@ import { AccountAddressModal } from "./AccountAddressModal";
 
 export function AccountAddress() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isAdd, setIsAdd] = useState(false);
+  const [isAdd, setIsAdd] = useState(true);
+  const [addressData, setAddressData] = useState(null);
 
-  const showModal = () => {
+  const showAddModal = () => {
+    setIsAdd(true);
+    setAddressData(null);
     setIsModalOpen(true);
   };
-  const handleOk = () => {
-    setIsModalOpen(false);
+
+  const showEditModal = (address) => {
+    setIsAdd(false);
+    setAddressData(address);
+    setIsModalOpen(true);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -24,7 +30,7 @@ export function AccountAddress() {
         </h2>
         <Button
           className="!bg-blue-border !text-white !font-semibold border-blue-border"
-          onClick={showModal}
+          onClick={showAddModal}
         >
           + Thêm địa chỉ mới
         </Button>
@@ -41,7 +47,9 @@ export function AccountAddress() {
         <Button
           type="link"
           className="!text-blue-500 !font-semibold"
-          onClick={showModal}
+          onClick={() => {
+            showEditModal();
+          }}
         >
           Cập nhật
         </Button>
@@ -56,7 +64,6 @@ export function AccountAddress() {
         title="Địa chỉ mới"
         width={500}
         open={isModalOpen}
-        onOk={handleOk}
         onCancel={handleCancel}
         footer={false}
       >
