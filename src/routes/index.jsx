@@ -6,6 +6,10 @@ import CartStepTwo from "../components/CartStepTwo";
 import CartStepThree from "../components/CartStepThree";
 import CartStepFour from "../components/CartStepFour";
 import { path } from "../constants/path";
+import Account from "../pages/Account";
+import AccountProfile from "../components/AccountProfile";
+import AccountAddress from "../components/AccountAddress";
+import AccountOrderHistory from "../components/AccountOrderHistory";
 
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
@@ -41,16 +45,34 @@ const routes = [
         children: [
           { path: "", element: <CartStepOne /> },
           {
-            path: "step-two",
+            path: path.cartStepTwo,
             element: <ProtectedStep step={2} element={<CartStepTwo />} />,
           },
           {
-            path: "step-three",
+            path: path.cartStepThree,
             element: <ProtectedStep step={3} element={<CartStepThree />} />,
           },
           {
-            path: "step-four",
+            path: path.cartStepFour,
             element: <ProtectedStep step={4} element={<CartStepFour />} />,
+          },
+        ],
+      },
+      {
+        path: path.account,
+        element: <Account />,
+        children: [
+          {
+            path: "",
+            element: <AccountProfile />,
+          },
+          {
+            path: path.address,
+            element: <AccountAddress />,
+          },
+          {
+            path: path.orderHistory,
+            element: <AccountOrderHistory />,
           },
         ],
       },
