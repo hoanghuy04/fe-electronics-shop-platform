@@ -1419,6 +1419,34 @@
         }
       },
       "note": "hehe"
+    },
+    {
+      "id": "HD080420251433",
+      "customer_id": 1,
+      "products": [
+        {
+          "id": "1",
+          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
+          "quantity": 1,
+          "price": 24490000,
+          "discount": 0.09
+        }
+      ],
+      "total_price": 22285900,
+      "status": "Đang xử lý",
+      "order_date": "2025-04-08T02:13:47.530Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Tran Huyen",
+        "phone": "0964424149",
+        "address": {
+          "street": "12 Nguyễn Văn Bảo",
+          "ward": "Xã Khánh An",
+          "district": "Huyện An Phú",
+          "province": "Tỉnh An Giang"
+        }
+      },
+      "note": "aaaaaaa"
     }
   ],
   "users": [
