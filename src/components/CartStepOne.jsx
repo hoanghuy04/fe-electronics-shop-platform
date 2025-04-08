@@ -11,8 +11,13 @@ export default function CartStepOne() {
   const [showInput, setShowInput] = useState(false);
   const [code, setCode] = useState("");
   const { cart, totalPrice } = useCart();
-
   const { handlePlaceOrder } = useOutletContext();
+
+  const handleNext = () => {
+    if (cart.length > 0) {
+      handlePlaceOrder(path.cartStepTwo);
+    }
+  };
 
   return (
     <div className="bg-white p-5">
@@ -23,8 +28,8 @@ export default function CartStepOne() {
       </div>
       {cart.length > 0 && (
         <>
-          <div className="discount py-5 border-t-1 border-b-1 border-body-bg">
-            <button
+          {/*<div className="discount py-5 border-t-1 border-b-1 border-body-bg">
+             <button
               onClick={() => setShowInput(!showInput)}
               className="p-2 rounded-sm border border-body-bg flex items-center gap-3 "
             >
@@ -51,23 +56,21 @@ export default function CartStepOne() {
                   </button>
                 </div>
               </div>
-            )}
-          </div>
+            )} 
+          </div>*/}
           <div className="total-price pt-5 flex justify-between ">
             <div className="font-bold text-xl">Tổng tiền: </div>
             <div className="text-red-500 font-semibold text-3xl">
               {cart.length > 0 && totalPrice.toLocaleString()}₫
             </div>
           </div>
-          <div className="w-full bg-white mt-5">
+          <div className="w-full mt-5">
             <div className=" w-full">
               <button
-                onClick={() => {
-                  handlePlaceOrder(path.cartStepTwo);
-                }}
-                className="w-full p-3 rounded-sm bg-blue-500 !text-white text-xl font-bold cursor-pointer"
+                onClick={handleNext}
+                className="w-full p-4.5 rounded-sm bg-primary !text-white text-xl font-bold cursor-pointer"
               >
-                Đặt hàng ngay
+                ĐẶT HÀNG NGAY
               </button>
             </div>
           </div>

@@ -1,59 +1,72 @@
 const API_DOMAIN = "http://localhost:3000/";
 
+export const generateOrderId = () => {
+  const date = new Date();
+  const dateStr = `${date.getDate().toString().padStart(2, "0")}${(
+    date.getMonth() + 1
+  )
+    .toString()
+    .padStart(2, "0")}${date.getFullYear()}`;
+  const randomNumber = Math.floor(Math.random() * 10000)
+    .toString()
+    .padStart(4, "0");
+  return `HD${dateStr}${randomNumber}`;
+};
+
 export const get = async (path) => {
-    try {
-        const response = await fetch(API_DOMAIN + path);
-        if (!response.ok) throw new Error("Lỗi khi fetch dữ liệu");
-        return await response.json();
-    } catch (error) {
-        console.error("GET error:", error);
-        return null;
-    }
+  try {
+    const response = await fetch(API_DOMAIN + path);
+    if (!response.ok) throw new Error("Lỗi khi fetch dữ liệu");
+    return await response.json();
+  } catch (error) {
+    console.error("GET error:", error);
+    return null;
+  }
 };
 
 export const post = async (path, options) => {
-    try {
-        const response = await fetch(API_DOMAIN + path, {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(options),
-        });
-        if (!response.ok) throw new Error("Lỗi khi POST dữ liệu");
-        return await response.json();
-    } catch (error) {
-        console.error("POST error:", error);
-        return null;
-    }
+  try {
+    const response = await fetch(API_DOMAIN + path, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(options),
+    });
+    if (!response.ok) throw new Error("Lỗi khi POST dữ liệu");
+    return await response.json();
+  } catch (error) {
+    console.error("POST error:", error);
+    return null;
+  }
 };
 
 export const del = async (path) => {
-    try {
-        const response = await fetch(API_DOMAIN + path, { method: "DELETE" });
-        if (!response.ok) throw new Error("Lỗi khi DELETE dữ liệu");
-        return await response.json();
-    } catch (error) {
-        console.error("DELETE error:", error);
-        return null;
-    }
+  try {
+    const response = await fetch(API_DOMAIN + path, { method: "DELETE" });
+    if (!response.ok) throw new Error("Lỗi khi DELETE dữ liệu");
+    return await response.json();
+  } catch (error) {
+    console.error("DELETE error:", error);
+    return null;
+  }
 };
 
 export const patch = async (path, options) => {
-    try {
-        const response = await fetch(API_DOMAIN + path, {
-            method: "PATCH",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(options),
-        });
-        if (!response.ok) throw new Error("Lỗi khi PATCH dữ liệu");
-        return await response.json();
-    } catch (error) {
-        console.error("PATCH error:", error);
-        return null;
-    }
+  try {
+    const response = await fetch(API_DOMAIN + path, {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(options),
+    });
+    if (!response.ok) throw new Error("Lỗi khi PATCH dữ liệu");
+    return await response.json();
+  } catch (error) {
+    console.error("PATCH error:", error);
+    return null;
+  }
 };

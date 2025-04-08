@@ -1,16 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Input, Radio, Select, Checkbox, Button } from "antd";
 import { useOutletContext } from "react-router-dom";
 import { path } from "../constants/path";
+import { useCart } from "../hooks/useCart";
+import { getAllProvinces, getDistricts, getWards } from "../services/address";
 
 const { Option } = Select;
 
 export default function CartStepTwo() {
   const { handlePlaceOrder } = useOutletContext();
+  const { cart, totalPrice } = useCart();
   const [form] = Form.useForm();
+  const [provinces, setProvinces] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [wards, setWards] = useState([]);
+  const [user, setUser] = useState(null);
+
+  const fetchProvinces = async () => {
+    const provinceData = await getAllProvinces();
+    setProvinces(provinceData.data);
+  };
+
+  useEffect(() => {
+    fetchProvinces();
+  }, []);
+
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (savedUser) {
+      setUser(savedUser);
+      const newForm = {
+        gender: savedUser.gender === "Anh" ? "Anh" : "Chị",
+        name: savedUser.name || "",
+        phone: savedUser.phone || "",
+        street: savedUser.street || "",
+        province: savedUser.province || "",
+        district: savedUser.district || "",
+        ward: savedUser.ward || "",
+        note: savedUser.note || "",
+        delivery: savedUser.delivery || "",
+        shipping: savedUser.shipping || "",
+      };
+      form.setFieldsValue(newForm);
+      handleChangeProvince(newForm.province);
+      handleChangeWard(newForm.district);
+    }
+  }, []);
+
+  const handleChangeProvince = async (e) => {
+    const districtData = await getDistricts(e.split("-")[0]);
+    setDistricts(districtData.data);
+  };
+
+  const handleChangeWard = async (e) => {
+    const wardData = await getWards(e.split("-")[0]);
+    setWards(wardData.data);
+  };
 
   const onFinish = (values) => {
-    console.log(values);
+    form
+      .validateFields()
+      .then(() => {
+        setUser(values);
+        localStorage.setItem("user", JSON.stringify(values));
+        handlePlaceOrder(path.cartStepThree);
+      })
+      .catch((errorInfo) => {
+        console.log("Validation Failed:", errorInfo);
+      });
   };
 
   return (
@@ -21,13 +78,17 @@ export default function CartStepTwo() {
         onFinish={onFinish}
         initialValues={{
           gender: "Anh",
-          shipping: true,
+          shipping: "free",
+          delivery: "home",
         }}
       >
         <h2 className="font-semibold text-base mb-2">
           Thông tin khách mua hàng
         </h2>
-        <Form.Item name="gender">
+        <Form.Item
+          name="gender"
+          rules={[{ required: true, message: "Vui lòng chọn giới tính" }]}
+        >
           <Radio.Group>
             <Radio value="Anh">Anh</Radio>
             <Radio value="Chị">Chị</Radio>
@@ -55,7 +116,11 @@ export default function CartStepTwo() {
         </div>
 
         <h2 className="font-semibold text-base mt-4">Chọn cách nhận hàng</h2>
-        <Form.Item name="delivery" className="mt-2">
+        <Form.Item
+          name="delivery"
+          className="mt-2"
+          rules={[{ required: true, message: "Vui lòng chọn cách nhận hàng" }]}
+        >
           <Radio.Group>
             <Radio value="home">Giao hàng tận nơi</Radio>
           </Radio.Group>
@@ -67,8 +132,16 @@ export default function CartStepTwo() {
             label="Tỉnh/Thành"
             rules={[{ required: true, message: "Vui lòng chọn tỉnh/thành" }]}
           >
-            <Select placeholder="Cà Mau">
-              <Option value="camau">Cà Mau</Option>
+            <Select
+              placeholder="Chọn tỉnh/thành phố"
+              onChange={handleChangeProvince}
+            >
+              <Option value="default">Chọn tỉnh/thành phố</Option>
+              {provinces.map((item) => (
+                <Option key={item.id} value={`${item.id}-${item.full_name}`}>
+                  {item.full_name}
+                </Option>
+              ))}
             </Select>
           </Form.Item>
 
@@ -77,8 +150,13 @@ export default function CartStepTwo() {
             label="Quận/Huyện"
             rules={[{ required: true, message: "Vui lòng chọn quận/huyện" }]}
           >
-            <Select placeholder="Huyện Phú Tân">
-              <Option value="phutan">Huyện Phú Tân</Option>
+            <Select placeholder="Chọn quận/huyện" onChange={handleChangeWard}>
+              <Option value="default">Chọn quận/huyện</Option>
+              {districts.map((item) => (
+                <Option key={item.id} value={`${item.id}-${item.full_name}`}>
+                  {item.full_name}
+                </Option>
+              ))}
             </Select>
           </Form.Item>
 
@@ -88,12 +166,17 @@ export default function CartStepTwo() {
             rules={[{ required: true, message: "Vui lòng chọn phường/xã" }]}
           >
             <Select placeholder="Chọn phường/xã">
-              <Option value="phuong1">Phường 1</Option>
+              <Option value="default">Chọn phường/xã</Option>
+              {wards.map((item) => (
+                <Option key={item.id} value={`${item.id}-${item.full_name}`}>
+                  {item.full_name}
+                </Option>
+              ))}
             </Select>
           </Form.Item>
 
           <Form.Item
-            name="address"
+            name="street"
             label="Số nhà, tên đường"
             rules={[{ required: true, message: "Vui lòng nhập địa chỉ" }]}
           >
@@ -106,8 +189,12 @@ export default function CartStepTwo() {
         </Form.Item>
 
         <h2 className="font-semibold text-base mt-4">Dịch vụ giao hàng</h2>
-        <Form.Item name="shipping" valuePropName="checked">
-          <Checkbox>Miễn phí vận chuyển (Giao hàng tiêu chuẩn)</Checkbox>
+        <Form.Item name="shipping">
+          <Radio.Group>
+            <Radio value="free">
+              Miễn phí vận chuyển (Giao hàng tiêu chuẩn)
+            </Radio>
+          </Radio.Group>
         </Form.Item>
 
         <div className="flex justify-between mt-4">
@@ -117,21 +204,20 @@ export default function CartStepTwo() {
 
         <div className="total-price pt-5 flex justify-between ">
           <div className="font-bold text-xl">Tổng tiền: </div>
-          <div className="text-red-500 font-semibold text-3xl">25.150.000₫</div>
+          <div className="text-red-500 font-semibold text-3xl">
+            {cart.length > 0 && totalPrice.toLocaleString()}₫
+          </div>
         </div>
 
         <Form.Item className="!mt-6">
-          <Button
-            onClick={() => {
-              handlePlaceOrder(path.cartStepThree);
-            }}
+          <button
             type="primary"
-            htmlType="submit"
             block
-            className="w-full !p-5 rounded-sm bg-blue-500 !text-white text-xl !font-bold cursor-pointer"
+            htmlType="submit"
+            className="w-full !p-4.5 rounded-sm !bg-primary !text-white text-xl !font-bold cursor-pointer"
           >
             ĐẶT HÀNG NGAY
-          </Button>
+          </button>
         </Form.Item>
 
         <p className="text-center text-sm text-gray-500">

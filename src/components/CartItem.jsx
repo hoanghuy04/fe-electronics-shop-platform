@@ -4,7 +4,7 @@ import { Trash2, Plus, Minus } from "lucide-react";
 import { useCart } from "../hooks/useCart";
 
 export default function CartItem({ item }) {
-  const { addToCart, decreaseQuantity, removeFromCart } = useCart();
+  const { increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
   return (
     <div className="grid grid-cols-12 grid-flow-row gap-8 mb-7">
       <div className="col-span-8 grid grid-cols-12 grid-flow-row gap-5">
@@ -16,9 +16,7 @@ export default function CartItem({ item }) {
             >
               <img
                 className="  block object-contain"
-                src={
-                  item.image_url && item.image_url[0] ? item.image_url[0] : ""
-                }
+                src={item.image_url[0]}
                 alt={item.title}
               />
             </Link>
@@ -63,7 +61,7 @@ export default function CartItem({ item }) {
           <button
             className="p-2 border-t-1 border-r-1 border-b-1 border-body-bg rounded-tr-sm rounded-br-sm cursor-pointer"
             onClick={() => {
-              addToCart(item);
+              increaseQuantity(item.id);
             }}
           >
             <Plus />
