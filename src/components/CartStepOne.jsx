@@ -1,15 +1,16 @@
-import { useState } from "react";
+// import { useState } from "react";
 import CartItem from "./CartItem";
-import { ChevronUp, ChevronDown, TicketPercent } from "lucide-react";
-import { Input } from "antd";
+// import { ChevronUp, ChevronDown, TicketPercent } from "lucide-react";
+// import { Input } from "antd";
 import { useOutletContext } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import EmptyCart from "./EmptyCart";
 import { path } from "../constants/path";
+import BoxPrice from "./BoxPrice";
 
 export default function CartStepOne() {
-  const [showInput, setShowInput] = useState(false);
-  const [code, setCode] = useState("");
+  // const [showInput, setShowInput] = useState(false);
+  // const [code, setCode] = useState("");
   const { cart, totalPrice } = useCart();
   const { handlePlaceOrder } = useOutletContext();
 
@@ -21,7 +22,7 @@ export default function CartStepOne() {
 
   return (
     <div className="bg-white p-5">
-      <div>
+      <div className="max-h-80 overflow-y-auto">
         {cart.length > 0 &&
           cart.map((item) => <CartItem key={item.id} item={item} />)}
         {cart.length == 0 && <EmptyCart />}
@@ -58,17 +59,12 @@ export default function CartStepOne() {
               </div>
             )} 
           </div>*/}
-          <div className="total-price pt-5 flex justify-between ">
-            <div className="font-bold text-xl">Tổng tiền: </div>
-            <div className="text-red-500 font-semibold text-3xl">
-              {cart.length > 0 && totalPrice.toLocaleString()}₫
-            </div>
-          </div>
+          <BoxPrice cart={cart} totalPrice={totalPrice} />
           <div className="w-full mt-5">
             <div className=" w-full">
               <button
                 onClick={handleNext}
-                className="w-full p-4.5 rounded-sm bg-primary !text-white text-xl font-bold cursor-pointer"
+                className="w-full p-2.5 rounded-sm bg-primary !text-white text-lg font-bold cursor-pointer"
               >
                 ĐẶT HÀNG NGAY
               </button>

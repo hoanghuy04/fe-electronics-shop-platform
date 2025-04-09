@@ -1,63 +1,114 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import { AccountAddressModal } from "./AccountAddressModal";
+import AccountAddressItem from "./AccountAddressItem";
+import { useOutletContext } from "react-router-dom";
+import { patch } from "../services/request";
 
 export function AccountAddress() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
+  const [isAdd, setIsAdd] = useState(true);
+  const [addressData, setAddressData] = useState(null);
+  const { user } = useOutletContext();
+
+  const showAddModal = () => {
+    setIsAdd(true);
+    setAddressData(null);
     setIsModalOpen(true);
   };
-  const handleOk = () => {
-    setIsModalOpen(false);
+
+  const showEditModal = (address) => {
+    setIsAdd(false);
+    setAddressData(address);
+    setIsModalOpen(true);
   };
+
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  const handleDeleteAddress = (address) => {
+    const userClone = { ...user };
+    userClone.address = userClone.address.filter(
+      (a) => a.name !== address.name || a.phone !== address.phone
+    );
+    handleUpdateUser(userClone);
+  };
+
+  const handleAddAddress = (address) => {
+    const userClone = { ...user };
+    userClone.address = [...userClone.address, address];
+    handleUpdateUser(userClone);
+    setIsModalOpen(false);
+  };
+
+  const handleUpdateAddress = (updatedAddress) => {
+    const userClone = { ...user };
+    userClone.address = userClone.address.map((address) =>
+      address.id === updatedAddress.id ? updatedAddress : address
+    );
+    handleUpdateUser(userClone);
+    setIsModalOpen(false);
+  };
+
+  const handleSetDefault = (selectedAddress) => {
+    const userClone = { ...user };
+    userClone.address = userClone.address.map((addr) => ({
+      ...addr,
+      default: addr.id === selectedAddress.id ? 1 : 0,
+    }));
+    handleUpdateUser(userClone);
+  };
+
+  const handleUpdateUser = async (data) => {
+    await patch(`users/${data.id}`, data);
+  };
+
   return (
-    <div className="max-w-4xl mx-auto bg-white p-8 shadow-md rounded-lg h-full">
-      <div className="flex items-center justify-between border-b border-line-border pb-5">
-        <h2 className="text-xl !font-semibold text-left mb-6">
-          Thông tin địa chỉ
+    <div className="max-w-4xl mx-auto bg-white py-8 px-5 shadow-md rounded-lg h-full">
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg !font-semibold text-left pb-4">
+          Thông tin tài khoản
         </h2>
         <Button
           className="!bg-blue-border !text-white !font-semibold border-blue-border"
-          onClick={showModal}
+          onClick={showAddModal}
         >
           + Thêm địa chỉ mới
         </Button>
       </div>
 
-      <div className="flex  gap-2 items-center justify-between my-4">
-        <div className="flex gap-2 items-center">
-          <div className=" rounded-sm text-sm text-primary border border-primary py-1 px-2 ">
-            Mặc định
-          </div>
-          <div className="text-sm font-semibold">Huyền Trần Ngọc</div>
-          <div className="text-sm text-gray-600">| 0964424149</div>
-        </div>
-        <Button
-          type="link"
-          className="!text-blue-500 !font-semibold"
-          onClick={showModal}
-        >
-          Cập nhật
-        </Button>
+      <div>
+        {[...user.address]
+          .sort((a, b) => b.default - a.default)
+          .map((item) => (
+            <AccountAddressItem
+              key={item.id}
+              isDefault={item.default === 1 ? true : false}
+              name={user.name}
+              phone={user.phone}
+              address={item}
+              handleDeleteAddress={handleDeleteAddress}
+              showEditModal={() => showEditModal(item)}
+              handleSetDefault={handleSetDefault}
+            />
+          ))}
       </div>
-
-      <div className="text-sm text-gray-600">
-        12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, Hồ Chí Minh
-      </div>
-      <div className="flex justify-between mt-6"></div>
 
       <Modal
-        title="Địa chỉ mới"
-        width={600}
+        width={800}
         open={isModalOpen}
-        onOk={handleOk}
         onCancel={handleCancel}
-        footer={false}
+        footer={null}
+        destroyOnClose
       >
-        <AccountAddressModal />
+        <AccountAddressModal
+          isAdd={isAdd}
+          addressData={addressData}
+          handleAddAddress={handleAddAddress}
+          handleUpdateAddress={handleUpdateAddress}
+          onCancel={handleCancel}
+        />
       </Modal>
     </div>
   );

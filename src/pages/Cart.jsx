@@ -72,7 +72,7 @@ export default function Cart() {
   }, [pathname, navigate, cart]);
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-2xl mx-auto">
       <Breadcrumbs current={currentStep} />
       <StepCart current={currentStep} />
       <Outlet context={{ handlePlaceOrder }} />
