@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { get } from "../services/request";
-import { path } from "../constants/path";
 import { getLatestOrder } from "../services/orderService";
 import { CircleCheckBig } from "lucide-react";
 import { Button } from "antd";
+import useAddress from "../hooks/useAddress";
 
 export default function CartStepFour() {
   const [order, setOrder] = useState(null);
   const { state } = useLocation();
   const navigate = useNavigate();
+
+  const address = {
+    province: order?.shipping_address.address?.province,
+    ward: order?.shipping_address.address?.ward,
+    district: order?.shipping_address.address?.district,
+    street: order?.shipping_address.address?.street,
+  };
+
+  const { province, district, ward } = useAddress(address);
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -72,10 +80,7 @@ export default function CartStepFour() {
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Địa chỉ nhận hàng:</div>
             <div className="col-span-2">
-              {order?.shipping_address.address.street},{" "}
-              {order?.shipping_address.address.ward},{" "}
-              {order?.shipping_address.address.district},{" "}
-              {order?.shipping_address.address.province}
+              {`${address.street}, ${ward?.full_name}, ${district?.full_name}, ${province?.full_name}`}
             </div>
           </div>
 

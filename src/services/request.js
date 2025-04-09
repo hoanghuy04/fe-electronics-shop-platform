@@ -1,18 +1,5 @@
 const API_DOMAIN = "http://localhost:3000/";
 
-export const generateOrderId = () => {
-  const date = new Date();
-  const dateStr = `${date.getDate().toString().padStart(2, "0")}${(
-    date.getMonth() + 1
-  )
-    .toString()
-    .padStart(2, "0")}${date.getFullYear()}`;
-  const randomNumber = Math.floor(Math.random() * 10000)
-    .toString()
-    .padStart(4, "0");
-  return `HD${dateStr}${randomNumber}`;
-};
-
 export const get = async (path) => {
   try {
     const response = await fetch(API_DOMAIN + path);

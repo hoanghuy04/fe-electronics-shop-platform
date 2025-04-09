@@ -4,7 +4,10 @@ import { useCart } from "../hooks/useCart";
 import { Radio } from "antd";
 import { Package } from "lucide-react";
 import { useEffect, useState } from "react";
-import { generateOrderId, post } from "../services/request";
+import { post } from "../services/request";
+import { generateId } from "../utils/helpers";
+import useAddress from "../hooks/useAddress";
+import BoxPrice from "./BoxPrice";
 
 export default function CartStepThree() {
   const { handlePlaceOrder } = useOutletContext();
@@ -18,6 +21,15 @@ export default function CartStepThree() {
     }
     console.log(savedUser);
   }, []);
+
+  const address = {
+    province: user?.province,
+    ward: user?.ward,
+    district: user?.district,
+    street: user?.street,
+  };
+
+  const { province, district, ward } = useAddress(address);
 
   const handleClick = async () => {
     const products = cart.map((item) => ({
@@ -33,14 +45,14 @@ export default function CartStepThree() {
       phone: user.phone || "",
       address: {
         street: user.street || "",
-        ward: user.ward.split("-")[1] || "",
-        district: user.district.split("-")[1] || "",
-        province: user.province.split("-")[1] || "",
+        ward: user.ward,
+        district: user.district,
+        province: user.province,
       },
     };
 
     const order = {
-      id: generateOrderId(),
+      id: generateId("HD"),
       customer_id: 1,
       products: products,
       total_price: totalPrice,
@@ -56,8 +68,6 @@ export default function CartStepThree() {
       if (response) {
         handlePlaceOrder(path.cartStepFour);
         localStorage.clear();
-      } else {
-        alert("haha");
       }
     }
   };
@@ -83,9 +93,13 @@ export default function CartStepThree() {
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Địa chỉ nhận hàng:</div>
             <div className="col-span-2">
-              {user?.street}, {user?.ward.split("-")[1]},{" "}
-              {user?.district.split("-")[1]}, {user?.province.split("-")[1]}
+              {`${address.street}, ${ward?.full_name}, ${district?.full_name}, ${province?.full_name}`}
             </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4 mb-7">
+            <div className="font-semibold ">&#8226; Ghi chú:</div>
+            <div className="col-span-2 ">{user.note}</div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
@@ -118,7 +132,7 @@ export default function CartStepThree() {
             <div className="flex items-center">
               <Radio.Group defaultValue="COD" className="w-full">
                 <Radio value="COD">
-                  <span className="inline-flex items-center ">
+                  <span className="inline-flex items-center text-lg font-semibold ">
                     <Package className="mx-2" />
                     Thanh toán khi giao hàng (COD)
                   </span>
@@ -128,24 +142,14 @@ export default function CartStepThree() {
           </div>
         </div>
         <div className=" mt-5">
-          <div className="flex justify-between mt-4">
-            <span className="font-semibold">Phí vận chuyển:</span>
-            <span className="font-semibold">Miễn phí</span>
-          </div>
-
-          <div className="total-price pt-5 flex justify-between ">
-            <div className="font-bold text-xl">Tổng tiền: </div>
-            <div className="text-red-500 font-semibold text-3xl">
-              {cart.length > 0 && totalPrice.toLocaleString()}₫
-            </div>
-          </div>
+          <BoxPrice cart={cart} totalPrice={totalPrice} />
         </div>
       </div>
 
       <div className=" w-full mt-8">
         <button
           onClick={handleClick}
-          className="w-full !p-4.5 rounded-sm bg-primary !text-white text-xl font-bold cursor-pointer"
+          className="w-full p-2.5 rounded-sm bg-primary !text-white text-lg font-bold cursor-pointer"
         >
           THANH TOÁN NGAY
         </button>
