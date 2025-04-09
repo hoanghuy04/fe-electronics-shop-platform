@@ -910,6 +910,34 @@
           "quantity": 1,
           "price": 28400000,
           "discount": 0.07
+        },
+        {
+          "id": 3,
+          "title": "Laptop ASUS ZenBook 14 UX425EA",
+          "quantity": 1,
+          "price": 28400000,
+          "discount": 0.07
+        },
+        {
+          "id": 4,
+          "title": "Laptop ASUS ZenBook 14 UX425EA",
+          "quantity": 1,
+          "price": 28400000,
+          "discount": 0.07
+        },
+        {
+          "id": 3,
+          "title": "Laptop ASUS ZenBook 14 UX425EA",
+          "quantity": 1,
+          "price": 28400000,
+          "discount": 0.07
+        },
+        {
+          "id": 4,
+          "title": "Laptop ASUS ZenBook 14 UX425EA",
+          "quantity": 1,
+          "price": 28400000,
+          "discount": 0.07
         }
       ],
       "total_price": 45713000,
@@ -935,7 +963,7 @@
         }
       ],
       "total_price": 24641500,
-      "status": "Đang xử lý",
+      "status": "Hoàn thành",
       "order_date": "2025-04-06T11:00:00Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "shipping_address": {
@@ -957,7 +985,7 @@
         }
       ],
       "total_price": 14712000,
-      "status": "Đang xử lý",
+      "status": "Hoàn thành",
       "order_date": "2025-04-06T12:00:00Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "shipping_address": {
@@ -979,7 +1007,7 @@
         }
       ],
       "total_price": 10440500,
-      "status": "Đang xử lý",
+      "status": "Huỷ",
       "order_date": "2025-04-06T13:00:00Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "shipping_address": {
