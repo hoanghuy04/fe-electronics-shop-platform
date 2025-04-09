@@ -10,6 +10,10 @@ import Account from "../pages/Account";
 import AccountOrderHistory from "../components/AccountOrderHistory";
 import { AccountProfile } from "../components/AccountProfile";
 import { AccountAddress } from "../components/AccountAddress";
+import LoginPage from "../components/LoginPage";
+import RegisterPage from "../components/RegisterPage";
+import ContactPage from "../components/ContactPage";
+import PaymentInstructions from "../components/PaymentInstructions";
 
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
@@ -56,6 +60,7 @@ const routes = [
             path: path.cartStepFour,
             element: <ProtectedStep step={4} element={<CartStepFour />} />,
           },
+
         ],
       },
       {
@@ -76,7 +81,25 @@ const routes = [
           },
         ],
       },
-      { path: "*", element: <Navigate to={path.notFound} /> },
+      { path: "*", 
+        element: <Navigate to={path.notFound} /> 
+      },
+      {
+        path: "/login",
+        element: <LoginPage/>,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage/>,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage/>,
+      },
+      {
+        path: "/paymentinstructions",
+        element: <PaymentInstructions/>,
+      },
     ],
   },
   { path: path.notFound, element: <NotFound /> },

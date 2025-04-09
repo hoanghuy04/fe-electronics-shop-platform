@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import CartNotification from "./CartNotification";
 import CartMini from "./CartMini";
+import { UserOutlined } from "@ant-design/icons";
+import LoginPage from "./LoginPage";
 
 const { Search } = Input;
 
@@ -116,15 +118,16 @@ const Header = () => {
             <UserOutlined className="mr-2 text-xl" />
             <span className="truncate max-w-[120px]">{user?.username}</span>
           </div>
-        ) : (
+        ) : ( */}
           <Link
             to="/login"
             className="flex items-center hover:text-orange-500 font-medium text-lg transition-colors duration-200"
           >
             <UserOutlined className="mr-2 text-xl" />
+            
             <span>Đăng nhập</span>
           </Link>
-        )} */}
+        {/* )} */}
       </div>
     </header>
   );
