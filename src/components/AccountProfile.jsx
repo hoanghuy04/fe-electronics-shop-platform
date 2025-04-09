@@ -37,8 +37,7 @@ export function AccountProfile() {
   };
 
   const handleUpdateUser = async (data) => {
-    const updateUser = await patch(`users/${data.id}`, data);
-    console.log(updateUser);
+    await patch(`users/${data.id}`, data);
   };
 
   return (

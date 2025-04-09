@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Form, Input, Radio, Select, Checkbox, Button } from "antd";
+import { Button, Form, Input, Radio, Select } from "antd";
 import { useOutletContext } from "react-router-dom";
 import { path } from "../constants/path";
 import { useCart } from "../hooks/useCart";
 import { getAllProvinces, getDistricts, getWards } from "../services/address";
-import {
-  fetchDistrictsByProvince,
-  fetchProvinces,
-  fetchWardsByDistrict,
-} from "../utils/adressUtils";
+import AddressForm from "./AddressForm";
+import BoxPrice from "./BoxPrice";
 
 const { Option } = Select;
 
@@ -23,8 +20,8 @@ export default function CartStepTwo() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const provinceData = await fetchProvinces();
-      setProvinces(provinceData);
+      const provinceData = await getAllProvinces();
+      setProvinces(provinceData.data);
     };
     fetchData();
   }, []);
@@ -47,18 +44,29 @@ export default function CartStepTwo() {
       };
       form.setFieldsValue(newForm);
       handleChangeProvince(newForm.province);
-      handleChangeWard(newForm.district);
+      handleChangeDistrict(newForm.district);
     }
   }, []);
 
-  const handleChangeProvince = async (e) => {
-    const districtsData = await fetchDistrictsByProvince(e);
-    setDistricts(districtsData);
+  const handleChangeProvince = async (provinceId) => {
+    const districtsData = await getDistricts(provinceId);
+    setDistricts(districtsData.data);
+
+    form.setFieldsValue({
+      district: undefined,
+      ward: undefined,
+    });
+
+    setWards([]);
   };
 
-  const handleChangeWard = async (e) => {
-    const wardsData = await fetchWardsByDistrict(e);
-    setWards(wardsData);
+  const handleChangeDistrict = async (districtId) => {
+    const wardsData = await getWards(districtId);
+    setWards(wardsData.data);
+
+    form.setFieldsValue({
+      ward: undefined,
+    });
   };
 
   const onFinish = (values) => {
@@ -85,6 +93,7 @@ export default function CartStepTwo() {
           shipping: "free",
           delivery: "home",
         }}
+        className="[&_.ant-form-item]:!mb-2"
       >
         <h2 className="font-semibold text-base mb-2">
           Thông tin khách mua hàng
@@ -130,63 +139,13 @@ export default function CartStepTwo() {
           </Radio.Group>
         </Form.Item>
 
-        <div className="grid grid-cols-2 gap-4">
-          <Form.Item
-            name="province"
-            label="Tỉnh/Thành"
-            rules={[{ required: true, message: "Vui lòng chọn tỉnh/thành" }]}
-          >
-            <Select
-              placeholder="Chọn tỉnh/thành phố"
-              onChange={handleChangeProvince}
-            >
-              <Option value="default">Chọn tỉnh/thành phố</Option>
-              {provinces.map((item) => (
-                <Option key={item.id} value={`${item.id}-${item.full_name}`}>
-                  {item.full_name}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
-
-          <Form.Item
-            name="district"
-            label="Quận/Huyện"
-            rules={[{ required: true, message: "Vui lòng chọn quận/huyện" }]}
-          >
-            <Select placeholder="Chọn quận/huyện" onChange={handleChangeWard}>
-              <Option value="default">Chọn quận/huyện</Option>
-              {districts.map((item) => (
-                <Option key={item.id} value={`${item.id}-${item.full_name}`}>
-                  {item.full_name}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
-
-          <Form.Item
-            name="ward"
-            label="Phường/Xã"
-            rules={[{ required: true, message: "Vui lòng chọn phường/xã" }]}
-          >
-            <Select placeholder="Chọn phường/xã">
-              <Option value="default">Chọn phường/xã</Option>
-              {wards.map((item) => (
-                <Option key={item.id} value={`${item.id}-${item.full_name}`}>
-                  {item.full_name}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
-
-          <Form.Item
-            name="street"
-            label="Số nhà, tên đường"
-            rules={[{ required: true, message: "Vui lòng nhập địa chỉ" }]}
-          >
-            <Input placeholder="Số nhà, tên đường" />
-          </Form.Item>
-        </div>
+        <AddressForm
+          provinces={provinces}
+          districts={districts}
+          wards={wards}
+          handleChangeProvince={handleChangeProvince}
+          handleChangeDistrict={handleChangeDistrict}
+        />
 
         <Form.Item name="note" label="Lưu ý, yêu cầu khác (Không bắt buộc)">
           <Input.TextArea rows={2} />
@@ -201,27 +160,18 @@ export default function CartStepTwo() {
           </Radio.Group>
         </Form.Item>
 
-        <div className="flex justify-between mt-4">
-          <span>Phí vận chuyển:</span>
-          <span className="font-medium text-gray-600">Miễn phí</span>
-        </div>
-
-        <div className="total-price pt-5 flex justify-between ">
-          <div className="font-bold text-xl">Tổng tiền: </div>
-          <div className="text-red-500 font-semibold text-3xl">
-            {cart.length > 0 && totalPrice.toLocaleString()}₫
-          </div>
-        </div>
+        <BoxPrice cart={cart} totalPrice={totalPrice} />
 
         <Form.Item className="!mt-6">
-          <button
+          <Button
             type="primary"
             block
             htmlType="submit"
-            className="w-full !p-4.5 rounded-sm !bg-primary !text-white text-xl !font-bold cursor-pointer"
+            style={{ padding: "18px" }}
+            className="w-full !p-4.5 rounded-sm !bg-primary !text-white !text-lg  !font-bold cursor-pointer"
           >
             ĐẶT HÀNG NGAY
-          </button>
+          </Button>
         </Form.Item>
 
         <p className="text-center text-sm text-gray-500">

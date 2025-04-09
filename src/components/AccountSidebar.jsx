@@ -7,9 +7,12 @@ export function AccountSidebar({ user }) {
     <div className="border-r border-gray-300 py-6 bg-white rounded-md h-full">
       <div className="flex items-center px-5 pb-3 border-line-border border-b">
         <div className="rounded-full flex justify-center items-center">
-          <UserRound className="text-white p-2 w-12 h-12 rounded-full bg-secondary mr-2" />
+          <UserRound className="text-white p-2 w-12 h-12 rounded-full bg-secondary mr-4" />
         </div>
-        <div className="text-md font-semibold">{user.name}</div>
+        <div className="flex flex-col gap-1">
+          <div className="text-md font-semibold">{user?.name}</div>
+          <div className="text-md text-gray-600">{user?.phone}</div>
+        </div>
       </div>
 
       <div className="space-y-5 p-5">
