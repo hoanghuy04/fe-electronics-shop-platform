@@ -997,5 +997,271 @@
         }
       ]
     }
+  ],
+  "reviews": [
+    {
+      "id": "0a01",
+      "product_id": "1",
+      "user_id": 1,
+      "user_name": "Trần Ngọc Huyền",
+      "rating": 4,
+      "comment": "Laptop Lenovo này mạnh mẽ với RAM 32GB, nhưng SSD 512GB hơi ít so với nhu cầu của mình."
+    },
+    {
+      "id": "0a02",
+      "product_id": "2",
+      "user_id": 2,
+      "user_name": "Nguyễn Văn Anh",
+      "rating": 5,
+      "comment": "ASUS ZenBook mỏng nhẹ, SSD 1TB rất thoải mái, dùng làm việc văn phòng cực thích."
+    },
+    {
+      "id": "0a03",
+      "product_id": "3",
+      "user_id": 3,
+      "user_name": "Lê Thị Mai",
+      "rating": 4,
+      "comment": "MSI Katana chơi game tốt, nhưng máy hơi nóng khi chơi lâu, cần thêm tản nhiệt."
+    },
+    {
+      "id": "0a04",
+      "product_id": "4",
+      "user_id": 4,
+      "user_name": "Phạm Minh Tuấn",
+      "rating": 3,
+      "comment": "PC GVN cấu hình ổn trong tầm giá, nhưng GTX 1660 Super hơi yếu với game mới."
+    },
+    {
+      "id": "0a05",
+      "product_id": "5",
+      "user_id": 5,
+      "user_name": "Hoàng Thị Lan",
+      "rating": 5,
+      "comment": "Mainboard ASUS ROG xịn xò, hỗ trợ DDR5 và PCIe 5.0, rất đáng tiền."
+    },
+    {
+      "id": "0a06",
+      "product_id": "6",
+      "user_id": 6,
+      "user_name": "Đỗ Quốc Hùng",
+      "rating": 4,
+      "comment": "Case Cooler Master đẹp, thoáng khí, nhưng RGB hơi khó điều chỉnh."
+    },
+    {
+      "id": "0a07",
+      "product_id": "7",
+      "user_id": 7,
+      "user_name": "Vũ Thị Hồng",
+      "rating": 5,
+      "comment": "SSD Samsung 990 Pro tốc độ siêu nhanh, dùng để khởi động máy rất mượt."
+    },
+    {
+      "id": "0a08",
+      "product_id": "8",
+      "user_id": 8,
+      "user_name": "Bùi Minh Đức",
+      "rating": 3,
+      "comment": "Loa JBL Flip 6 âm thanh hay, nhưng pin không được như kỳ vọng."
+    },
+    {
+      "id": "0a09",
+      "product_id": "9",
+      "user_id": 9,
+      "user_name": "Nguyễn Thị Thảo",
+      "rating": 4,
+      "comment": "Màn hình Dell 4K đẹp, nhưng giá hơi cao so với nhu cầu cơ bản."
+    },
+    {
+      "id": "0a10",
+      "product_id": "10",
+      "user_id": 10,
+      "user_name": "Trần Văn Nam",
+      "rating": 5,
+      "comment": "Bàn phím Logitech G Pro X gõ thích, switch thay được là điểm cộng lớn."
+    },
+    {
+      "id": "0a11",
+      "product_id": "11",
+      "user_id": 11,
+      "user_name": "Lê Hồng Nhung",
+      "rating": 4,
+      "comment": "Chuột MX Master 3S cầm êm, pin lâu, nhưng hơi nặng với tay nhỏ."
+    },
+    {
+      "id": "0a12",
+      "product_id": "12",
+      "user_id": 12,
+      "user_name": "Phạm Thị Linh",
+      "rating": 5,
+      "comment": "Tai nghe Sony WH-1000XM5 chống ồn đỉnh cao, nghe nhạc rất đã."
+    },
+    {
+      "id": "0a13",
+      "product_id": "13",
+      "user_id": 13,
+      "user_name": "Hoàng Minh Khôi",
+      "rating": 4,
+      "comment": "HP OMEN mạnh mẽ, nhưng giá hơi chát, giảm thêm chút nữa thì tuyệt."
+    },
+    {
+      "id": "0a14",
+      "product_id": "14",
+      "user_id": 14,
+      "user_name": "Đặng Thị Hương",
+      "rating": 5,
+      "comment": "Acer Nitro 5 cấu hình khủng, RTX 3060 chiến game mượt, rất hài lòng."
+    },
+    {
+      "id": "0a15",
+      "product_id": "15",
+      "user_id": 15,
+      "user_name": "Nguyễn Quang Vinh",
+      "rating": 4,
+      "comment": "PC GVN Ryzen 5 ngon, RTX 4060 ổn, nhưng RAM DDR5 hơi đắt."
+    },
+    {
+      "id": "0a16",
+      "product_id": "16",
+      "user_id": 16,
+      "user_name": "Trần Thị Ngọc",
+      "rating": 5,
+      "comment": "RTX 4070 Ti của MSI mạnh mẽ, chơi game 2K cực mượt, đáng đầu tư."
+    },
+    {
+      "id": "0a17",
+      "product_id": "17",
+      "user_id": 17,
+      "user_name": "Lê Văn Long",
+      "rating": 4,
+      "comment": "Nguồn Corsair RM850x ổn định, nhưng dây cáp hơi cứng, khó đi dây."
+    },
+    {
+      "id": "0a18",
+      "product_id": "18",
+      "user_id": 18,
+      "user_name": "Phạm Thị Yến",
+      "rating": 5,
+      "comment": "RAM Corsair DDR5 tốc độ cao, RGB đẹp, rất hài lòng khi build PC."
+    },
+    {
+      "id": "0a19",
+      "product_id": "19",
+      "user_id": 19,
+      "user_name": "Nguyễn Minh Tuệ",
+      "rating": 4,
+      "comment": "Micro HyperX QuadCast S ghi âm tốt, RGB đẹp, nhưng giá hơi cao."
+    },
+    {
+      "id": "0a20",
+      "product_id": "20",
+      "user_id": 20,
+      "user_name": "Hoàng Thị Phương",
+      "rating": 5,
+      "comment": "Màn hình LG UltraGear 4K tuyệt vời, chơi game và làm đồ họa đều đỉnh."
+    },
+    {
+      "id": "0a21",
+      "product_id": "21",
+      "user_id": 21,
+      "user_name": "Trần Văn Hùng",
+      "rating": 4,
+      "comment": "Bàn phím Razer gõ sướng, RGB đẹp, nhưng hơi ồn khi gõ mạnh."
+    },
+    {
+      "id": "0a22",
+      "product_id": "22",
+      "user_id": 22,
+      "user_name": "Lê Thị Thu",
+      "rating": 3,
+      "comment": "Chuột SteelSeries nhẹ, nhưng cảm giác nút bấm không bền lắm."
+    },
+    {
+      "id": "0a23",
+      "product_id": "23",
+      "user_id": 23,
+      "user_name": "Phạm Văn Đạt",
+      "rating": 4,
+      "comment": "Tai nghe Razer Barracuda X tiện lợi, nhưng âm bass chưa đủ mạnh."
+    },
+    {
+      "id": "0a24",
+      "product_id": "24",
+      "user_id": 24,
+      "user_name": "Nguyễn Thị Hòa",
+      "rating": 4,
+      "comment": "ASUS Vivobook nhẹ, pin lâu, nhưng RAM 8GB hơi hạn chế khi đa nhiệm."
+    },
+    {
+      "id": "0a25",
+      "product_id": "25",
+      "user_id": 25,
+      "user_name": "Trần Minh Tâm",
+      "rating": 5,
+      "comment": "Acer Aspire 5 giá tốt, Ryzen 5 mạnh mẽ, làm việc mượt mà."
+    },
+    {
+      "id": "0a26",
+      "product_id": "26",
+      "user_id": 26,
+      "user_name": "Lê Thị Hồng",
+      "rating": 4,
+      "comment": "MSI Prestige đẹp, GTX 1650 Ti ổn, nhưng RAM 8GB hơi ít."
+    },
+    {
+      "id": "0a27",
+      "product_id": "27",
+      "user_id": 27,
+      "user_name": "Phạm Văn Khánh",
+      "rating": 3,
+      "comment": "Lenovo IdeaPad 3 giá rẻ, nhưng SSD 256GB hơi nhỏ, cần nâng cấp."
+    },
+    {
+      "id": "0a28",
+      "product_id": "28",
+      "user_id": 28,
+      "user_name": "Nguyễn Thị Mai",
+      "rating": 4,
+      "comment": "Dell Inspiron bền, hiệu năng tốt, nhưng thiết kế hơi dày."
+    },
+    {
+      "id": "0a29",
+      "product_id": "29",
+      "user_id": 29,
+      "user_name": "Hoàng Văn Thắng",
+      "rating": 5,
+      "comment": "HP Pavilion 14 đẹp, hiệu năng ổn, rất phù hợp làm việc văn phòng."
+    },
+    {
+      "id": "0a30",
+      "product_id": "30",
+      "user_id": 30,
+      "user_name": "Trần Thị Lan",
+      "rating": 4,
+      "comment": "LG Gram siêu nhẹ, pin lâu, nhưng giá hơi cao so với cấu hình."
+    },
+    {
+      "id": "0a31",
+      "product_id": "31",
+      "user_id": 31,
+      "user_name": "Lê Văn Dũng",
+      "rating": 5,
+      "comment": "ASUS ZenBook 14 sang trọng, hiệu năng tốt, rất đáng mua."
+    },
+    {
+      "id": "0a32",
+      "product_id": "32",
+      "user_id": 32,
+      "user_name": "Phạm Thị Ngọc",
+      "rating": 4,
+      "comment": "Acer Nitro 5 chơi game ngon, nhưng quạt kêu hơi to khi tải nặng."
+    },
+    {
+      "id": "0a33",
+      "product_id": "33",
+      "user_id": 33,
+      "user_name": "Nguyễn Văn Hào",
+      "rating": 5,
+      "comment": "MSI Creator mạnh mẽ, GTX 1660 Ti làm đồ họa tốt, rất hài lòng."
+    }
   ]
 }
