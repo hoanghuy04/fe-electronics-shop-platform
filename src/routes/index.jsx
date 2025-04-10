@@ -6,6 +6,12 @@ import CartStepTwo from "../components/CartStepTwo";
 import CartStepThree from "../components/CartStepThree";
 import CartStepFour from "../components/CartStepFour";
 import { path } from "../constants/path";
+import Account from "../pages/Account";
+import { AccountProfile } from "../components/AccountProfile";
+import { AccountAddress } from "../components/AccountAddress";
+import { AccountOrderHistory } from "../components/AccountOrderHistory";
+import AccountViewedProduct from "../components/AccountViewedProduct";
+import AccountOrderHistoryDetail from "../components/AccountOrderHistoryDetail";
 
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
@@ -14,6 +20,21 @@ const ProductDetail = lazy(() => import("../pages/ProductDetail"));
 const Cart = lazy(() => import("../pages/Cart"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const ListProduct = lazy(() => import("../pages/ListProduct"));
+
+const getCurrentStep = () => {
+  return parseInt(sessionStorage.getItem("currentStep")) || 1;
+};
+
+const ProtectedStep = ({ step, element }) => {
+  const currentStep = getCurrentStep();
+  return currentStep >= step ? (
+    element
+  ) : (
+    <Navigate
+      to={`${path.cart}${currentStep > 1 ? `/step-${currentStep}` : ""}`}
+    />
+  );
+};
 
 const routes = [
   {
@@ -29,9 +50,44 @@ const routes = [
         element: <Cart />,
         children: [
           { path: "", element: <CartStepOne /> },
-          { path: "step-two", element: <CartStepTwo /> },
-          { path: "step-three", element: <CartStepThree /> },
-          { path: "step-four", element: <CartStepFour /> },
+          {
+            path: path.cartStepTwo,
+            element: <ProtectedStep step={2} element={<CartStepTwo />} />,
+          },
+          {
+            path: path.cartStepThree,
+            element: <ProtectedStep step={3} element={<CartStepThree />} />,
+          },
+          {
+            path: path.cartStepFour,
+            element: <ProtectedStep step={4} element={<CartStepFour />} />,
+          },
+        ],
+      },
+      {
+        path: path.account,
+        element: <Account />,
+        children: [
+          {
+            path: "",
+            element: <AccountProfile />,
+          },
+          {
+            path: path.address,
+            element: <AccountAddress />,
+          },
+          {
+            path: path.orderHistory,
+            element: <AccountOrderHistory />,
+          },
+          {
+            path: path.orderHistoryDetail,
+            element: <AccountOrderHistoryDetail />,
+          },
+          {
+            path: path.viewed,
+            element: <AccountViewedProduct />,
+          },
         ],
       },
       { path: "*", element: <Navigate to={path.notFound} /> },

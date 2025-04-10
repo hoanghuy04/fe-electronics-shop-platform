@@ -8,11 +8,29 @@ export default function ProductCard(props) {
 
   const navigate = useNavigate();
 
+
+  const handleClick = () => {
+    const viewedProducts = localStorage.getItem("viewedProducts");
+    let data = [];
+    if (viewedProducts) {
+      data = JSON.parse(viewedProducts);
+    }
+    const isProductExist = data.some((item) => item.id === product.id);
+    if (!isProductExist) {
+      if (data.length >= 9) {
+        data.shift();
+      }
+      data.push(product);
+      localStorage.setItem("viewedProducts", JSON.stringify(data));
+    }
+    navigate(`/products/${product.slug}`);
+  };
+
   return (
     <div
       key={product.id}
-      className="px-2 mb-4 cursor-pointer"
-      onClick={() => navigate(`/products/${product.slug}`)}
+      className="py-4 px-2 cursor-pointer"
+      onClick={handleClick}
     >
       {/* Nếu có discount, bao bọc card bằng Badge.Ribbon */}
       {product.discount > 0 ? (

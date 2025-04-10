@@ -894,222 +894,108 @@
   ],
   "orders": [
     {
-      "id": "HD060420250002",
+      "id": "HD20250410125354928",
       "customer_id": 1,
       "products": [
         {
-          "id": 1,
-          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
-          "quantity": 1,
-          "price": 24490000,
-          "discount": 0.09
-        },
-        {
-          "id": 2,
+          "id": "2",
           "title": "Laptop ASUS ZenBook 14 UX425EA",
           "quantity": 1,
           "price": 28400000,
           "discount": 0.07
         }
       ],
-      "total_price": 45713000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T10:30:00Z",
+      "total_price": 26412000,
+      "status": "PENDING",
+      "order_date": "2025-04-10T05:53:54.667Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
+        "full_name": "Tran Huyen",
         "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250003",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 3,
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
+        "address": {
+          "street": "Ho Chi Minh",
+          "ward": "26677",
+          "district": "752",
+          "province": "77"
         }
-      ],
-      "total_price": 24641500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T11:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
+      },
+      "payment_status": "UNPAID",
+      "note": "hehe"
     },
     {
-      "id": "HD060420250004",
+      "id": "HD20250410130139077",
       "customer_id": 1,
       "products": [
         {
-          "id": 4,
-          "title": "PC GVN Intel i5-13400F",
-          "quantity": 1,
-          "price": 15990000,
-          "discount": 0.08
-        }
-      ],
-      "total_price": 14712000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T12:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250005",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 5,
-          "title": "Mainboard ASUS ROG Strix Z790-E",
-          "quantity": 1,
-          "price": 10990000,
-          "discount": 0.05
-        }
-      ],
-      "total_price": 10440500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T13:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250006",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 6,
-          "title": "Case Cooler Master MasterBox TD500",
-          "quantity": 1,
-          "price": 2490000,
-          "discount": 0.1
-        }
-      ],
-      "total_price": 2241000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T14:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250007",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 7,
-          "title": "SSD Samsung 990 Pro 1TB",
-          "quantity": 1,
-          "price": 3990000,
+          "id": "2",
+          "title": "Laptop ASUS ZenBook 14 UX425EA",
+          "quantity": 3,
+          "price": 28400000,
           "discount": 0.07
         }
       ],
-      "total_price": 3710700,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T15:00:00Z",
+      "total_price": 79236000,
+      "status": "PENDING",
+      "order_date": "2025-04-10T06:01:39.042Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
+        "full_name": "Tran Huyen",
         "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250008",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 8,
-          "title": "Loa Bluetooth JBL Flip 6",
-          "quantity": 1,
-          "price": 2990000,
-          "discount": 0.2
+        "address": {
+          "street": "Ho Chi Minh",
+          "ward": "07459",
+          "district": "218",
+          "province": "24"
         }
-      ],
-      "total_price": 2392000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T16:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250009",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 9,
-          "title": "Màn hình Dell UltraSharp U2723QE 27 inch",
-          "quantity": 1,
-          "price": 13990000,
-          "discount": 0.06
-        }
-      ],
-      "total_price": 13140600,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T17:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250010",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 10,
-          "title": "Bàn phím cơ Logitech G Pro X",
-          "quantity": 1,
-          "price": 3490000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 2966500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T18:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
+      },
+      "payment_status": "UNPAID",
+      "note": ""
     }
   ],
   "users": [
     {
       "id": "1",
-      "fullname": "Trần Ngọc Huyền",
-      "address": [
-        "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM",
-        "25/3 Võ Thị Sáu, Phường 2, Bảo Lộc, Lâm Đồng"
-      ],
+      "name": "Trần Ngọc Huyền",
+      "gender": 0,
       "email": "tranngochuyenn1909@gmail.com",
-      "password": "4297f44b13955235245b2497399d7a93",
-      "phone": "0964424149"
+      "password": "123456789",
+      "phone": "0964424149",
+      "dob": "07/07/2023",
+      "address": [
+        {
+          "id": "DC20250409171555333",
+          "name": "Lê Thị B",
+          "phone": "0964424149",
+          "ward": "07882",
+          "district": "223",
+          "province": "24",
+          "street": "Ho Chi Minh",
+          "type": "office",
+          "default": 0
+        },
+        {
+          "id": "DC20250409173903485",
+          "name": "hehe",
+          "phone": "0964424149",
+          "province": "77",
+          "district": "754",
+          "ward": "26725",
+          "street": "Ho Chi Minh",
+          "type": "office",
+          "default": 1
+        },
+        {
+          "id": "DC20250409174001089",
+          "name": "aaaaaaaaaaaaa",
+          "phone": "0964424149",
+          "province": "89",
+          "district": "892",
+          "ward": "30607",
+          "street": "Ho Chi Minh",
+          "type": "office",
+          "default": 0
+        }
+      ]
     }
   ],
   "reviews": [

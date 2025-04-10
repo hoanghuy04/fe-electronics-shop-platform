@@ -14,7 +14,8 @@ html {
 
 body {
     background-color: var(--color-body-bg);
-    font-size: 16px;   
+    font-size: 16px;  
+    font-family: "Roboto", sans-serif;   
 }
 
 @theme {
@@ -26,6 +27,7 @@ body {
     --color-state-warning: #FDD835;
     --color-state-error: #E30019;
     --color-state-question: #FF8A00;
+    --color-blue-border: #005EC9;
     --color-text: #111111;
     --color-title: #333333;
     --color-hover: #E30019;

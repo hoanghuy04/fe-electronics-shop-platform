@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Dropdown, Input, Button } from "antd";
 import {
   SearchOutlined,
   PhoneOutlined,
@@ -7,6 +6,8 @@ import {
   MenuOutlined,
 } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
+// import { useSelector } from "react-redux";
+import { Dropdown, Menu, Input, Button, Modal } from "antd";
 import { useCart } from "../hooks/useCart";
 import CartNotification from "./CartNotification";
 import CartMini from "./CartMini";
@@ -15,7 +16,7 @@ import { ProductContext } from "../hooks/ProductContext";
 const { Search } = Input;
 
 const Header = () => {
-  const { totalItem, justAdded } = useCart();
+  const { justAdded } = useCart();
   const [product, setProduct] = useState(null);
   const { categories, products } = useContext(ProductContext);
   const navigate = useNavigate();
