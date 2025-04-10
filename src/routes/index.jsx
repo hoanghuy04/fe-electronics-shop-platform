@@ -10,7 +10,8 @@ import Account from "../pages/Account";
 import { AccountProfile } from "../components/AccountProfile";
 import { AccountAddress } from "../components/AccountAddress";
 import { AccountOrderHistory } from "../components/AccountOrderHistory";
-import OrderHistoryDetail from "../components/OrderHistoryDetail";
+import AccountViewedProduct from "../components/AccountViewedProduct";
+import AccountOrderHistoryDetail from "../components/AccountOrderHistoryDetail";
 
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
@@ -77,7 +78,11 @@ const routes = [
           },
           {
             path: path.orderHistoryDetail,
-            element: <OrderHistoryDetail />,
+            element: <AccountOrderHistoryDetail />,
+          },
+          {
+            path: path.viewed,
+            element: <AccountViewedProduct />,
           },
         ],
       },

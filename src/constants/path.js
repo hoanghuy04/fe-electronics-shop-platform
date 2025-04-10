@@ -13,4 +13,5 @@ export const path = {
   address: "/account/address",
   orderHistory: "/account/order-history",
   orderHistoryDetail: "/account/order-history/:id",
+  viewed: "/account/viewed",
 };

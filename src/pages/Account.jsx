@@ -28,7 +28,7 @@ export default function Account() {
   }
 
   return (
-    <div className="grid grid-cols-12 max-w-5xl mx-auto p-5 gap-5">
+    <div className="grid grid-cols-12 max-w-7xl mx-auto p-5 gap-5">
       <div className="col-span-3">
         {!loading && <AccountSidebar user={user} />}
         {loading && <SpinLoading />}

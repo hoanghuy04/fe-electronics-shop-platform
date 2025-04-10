@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Card, Spin, Table, Tag } from "antd";
+import { Card } from "antd";
 import { useOutletContext, useParams } from "react-router-dom";
 import { get } from "../services/request";
 import HistoryCartItem from "./HistoryCartItem";
 
-const OrderHistoryDetail = () => {
+const AccountOrderHistoryDetail = () => {
   const params = useParams();
   const [order, setOrder] = useState();
   const { user } = useOutletContext();
@@ -68,4 +68,4 @@ const OrderHistoryDetail = () => {
   );
 };
 
-export default OrderHistoryDetail;
+export default AccountOrderHistoryDetail;
