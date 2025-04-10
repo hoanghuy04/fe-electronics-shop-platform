@@ -15,7 +15,7 @@ import AccountOrderHistoryDetail from "../components/AccountOrderHistoryDetail";
 
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
-const HP = lazy(() => import("../pages/HP"));
+// const HP = lazy(() => import("../pages/HP"));
 const ProductDetail = lazy(() => import("../pages/ProductDetail"));
 const Cart = lazy(() => import("../pages/Cart"));
 const NotFound = lazy(() => import("../pages/NotFound"));
