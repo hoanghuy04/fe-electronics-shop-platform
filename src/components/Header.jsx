@@ -1,27 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
-// import { useSelector } from "react-redux";
-import { Dropdown, Menu, Input, Button, Modal } from "antd";
+import React, { useContext, useEffect, useState } from "react";
+import { Dropdown, Input, Button } from "antd";
 import {
   SearchOutlined,
   PhoneOutlined,
-  ShoppingCartOutlined,
   UserOutlined,
-  DownOutlined,
   MenuOutlined,
 } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import CartNotification from "./CartNotification";
 import CartMini from "./CartMini";
-import { getListOfCategories } from "../services/productService";
+import { ProductContext } from "../hooks/ProductContext";
 
 const { Search } = Input;
 
 const Header = () => {
   const { totalItem, justAdded } = useCart();
   const [product, setProduct] = useState(null);
-  const [categories, SetCategories] = useState([]);
+  const { categories, products } = useContext(ProductContext);
   const navigate = useNavigate();
+
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // Thay visible bằng open
 
   const handleCategoryFilter = (slug) => {
     navigate(`products/category/${slug}`);
@@ -34,21 +35,77 @@ const Header = () => {
     return () => clearTimeout(timer);
   }, [justAdded]);
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const categories = await getListOfCategories();
-        SetCategories(categories);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  // Xử lý khi người dùng nhập vào ô tìm kiếm
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchValue(value);
 
-    fetchCategories();
-  }, []);
+    if (value.trim() === "") {
+      setSearchResults([]);
+      setDropdownOpen(false);
+      return;
+    }
+
+    const filtered = products
+      .filter((product) =>
+        product.title.toLowerCase().includes(value.toLowerCase())
+      )
+      .slice(0, 4);
+
+    setSearchResults(filtered);
+    setDropdownOpen(true);
+  };
+
+  // Xử lý khi nhấn Enter trong ô tìm kiếm
+  const handleSearch = (value) => {
+    if (value.trim()) {
+      navigate(`/products/search?q=${value}`);
+      setDropdownOpen(false);
+      setSearchValue("");
+    }
+  };
+
+  // Nội dung menu cho dropdown tìm kiếm
+  const searchMenu = {
+    items: searchResults.length > 0 ? (
+      searchResults.map((product) => ({
+        key: product.id,
+        label: (
+          <div
+            className="flex items-center"
+            onClick={() => {
+              navigate(`/products/${product.slug}`);
+              setDropdownOpen(false);
+              setSearchValue("");
+            }}
+          >
+            <img
+              src={product.image_url[0] || "placeholder-image-url"}
+              alt={product.title}
+              className="w-12 h-12 object-cover mr-2"
+            />
+            <div>
+              <p className="text-sm font-medium">{product.title}</p>
+              <p className="text-xs text-gray-500">
+                {product.price.toLocaleString()} VNĐ
+              </p>
+            </div>
+          </div>
+        ),
+      }))
+    ) : (
+      [
+        {
+          key: "no-results",
+          label: <p className="text-gray-500">Không tìm thấy sản phẩm nào</p>,
+          disabled: true, // Để không thể nhấp vào
+        },
+      ]
+    ),
+  };
 
   return (
-    <header className="shadow-lg py-4 sticky top-0 z-10 bg-blue-500">
+    <header className="shadow-lg py-4 sticky top-0 z-10 bg-primary">
       <div className="container mx-auto flex items-center gap-5 justify-between px-6 lg:px-8 text-white">
         {/* Logo */}
         <div className="flex items-center">
@@ -64,7 +121,7 @@ const Header = () => {
               {
                 label: "Tất cả",
                 key: "all",
-                onClick: () => handleCategoryFilter("all"), // bạn có thể lọc tất cả ở đây
+                onClick: () => handleCategoryFilter("all"),
               },
               ...categories?.map((item) => ({
                 label: item.name,
@@ -87,14 +144,25 @@ const Header = () => {
           </a>
         </Dropdown>
 
-        {/* Input tìm kiếm với button icon */}
+        {/* Input tìm kiếm với dropdown */}
         <div className="flex-1 mx-6">
-          <Search
-            placeholder="Tìm kiếm sản phẩm..."
-            enterButton={<Button icon={<SearchOutlined />} />}
-            size="large"
-            className="w-full max-w-lg rounded-md shadow-sm border-gray-300"
-          />
+          <Dropdown
+            menu={searchMenu}
+            open={dropdownOpen && searchResults.length > 0} // Thay visible bằng open
+            onOpenChange={(open) => setDropdownOpen(open)} // Thay onVisibleChange bằng onOpenChange
+            placement="bottomLeft"
+            overlayClassName="bg-white shadow-lg rounded-md w-96" // Tùy chỉnh lớp overlay
+          >
+            <Search
+              placeholder="Tìm kiếm sản phẩm..."
+              enterButton={<Button icon={<SearchOutlined />} />}
+              size="large"
+              value={searchValue}
+              onChange={handleSearchChange}
+              onSearch={handleSearch}
+              className="w-full max-w-lg rounded-md shadow-sm border-gray-300"
+            />
+          </Dropdown>
         </div>
 
         {/* Hotline */}
@@ -113,27 +181,10 @@ const Header = () => {
         </Link>
 
         {/* Giỏ hàng */}
-
         <div className="relative">
           <CartMini />
           {product != null && <CartNotification product={product} />}
         </div>
-
-        {/* Tên user */}
-        {/* {isAuthenticated ? (
-          <div className="flex items-center text-gray-800 font-medium text-lg">
-            <UserOutlined className="mr-2 text-xl" />
-            <span className="truncate max-w-[120px]">{user?.username}</span>
-          </div>
-        ) : (
-          <Link
-            to="/login"
-            className="flex items-center hover:text-orange-500 font-medium text-lg transition-colors duration-200"
-          >
-            <UserOutlined className="mr-2 text-xl" />
-            <span>Đăng nhập</span>
-          </Link>
-        )} */}
       </div>
     </header>
   );

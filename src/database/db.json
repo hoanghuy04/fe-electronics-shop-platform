@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
       "category_id": 1,
       "description": {
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Laptop ASUS ZenBook 14 UX425EA",
       "category_id": 1,
       "description": {
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
       "category_id": 2,
       "description": {
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "PC GVN Intel i5-13400F",
       "category_id": 3,
       "description": {
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Mainboard ASUS ROG Strix Z790-E",
       "category_id": 4,
       "description": {
@@ -116,7 +116,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Case Cooler Master MasterBox TD500",
       "category_id": 5,
       "description": {
@@ -126,7 +126,7 @@
         "Features": "RGB Lighting"
       },
       "price": 2490000,
-      "discount": 0.10,
+      "discount": 0.1,
       "brand": "COOLER MASTER",
       "slug": "case-cooler-master-masterbox-td500",
       "image_url": [
@@ -141,7 +141,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "SSD Samsung 990 Pro 1TB",
       "category_id": 6,
       "description": {
@@ -166,7 +166,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Loa Bluetooth JBL Flip 6",
       "category_id": 7,
       "description": {
@@ -176,7 +176,7 @@
         "Connectivity": "Bluetooth 5.1"
       },
       "price": 2990000,
-      "discount": 0.20,
+      "discount": 0.2,
       "brand": "JBL",
       "slug": "loa-bluetooth-jbl-flip-6",
       "image_url": [
@@ -191,7 +191,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Màn hình Dell UltraSharp U2723QE 27 inch",
       "category_id": 8,
       "description": {
@@ -216,7 +216,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Bàn phím cơ Logitech G Pro X",
       "category_id": 9,
       "description": {
@@ -241,7 +241,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Chuột Logitech MX Master 3S",
       "category_id": 10,
       "description": {
@@ -251,7 +251,7 @@
         "Connectivity": "USB-C, Wireless"
       },
       "price": 2690000,
-      "discount": 0.10,
+      "discount": 0.1,
       "brand": "LOGITECH",
       "slug": "chuot-logitech-mx-master-3s",
       "image_url": [
@@ -266,7 +266,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Tai nghe Sony WH-1000XM5",
       "category_id": 11,
       "description": {
@@ -291,7 +291,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Laptop gaming HP OMEN 16 wf0129TX 8W943PA",
       "category_id": 1,
       "description": {
@@ -313,7 +313,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Laptop Gaming Acer Nitro 5 AN515-58",
       "category_id": 2,
       "description": {
@@ -323,7 +323,7 @@
         "Card đồ họa": "NVIDIA® GeForce® RTX 3060 6GB GDDR6"
       },
       "price": 34990000,
-      "discount": 0.10,
+      "discount": 0.1,
       "brand": "ACER",
       "slug": "laptop-gaming-acer-nitro-5-an515-58",
       "image_url": [
@@ -340,7 +340,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "PC GVN AMD Ryzen 5 7600X",
       "category_id": 3,
       "description": {
@@ -365,7 +365,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": "16",
       "title": "VGA MSI GeForce RTX 4070 Ti",
       "category_id": 4,
       "description": {
@@ -390,7 +390,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "Nguồn Corsair RM850x",
       "category_id": 5,
       "description": {
@@ -415,7 +415,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "RAM Corsair Vengeance 32GB DDR5",
       "category_id": 6,
       "description": {
@@ -440,7 +440,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": "19",
       "title": "Micro HyperX QuadCast S",
       "category_id": 7,
       "description": {
@@ -465,7 +465,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Màn hình LG UltraGear 27GP950-B",
       "category_id": 8,
       "description": {
@@ -475,7 +475,7 @@
         "Refresh Rate": "144Hz (Overclock 160Hz)"
       },
       "price": 19990000,
-      "discount": 0.10,
+      "discount": 0.1,
       "brand": "LG - Gram",
       "slug": "man-hinh-lg-ultragear-27gp950-b",
       "image_url": [
@@ -490,7 +490,7 @@
       ]
     },
     {
-      "id": 21,
+      "id": "21",
       "title": "Bàn phím Razer BlackWidow V4 Pro",
       "category_id": 9,
       "description": {
@@ -515,7 +515,7 @@
       ]
     },
     {
-      "id": 22,
+      "id": "22",
       "title": "Chuột SteelSeries Rival 5",
       "category_id": 10,
       "description": {
@@ -525,7 +525,7 @@
         "Weight": "85g"
       },
       "price": 1790000,
-      "discount": 0.10,
+      "discount": 0.1,
       "brand": "STEELSERIES",
       "slug": "chuot-steelseries-rival-5",
       "image_url": [
@@ -540,7 +540,7 @@
       ]
     },
     {
-      "id": 23,
+      "id": "23",
       "title": "Tai nghe Razer Barracuda X",
       "category_id": 11,
       "description": {
@@ -565,7 +565,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": "24",
       "title": "Laptop ASUS Vivobook 14 A1407CA LY008WS",
       "category_id": 1,
       "description": {
@@ -590,7 +590,7 @@
       ]
     },
     {
-      "id": 25,
+      "id": "25",
       "title": "Laptop ACER Aspire 5 A515-45",
       "category_id": 2,
       "description": {
@@ -613,7 +613,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": "26",
       "title": "Laptop MSI Prestige 14 AI Studio C1VEG 056VN",
       "category_id": 3,
       "description": {
@@ -636,7 +636,7 @@
       ]
     },
     {
-      "id": 27,
+      "id": "27",
       "title": "Laptop LENOVO IdeaPad 3 15ADA6",
       "category_id": 4,
       "description": {
@@ -656,7 +656,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": "28",
       "title": "Laptop DELL Inspiron 15 5000",
       "category_id": 5,
       "description": {
@@ -680,7 +680,7 @@
       ]
     },
     {
-      "id": 29,
+      "id": "29",
       "title": "Laptop HP Pavilion 14",
       "category_id": 6,
       "description": {
@@ -703,7 +703,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": "30",
       "title": "Laptop LG Gram 14",
       "category_id": 7,
       "description": {
@@ -726,7 +726,7 @@
       ]
     },
     {
-      "id": 31,
+      "id": "31",
       "title": "Laptop ASUS ZenBook 14",
       "category_id": 8,
       "description": {
@@ -749,7 +749,7 @@
       ]
     },
     {
-      "id": 32,
+      "id": "32",
       "title": "Laptop ACER Nitro 5 AN515-45",
       "category_id": 9,
       "description": {
@@ -774,7 +774,7 @@
       ]
     },
     {
-      "id": 33,
+      "id": "33",
       "title": "Laptop MSI Creator M16 HX C14VFG 040VN",
       "category_id": 10,
       "description": {
@@ -800,94 +800,94 @@
   ],
   "brands": [
     {
-      "id": 1,
+      "id": "1",
       "name": "ASUS",
       "slug": "asus"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "ACER",
       "slug": "acer"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "MSI",
       "slug": "msi"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "LENOVO",
       "slug": "lenovo"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "DELL",
       "slug": "dell"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "HP - Pavilion",
       "slug": "hp-pavilion"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "LG - Gram",
       "slug": "lg-gram"
     }
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Laptop",
       "slug": "laptop"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Laptop Gaming",
       "slug": "laptop-gaming"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "PC GVN",
       "slug": "pc-gvn"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Main, CPU, VGA",
       "slug": "main-cpu-vga"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Case, Nguồn, Tản",
       "slug": "case-nguon-tan"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Ổ cứng, RAM, Thẻ nhớ",
       "slug": "o-cung-ram-thenho"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Loa, Micro, Webcam",
       "slug": "loa-micro-webcam"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Màn hình",
       "slug": "man-hinh"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Bàn phím",
       "slug": "ban-phim"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Chuột + Lót chuột",
       "slug": "chuot-lot-chuot"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Tai Nghe",
       "slug": "tai-nghe"
     }
@@ -997,7 +997,7 @@
           "title": "Case Cooler Master MasterBox TD500",
           "quantity": 1,
           "price": 2490000,
-          "discount": 0.10
+          "discount": 0.1
         }
       ],
       "total_price": 2241000,
@@ -1041,7 +1041,7 @@
           "title": "Loa Bluetooth JBL Flip 6",
           "quantity": 1,
           "price": 2990000,
-          "discount": 0.20
+          "discount": 0.2
         }
       ],
       "total_price": 2392000,
@@ -1101,7 +1101,7 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "fullname": "Trần Ngọc Huyền",
       "address": [
         "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM",
@@ -1110,6 +1110,272 @@
       "email": "tranngochuyenn1909@gmail.com",
       "password": "4297f44b13955235245b2497399d7a93",
       "phone": "0964424149"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "0a01",
+      "product_id": "1",
+      "user_id": 1,
+      "user_name": "Trần Ngọc Huyền",
+      "rating": 4,
+      "comment": "Laptop Lenovo này mạnh mẽ với RAM 32GB, nhưng SSD 512GB hơi ít so với nhu cầu của mình."
+    },
+    {
+      "id": "0a02",
+      "product_id": "2",
+      "user_id": 2,
+      "user_name": "Nguyễn Văn Anh",
+      "rating": 5,
+      "comment": "ASUS ZenBook mỏng nhẹ, SSD 1TB rất thoải mái, dùng làm việc văn phòng cực thích."
+    },
+    {
+      "id": "0a03",
+      "product_id": "3",
+      "user_id": 3,
+      "user_name": "Lê Thị Mai",
+      "rating": 4,
+      "comment": "MSI Katana chơi game tốt, nhưng máy hơi nóng khi chơi lâu, cần thêm tản nhiệt."
+    },
+    {
+      "id": "0a04",
+      "product_id": "4",
+      "user_id": 4,
+      "user_name": "Phạm Minh Tuấn",
+      "rating": 3,
+      "comment": "PC GVN cấu hình ổn trong tầm giá, nhưng GTX 1660 Super hơi yếu với game mới."
+    },
+    {
+      "id": "0a05",
+      "product_id": "5",
+      "user_id": 5,
+      "user_name": "Hoàng Thị Lan",
+      "rating": 5,
+      "comment": "Mainboard ASUS ROG xịn xò, hỗ trợ DDR5 và PCIe 5.0, rất đáng tiền."
+    },
+    {
+      "id": "0a06",
+      "product_id": "6",
+      "user_id": 6,
+      "user_name": "Đỗ Quốc Hùng",
+      "rating": 4,
+      "comment": "Case Cooler Master đẹp, thoáng khí, nhưng RGB hơi khó điều chỉnh."
+    },
+    {
+      "id": "0a07",
+      "product_id": "7",
+      "user_id": 7,
+      "user_name": "Vũ Thị Hồng",
+      "rating": 5,
+      "comment": "SSD Samsung 990 Pro tốc độ siêu nhanh, dùng để khởi động máy rất mượt."
+    },
+    {
+      "id": "0a08",
+      "product_id": "8",
+      "user_id": 8,
+      "user_name": "Bùi Minh Đức",
+      "rating": 3,
+      "comment": "Loa JBL Flip 6 âm thanh hay, nhưng pin không được như kỳ vọng."
+    },
+    {
+      "id": "0a09",
+      "product_id": "9",
+      "user_id": 9,
+      "user_name": "Nguyễn Thị Thảo",
+      "rating": 4,
+      "comment": "Màn hình Dell 4K đẹp, nhưng giá hơi cao so với nhu cầu cơ bản."
+    },
+    {
+      "id": "0a10",
+      "product_id": "10",
+      "user_id": 10,
+      "user_name": "Trần Văn Nam",
+      "rating": 5,
+      "comment": "Bàn phím Logitech G Pro X gõ thích, switch thay được là điểm cộng lớn."
+    },
+    {
+      "id": "0a11",
+      "product_id": "11",
+      "user_id": 11,
+      "user_name": "Lê Hồng Nhung",
+      "rating": 4,
+      "comment": "Chuột MX Master 3S cầm êm, pin lâu, nhưng hơi nặng với tay nhỏ."
+    },
+    {
+      "id": "0a12",
+      "product_id": "12",
+      "user_id": 12,
+      "user_name": "Phạm Thị Linh",
+      "rating": 5,
+      "comment": "Tai nghe Sony WH-1000XM5 chống ồn đỉnh cao, nghe nhạc rất đã."
+    },
+    {
+      "id": "0a13",
+      "product_id": "13",
+      "user_id": 13,
+      "user_name": "Hoàng Minh Khôi",
+      "rating": 4,
+      "comment": "HP OMEN mạnh mẽ, nhưng giá hơi chát, giảm thêm chút nữa thì tuyệt."
+    },
+    {
+      "id": "0a14",
+      "product_id": "14",
+      "user_id": 14,
+      "user_name": "Đặng Thị Hương",
+      "rating": 5,
+      "comment": "Acer Nitro 5 cấu hình khủng, RTX 3060 chiến game mượt, rất hài lòng."
+    },
+    {
+      "id": "0a15",
+      "product_id": "15",
+      "user_id": 15,
+      "user_name": "Nguyễn Quang Vinh",
+      "rating": 4,
+      "comment": "PC GVN Ryzen 5 ngon, RTX 4060 ổn, nhưng RAM DDR5 hơi đắt."
+    },
+    {
+      "id": "0a16",
+      "product_id": "16",
+      "user_id": 16,
+      "user_name": "Trần Thị Ngọc",
+      "rating": 5,
+      "comment": "RTX 4070 Ti của MSI mạnh mẽ, chơi game 2K cực mượt, đáng đầu tư."
+    },
+    {
+      "id": "0a17",
+      "product_id": "17",
+      "user_id": 17,
+      "user_name": "Lê Văn Long",
+      "rating": 4,
+      "comment": "Nguồn Corsair RM850x ổn định, nhưng dây cáp hơi cứng, khó đi dây."
+    },
+    {
+      "id": "0a18",
+      "product_id": "18",
+      "user_id": 18,
+      "user_name": "Phạm Thị Yến",
+      "rating": 5,
+      "comment": "RAM Corsair DDR5 tốc độ cao, RGB đẹp, rất hài lòng khi build PC."
+    },
+    {
+      "id": "0a19",
+      "product_id": "19",
+      "user_id": 19,
+      "user_name": "Nguyễn Minh Tuệ",
+      "rating": 4,
+      "comment": "Micro HyperX QuadCast S ghi âm tốt, RGB đẹp, nhưng giá hơi cao."
+    },
+    {
+      "id": "0a20",
+      "product_id": "20",
+      "user_id": 20,
+      "user_name": "Hoàng Thị Phương",
+      "rating": 5,
+      "comment": "Màn hình LG UltraGear 4K tuyệt vời, chơi game và làm đồ họa đều đỉnh."
+    },
+    {
+      "id": "0a21",
+      "product_id": "21",
+      "user_id": 21,
+      "user_name": "Trần Văn Hùng",
+      "rating": 4,
+      "comment": "Bàn phím Razer gõ sướng, RGB đẹp, nhưng hơi ồn khi gõ mạnh."
+    },
+    {
+      "id": "0a22",
+      "product_id": "22",
+      "user_id": 22,
+      "user_name": "Lê Thị Thu",
+      "rating": 3,
+      "comment": "Chuột SteelSeries nhẹ, nhưng cảm giác nút bấm không bền lắm."
+    },
+    {
+      "id": "0a23",
+      "product_id": "23",
+      "user_id": 23,
+      "user_name": "Phạm Văn Đạt",
+      "rating": 4,
+      "comment": "Tai nghe Razer Barracuda X tiện lợi, nhưng âm bass chưa đủ mạnh."
+    },
+    {
+      "id": "0a24",
+      "product_id": "24",
+      "user_id": 24,
+      "user_name": "Nguyễn Thị Hòa",
+      "rating": 4,
+      "comment": "ASUS Vivobook nhẹ, pin lâu, nhưng RAM 8GB hơi hạn chế khi đa nhiệm."
+    },
+    {
+      "id": "0a25",
+      "product_id": "25",
+      "user_id": 25,
+      "user_name": "Trần Minh Tâm",
+      "rating": 5,
+      "comment": "Acer Aspire 5 giá tốt, Ryzen 5 mạnh mẽ, làm việc mượt mà."
+    },
+    {
+      "id": "0a26",
+      "product_id": "26",
+      "user_id": 26,
+      "user_name": "Lê Thị Hồng",
+      "rating": 4,
+      "comment": "MSI Prestige đẹp, GTX 1650 Ti ổn, nhưng RAM 8GB hơi ít."
+    },
+    {
+      "id": "0a27",
+      "product_id": "27",
+      "user_id": 27,
+      "user_name": "Phạm Văn Khánh",
+      "rating": 3,
+      "comment": "Lenovo IdeaPad 3 giá rẻ, nhưng SSD 256GB hơi nhỏ, cần nâng cấp."
+    },
+    {
+      "id": "0a28",
+      "product_id": "28",
+      "user_id": 28,
+      "user_name": "Nguyễn Thị Mai",
+      "rating": 4,
+      "comment": "Dell Inspiron bền, hiệu năng tốt, nhưng thiết kế hơi dày."
+    },
+    {
+      "id": "0a29",
+      "product_id": "29",
+      "user_id": 29,
+      "user_name": "Hoàng Văn Thắng",
+      "rating": 5,
+      "comment": "HP Pavilion 14 đẹp, hiệu năng ổn, rất phù hợp làm việc văn phòng."
+    },
+    {
+      "id": "0a30",
+      "product_id": "30",
+      "user_id": 30,
+      "user_name": "Trần Thị Lan",
+      "rating": 4,
+      "comment": "LG Gram siêu nhẹ, pin lâu, nhưng giá hơi cao so với cấu hình."
+    },
+    {
+      "id": "0a31",
+      "product_id": "31",
+      "user_id": 31,
+      "user_name": "Lê Văn Dũng",
+      "rating": 5,
+      "comment": "ASUS ZenBook 14 sang trọng, hiệu năng tốt, rất đáng mua."
+    },
+    {
+      "id": "0a32",
+      "product_id": "32",
+      "user_id": 32,
+      "user_name": "Phạm Thị Ngọc",
+      "rating": 4,
+      "comment": "Acer Nitro 5 chơi game ngon, nhưng quạt kêu hơi to khi tải nặng."
+    },
+    {
+      "id": "0a33",
+      "product_id": "33",
+      "user_id": 33,
+      "user_name": "Nguyễn Văn Hào",
+      "rating": 5,
+      "comment": "MSI Creator mạnh mẽ, GTX 1660 Ti làm đồ họa tốt, rất hài lòng."
     }
   ]
 }

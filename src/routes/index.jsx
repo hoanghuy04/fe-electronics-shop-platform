@@ -9,6 +9,7 @@ import { path } from "../constants/path";
 
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
+const HP = lazy(() => import("../pages/HP"));
 const ProductDetail = lazy(() => import("../pages/ProductDetail"));
 const Cart = lazy(() => import("../pages/Cart"));
 const NotFound = lazy(() => import("../pages/NotFound"));
@@ -19,6 +20,7 @@ const routes = [
     path: path.home,
     element: <DefaultLayout />,
     children: [
+      // { path: "", element: <Home /> },
       { path: "", element: <Home /> },
       { path: path.productDetail, element: <ProductDetail /> },
       { path: path.productCategory, element: <ListProduct /> },

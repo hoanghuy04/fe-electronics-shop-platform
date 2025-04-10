@@ -1,4 +1,4 @@
-import { get } from "./request";
+import { get, post } from "./request";
 
 export const getProducts = async () => {
   try {
@@ -13,6 +13,7 @@ export const getProducts = async () => {
     console.error(error);
   }
 };
+
 
 export const searchProductsByTitle = async (keyword) => {
   try {
@@ -69,4 +70,5 @@ export const getListOfBrands = async () => {
     console.error(error);
   }
 };
+
 
