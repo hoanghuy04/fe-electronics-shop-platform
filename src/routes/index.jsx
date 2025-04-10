@@ -42,6 +42,7 @@ const routes = [
     element: <DefaultLayout />,
     children: [
       // { path: "", element: <Home /> },
+      { path: path.notFound, element: <NotFound /> },
       { path: "", element: <Home /> },
       { path: path.productDetail, element: <ProductDetail /> },
       { path: path.productCategory, element: <ListProduct /> },
@@ -93,7 +94,6 @@ const routes = [
       { path: "*", element: <Navigate to={path.notFound} /> },
     ],
   },
-  { path: path.notFound, element: <NotFound /> },
 ];
 
 export default routes;

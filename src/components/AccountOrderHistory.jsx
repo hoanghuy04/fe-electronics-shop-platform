@@ -1,10 +1,10 @@
-import { ConfigProvider, Button, Tabs, Spin, Pagination } from "antd";
+import { ConfigProvider, Tabs, Spin, Pagination } from "antd";
 import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import { get } from "../services/request";
 import BoxOrder from "./BoxOrder";
-import NotFoundOrder from "./NotFoundOrder";
 import { getOrdersByStatus } from "../services/orderService";
+import EmptyView from "./EmptyView";
 
 export function AccountOrderHistory() {
   const [order, setOrder] = useState(null);
@@ -181,13 +181,15 @@ export function AccountOrderHistory() {
       ) : (
         <div>
           {text && order && <BoxOrder order={order} />}
-          {text && !order && <NotFoundOrder />}
+          {text && !order && (
+            <EmptyView title={"Quý khách chưa có đơn hàng nào."} />
+          )}
 
           {!text && filteredOrders.length > 0
             ? getPaginatedOrders().map((order) => (
                 <BoxOrder order={order} key={order.id} />
               ))
-            : !text && <NotFoundOrder />}
+            : !text && <EmptyView title={"Quý khách chưa có đơn hàng nào."} />}
         </div>
       )}
 

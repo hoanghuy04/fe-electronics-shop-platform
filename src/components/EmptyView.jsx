@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function NotFoundOrder() {
+export default function EmptyView({ title }) {
   return (
     <div className="bg-white  px-5 py-7 rounded-sm flex items-center flex-col gap-3">
       <div>
@@ -69,7 +69,7 @@ export default function NotFoundOrder() {
           </defs>
         </svg>
       </div>
-      <p>Quý khách chưa có đơn hàng nào.</p>
+      <p>{title}</p>
       <div>
         <Link
           to="/"

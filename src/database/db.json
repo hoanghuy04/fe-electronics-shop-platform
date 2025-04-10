@@ -892,66 +892,7 @@
       "slug": "tai-nghe"
     }
   ],
-  "orders": [
-    {
-      "id": "HD20250410125354928",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "2",
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 26412000,
-      "status": "PENDING",
-      "order_date": "2025-04-10T05:53:54.667Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "26677",
-          "district": "752",
-          "province": "77"
-        }
-      },
-      "payment_status": "UNPAID",
-      "note": "hehe"
-    },
-    {
-      "id": "HD20250410130139077",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "2",
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 3,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 79236000,
-      "status": "PENDING",
-      "order_date": "2025-04-10T06:01:39.042Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "07459",
-          "district": "218",
-          "province": "24"
-        }
-      },
-      "payment_status": "UNPAID",
-      "note": ""
-    }
-  ],
+  "orders": [],
   "users": [
     {
       "id": "1",
