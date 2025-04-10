@@ -56,10 +56,11 @@ export default function CartStepThree() {
       customer_id: 1,
       products: products,
       total_price: totalPrice,
-      status: "Đang xử lý",
+      status: "PENDING",
       order_date: new Date().toISOString(),
       payment_method: "Thanh toán khi nhận hàng",
       shipping_address: shipping_address,
+      payment_status: "UNPAID",
       note: user.note,
     };
 
@@ -99,7 +100,7 @@ export default function CartStepThree() {
 
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Ghi chú:</div>
-            <div className="col-span-2 ">{user.note}</div>
+            <div className="col-span-2 ">{user?.note}</div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
