@@ -6,11 +6,29 @@ export default function ProductCard(props) {
   const discountedPrice = product.price - product.price * product.discount;
 
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    const viewedProducts = localStorage.getItem("viewedProducts");
+    let data = [];
+    if (viewedProducts) {
+      data = JSON.parse(viewedProducts);
+    }
+    const isProductExist = data.some((item) => item.id === product.id);
+    if (!isProductExist) {
+      if (data.length >= 9) {
+        data.shift();
+      }
+      data.push(product);
+      localStorage.setItem("viewedProducts", JSON.stringify(data));
+    }
+    navigate(`/products/${product.slug}`);
+  };
+
   return (
     <div
       key={product.id}
       className="py-4 px-2 cursor-pointer"
-      onClick={() => navigate(`/products/${product.slug}`)}
+      onClick={handleClick}
     >
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200 min-h-[487px]">
         {/* Hình ảnh sản phẩm */}

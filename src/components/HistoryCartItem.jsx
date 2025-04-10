@@ -17,7 +17,7 @@ export default function HistoryCartItem({ product }) {
   }, [product.id]);
 
   return (
-    <div className="grid grid-cols-12 gap-3 mb-4 ">
+    <div className="grid grid-cols-12 gap-3 mb-4 items-center ">
       <div className="col-span-2 border border-line-border relative">
         <img
           src={item?.image_url[0]}

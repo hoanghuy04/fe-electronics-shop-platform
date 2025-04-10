@@ -52,10 +52,12 @@ export default function CartStepTwo() {
     const districtsData = await getDistricts(provinceId);
     setDistricts(districtsData.data);
 
-    form.setFieldsValue({
-      district: undefined,
-      ward: undefined,
-    });
+    if (user === undefined) {
+      form.setFieldsValue({
+        district: undefined,
+        ward: undefined,
+      });
+    }
 
     setWards([]);
   };
@@ -64,9 +66,11 @@ export default function CartStepTwo() {
     const wardsData = await getWards(districtId);
     setWards(wardsData.data);
 
-    form.setFieldsValue({
-      ward: undefined,
-    });
+    if (user === undefined) {
+      form.setFieldsValue({
+        ward: undefined,
+      });
+    }
   };
 
   const onFinish = (values) => {
