@@ -14,12 +14,16 @@ import LoginPage from "../components/LoginPage";
 import RegisterPage from "../components/RegisterPage";
 import ContactPage from "../components/ContactPage";
 import PaymentInstructions from "../components/PaymentInstructions";
+import AccountViewedProduct from "../components/AccountViewedProduct";
+import AccountOrderHistoryDetail from "../components/AccountOrderHistoryDetail";
 
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
+// const HP = lazy(() => import("../pages/HP"));
 const ProductDetail = lazy(() => import("../pages/ProductDetail"));
 const Cart = lazy(() => import("../pages/Cart"));
 const NotFound = lazy(() => import("../pages/NotFound"));
+const ListProduct = lazy(() => import("../pages/ListProduct"));
 
 const getCurrentStep = () => {
   return parseInt(sessionStorage.getItem("currentStep")) || 1;
@@ -41,8 +45,10 @@ const routes = [
     path: path.home,
     element: <DefaultLayout />,
     children: [
+      // { path: "", element: <Home /> },
       { path: "", element: <Home /> },
       { path: path.productDetail, element: <ProductDetail /> },
+      { path: path.productCategory, element: <ListProduct /> },
       {
         path: path.cart,
         element: <Cart />,
@@ -78,6 +84,14 @@ const routes = [
           {
             path: path.orderHistory,
             element: <AccountOrderHistory />,
+          },
+          {
+            path: path.orderHistoryDetail,
+            element: <AccountOrderHistoryDetail />,
+          },
+          {
+            path: path.viewed,
+            element: <AccountViewedProduct />,
           },
         ],
       },

@@ -20,7 +20,7 @@ export const getLatestOrder = async () => {
   }
 };
 
-export const getOrdersByStatus = async (status = "") => {
+export const getOrdersByStatus = async (status = "", page, perPage) => {
   try {
     const orders = await get("orders");
 

@@ -1,6 +1,7 @@
 import { Button, Card, Tag } from "antd";
 import React, { useState } from "react";
 import HistoryCartItem from "./HistoryCartItem";
+import { Link } from "react-router-dom";
 
 export default function BoxOrder({ order }) {
   const [showAllProducts, setShowAllProducts] = useState(false);
@@ -10,12 +11,30 @@ export default function BoxOrder({ order }) {
   };
 
   return (
-    <Card>
+    <Card className="!mb-5">
       <div className="flex items-start mb-4">
         <div className="flex !justify-between w-full border-b border-line-border pb-5">
-          <Tag color="red" className="mr-2">
-            {order?.status}
+          <Tag
+            color={
+              order.status === "PENDING"
+                ? "processing"
+                : order.status === "SUCESS"
+                ? "success"
+                : order.status === "CANCEL"
+                ? "error"
+                : "default"
+            }
+            className="mr-2"
+          >
+            {order.status === "PENDING"
+              ? "Đang xử lý"
+              : order.status === "SUCESS"
+              ? "Hoàn thành"
+              : order.status === "CANCEL"
+              ? "Huỷ"
+              : "default"}
           </Tag>
+
           <div className="font-semibold">#{order.id}</div>
         </div>
       </div>
@@ -51,9 +70,11 @@ export default function BoxOrder({ order }) {
       </div>
 
       <div className="flex justify-end">
-        <Button type="primary" className="ml-4">
-          Xem chi tiết
-        </Button>
+        <Link to={`/account/order-history/${order.id}`}>
+          <Button type="primary" className="ml-4">
+            Xem chi tiết
+          </Button>
+        </Link>
       </div>
     </Card>
   );

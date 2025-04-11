@@ -4,6 +4,7 @@ export const path = {
   logout: "/logout",
   register: "/register",
   productDetail: "/products/:slug",
+  productCategory: "/products/category/:categorySlug",
   cart: "/cart",
   cartStepTwo: "/cart/step-two",
   cartStepThree: "/cart/step-three",
@@ -12,4 +13,6 @@ export const path = {
   account: "/account",
   address: "/account/address",
   orderHistory: "/account/order-history",
+  orderHistoryDetail: "/account/order-history/:id",
+  viewed: "/account/viewed",
 };

@@ -1,50 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import {
+  SearchOutlined,
+  PhoneOutlined,
+  UserOutlined,
+  MenuOutlined,
+} from "@ant-design/icons";
+import { Link, useNavigate } from "react-router-dom";
 // import { useSelector } from "react-redux";
 import { Dropdown, Menu, Input, Button, Modal } from "antd";
-import { SearchOutlined, PhoneOutlined, MenuOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import CartNotification from "./CartNotification";
 import CartMini from "./CartMini";
 import { UserOutlined } from "@ant-design/icons";
 import LoginPage from "./LoginPage";
+import { ProductContext } from "../hooks/ProductContext";
 
 const { Search } = Input;
-
-const items = [
-  {
-    label: (
-      <a
-        href="https://www.antgroup.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Điện tử
-      </a>
-    ),
-    key: "0",
-  },
-  {
-    label: (
-      <a
-        href="https://www.aliyun.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Lorem ipsum dolor sit, amet consectetur adipisicing el
-      </a>
-    ),
-    key: "1",
-  },
-  {
-    label: "Sách",
-    key: "3",
-  },
-];
 
 const Header = () => {
   const { justAdded } = useCart();
   const [product, setProduct] = useState(null);
+  const { categories, products } = useContext(ProductContext);
+  const navigate = useNavigate();
+
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // Thay visible bằng open
+
+  const handleCategoryFilter = (slug) => {
+    navigate(`products/category/${slug}`);
+  };
 
   useEffect(() => {
     if (!justAdded) return;
@@ -53,8 +38,77 @@ const Header = () => {
     return () => clearTimeout(timer);
   }, [justAdded]);
 
+  // Xử lý khi người dùng nhập vào ô tìm kiếm
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchValue(value);
+
+    if (value.trim() === "") {
+      setSearchResults([]);
+      setDropdownOpen(false);
+      return;
+    }
+
+    const filtered = products
+      .filter((product) =>
+        product.title.toLowerCase().includes(value.toLowerCase())
+      )
+      .slice(0, 4);
+
+    setSearchResults(filtered);
+    setDropdownOpen(true);
+  };
+
+  // Xử lý khi nhấn Enter trong ô tìm kiếm
+  const handleSearch = (value) => {
+    if (value.trim()) {
+      navigate(`/products/search?q=${value}`);
+      setDropdownOpen(false);
+      setSearchValue("");
+    }
+  };
+
+  // Nội dung menu cho dropdown tìm kiếm
+  const searchMenu = {
+    items: searchResults.length > 0 ? (
+      searchResults.map((product) => ({
+        key: product.id,
+        label: (
+          <div
+            className="flex items-center"
+            onClick={() => {
+              navigate(`/products/${product.slug}`);
+              setDropdownOpen(false);
+              setSearchValue("");
+            }}
+          >
+            <img
+              src={product.image_url[0] || "placeholder-image-url"}
+              alt={product.title}
+              className="w-12 h-12 object-cover mr-2"
+            />
+            <div>
+              <p className="text-sm font-medium">{product.title}</p>
+              <p className="text-xs text-gray-500">
+                {product.price.toLocaleString()} VNĐ
+              </p>
+            </div>
+          </div>
+        ),
+      }))
+    ) : (
+      [
+        {
+          key: "no-results",
+          label: <p className="text-gray-500">Không tìm thấy sản phẩm nào</p>,
+          disabled: true, // Để không thể nhấp vào
+        },
+      ]
+    ),
+  };
+
   return (
-    <header className="shadow-lg py-4 sticky top-0 z-10 bg-blue-500">
+    <header className="shadow-lg py-4 sticky top-0 z-10 bg-primary">
       <div className="container mx-auto flex items-center gap-5 justify-between px-6 lg:px-8 text-white">
         {/* Logo */}
         <div className="flex items-center">
@@ -65,7 +119,20 @@ const Header = () => {
 
         {/* Dropdown "Danh mục" */}
         <Dropdown
-          menu={{ items }}
+          menu={{
+            items: [
+              {
+                label: "Tất cả",
+                key: "all",
+                onClick: () => handleCategoryFilter("all"),
+              },
+              ...categories?.map((item) => ({
+                label: item.name,
+                key: item.id,
+                onClick: () => handleCategoryFilter(item.slug),
+              })),
+            ],
+          }}
           trigger={["click"]}
           overlayClassName="bg-white shadow-md rounded-md border border-gray-200"
           placement="bottomRight"
@@ -80,14 +147,25 @@ const Header = () => {
           </a>
         </Dropdown>
 
-        {/* Input tìm kiếm với button icon */}
+        {/* Input tìm kiếm với dropdown */}
         <div className="flex-1 mx-6">
-          <Search
-            placeholder="Tìm kiếm sản phẩm..."
-            enterButton={<Button icon={<SearchOutlined />} />}
-            size="large"
-            className="w-full max-w-lg rounded-md shadow-sm border-gray-300"
-          />
+          <Dropdown
+            menu={searchMenu}
+            open={dropdownOpen && searchResults.length > 0} // Thay visible bằng open
+            onOpenChange={(open) => setDropdownOpen(open)} // Thay onVisibleChange bằng onOpenChange
+            placement="bottomLeft"
+            overlayClassName="bg-white shadow-lg rounded-md w-96" // Tùy chỉnh lớp overlay
+          >
+            <Search
+              placeholder="Tìm kiếm sản phẩm..."
+              enterButton={<Button icon={<SearchOutlined />} />}
+              size="large"
+              value={searchValue}
+              onChange={handleSearchChange}
+              onSearch={handleSearch}
+              className="w-full max-w-lg rounded-md shadow-sm border-gray-300"
+            />
+          </Dropdown>
         </div>
 
         {/* Hotline */}
@@ -106,7 +184,6 @@ const Header = () => {
         </Link>
 
         {/* Giỏ hàng */}
-
         <div className="relative">
           <CartMini />
           {product != null && <CartNotification product={product} />}
