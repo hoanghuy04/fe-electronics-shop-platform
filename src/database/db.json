@@ -191,31 +191,6 @@
       ]
     },
     {
-      "id": "9",
-      "title": "Màn hình Dell UltraSharp U2723QE 27 inch",
-      "category_id": 8,
-      "description": {
-        "Size": "27 inch",
-        "Resolution": "4K UHD (3840x2160)",
-        "Panel": "IPS",
-        "Refresh Rate": "60Hz"
-      },
-      "price": 13990000,
-      "discount": 0.06,
-      "brand": "DELL",
-      "slug": "man-hinh-dell-ultrasharp-u2723qe",
-      "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
-    },
-    {
       "id": "10",
       "title": "Bàn phím cơ Logitech G Pro X",
       "category_id": 9,
@@ -229,31 +204,6 @@
       "discount": 0.15,
       "brand": "LOGITECH",
       "slug": "ban-phim-co-logitech-g-pro-x",
-      "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
-    },
-    {
-      "id": "11",
-      "title": "Chuột Logitech MX Master 3S",
-      "category_id": 10,
-      "description": {
-        "Sensor": "Darkfield 8000 DPI",
-        "Buttons": "7 programmable buttons",
-        "Battery": "Up to 70 days",
-        "Connectivity": "USB-C, Wireless"
-      },
-      "price": 2690000,
-      "discount": 0.1,
-      "brand": "LOGITECH",
-      "slug": "chuot-logitech-mx-master-3s",
       "image_url": [
         "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
         "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
@@ -465,31 +415,6 @@
       ]
     },
     {
-      "id": "20",
-      "title": "Màn hình LG UltraGear 27GP950-B",
-      "category_id": 8,
-      "description": {
-        "Size": "27 inch",
-        "Resolution": "4K UHD (3840x2160)",
-        "Panel": "Nano IPS",
-        "Refresh Rate": "144Hz (Overclock 160Hz)"
-      },
-      "price": 19990000,
-      "discount": 0.1,
-      "brand": "LG - Gram",
-      "slug": "man-hinh-lg-ultragear-27gp950-b",
-      "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
-    },
-    {
       "id": "21",
       "title": "Bàn phím Razer BlackWidow V4 Pro",
       "category_id": 9,
@@ -503,31 +428,6 @@
       "discount": 0.12,
       "brand": "RAZER",
       "slug": "ban-phim-razer-blackwidow-v4-pro",
-      "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
-    },
-    {
-      "id": "22",
-      "title": "Chuột SteelSeries Rival 5",
-      "category_id": 10,
-      "description": {
-        "Sensor": "TrueMove Air, 18000 DPI",
-        "Buttons": "9 programmable buttons",
-        "Lighting": "RGB",
-        "Weight": "85g"
-      },
-      "price": 1790000,
-      "discount": 0.1,
-      "brand": "STEELSERIES",
-      "slug": "chuot-steelseries-rival-5",
       "image_url": [
         "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
         "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
@@ -795,6 +695,368 @@
         "https://product.hstatic.net/200000722513/product/1024__3__3a8cef647e9340ea94e231f764232d62_1024x1024.png",
         "https://product.hstatic.net/200000722513/product/1024__4__4023a88a25bd474c896c86c3fcf8ebfe_1024x1024.png",
         "https://product.hstatic.net/200000722513/product/1024_997277b1fa94401893e37e032814f346_1024x1024.png"
+      ]
+    },
+    {
+      "id": "34",
+      "title": "PC GVN AMD Ryzen 5 5600X",
+      "category_id": 3,
+      "description": {
+        "CPU": "AMD Ryzen™ 5 5600X, 6C/12T, Max Turbo up to 4.6GHz",
+        "RAM": "16GB DDR4-3600",
+        "SSD": "1TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3060 12GB"
+      },
+      "price": 18990000,
+      "discount": 0.05,
+      "brand": "GVN",
+      "slug": "pc-gvn-amd-ryzen-5-5600x",
+      "image_url": [
+        "https://lh3.googleusercontent.com/chQP_2KiyLvnI05zoasJgDt8PgVyMBseDMQGszkr-LQx6vOzuOYV-R3GDj-L_ORQeC50JR93TxYfYbac56un05mWzQRpLe7r=w500-rw",
+        "https://lh3.googleusercontent.com/L5N0koSLGhfwZK7v3y5_r_SiJXLMZTSqfMdeXCbF_4uUDH8CCNljY4BWC4P0-6VjbFs2cUVSke1dBVmd2cnyvovttXW88Og=w1000-rw",
+        "https://lh3.googleusercontent.com/grCw1LnhwMvYcBD4…XeQqGqgvbWkqjmpJW97S56ngjc4r6UTS-u3YMbEE=w1000-rw"
+      ]
+    },
+    {
+      "id": "35",
+      "title": "PC ASUS ROG Intel i7-13700KF",
+      "category_id": 3,
+      "description": {
+        "CPU": "Intel® Core™ i7-13700KF, 16C/24T, Max Turbo up to 5.4GHz",
+        "RAM": "32GB DDR5-5200",
+        "SSD": "1TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 4070 Ti 12GB"
+      },
+      "price": 34990000,
+      "discount": 0.1,
+      "brand": "ASUS",
+      "slug": "pc-asus-rog-intel-i7-13700kf",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/6969_f4488b40487540aa91c2a77e9c863396_medium.png"
+      ]
+    },
+    {
+      "id": "36",
+      "title": "PC MSI Gaming AMD Ryzen 7 5800X",
+      "category_id": 3,
+      "description": {
+        "CPU": "AMD Ryzen™ 7 5800X, 8C/16T, Max Turbo up to 4.7GHz",
+        "RAM": "32GB DDR4-3600",
+        "SSD": "500GB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3070 8GB"
+      },
+      "price": 27990000,
+      "discount": 0.07,
+      "brand": "MSI",
+      "slug": "pc-msi-gaming-amd-ryzen-7-5800x",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/5000d_white_aero_d254c2c1d006470dad47a5a4b6c116e8_medium.png"
+      ]
+    },
+    {
+      "id": "37",
+      "title": "PC HP Pavilion Intel i5-12400F",
+      "category_id": 3,
+      "description": {
+        "CPU": "Intel® Core™ i5-12400F, 6C/12T, Max Turbo up to 4.4GHz",
+        "RAM": "16GB DDR4-3200",
+        "SSD": "512GB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® GTX 1650 4GB"
+      },
+      "price": 14990000,
+      "discount": 0.06,
+      "brand": "HP",
+      "slug": "pc-hp-pavilion-intel-i5-12400f",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/cougar_2101a66491414b49a99fcd1e4e0421ad_medium.png"
+      ]
+    },
+    {
+      "id": "38",
+      "title": "PC Dell Alienware AMD Ryzen 9 5900X",
+      "category_id": 3,
+      "description": {
+        "CPU": "AMD Ryzen™ 9 5900X, 12C/24T, Max Turbo up to 4.8GHz",
+        "RAM": "64GB DDR4-3600",
+        "SSD": "2TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 4080 16GB"
+      },
+      "price": 49990000,
+      "discount": 0.12,
+      "brand": "DELL",
+      "slug": "pc-dell-alienware-amd-ryzen-9-5900x",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gvn07935__1__b45c07447bad4fd3ba19046a4ea15744_medium.png"
+      ]
+    },
+    {
+      "id": "39",
+      "title": "PC Acer Predator Intel i9-13900KF",
+      "category_id": 3,
+      "description": {
+        "CPU": "Intel® Core™ i9-13900KF, 24C/32T, Max Turbo up to 5.8GHz",
+        "RAM": "32GB DDR5-6000",
+        "SSD": "1TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 4090 24GB"
+      },
+      "price": 59990000,
+      "discount": 0.15,
+      "brand": "ACER",
+      "slug": "pc-acer-predator-intel-i9-13900kf",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/4060_ddae7a383d2c4f56b9116644fe20906f_medium.png"
+      ]
+    },
+    {
+      "id": "40",
+      "title": "PC Lenovo Legion AMD Ryzen 5 7600",
+      "category_id": 3,
+      "description": {
+        "CPU": "AMD Ryzen™ 5 7600, 6C/12T, Max Turbo up to 5.1GHz",
+        "RAM": "16GB DDR5-5200",
+        "SSD": "1TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3060 Ti 8GB"
+      },
+      "price": 22990000,
+      "discount": 0.09,
+      "brand": "LENOVO",
+      "slug": "pc-lenovo-legion-amd-ryzen-5-7600",
+      "image_url": [
+        "https://file.hstatic.net/200000722513/file/asus_195eebbae0a44f84b7131bec913a6884.png"
+      ]
+    },
+    {
+      "id": "41",
+      "title": "PC Gigabyte AORUS Intel i7-12700F",
+      "category_id": 3,
+      "description": {
+        "CPU": "Intel® Core™ i7-12700F, 12C/20T, Max Turbo up to 4.9GHz",
+        "RAM": "32GB DDR4-3200",
+        "SSD": "512GB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3080 10GB"
+      },
+      "price": 31990000,
+      "discount": 0.08,
+      "brand": "GIGABYTE",
+      "slug": "pc-gigabyte-aorus-intel-i7-12700f",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/cmp_04ff98d4357840358b2ef20cd45300d8_medium.png"
+      ]
+    },
+    {
+      "id": "42",
+      "title": "Chuột Logitech MX Master 3S",
+      "category_id": 10,
+      "description": {
+        "Sensor": "Darkfield 8000 DPI",
+        "Buttons": "7 programmable buttons",
+        "Battery": "Up to 70 days",
+        "Connectivity": "USB-C, Wireless"
+      },
+      "price": 2690000,
+      "discount": 0.1,
+      "brand": "LOGITECH",
+      "slug": "chuot-logitech-mx-master-3s",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-chuot-rapoo-vt9-air-gaming-khong-day-trang-tim-1_da46d2436086461ba8b099c873c01ae8_medium.png"
+      ]
+    },
+    {
+      "id": "43",
+      "title": "Chuột Logitech G Pro X Superlight",
+      "category_id": 10,
+      "description": {
+        "Sensor": "HERO 25K",
+        "Buttons": "5 programmable buttons",
+        "Battery": "Up to 70 hours",
+        "Connectivity": "Wireless, USB"
+      },
+      "price": 3290000,
+      "discount": 0.15,
+      "brand": "LOGITECH",
+      "slug": "chuot-logitech-g-pro-x-superlight",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-chuot-rapoo-mt760-mini-khong-day-den-1_b58d194a97c545cfa71ca6ae6125a64e_medium.png"
+      ]
+    },
+    {
+      "id": "44",
+      "title": "Chuột Razer DeathAdder V2",
+      "category_id": 10,
+      "description": {
+        "Sensor": "Focus+ 20K DPI",
+        "Buttons": "8 programmable buttons",
+        "Battery": "Wired",
+        "Connectivity": "USB"
+      },
+      "price": 1390000,
+      "discount": 0.2,
+      "brand": "RAZER",
+      "slug": "chuot-razer-deathadder-v2",
+      "image_url": [
+        "//product.hstatic.net/200000722513/product/1-2_d48628cb79b3407cbc7b5c8e81c9db08_medium.png"
+      ]
+    },
+    {
+      "id": "45",
+      "title": "Chuột Corsair Harpoon RGB Wireless",
+      "category_id": 10,
+      "description": {
+        "Sensor": "PMW3325 10000 DPI",
+        "Buttons": "6 programmable buttons",
+        "Battery": "Up to 60 hours",
+        "Connectivity": "Wireless, USB"
+      },
+      "price": 1090000,
+      "discount": 0.1,
+      "brand": "CORSAIR",
+      "slug": "chuot-corsair-harpoon-rgb-wireless",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/pro2-lightspeed-white-gallery1_a41f9f8af44c4758922011fa73633c7a_medium.png"
+      ]
+    },
+    {
+      "id": "46",
+      "title": "Chuột Logitech M650 L",
+      "category_id": 10,
+      "description": {
+        "Sensor": "Optical 4000 DPI",
+        "Buttons": "5 buttons",
+        "Battery": "Up to 24 months",
+        "Connectivity": "Bluetooth, USB Receiver"
+      },
+      "price": 890000,
+      "discount": 0.05,
+      "brand": "LOGITECH",
+      "slug": "chuot-logitech-m650-l",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/logitech-mx-master-3-mid-grey-mouse-1_260cc3f6213143fb8f091d61fb9d68e9_928861ee1035484793f559eb8173ceb8_medium.jpg"
+      ]
+    },
+    {
+      "id": "47",
+      "title": "Chuột Microsoft Bluetooth Ergonomic",
+      "category_id": 10,
+      "description": {
+        "Sensor": "Bluetooth tracking sensor",
+        "Buttons": "4 buttons",
+        "Battery": "Up to 12 months",
+        "Connectivity": "Bluetooth"
+      },
+      "price": 990000,
+      "discount": 0.1,
+      "brand": "MICROSOFT",
+      "slug": "chuot-microsoft-bluetooth-ergonomic",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/mx-master-3s-mouse-top-view-graphite_880f7c80882541c2b4e349b7ed0fa439_de0fb8d222ec49bfb11d909a1f116f7e_medium.png"
+      ]
+    },
+    {
+      "id": "48",
+      "title": "Chuột SteelSeries Rival 3 Wireless",
+      "category_id": 10,
+      "description": {
+        "Sensor": "TrueMove Air",
+        "Buttons": "6 buttons",
+        "Battery": "Up to 400 hours",
+        "Connectivity": "Wireless, Bluetooth"
+      },
+      "price": 1590000,
+      "discount": 0.15,
+      "brand": "STEELSERIES",
+      "slug": "chuot-steelseries-rival-3-wireless",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/chuot-gaming-logitech-g502-x-cor__5__29ead39fdafe4eefa4cb6070434003ef_medium.png"
+      ]
+    },
+    {
+      "id": "49",
+      "title": "Màn hình LG UltraGear 27GP950-B",
+      "category_id": 8,
+      "description": {
+        "Size": "27 inch",
+        "Resolution": "4K UHD (3840x2160)",
+        "Panel": "Nano IPS",
+        "Refresh Rate": "144Hz (Overclock 160Hz)"
+      },
+      "price": 19990000,
+      "discount": 0.1,
+      "brand": "LG - Gram",
+      "slug": "man-hinh-lg-ultragear-27gp950-b",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/asus_vg279q3a_gearvn_af438e4f48e241879c57aa33c28a06a9_medium.jpg"
+      ]
+    },
+    {
+      "id": "50",
+      "title": "Màn hình ASUS ROG Swift PG32UQ",
+      "category_id": 8,
+      "description": {
+        "Size": "32 inch",
+        "Resolution": "4K UHD (3840x2160)",
+        "Panel": "IPS",
+        "Refresh Rate": "144Hz"
+      },
+      "price": 25990000,
+      "discount": 0.1,
+      "brand": "ASUS",
+      "slug": "man-hinh-asus-rog-swift-pg32uq",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/msi_g244f_e2_gearvn_784763b88e6246269adfc568b49e46e3_medium.jpg"
+      ]
+    },
+    {
+      "id": "51",
+      "title": "Màn hình Dell UltraSharp U2723QE",
+      "category_id": 8,
+      "description": {
+        "Size": "27 inch",
+        "Resolution": "4K UHD (3840x2160)",
+        "Panel": "IPS",
+        "Refresh Rate": "60Hz"
+      },
+      "price": 14990000,
+      "discount": 0.05,
+      "brand": "DELL",
+      "slug": "man-hinh-dell-ultrasharp-u2723qe",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/1_6bf24e36cbd34fd990728781a18e1653_befa433a45b84594bf6aa5a5c8526365_medium.jpg"
+      ]
+    },
+    {
+      "id": "52",
+      "title": "Màn hình Samsung Smart Monitor M8",
+      "category_id": 8,
+      "description": {
+        "Size": "32 inch",
+        "Resolution": "4K UHD (3840x2160)",
+        "Panel": "VA",
+        "Refresh Rate": "60Hz"
+      },
+      "price": 11990000,
+      "discount": 0.12,
+      "brand": "SAMSUNG",
+      "slug": "man-hinh-samsung-smart-monitor-m8",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/mb24v9_mb27v9-02.png_172955dc7e914473a0cc0b4e6ffc1513_medium.jpg"
+      ]
+    },
+    {
+      "id": "53",
+      "title": "Màn hình Gigabyte M27Q X",
+      "category_id": 8,
+      "description": {
+        "Size": "27 inch",
+        "Resolution": "QHD (2560x1440)",
+        "Panel": "IPS",
+        "Refresh Rate": "240Hz"
+      },
+      "price": 9990000,
+      "discount": 0.1,
+      "brand": "GIGABYTE",
+      "slug": "man-hinh-gigabyte-m27q-x",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/large01_c6adf3377eb1458d9b04ad0655dd24ec_medium.jpg"
       ]
     }
   ],

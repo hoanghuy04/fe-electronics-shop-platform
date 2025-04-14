@@ -11,35 +11,31 @@ import chuotgaming from '../../public/chuot-gaming.png'
 const Home = () => {
   const [laptops, setLaptops] = useState([]);
   const [pcs, setPCs] = useState([]);
+  const [mouse, setMouse] = useState([]);
+  const [screens, setScreens] = useState([]);
 
   const { products, categories, brands, loading } = useContext(ProductContext)
   // Dữ liệu giả lập cho carousel và banner
   const carouselImages = [
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_web_slider_800x400.jpg", navigation: "products/category/pc-gvn" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_04_laptop_gaming_banner_web_slider_800x400.jpg", navigation: "products/category/laptop" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_800x400.jpg", navigation: "products/category/all" },
+    { src: "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_web_slider_800x400.jpg", navigation: "products/pc-gvn/brand/all" },
+    { src: "https://file.hstatic.net/200000722513/file/thang_04_laptop_gaming_banner_web_slider_800x400.jpg", navigation: "products/laptop/brand/all" },
+    { src: "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_800x400.jpg", navigation: "products/all" },
   ];
 
 
   const rightBanners = [
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-01.png", navigation: "products/category/pc-gvn" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-02.png", navigation: "products/category/ban-phim" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-03.png", navigation: "products/category/ban-phim" }
+    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-01.png", navigation: "products/pc-gvn/brand/all" },
+    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-02.png", navigation: "products/ban-phim/brand/all" },
+    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-03.png", navigation: "products/ban-phim/brand/all" }
   ];
 
 
   const bottomBanners = [
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-09_acdc7c6d37584f0eb1ce8d35ba45507e.png", navigation: "products/category/loa-micro-webcam" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-08.png", navigation: "products/category/man-hinh" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-07.png", navigation: "products/category/chuot-lot-chuot" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-06.png", navigation: "products/category/pc-gvn" }
+    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-09_acdc7c6d37584f0eb1ce8d35ba45507e.png", navigation: "products/loa-micro-webcam/brand/all" },
+    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-08.png", navigation: "products/man-hinh/brand/all" },
+    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-07.png", navigation: "products/chuot-lot-chuot/brand/all" },
+    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-06.png", navigation: "products/pc-gvn/brand/all" }
   ];
-
-
-  // const stickyBanners = [
-  //   "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_side_web.jpg", // Banner bên trái
-  //   "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_sticky_230x697.jpg", // Banner bên phải
-  // ];
 
   const searchProductsByTitle = (keyword) => {
     try {
@@ -69,6 +65,14 @@ const Home = () => {
       const pcs = searchProductsByTitle("pc");
       setPCs(pcs);
 
+      const mouseList = searchProductsByTitle("Chuột");
+      setMouse(mouseList)
+
+
+      const screenList = searchProductsByTitle("Màn hình");
+      setScreens(screenList)
+
+
     } catch (error) {
       console.error(error);
     }
@@ -84,16 +88,6 @@ const Home = () => {
   return (
     <div className="container mx-auto px-6 lg:px-8 py-8">
       <div className="flex flex-col  gap-6">
-        {/* Banner sticky bên trái */}
-        {/* <div className="hidden lg:block w-[160px] flex-shrink-0">
-          <a href="#" className="block sticky top-20">
-            <img
-              src={stickyBanners[0]}
-              alt="Sticky Banner Left"
-              className="w-[160px] object-cover rounded-lg shadow-lg"
-            />
-          </a>
-        </div> */}
 
         <div className="main-content">
           <div className=" rounded-lg shadow-lg bg-white py-12 px-8">
@@ -155,93 +149,31 @@ const Home = () => {
             </div>
           </div>
 
-          <section className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
-            <div className="container mx-auto px-4">
-              <div className="text-2xl md:text-3xl font-bold text-center mb-8">Thương hiệu nổi bật</div>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
-                {brands.map((brand, index) => (
-                  <NavLink
-                    key={index}
-                    to={`products/category/${brand.slug}`}
-                    className={`${categoryColor[index % 6]} rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
-                  >
-                    <div className="flex justify-center mb-4">
-                      {brand.icon}
-                    </div>
-                    <h3 className="font-medium">{brand.name}</h3>
-                  </NavLink>
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Laptop</div>
+              <div className="flex">
+                {/* Dynamically render brand buttons */}
+                {[...new Set(laptops.map((laptop) => laptop.brand))].map((brand, index) => (
+                  <div key={index} className="mr-2">
+                    <NavLink
+                      to={`products/laptop/brand/${brand}`}
+                      key={index}
+                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                    >
+                      {brand}
+                    </NavLink>
+                  </div>
                 ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Banners */}
-          <section className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
-            <div className="container mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl shadow-md overflow-hidden">
-                  <div className="p-6 md:p-8 flex flex-col md:flex-row items-center">
-                    <div className="w-full md:w-1/2 mb-6 md:mb-0 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Laptop Gaming</h3>
-                      <p className="mb-4">Trải nghiệm chơi game đỉnh cao với laptop gaming mới nhất</p>
-                      <div className="mt-10">
-                        <NavLink to={"products/category/laptop-gaming"} className="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg font-medium transition-colors">
-                          Khám phá ngay
-                        </NavLink>
-                      </div>
-                    </div>
-                    <div className="w-full h-full md:w-1/2">
-                      <img src={laptopgaming} alt="Laptop Gaming" className="w-[306px] h-[306px]" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl shadow-md overflow-hidden">
-                  <div className="p-6 md:p-8 flex flex-col md:flex-row items-center">
-                    <div className="w-full md:w-1/2 mb-6 md:mb-0 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Chuột Gaming</h3>
-                      <p className="mb-4">Tối ưu phản xạ và độ chính xác trong từng pha hành động với chuột gaming hiệu suất cao</p>
-                      <div className="mt-10">
-                        <NavLink to={"products/category/chuot-lot-chuot"} className=" bg-white text-purple-600 hover:bg-purple-50 px-4 py-2 rounded-lg font-medium transition-colors">
-                          Tìm hiểu thêm
-                        </NavLink>
-                      </div>
-                    </div>
-                    <div className="w-full md:w-1/2">
-                      <img src={chuotgaming} alt="Smart Home" className="" />
-                    </div>
-                  </div>
+                <div className="">
+                  <NavLink to={`products/laptop/brand/all`} className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer">
+                    Xem tất cả
+                  </NavLink>
                 </div>
               </div>
             </div>
-          </section>
-
-          <section className="rounded-lg shadow-lg bg-white py-10 px-8 mt-6">
-            <div className="container mx-auto px-4">
-              <div className="text-2xl md:text-3xl font-bold text-center mb-8">Danh Mục Sản Phẩm</div>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                {categories.slice(0, 6).map((category, index) => (
-                  <NavLink
-                    key={index}
-                    to={`products/category/${category.slug}`}
-                    className={`${categoryColor[index % 6]} rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
-                  >
-                    <div className="flex justify-center mb-4">
-                      {category.icon}
-                    </div>
-                    <h3 className="font-medium">{category.name}</h3>
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <div className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
-            <div className="text-2xl font-bold ml-3">Laptop Nổi Bật</div>
             <Carousel
-              slidesToShow={4}
+              slidesToShow={5}
               slidesToScroll={1}
               arrows
               autoplay
@@ -259,10 +191,157 @@ const Home = () => {
             </Carousel>
           </div>
 
+
+          {/* Banners */}
+          <section className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="container mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl shadow-md overflow-hidden">
+                  <div className="p-6 md:p-8 flex flex-col md:flex-row items-center">
+                    <div className="w-full md:w-1/2 mb-6 md:mb-0 text-white">
+                      <h3 className="text-2xl font-bold mb-2">Laptop Gaming</h3>
+                      <p className="mb-4">Trải nghiệm chơi game đỉnh cao với laptop gaming mới nhất</p>
+                      <div className="mt-10">
+                        <NavLink to={"products/laptop-gaming/brand/all"} className="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg font-medium transition-colors">
+                          Khám phá ngay
+                        </NavLink>
+                      </div>
+                    </div>
+                    <div className="w-full h-full md:w-1/2">
+                      <img src={laptopgaming} alt="Laptop Gaming" className="w-[306px] h-[306px]" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl shadow-md overflow-hidden">
+                  <div className="p-6 md:p-8 flex flex-col md:flex-row items-center">
+                    <div className="w-full md:w-1/2 mb-6 md:mb-0 text-white">
+                      <h3 className="text-2xl font-bold mb-2">Chuột Gaming</h3>
+                      <p className="mb-4">Tối ưu phản xạ và độ chính xác trong từng pha hành động với chuột gaming hiệu suất cao</p>
+                      <div className="mt-10">
+                        <NavLink to={"products/chuot-lot-chuot/brand/all"} className=" bg-white text-purple-600 hover:bg-purple-50 px-4 py-2 rounded-lg font-medium transition-colors">
+                          Tìm hiểu thêm
+                        </NavLink>
+                      </div>
+                    </div>
+                    <div className="w-full md:w-1/2">
+                      <img src={chuotgaming} alt="Smart Home" className="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* <section className="rounded-lg shadow-lg bg-white py-10 px-8 mt-6">
+            <div className="container mx-auto px-4">
+              <div className="text-2xl md:text-3xl font-bold text-center mb-8">Danh Mục Sản Phẩm</div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                {categories.slice(0, 6).map((category, index) => (
+                  <NavLink
+                    key={index}
+                    to={`products/${category.slug}/brand/all`}
+                    className={`${categoryColor[index % 6]} rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
+                  >
+                    <div className="flex justify-center mb-4">
+                      {category.icon}
+                    </div>
+                    <h3 className="font-medium">{category.name}</h3>
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          </section> */}
+
+
+          <section className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="container mx-auto px-4">
+              <div className="text-2xl md:text-3xl font-bold text-center mb-8">Thương hiệu nổi bật</div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+                {brands.map((brand, index) => (
+                  <NavLink
+                    key={index}
+                    to={`products/all/brand/${brand.name}`}
+                    className={`${categoryColor[index % 6]} rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
+                  >
+                    <div className="flex justify-center mb-4">
+                      {brand.icon}
+                    </div>
+                    <h3 className="font-medium">{brand.name}</h3>
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          </section>
+
           <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
-            <div className="text-2xl font-bold ml-3">PC Nổi Bật</div>
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Màn hình </div>
+              <div className="flex">
+                {/* Dynamically render brand buttons */}
+                {[...new Set(screens.map((s) => s.brand))].map((brand, index) => (
+                  <div key={index} className="mr-2">
+                    <NavLink
+                      to={`products/man-hinh/brand/${brand}`}
+                      key={index}
+                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                    >
+                      {brand}
+                    </NavLink>
+                  </div>
+                ))}
+                <div className="">
+                  <NavLink to={`products/man-hinh/brand/all`} className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer">
+                    Xem tất cả
+                  </NavLink>
+                </div>
+              </div>
+            </div>
             <Carousel
-              slidesToShow={4}
+              slidesToShow={5}
+              slidesToScroll={1}
+              arrows
+              autoplay
+              className="p-6"
+            >
+              {screens.length > 0 ? (
+                screens.map((s) => (
+                  <div key={s.id}>
+                    <ProductCard product={s} />
+                  </div>
+                ))
+              ) : (
+                <div>Không có laptop nào để hiển thị</div>
+              )}
+            </Carousel>
+          </div>
+
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Máy tính để bàn</div>
+              <div className="flex">
+                {[...new Set(pcs.map((m) => m.brand))].map((brand, index) => (
+                  <div key={index} className="mr-2">
+                    <NavLink
+                      to={`products/pc-gvn/brand/${brand}`}
+                      key={index}
+                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                    >
+                      {brand}
+                    </NavLink>
+                  </div>
+                ))}
+                <div className="">
+                  <NavLink to={`products/pc-gvn/brand/all`} className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer">
+                    Xem tất cả
+                  </NavLink>
+                </div>
+              </div>
+            </div>
+            <Carousel
+              slidesToShow={5}
               slidesToScroll={1}
               arrows
               autoplay
@@ -280,29 +359,46 @@ const Home = () => {
             </Carousel>
           </div>
 
-
-
-          {/* <div className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
-            <div className="text-2xl font-bold ml-3">Sản phẩm khác</div>
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Chuột nổi bật</div>
+              <div className="flex">
+                {[...new Set(mouse.map((m) => m.brand))].map((brand, index) => (
+                  <div key={index} className="mr-2">
+                    <NavLink
+                      to={`products/chuot-lot-chuot/brand/${brand}`}
+                      key={index}
+                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                    >
+                      {brand}
+                    </NavLink>
+                  </div>
+                ))}
+                <div className="">
+                  <NavLink to={`products/chuot-lot-chuot/brand/all`} className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer">
+                    Xem tất cả
+                  </NavLink>
+                </div>
+              </div>
+            </div>
             <Carousel
-              slidesToShow={4}
+              slidesToShow={5}
               slidesToScroll={1}
               arrows
               autoplay
               className="p-6"
             >
-              {others.length > 0 ? (
-                others.map((p) => (
-                  <div key={p.id}>
-                    <ProductCard product={p} />
+              {mouse.length > 0 ? (
+                mouse.map((m) => (
+                  <div key={m.id}>
+                    <ProductCard product={m} />
                   </div>
                 ))
               ) : (
                 <div>Không có sản phẩm nào để hiển thị</div>
               )}
             </Carousel>
-          </div> */}
-
+          </div>
 
           {/* Features */}
           <section className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
@@ -358,20 +454,7 @@ const Home = () => {
               </div>
             </div>
           </section>
-
-
         </div>
-
-        {/* Banner sticky bên phải */}
-        {/* <div className="hidden lg:block w-[160px] flex-shrink-0">
-          <a href="#" className="block sticky top-20">
-            <img
-              src={stickyBanners[1]}
-              alt="Sticky Banner Right"
-              className="w-[160px] object-cover rounded-lg shadow-lg"
-            />
-          </a>
-        </div> */}
       </div>
     </div>
   );
