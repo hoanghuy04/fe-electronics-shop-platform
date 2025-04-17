@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { UserRound, MapPin, LogOut, Package } from "lucide-react";
+import { UserRound, MapPin, LogOut, Package, Eye } from "lucide-react";
 import { path } from "../constants/path";
 
 export function AccountSidebar({ user }) {
@@ -59,14 +59,19 @@ export function AccountSidebar({ user }) {
           </NavLink>
         </div>
 
-        {/* <div>
+        <div>
           <NavLink
-            to="/viewed-products"
-            className={({ isActive }) => (isActive ? "text-primary" : "")}
+            to={path.viewed}
+            className={({ isActive }) =>
+              `flex items-center gap-2 hover:text-primary pb-2 ${
+                isActive ? " text-primary" : ""
+              } `
+            }
           >
+            <Eye />
             Sản phẩm đã xem
           </NavLink>
-        </div> */}
+        </div>
 
         <div>
           <NavLink

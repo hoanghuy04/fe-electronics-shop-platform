@@ -1,12 +1,10 @@
-import { ConfigProvider, Button, Tabs, Spin } from "antd";
+import { ConfigProvider, Button, Tabs, Spin, Pagination } from "antd";
 import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import { get } from "../services/request";
 import BoxOrder from "./BoxOrder";
 import NotFoundOrder from "./NotFoundOrder";
 import { getOrdersByStatus } from "../services/orderService";
-
-const { TabPane } = Tabs;
 
 export function AccountOrderHistory() {
   const [order, setOrder] = useState(null);
@@ -15,12 +13,15 @@ export function AccountOrderHistory() {
   const [loading, setLoading] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [activeTab, setActiveTab] = useState("1");
-  const [tabLabels, setTabLabels] = useState({
-    1: "TẤT CẢ",
-    2: "ĐANG XỬ LÝ",
-    3: "HOÀN THÀNH",
-    4: "HUỶ",
-  });
+  const [tabLabels, setTabLabels] = useState([
+    { key: "1", label: "TẤT CẢ", count: 0 },
+    { key: "2", label: "ĐANG XỬ LÝ", count: 0 },
+    { key: "3", label: "HOÀN THÀNH", count: 0 },
+    { key: "4", label: "HUỶ", count: 0 },
+  ]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(2);
 
   const findOrder = () => {
     const fetchOrder = async () => {
@@ -54,12 +55,10 @@ export function AccountOrderHistory() {
       try {
         const orders = await getOrdersByStatus();
         setFilteredOrders(orders);
-        setTabLabels({
-          1: `TẤT CẢ (${orders.length})`,
-          2: "ĐANG XỬ LÝ",
-          3: "HOÀN THÀNH",
-          4: "HUỶ",
-        });
+        setTabLabels((prev) => [
+          { ...prev[0], count: orders.length },
+          ...prev.slice(1),
+        ]);
       } catch (error) {
         console.error("Lỗi khi lấy đơn hàng:", error);
         setFilteredOrders([]);
@@ -75,36 +74,35 @@ export function AccountOrderHistory() {
     setActiveTab(key);
     setText("");
     setOrder(null);
-
     setLoading(true);
+
     try {
-      let orders;
+      let status;
       switch (key) {
         case "1":
-          orders = await getOrdersByStatus();
-          setTabLabels((prev) => ({ ...prev, 1: `TẤT CẢ (${orders.length})` }));
+          status = undefined;
           break;
         case "2":
-          orders = await getOrdersByStatus("Đang xử lý");
-          setTabLabels((prev) => ({
-            ...prev,
-            2: `ĐANG XỬ LÝ (${orders.length})`,
-          }));
+          status = "PENDING";
           break;
         case "3":
-          orders = await getOrdersByStatus("Hoàn thành");
-          setTabLabels((prev) => ({
-            ...prev,
-            3: `HOÀN THÀNH (${orders.length})`,
-          }));
+          status = "SUCCESS";
           break;
         case "4":
-          orders = await getOrdersByStatus("Huỷ");
-          setTabLabels((prev) => ({ ...prev, 4: `HUỶ (${orders.length})` }));
+          status = "CANCEL";
           break;
         default:
-          orders = [];
+          status = undefined;
       }
+
+      const orders = await getOrdersByStatus(status);
+
+      setTabLabels((prev) =>
+        prev.map((tab) =>
+          tab.key === key ? { ...tab, count: orders.length } : tab
+        )
+      );
+
       setFilteredOrders(orders);
     } catch (error) {
       console.error("Lỗi khi lấy đơn hàng theo trạng thái:", error);
@@ -113,6 +111,16 @@ export function AccountOrderHistory() {
       setLoading(false);
     }
   };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const getPaginatedOrders = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredOrders.slice(startIndex, startIndex + itemsPerPage);
+  };
+
   return (
     <div className="max-w-4xl mx-auto">
       <div className="bg-white pt-8 px-5 mb-4 rounded-t-sm">
@@ -131,11 +139,16 @@ export function AccountOrderHistory() {
             },
           }}
         >
-          <Tabs activeKey={activeTab} onTabClick={onTabClick}>
-            {Object.entries(tabLabels).map(([key, label]) => (
-              <TabPane tab={label} key={key}></TabPane>
-            ))}
-          </Tabs>
+          <Tabs
+            items={tabLabels.map((tab) => ({
+              key: tab.key,
+              label:
+                tab.key === activeTab
+                  ? `${tab.label} (${tab.count})`
+                  : tab.label,
+            }))}
+            onTabClick={onTabClick}
+          />
         </ConfigProvider>
       </div>
 
@@ -166,16 +179,28 @@ export function AccountOrderHistory() {
           className="w-full h-full flex justify-center items-center"
         />
       ) : (
-        <div className="overflow-y-auto max-h-96">
+        <div>
           {text && order && <BoxOrder order={order} />}
           {text && !order && <NotFoundOrder />}
 
           {!text && filteredOrders.length > 0
-            ? filteredOrders.map((order) => (
+            ? getPaginatedOrders().map((order) => (
                 <BoxOrder order={order} key={order.id} />
               ))
             : !text && <NotFoundOrder />}
         </div>
+      )}
+
+      {!text && filteredOrders.length > 0 && (
+        <Pagination
+          current={currentPage}
+          total={filteredOrders.length}
+          align="center"
+          pageSize={itemsPerPage}
+          onChange={handlePageChange}
+          showSizeChanger={false}
+          className="mt-4"
+        />
       )}
     </div>
   );

@@ -894,396 +894,7 @@
   ],
   "orders": [
     {
-      "id": "HD060420250002",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 1,
-          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
-          "quantity": 1,
-          "price": 24490000,
-          "discount": 0.09
-        },
-        {
-          "id": 2,
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        },
-        {
-          "id": 3,
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        },
-        {
-          "id": 4,
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        },
-        {
-          "id": 3,
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        },
-        {
-          "id": 4,
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 45713000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T10:30:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250003",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 3,
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 24641500,
-      "status": "Hoàn thành",
-      "order_date": "2025-04-06T11:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250004",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 4,
-          "title": "PC GVN Intel i5-13400F",
-          "quantity": 1,
-          "price": 15990000,
-          "discount": 0.08
-        }
-      ],
-      "total_price": 14712000,
-      "status": "Hoàn thành",
-      "order_date": "2025-04-06T12:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250005",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 5,
-          "title": "Mainboard ASUS ROG Strix Z790-E",
-          "quantity": 1,
-          "price": 10990000,
-          "discount": 0.05
-        }
-      ],
-      "total_price": 10440500,
-      "status": "Huỷ",
-      "order_date": "2025-04-06T13:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250006",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 6,
-          "title": "Case Cooler Master MasterBox TD500",
-          "quantity": 1,
-          "price": 2490000,
-          "discount": 0.1
-        }
-      ],
-      "total_price": 2241000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T14:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250007",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 7,
-          "title": "SSD Samsung 990 Pro 1TB",
-          "quantity": 1,
-          "price": 3990000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 3710700,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T15:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250008",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 8,
-          "title": "Loa Bluetooth JBL Flip 6",
-          "quantity": 1,
-          "price": 2990000,
-          "discount": 0.2
-        }
-      ],
-      "total_price": 2392000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T16:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250009",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 9,
-          "title": "Màn hình Dell UltraSharp U2723QE 27 inch",
-          "quantity": 1,
-          "price": 13990000,
-          "discount": 0.06
-        }
-      ],
-      "total_price": 13140600,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T17:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "HD060420250010",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": 10,
-          "title": "Bàn phím cơ Logitech G Pro X",
-          "quantity": 1,
-          "price": 3490000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 2966500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-06T18:00:00Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": "12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TP.HCM"
-      }
-    },
-    {
-      "id": "m979r5p04kmrzzy3gma",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "3",
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 24641500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T16:11:38.004Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "31921-Xã Long Thạnh",
-          "district": "958-Huyện Vĩnh Lợi"
-        }
-      }
-    },
-    {
-      "id": "m979rhet7g23a629g07",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "3",
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 24641500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T16:11:53.189Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "31921-Xã Long Thạnh",
-          "district": "958-Huyện Vĩnh Lợi"
-        }
-      }
-    },
-    {
-      "id": "m979ugz9s0qdtnji1y",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "3",
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 24641500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T16:14:12.597Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "31921-Xã Long Thạnh",
-          "district": "958-Huyện Vĩnh Lợi"
-        }
-      }
-    },
-    {
-      "id": "m979wirx03gxfmvy842a",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "3",
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 24641500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T16:15:48.237Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "31921-Xã Long Thạnh",
-          "district": "958-Huyện Vĩnh Lợi"
-        }
-      }
-    },
-    {
-      "id": "m979yixhkphbfqhsnk",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "3",
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 24641500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T16:17:21.749Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "31921-Xã Long Thạnh",
-          "district": "958-Huyện Vĩnh Lợi"
-        }
-      }
-    },
-    {
-      "id": "HD070420254402",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "3",
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 24641500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T16:29:23.486Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "31921-Xã Long Thạnh",
-          "district": "958-Huyện Vĩnh Lợi"
-        }
-      }
-    },
-    {
-      "id": "HD070420252242",
+      "id": "HD20250410125354928",
       "customer_id": 1,
       "products": [
         {
@@ -1295,237 +906,8 @@
         }
       ],
       "total_price": 26412000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T16:34:23.846Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "Phường Hương Mạc",
-          "district": "Thành phố Từ Sơn",
-          "province": "Tỉnh Bắc Ninh"
-        }
-      }
-    },
-    {
-      "id": "HD070420250384",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "2",
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 26412000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T16:37:21.726Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "Xã Khánh An",
-          "district": "Huyện An Phú",
-          "province": "Tỉnh An Giang"
-        }
-      }
-    },
-    {
-      "id": "HD070420252208",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "2",
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 26412000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T16:46:27.538Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "Xã Liên Bão",
-          "district": "Huyện Tiên Du",
-          "province": "Tỉnh Bắc Ninh"
-        }
-      },
-      "note": "hehe"
-    },
-    {
-      "id": "HD070420258026",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "2",
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 26412000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T16:47:16.471Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "Xã Châu Hòa",
-          "district": "Huyện Giồng Trôm",
-          "province": "Tỉnh Bến Tre"
-        }
-      },
-      "note": "aaa"
-    },
-    {
-      "id": "HD080420255599",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "1",
-          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
-          "quantity": 1,
-          "price": 24490000,
-          "discount": 0.09
-        }
-      ],
-      "total_price": 22285900,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T17:12:01.161Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "Thị trấn An Phú",
-          "district": "Huyện An Phú",
-          "province": "Tỉnh An Giang"
-        }
-      },
-      "note": "hehe"
-    },
-    {
-      "id": "HD080420252714",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "2",
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 26412000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-07T17:15:12.016Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "Xã Kim Long",
-          "district": "Huyện Châu Đức",
-          "province": "Tỉnh Bà Rịa "
-        }
-      },
-      "note": "hehe"
-    },
-    {
-      "id": "HD080420251433",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "1",
-          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
-          "quantity": 1,
-          "price": 24490000,
-          "discount": 0.09
-        }
-      ],
-      "total_price": 22285900,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-08T02:13:47.530Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "12 Nguyễn Văn Bảo",
-          "ward": "Xã Khánh An",
-          "district": "Huyện An Phú",
-          "province": "Tỉnh An Giang"
-        }
-      },
-      "note": "aaaaaaa"
-    },
-    {
-      "id": "HD20250409135809592",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "2",
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 26412000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-09T06:58:09.591Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "26608",
-          "district": "750",
-          "province": "77"
-        }
-      },
-      "note": "hehe"
-    },
-    {
-      "id": "HD20250409140200716",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "3",
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
-        },
-        {
-          "id": "15",
-          "title": "PC GVN AMD Ryzen 5 7600X",
-          "quantity": 1,
-          "price": 25990000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 48812200,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-09T07:02:00.991Z",
+      "status": "PENDING",
+      "order_date": "2025-04-10T05:53:54.667Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "shipping_address": {
         "full_name": "Tran Huyen",
@@ -1536,184 +918,38 @@
           "district": "752",
           "province": "77"
         }
-      }
+      },
+      "payment_status": "UNPAID",
+      "note": "hehe"
     },
     {
-      "id": "HD20250409140314826",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "3",
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 24641500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-09T07:03:14.223Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "07207",
-          "district": "213",
-          "province": "24"
-        }
-      }
-    },
-    {
-      "id": "HD20250409164527950",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "3",
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 9,
-          "price": 28990000,
-          "discount": 0.15
-        }
-      ],
-      "total_price": 221773500,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-09T09:45:27.288Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "30607",
-          "district": "892",
-          "province": "89"
-        }
-      }
-    },
-    {
-      "id": "HD20250409172207254",
+      "id": "HD20250410130139077",
       "customer_id": 1,
       "products": [
         {
           "id": "2",
           "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 26412000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-09T10:22:07.755Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "07882",
-          "district": "223",
-          "province": "24"
-        }
-      }
-    },
-    {
-      "id": "HD20250409173608879",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "1",
-          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
-          "quantity": 1,
-          "price": 24490000,
-          "discount": 0.09
-        }
-      ],
-      "total_price": 22285900,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-09T10:36:08.259Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "26608",
-          "district": "750",
-          "province": "77"
-        }
-      }
-    },
-    {
-      "id": "HD20250409174123035",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "2",
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 26412000,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-09T10:41:23.716Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "26674",
-          "district": "752",
-          "province": "77"
-        }
-      }
-    },
-    {
-      "id": "HD20250409183104841",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "15",
-          "title": "PC GVN AMD Ryzen 5 7600X",
           "quantity": 3,
-          "price": 25990000,
+          "price": 28400000,
           "discount": 0.07
-        },
-        {
-          "id": "3",
-          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
-          "quantity": 1,
-          "price": 28990000,
-          "discount": 0.15
-        },
-        {
-          "id": "14",
-          "title": "Laptop Gaming Acer Nitro 5 AN515-58",
-          "quantity": 1,
-          "price": 34990000,
-          "discount": 0.1
         }
       ],
-      "total_price": 128644600,
-      "status": "Đang xử lý",
-      "order_date": "2025-04-09T11:31:04.336Z",
+      "total_price": 79236000,
+      "status": "PENDING",
+      "order_date": "2025-04-10T06:01:39.042Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "shipping_address": {
         "full_name": "Tran Huyen",
         "phone": "0964424149",
         "address": {
           "street": "Ho Chi Minh",
-          "ward": "02020",
-          "district": "064",
-          "province": "06"
+          "ward": "07459",
+          "district": "218",
+          "province": "24"
         }
       },
-      "note": "hehe"
+      "payment_status": "UNPAID",
+      "note": ""
     }
   ],
   "users": [
@@ -1770,6 +1006,272 @@
       "dob": "",
       "address": [],
       "password": "123"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "0a01",
+      "product_id": "1",
+      "user_id": 1,
+      "user_name": "Trần Ngọc Huyền",
+      "rating": 4,
+      "comment": "Laptop Lenovo này mạnh mẽ với RAM 32GB, nhưng SSD 512GB hơi ít so với nhu cầu của mình."
+    },
+    {
+      "id": "0a02",
+      "product_id": "2",
+      "user_id": 2,
+      "user_name": "Nguyễn Văn Anh",
+      "rating": 5,
+      "comment": "ASUS ZenBook mỏng nhẹ, SSD 1TB rất thoải mái, dùng làm việc văn phòng cực thích."
+    },
+    {
+      "id": "0a03",
+      "product_id": "3",
+      "user_id": 3,
+      "user_name": "Lê Thị Mai",
+      "rating": 4,
+      "comment": "MSI Katana chơi game tốt, nhưng máy hơi nóng khi chơi lâu, cần thêm tản nhiệt."
+    },
+    {
+      "id": "0a04",
+      "product_id": "4",
+      "user_id": 4,
+      "user_name": "Phạm Minh Tuấn",
+      "rating": 3,
+      "comment": "PC GVN cấu hình ổn trong tầm giá, nhưng GTX 1660 Super hơi yếu với game mới."
+    },
+    {
+      "id": "0a05",
+      "product_id": "5",
+      "user_id": 5,
+      "user_name": "Hoàng Thị Lan",
+      "rating": 5,
+      "comment": "Mainboard ASUS ROG xịn xò, hỗ trợ DDR5 và PCIe 5.0, rất đáng tiền."
+    },
+    {
+      "id": "0a06",
+      "product_id": "6",
+      "user_id": 6,
+      "user_name": "Đỗ Quốc Hùng",
+      "rating": 4,
+      "comment": "Case Cooler Master đẹp, thoáng khí, nhưng RGB hơi khó điều chỉnh."
+    },
+    {
+      "id": "0a07",
+      "product_id": "7",
+      "user_id": 7,
+      "user_name": "Vũ Thị Hồng",
+      "rating": 5,
+      "comment": "SSD Samsung 990 Pro tốc độ siêu nhanh, dùng để khởi động máy rất mượt."
+    },
+    {
+      "id": "0a08",
+      "product_id": "8",
+      "user_id": 8,
+      "user_name": "Bùi Minh Đức",
+      "rating": 3,
+      "comment": "Loa JBL Flip 6 âm thanh hay, nhưng pin không được như kỳ vọng."
+    },
+    {
+      "id": "0a09",
+      "product_id": "9",
+      "user_id": 9,
+      "user_name": "Nguyễn Thị Thảo",
+      "rating": 4,
+      "comment": "Màn hình Dell 4K đẹp, nhưng giá hơi cao so với nhu cầu cơ bản."
+    },
+    {
+      "id": "0a10",
+      "product_id": "10",
+      "user_id": 10,
+      "user_name": "Trần Văn Nam",
+      "rating": 5,
+      "comment": "Bàn phím Logitech G Pro X gõ thích, switch thay được là điểm cộng lớn."
+    },
+    {
+      "id": "0a11",
+      "product_id": "11",
+      "user_id": 11,
+      "user_name": "Lê Hồng Nhung",
+      "rating": 4,
+      "comment": "Chuột MX Master 3S cầm êm, pin lâu, nhưng hơi nặng với tay nhỏ."
+    },
+    {
+      "id": "0a12",
+      "product_id": "12",
+      "user_id": 12,
+      "user_name": "Phạm Thị Linh",
+      "rating": 5,
+      "comment": "Tai nghe Sony WH-1000XM5 chống ồn đỉnh cao, nghe nhạc rất đã."
+    },
+    {
+      "id": "0a13",
+      "product_id": "13",
+      "user_id": 13,
+      "user_name": "Hoàng Minh Khôi",
+      "rating": 4,
+      "comment": "HP OMEN mạnh mẽ, nhưng giá hơi chát, giảm thêm chút nữa thì tuyệt."
+    },
+    {
+      "id": "0a14",
+      "product_id": "14",
+      "user_id": 14,
+      "user_name": "Đặng Thị Hương",
+      "rating": 5,
+      "comment": "Acer Nitro 5 cấu hình khủng, RTX 3060 chiến game mượt, rất hài lòng."
+    },
+    {
+      "id": "0a15",
+      "product_id": "15",
+      "user_id": 15,
+      "user_name": "Nguyễn Quang Vinh",
+      "rating": 4,
+      "comment": "PC GVN Ryzen 5 ngon, RTX 4060 ổn, nhưng RAM DDR5 hơi đắt."
+    },
+    {
+      "id": "0a16",
+      "product_id": "16",
+      "user_id": 16,
+      "user_name": "Trần Thị Ngọc",
+      "rating": 5,
+      "comment": "RTX 4070 Ti của MSI mạnh mẽ, chơi game 2K cực mượt, đáng đầu tư."
+    },
+    {
+      "id": "0a17",
+      "product_id": "17",
+      "user_id": 17,
+      "user_name": "Lê Văn Long",
+      "rating": 4,
+      "comment": "Nguồn Corsair RM850x ổn định, nhưng dây cáp hơi cứng, khó đi dây."
+    },
+    {
+      "id": "0a18",
+      "product_id": "18",
+      "user_id": 18,
+      "user_name": "Phạm Thị Yến",
+      "rating": 5,
+      "comment": "RAM Corsair DDR5 tốc độ cao, RGB đẹp, rất hài lòng khi build PC."
+    },
+    {
+      "id": "0a19",
+      "product_id": "19",
+      "user_id": 19,
+      "user_name": "Nguyễn Minh Tuệ",
+      "rating": 4,
+      "comment": "Micro HyperX QuadCast S ghi âm tốt, RGB đẹp, nhưng giá hơi cao."
+    },
+    {
+      "id": "0a20",
+      "product_id": "20",
+      "user_id": 20,
+      "user_name": "Hoàng Thị Phương",
+      "rating": 5,
+      "comment": "Màn hình LG UltraGear 4K tuyệt vời, chơi game và làm đồ họa đều đỉnh."
+    },
+    {
+      "id": "0a21",
+      "product_id": "21",
+      "user_id": 21,
+      "user_name": "Trần Văn Hùng",
+      "rating": 4,
+      "comment": "Bàn phím Razer gõ sướng, RGB đẹp, nhưng hơi ồn khi gõ mạnh."
+    },
+    {
+      "id": "0a22",
+      "product_id": "22",
+      "user_id": 22,
+      "user_name": "Lê Thị Thu",
+      "rating": 3,
+      "comment": "Chuột SteelSeries nhẹ, nhưng cảm giác nút bấm không bền lắm."
+    },
+    {
+      "id": "0a23",
+      "product_id": "23",
+      "user_id": 23,
+      "user_name": "Phạm Văn Đạt",
+      "rating": 4,
+      "comment": "Tai nghe Razer Barracuda X tiện lợi, nhưng âm bass chưa đủ mạnh."
+    },
+    {
+      "id": "0a24",
+      "product_id": "24",
+      "user_id": 24,
+      "user_name": "Nguyễn Thị Hòa",
+      "rating": 4,
+      "comment": "ASUS Vivobook nhẹ, pin lâu, nhưng RAM 8GB hơi hạn chế khi đa nhiệm."
+    },
+    {
+      "id": "0a25",
+      "product_id": "25",
+      "user_id": 25,
+      "user_name": "Trần Minh Tâm",
+      "rating": 5,
+      "comment": "Acer Aspire 5 giá tốt, Ryzen 5 mạnh mẽ, làm việc mượt mà."
+    },
+    {
+      "id": "0a26",
+      "product_id": "26",
+      "user_id": 26,
+      "user_name": "Lê Thị Hồng",
+      "rating": 4,
+      "comment": "MSI Prestige đẹp, GTX 1650 Ti ổn, nhưng RAM 8GB hơi ít."
+    },
+    {
+      "id": "0a27",
+      "product_id": "27",
+      "user_id": 27,
+      "user_name": "Phạm Văn Khánh",
+      "rating": 3,
+      "comment": "Lenovo IdeaPad 3 giá rẻ, nhưng SSD 256GB hơi nhỏ, cần nâng cấp."
+    },
+    {
+      "id": "0a28",
+      "product_id": "28",
+      "user_id": 28,
+      "user_name": "Nguyễn Thị Mai",
+      "rating": 4,
+      "comment": "Dell Inspiron bền, hiệu năng tốt, nhưng thiết kế hơi dày."
+    },
+    {
+      "id": "0a29",
+      "product_id": "29",
+      "user_id": 29,
+      "user_name": "Hoàng Văn Thắng",
+      "rating": 5,
+      "comment": "HP Pavilion 14 đẹp, hiệu năng ổn, rất phù hợp làm việc văn phòng."
+    },
+    {
+      "id": "0a30",
+      "product_id": "30",
+      "user_id": 30,
+      "user_name": "Trần Thị Lan",
+      "rating": 4,
+      "comment": "LG Gram siêu nhẹ, pin lâu, nhưng giá hơi cao so với cấu hình."
+    },
+    {
+      "id": "0a31",
+      "product_id": "31",
+      "user_id": 31,
+      "user_name": "Lê Văn Dũng",
+      "rating": 5,
+      "comment": "ASUS ZenBook 14 sang trọng, hiệu năng tốt, rất đáng mua."
+    },
+    {
+      "id": "0a32",
+      "product_id": "32",
+      "user_id": 32,
+      "user_name": "Phạm Thị Ngọc",
+      "rating": 4,
+      "comment": "Acer Nitro 5 chơi game ngon, nhưng quạt kêu hơi to khi tải nặng."
+    },
+    {
+      "id": "0a33",
+      "product_id": "33",
+      "user_id": 33,
+      "user_name": "Nguyễn Văn Hào",
+      "rating": 5,
+      "comment": "MSI Creator mạnh mẽ, GTX 1660 Ti làm đồ họa tốt, rất hài lòng."
     }
   ]
 }
