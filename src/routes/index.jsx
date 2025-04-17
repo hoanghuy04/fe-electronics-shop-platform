@@ -14,7 +14,7 @@ import LoginPage from "../components/LoginPage";
 import RegisterPage from "../components/RegisterPage";
 import ContactPage from "../components/ContactPage";
 import PaymentInstructions from "../components/PaymentInstructions";
-
+import "antd/dist/reset.css";
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
 const ProductDetail = lazy(() => import("../pages/ProductDetail"));

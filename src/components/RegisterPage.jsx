@@ -1,145 +1,93 @@
-// import React from "react";
-// import { Link } from "react-router";
-
-// export default function RegisterPage() {
-//   return (
-//     <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#fff5f5" }}>
-//       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-//         <h2 className="text-center text-xl font-semibold mb-4" style={{ color: "var(--color-primary)" }}>
-//           ĐĂNG KÝ TÀI KHOẢN GEARVN
-//         </h2>
-
-//         <input
-//           type="email"
-//           placeholder="Email"
-//           className="w-full border border-gray-300 rounded px-4 py-2 mb-4 focus:outline-none focus:ring-2"
-//           style={{ '--tw-ring-color': 'var(--color-primary)' }}
-//         />
-//         <input
-//           type="text"
-//           placeholder="Họ"
-//           className="w-full border border-gray-300 rounded px-4 py-2 mb-4 focus:outline-none focus:ring-2"
-//           style={{ '--tw-ring-color': 'var(--color-primary)' }}
-//         />
-//         <input
-//           type="text"
-//           placeholder="Tên"
-//           className="w-full border border-gray-300 rounded px-4 py-2 mb-4 focus:outline-none focus:ring-2"
-//           style={{ '--tw-ring-color': 'var(--color-primary)' }}
-//         />
-//         <input
-//           type="password"
-//           placeholder="Mật khẩu"
-//           className="w-full border border-gray-300 rounded px-4 py-2 mb-5 focus:outline-none focus:ring-2"
-//           style={{ '--tw-ring-color': 'var(--color-primary)' }}
-//         />
-
-//         <button
-//           className="w-full !text-white py-2 rounded font-semibold mb-4 transition"
-//           style={{
-//             backgroundColor: "var(--color-primary)",
-//             '--tw-bg-opacity': 1,
-//           }}
-//         >
-//           TẠO TÀI KHOẢN
-//         </button>
-
-//         <div className="text-center text-sm">
-//           Bạn đã có tài khoản?
-//           <Link
-//             to={{
-//               pathname: "/login",
-//               search: "?from=register",
-//               hash: "#form",
-//             }}
-//             className="font-medium ml-1 hover:underline"
-//             style={{ color: "var(--color-primary)" }}
-//           >
-//             Đăng nhập!
-//           </Link>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
 import React, { useState } from "react";
-import { Link } from "react-router";
-import { post } from "../services/request"; 
+import { Link, useNavigate } from "react-router";
+import { Form, Input, Button, message } from "antd";
+import { post } from "../services/request";
+
 export default function RegisterPage() {
-  const [form, setForm] = useState({ email: "", firstName: "", lastName: "", password: "" });
+  const [loading, setLoading] = useState(false);
+  const nagative = useNavigate();
+  const handleSubmit = async (values) => {
+    setLoading(true);
+    try {
+      const response = await post("users", {
+        email: values.email,
+        name: values.firstName + ' ' + values.lastName,
+        gender: 0,
+        phone: '',
+        dob: '',
+        address: [],
+        password: values.password,
+      });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async () => {
-    const response = await post("users", {
-      email: form.email,
-      firstName: form.firstName,
-      lastName: form.lastName,
-      password: form.password,
-    });
-
-    if (response) {
-      alert("Tạo tài khoản thành công!");
-      
-    } else {
-      alert("Tạo tài khoản thất bại!");
-      console.log("Gửi tới:", `${BASE_URL}/${url}`);
+      if (response) {
+        message.success("Tạo tài khoản thành công!");
+        nagative("/login");
+      } else {
+        message.error("Tạo tài khoản thất bại!");
+      }
+    } catch (error) {
+      message.error("Có lỗi xảy ra!");
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#fff5f5" }}>
+    <div className="min-h-screen flex items-center justify-center bg-[#fff5f5]">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-center text-xl font-semibold mb-4" style={{ color: "var(--color-primary)" }}>
-          ĐĂNG KÝ TÀI KHOẢN GEARVN
+        <h2 className="text-center text-xl font-semibold mb-6" style={{ color: "var(--color-primary)" }}>
+          ĐĂNG KÝ TÀI KHOẢN E-SHOP
         </h2>
 
-        <input
-          type="email"
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          placeholder="Email"
-          className="w-full border border-gray-300 rounded px-4 py-2 mb-4 focus:outline-none focus:ring-2"
-          style={{ '--tw-ring-color': 'var(--color-primary)' }}
-        />
-        <input
-          type="text"
-          name="firstName"
-          value={form.firstName}
-          onChange={handleChange}
-          placeholder="Họ"
-          className="w-full border border-gray-300 rounded px-4 py-2 mb-4 focus:outline-none focus:ring-2"
-          style={{ '--tw-ring-color': 'var(--color-primary)' }}
-        />
-        <input
-          type="text"
-          name="lastName"
-          value={form.lastName}
-          onChange={handleChange}
-          placeholder="Tên"
-          className="w-full border border-gray-300 rounded px-4 py-2 mb-4 focus:outline-none focus:ring-2"
-          style={{ '--tw-ring-color': 'var(--color-primary)' }}
-        />
-        <input
-          type="password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          placeholder="Mật khẩu"
-          className="w-full border border-gray-300 rounded px-4 py-2 mb-5 focus:outline-none focus:ring-2"
-          style={{ '--tw-ring-color': 'var(--color-primary)' }}
-        />
-
-        <button
-          onClick={handleSubmit}
-          className="w-full bg-[var(--color-primary)] text-white py-2 rounded font-semibold mb-4 hover:brightness-90 transition"
+        <Form layout="vertical" 
+        onFinish={handleSubmit}
+        className="[&_.ant-form-item]:!mb-2"
         >
-          TẠO TÀI KHOẢN
-        </button>
+          <Form.Item
+            name="email"
+            label="Email"
+            rules={[{ required: true, message: "Vui lòng nhập email!" }, { type: "email", message: "Email không hợp lệ!" }]}
+          >
+            <Input allowClear placeholder="Email" />
+          </Form.Item>
+
+          <Form.Item
+            name="firstName"
+            label="Họ"
+            rules={[{ required: true, message: "Vui lòng nhập họ!" }]}
+          >
+            <Input allowClear placeholder="Họ" />
+          </Form.Item>
+
+          <Form.Item
+            name="lastName"
+            label="Tên"
+            rules={[{ required: true, message: "Vui lòng nhập tên!" }]}
+          >
+            <Input allowClear placeholder="Tên" />
+          </Form.Item>
+
+          <Form.Item
+            name="password"
+            label="Mật khẩu"
+            rules={[{ required: true, message: "Vui lòng nhập mật khẩu!" }]}
+          >
+            <Input.Password placeholder="Mật khẩu" />
+          </Form.Item>
+
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+              className="w-full"
+              style={{ backgroundColor: "var(--color-primary)", borderColor: "var(--color-primary)" }}
+            >
+              TẠO TÀI KHOẢN
+            </Button>
+          </Form.Item>
+        </Form>
 
         <div className="text-center text-sm">
           Bạn đã có tài khoản?
@@ -155,4 +103,3 @@ export default function RegisterPage() {
     </div>
   );
 }
-

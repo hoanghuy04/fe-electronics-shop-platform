@@ -1760,6 +1760,16 @@
           "default": 0
         }
       ]
+    },
+    {
+      "id": "3a1f",
+      "email": "daolinh28102004@gmail.com",
+      "name": "Đào Linh",
+      "gender": 0,
+      "phone": "",
+      "dob": "",
+      "address": [],
+      "password": "123"
     }
   ]
 }

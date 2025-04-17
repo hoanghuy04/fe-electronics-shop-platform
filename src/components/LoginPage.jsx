@@ -1,135 +1,87 @@
-// import React from "react";
-// import { Link } from "react-router";
-
-// export default function LoginPage() {
-//   return (
-//     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-//       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-//         <h2 className="text-center text-xl font-semibold mb-4" style={{ color: "var(--color-primary)" }}>
-//           ĐĂNG NHẬP HOẶC TẠO TÀI KHOẢN
-//         </h2>
-
-//         <input
-//           type="email"
-//           placeholder="Email"
-//           className="w-full border rounded px-4 py-2 mb-3 focus:outline-none focus:ring-2"
-//           style={{
-//             borderColor: "var(--color-primary)",
-//             '--tw-ring-color': 'var(--color-primary)',
-//           }}
-//         />
-
-//         <input
-//           type="password"
-//           placeholder="Mật khẩu"
-//           className="w-full border rounded px-4 py-2 mb-3 focus:outline-none focus:ring-2"
-//           style={{
-//             borderColor: "var(--color-primary)",
-//             '--tw-ring-color': 'var(--color-primary)',
-//           }}
-//         />
-
-//         <div
-//           className="text-right text-sm hover:underline cursor-pointer mb-4"
-//           style={{ color: "var(--color-primary)" }}
-//         >
-//           Quên mật khẩu email?
-//         </div>
-
-//         <button
-//           className="w-full !text-white py-2 rounded font-semibold mb-4 transition-colors duration-200"
-//           style={{
-//             backgroundColor: "var(--color-primary)",
-//           }}
-//         >
-//           ĐĂNG NHẬP
-//         </button>
-
-//         <div className="text-center text-sm">
-//           Bạn chưa có tài khoản?
-//           <Link
-//             to={{
-//               pathname: "/register",
-//               search: "?ref=login",
-//               hash: "#form",
-//             }}
-//             className="font-medium ml-1 hover:underline"
-//             style={{ color: "var(--color-primary)" }}
-//           >
-//             Đăng ký ngay!
-//           </Link>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 import React, { useState } from "react";
-import { Link } from "react-router";
-import { get } from "../services/request"; 
+import { Form, Input, Button, message } from "antd";
+import { Link, useNavigate } from "react-router"; 
+import { get } from "../services/request";
+import { useAuth } from "../hooks/AuthContext";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleLogin = async () => {
-    const users = await get(`users?email=${email}&password=${password}`);
-  
-    if (users && users.length > 0) {
-      alert("Đăng nhập thành công!");
-    } else {
-      alert("Sai email hoặc mật khẩu!");
+  const [form] = Form.useForm();
+  const [errorMsg, setErrorMsg] = useState(""); 
+  const navigate = useNavigate(); 
+  const {login} = useAuth();
+  const handleLogin = async (values) => {
+    try {
+      const { email, password } = values;
+      const users = await get(`users?email=${email}&password=${password}`);
+      
+      if (users && users.length > 0) {
+        message.success("Đăng nhập thành công!");
+        setErrorMsg(""); 
+        login(users[0]);
+          console.log("User in Header:", users);
+        navigate("/"); 
+      } else {
+        setErrorMsg("Sai tài khoản hoặc mật khẩu");
+      }
+    } catch (error) {
+      message.error("Lỗi kết nối đến server.");
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-center text-xl font-semibold mb-4" style={{ color: "var(--color-primary)" }}>
-          ĐĂNG NHẬP HOẶC TẠO TÀI KHOẢN
+        <h2 className="text-center text-xl font-semibold mb-4 text-[var(--color-primary)]">
+          ĐĂNG NHẬP
         </h2>
 
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          className="w-full border rounded px-4 py-2 mb-3 focus:outline-none focus:ring-2"
-          style={{
-            borderColor: "var(--color-primary)",
-            '--tw-ring-color': 'var(--color-primary)',
-          }}
-        />
-
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Mật khẩu"
-          className="w-full border rounded px-4 py-2 mb-3 focus:outline-none focus:ring-2"
-          style={{
-            borderColor: "var(--color-primary)",
-            '--tw-ring-color': 'var(--color-primary)',
-          }}
-        />
-
-        <div
-          className="text-right text-sm hover:underline cursor-pointer mb-4"
-          style={{ color: "var(--color-primary)" }}
+        <Form
+          form={form}
+          layout="vertical"
+          onFinish={handleLogin}
+          className="[&_.ant-form-item]:!mb-2"
         >
-          Quên mật khẩu email?
-        </div>
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[
+              { required: true, message: "Vui lòng nhập email!" },
+              { type: "email", message: "Email không hợp lệ!" }
+            ]}
+          >
+            <Input placeholder="Email" />
+          </Form.Item>
 
-        <button
-          onClick={handleLogin}
-          className="w-full bg-[var(--color-primary)] text-white py-2 rounded font-semibold mb-4 hover:brightness-90 transition-colors duration-200"
-        >
-          ĐĂNG NHẬP
-        </button>
+          <Form.Item
+            label="Mật khẩu"
+            name="password"
+            rules={[{ required: true, message: "Vui lòng nhập mật khẩu!" }]}
+          >
+            <Input.Password placeholder="Mật khẩu" />
+          </Form.Item>
+
+          {errorMsg && (
+            <span className="text-red-500 text-sm">{errorMsg}</span> 
+          )}
+
+
+
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              block
+              style={{ backgroundColor: "var(--color-primary)", borderColor: "var(--color-primary)" }}
+            >
+              ĐĂNG NHẬP
+            </Button>
+          </Form.Item>
+        </Form>
 
         <div className="text-center text-sm">
           Bạn chưa có tài khoản?
           <Link
-            to={{ pathname: "/register", search: "?ref=login", hash: "#form" }}
+            to="/register"
             className="font-medium ml-1 hover:underline"
             style={{ color: "var(--color-primary)" }}
           >
