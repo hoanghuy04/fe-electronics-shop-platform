@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom"; // Thêm useLocation
 import { Slider, Checkbox, Pagination, Spin, Button } from "antd";
 import { getListOfBrands, getProducts } from "../services/productService";
 import ProductCard from "./../components/ProductCard";
@@ -21,6 +21,7 @@ const normalizeGPU = (gpuName) => {
 const ListProduct = () => {
   const { categorySlug, brandSlug } = useParams();
   const { categories, products, loading } = useContext(ProductContext);
+  const location = useLocation(); // Thêm useLocation để lấy state
 
   const [brandOptions, setBrandOptions] = useState([]);
   const [gpuOptions, setGpuOptions] = useState([]);
@@ -42,6 +43,9 @@ const ListProduct = () => {
     "Intel® Core™ Ultra 7",
   ];
   const ramOptions = ["8GB", "16GB", "32GB"];
+
+  // Lấy searchResults từ state
+  const searchResults = location.state?.searchResults || [];
 
   // Fetch brands and set initial price range and GPU options
   useEffect(() => {
@@ -80,48 +84,55 @@ const ListProduct = () => {
       }
     };
     fetchData();
-  }, [products, brandSlug]); // Added brandSlug as a dependency
+  }, [products, brandSlug]);
 
-  // Filter products based on categorySlug, brandSlug, and other filters
+  // Filter products based on searchResults or other filters
   useEffect(() => {
-    const matchedCategory = categories.find((c) => c.slug === categorySlug);
-    const matchedCategoryId = matchedCategory?.id;
+    let filtered = [];
 
-    console.log(matchedCategoryId);
+    // Nếu searchResults có giá trị, sử dụng nó và bỏ qua các bộ lọc khác
+    if (searchResults.length > 0) {
+      filtered = searchResults;
+    } else {
+      // Thực hiện lọc như bình thường nếu không có searchResults
+      const matchedCategory = categories.find((c) => c.slug === categorySlug);
+      const matchedCategoryId = matchedCategory?.id;
 
+      filtered = products.filter((product) => {
+        const matchCategory =
+          categorySlug && categorySlug !== "all"
+            ? product.category_id == matchedCategoryId
+            : true;
+        const matchPrice =
+          product.price >= priceRange[0] && product.price <= priceRange[1];
+        const matchCPU =
+          selectedCPUs.length === 0 ||
+          (product.description?.CPU &&
+            selectedCPUs.some((cpu) => product.description.CPU.includes(cpu)));
+        const matchRAM =
+          selectedRAMs.length === 0 ||
+          (product.description?.RAM &&
+            selectedRAMs.some((ram) => product.description.RAM.includes(ram)));
+        const matchGPU =
+          selectedGPUs.length === 0 ||
+          (product.description?.["Card đồ họa"] &&
+            selectedGPUs.some((gpu) =>
+              normalizeGPU(product.description["Card đồ họa"]).includes(gpu)
+            ));
+        const matchBrand =
+          selectedBrands.length === 0 ||
+          selectedBrands.includes(product.brand);
 
-    let filtered = products.filter((product) => {
-      const matchCategory =
-        categorySlug && categorySlug !== "all"
-          ? product.category_id == matchedCategoryId
-          : true;
-      const matchPrice =
-        product.price >= priceRange[0] && product.price <= priceRange[1];
-      const matchCPU =
-        selectedCPUs.length === 0 ||
-        (product.description?.CPU &&
-          selectedCPUs.some((cpu) => product.description.CPU.includes(cpu)));
-      const matchRAM =
-        selectedRAMs.length === 0 ||
-        (product.description?.RAM &&
-          selectedRAMs.some((ram) => product.description.RAM.includes(ram)));
-      const matchGPU =
-        selectedGPUs.length === 0 ||
-        (product.description?.["Card đồ họa"] &&
-          selectedGPUs.some((gpu) =>
-            normalizeGPU(product.description["Card đồ họa"]).includes(gpu)
-          ));
-      const matchBrand  = selectedBrands.length === 0 || selectedBrands.includes(product.brand)
-
-      return (
-        matchCategory &&
-        matchPrice &&
-        matchCPU &&
-        matchRAM &&
-        matchGPU &&
-        matchBrand
-      );
-    });
+        return (
+          matchCategory &&
+          matchPrice &&
+          matchCPU &&
+          matchRAM &&
+          matchGPU &&
+          matchBrand
+        );
+      });
+    }
 
     // Apply sorting
     if (sortOption) {
@@ -152,6 +163,7 @@ const ListProduct = () => {
     selectedBrands,
     products,
     sortOption,
+    searchResults, // Thêm searchResults vào dependencies
   ]);
 
   const onPriceChange = (value) => {

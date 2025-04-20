@@ -16,6 +16,7 @@ import ContactPage from "../components/ContactPage";
 import PaymentInstructions from "../components/PaymentInstructions";
 import AccountViewedProduct from "../components/AccountViewedProduct";
 import AccountOrderHistoryDetail from "../components/AccountOrderHistoryDetail";
+import DefaultLayoutAdmin from "../layout/DefaultLayoutAdmin";
 
 // Lazy loading để tối ưu hiệu suất
 const Home = lazy(() => import("../pages/Home"));
@@ -23,6 +24,10 @@ const ProductDetail = lazy(() => import("../pages/ProductDetail"));
 const Cart = lazy(() => import("../pages/Cart"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const ListProduct = lazy(() => import("../pages/ListProduct"));
+import ProductManagement from './../pages/admin/ProductManagement';
+import OrderManagement from './../pages/admin/OrderManagement';
+import Report from "../pages/admin/Report";
+import Overview from '../pages/admin/Overview';
 
 const getCurrentStep = () => {
   return parseInt(sessionStorage.getItem("currentStep")) || 1;
@@ -39,12 +44,11 @@ const ProtectedStep = ({ step, element }) => {
   );
 };
 
-const routes = [
+const customerRoutes = [
   {
     path: path.home,
     element: <DefaultLayout />,
     children: [
-      // { path: "", element: <Home /> },
       { path: "", element: <Home /> },
       { path: path.productDetail, element: <ProductDetail /> },
       { path: path.productCategoryBrand, element: <ListProduct /> },
@@ -65,57 +69,46 @@ const routes = [
             path: path.cartStepFour,
             element: <ProtectedStep step={4} element={<CartStepFour />} />,
           },
-
         ],
       },
       {
         path: path.account,
         element: <Account />,
         children: [
-          {
-            path: "",
-            element: <AccountProfile />,
-          },
-          {
-            path: path.address,
-            element: <AccountAddress />,
-          },
-          {
-            path: path.orderHistory,
-            element: <AccountOrderHistory />,
-          },
-          {
-            path: path.orderHistoryDetail,
-            element: <AccountOrderHistoryDetail />,
-          },
-          {
-            path: path.viewed,
-            element: <AccountViewedProduct />,
-          },
+          { path: "", element: <AccountProfile /> },
+          { path: path.address, element: <AccountAddress /> },
+          { path: path.orderHistory, element: <AccountOrderHistory /> },
+          { path: path.orderHistoryDetail, element: <AccountOrderHistoryDetail /> },
+          { path: path.viewed, element: <AccountViewedProduct /> },
         ],
       },
-      { path: "*", 
-        element: <Navigate to={path.notFound} /> 
-      },
-      {
-        path: "/login",
-        element: <LoginPage/>,
-      },
-      {
-        path: "/register",
-        element: <RegisterPage/>,
-      },
-      {
-        path: "/contact",
-        element: <ContactPage/>,
-      },
-      {
-        path: "/paymentinstructions",
-        element: <PaymentInstructions/>,
-      },
+      { path: path.login, element: <LoginPage /> },
+      { path: path.register, element: <RegisterPage /> },
+      // { path: path.logout, element: <Logout /> },
+      { path: "/contact", element: <ContactPage /> },
+      { path: "/paymentinstructions", element: <PaymentInstructions /> },
     ],
   },
   { path: path.notFound, element: <NotFound /> },
+];
+
+const adminRoutes = [
+  {
+    path: path.homeAdmin,
+    element: <DefaultLayoutAdmin />,
+    children: [
+      { path: path.overview, element: <Overview /> },
+      { path: path.productManagement, element: <ProductManagement /> },
+      { path: path.orderManagement, element: <OrderManagement /> },
+      { path: path.report, element: <Report /> },
+    ],
+  },
+];
+
+const routes = [
+  ...customerRoutes,
+  ...adminRoutes,
+  { path: "*", element: <Navigate to={path.notFound} /> },
 ];
 
 export default routes;

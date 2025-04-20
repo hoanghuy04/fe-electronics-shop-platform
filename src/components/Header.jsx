@@ -10,7 +10,6 @@ import { Dropdown, Menu, Input, Button, Modal } from "antd";
 import { useCart } from "../hooks/useCart";
 import CartNotification from "./CartNotification";
 import CartMini from "./CartMini";
-import { UserOutlined } from "@ant-design/icons";
 import LoginPage from "./LoginPage";
 import { ProductContext } from "../hooks/ProductContext";
 
@@ -55,8 +54,7 @@ const Header = () => {
     const filtered = products
       .filter((product) =>
         product.title.toLowerCase().includes(value.toLowerCase())
-      )
-      .slice(0, 4);
+      );
 
     setSearchResults(filtered);
     setDropdownOpen(true);
@@ -64,7 +62,9 @@ const Header = () => {
 
   const handleSearch = (value) => {
     if (value.trim()) {
-      navigate(`/products/search?q=${value}`);
+      navigate(`/products/all/brand/all`, {
+        state: { searchResults },
+      });
       setDropdownOpen(false);
       setSearchValue("");
     }
@@ -72,7 +72,7 @@ const Header = () => {
 
   const searchMenu = {
     items: searchResults.length > 0 ? (
-      searchResults.map((product) => ({
+      searchResults.slice(0, 4).map((product) => ({
         key: product.id,
         label: (
           <div
@@ -115,9 +115,9 @@ const Header = () => {
         <div className="container mx-auto flex items-center gap-5 justify-between px-6 lg:px-8 text-white">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/">
+            <a href="/">
               <div className="text-2xl font-bold">E_Shop</div>
-            </Link>
+            </a>
           </div>
 
           {/* Dropdown "Danh mục" */}
@@ -226,14 +226,14 @@ const Header = () => {
             <span className="truncate max-w-[120px]">{user?.username}</span>
           </div>
         ) : ( */}
-          <Link
-            to="/login"
-            className="flex items-center hover:text-orange-500 font-medium text-lg transition-colors duration-200"
-          >
-            <UserOutlined className="mr-2 text-xl" />
-            
-            <span>Đăng nhập</span>
-          </Link>
+        <Link
+          to="/login"
+          className="flex items-center hover:text-orange-500 font-medium text-lg transition-colors duration-200"
+        >
+          <UserOutlined className="mr-2 text-xl" />
+
+          <span>Đăng nhập</span>
+        </Link>
         {/* )} */}
       </div>
     </div>

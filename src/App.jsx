@@ -1,13 +1,16 @@
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from "react-router-dom";
+import { AdminProvider } from "./pages/admin/context/AdminContext";
+import { SearchProvider } from "./pages/admin/context/SearchContext";
 import AllRoutes from './components/AllRoutes';
 
-function App() {
-
+export default function App() {
   return (
     <BrowserRouter>
-        <AllRoutes />
+      <AdminProvider>
+        <SearchProvider>
+          <AllRoutes />
+        </SearchProvider>
+      </AdminProvider>
     </BrowserRouter>
-  )
+  );
 }
-
-export default App

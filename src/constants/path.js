@@ -1,4 +1,12 @@
 export const path = {
+  // Admin
+  homeAdmin: "/admin",
+  overview: "",
+  productManagement: "products",
+  orderManagement: "orders", // Thêm nếu cần
+  report: "reports", // Thêm nếu cần
+
+  // Customer
   home: "/",
   login: "/login",
   logout: "/logout",

@@ -400,6 +400,28 @@ const Home = () => {
             </Carousel>
           </div>
 
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="grid grid-cols-3 gap-4">
+              <div className="col-span-2 overflow-hidden">
+                <NavLink to={"products/man-hinh/brand/all"}>
+                  <img src="https://file.hstatic.net/200000722513/file/thang_03_banner_fanpage_cover_edit.jpg" alt="" className="w-full object-cover rounded-2xl" />
+                </NavLink>
+              </div>
+              <div className="grid grid-cols-1 gap-4">
+                <div className=" overflow-hidden">
+                  <NavLink to={"products/chuot-lot-chuot/brand/all"}>
+                    <img src="https://file.hstatic.net/200000722513/file/banner_790x250_tai_nghe_6f6dcb17d3a54fcc88b3de96762d2d41.jpg" alt="" className="w-full h-full object-cover rounded-lg" />
+                  </NavLink>
+                </div>
+                <div className=" overflow-hidden">
+                  <NavLink to={"products/pc-gvn/brand/all"}>
+                    <img src="https://file.hstatic.net/200000722513/file/bot_promotion_banner_small_2_2ad55c2345c64fbfb87dab4957b33914.png" alt="" className="w-full h-full object-cover rounded-lg" />
+                  </NavLink>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Features */}
           <section className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
             <div className="container mx-auto px-4">
