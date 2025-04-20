@@ -1267,7 +1267,21 @@
       "user_id": 1,
       "user_name": "Trần Ngọc Huyền",
       "rating": 4,
-      "comment": "Laptop Lenovo này mạnh mẽ với RAM 32GB, nhưng SSD 512GB hơi ít so với nhu cầu của mình."
+      "comment": "Laptop Lenovo này mạnh mẽ với RAM 32GB, nhưng SSD 512GB hơi ít so với nhu cầu của mình.",
+      "replies": [
+        {
+          "id": 1,
+          "user_name": "Trần Ngọc Huyền (Nhân viên)",
+          "reply_text": "Cảm ơn bạn đã đánh giá! Chúng tôi rất vui khi bạn hài lòng với sản phẩm.",
+          "reply_date": "2025-04-20"
+        },
+        {
+          "id": 2,
+          "user_name": "Nguyễn Văn A",
+          "reply_text": "Cảm ơn bạn đã hỗ trợ!",
+          "reply_date": "2025-04-21"
+        }
+      ]
     },
     {
       "id": "0a02",
@@ -1275,7 +1289,8 @@
       "user_id": 2,
       "user_name": "Nguyễn Văn Anh",
       "rating": 5,
-      "comment": "ASUS ZenBook mỏng nhẹ, SSD 1TB rất thoải mái, dùng làm việc văn phòng cực thích."
+      "comment": "ASUS ZenBook mỏng nhẹ, SSD 1TB rất thoải mái, dùng làm việc văn phòng cực thích.",
+      "replies": []
     },
     {
       "id": "0a03",
@@ -1283,7 +1298,8 @@
       "user_id": 3,
       "user_name": "Lê Thị Mai",
       "rating": 4,
-      "comment": "MSI Katana chơi game tốt, nhưng máy hơi nóng khi chơi lâu, cần thêm tản nhiệt."
+      "comment": "MSI Katana chơi game tốt, nhưng máy hơi nóng khi chơi lâu, cần thêm tản nhiệt.",
+      "replies": []
     },
     {
       "id": "0a04",
@@ -1291,7 +1307,8 @@
       "user_id": 4,
       "user_name": "Phạm Minh Tuấn",
       "rating": 3,
-      "comment": "PC GVN cấu hình ổn trong tầm giá, nhưng GTX 1660 Super hơi yếu với game mới."
+      "comment": "PC GVN cấu hình ổn trong tầm giá, nhưng GTX 1660 Super hơi yếu với game mới.",
+      "replies": []
     },
     {
       "id": "0a05",
@@ -1299,7 +1316,8 @@
       "user_id": 5,
       "user_name": "Hoàng Thị Lan",
       "rating": 5,
-      "comment": "Mainboard ASUS ROG xịn xò, hỗ trợ DDR5 và PCIe 5.0, rất đáng tiền."
+      "comment": "Mainboard ASUS ROG xịn xò, hỗ trợ DDR5 và PCIe 5.0, rất đáng tiền.",
+      "replies": []
     },
     {
       "id": "0a06",
@@ -1307,7 +1325,8 @@
       "user_id": 6,
       "user_name": "Đỗ Quốc Hùng",
       "rating": 4,
-      "comment": "Case Cooler Master đẹp, thoáng khí, nhưng RGB hơi khó điều chỉnh."
+      "comment": "Case Cooler Master đẹp, thoáng khí, nhưng RGB hơi khó điều chỉnh.",
+      "replies": []
     },
     {
       "id": "0a07",
@@ -1315,7 +1334,8 @@
       "user_id": 7,
       "user_name": "Vũ Thị Hồng",
       "rating": 5,
-      "comment": "SSD Samsung 990 Pro tốc độ siêu nhanh, dùng để khởi động máy rất mượt."
+      "comment": "SSD Samsung 990 Pro tốc độ siêu nhanh, dùng để khởi động máy rất mượt.",
+      "replies": []
     },
     {
       "id": "0a08",
@@ -1323,7 +1343,8 @@
       "user_id": 8,
       "user_name": "Bùi Minh Đức",
       "rating": 3,
-      "comment": "Loa JBL Flip 6 âm thanh hay, nhưng pin không được như kỳ vọng."
+      "comment": "Loa JBL Flip 6 âm thanh hay, nhưng pin không được như kỳ vọng.",
+      "replies": []
     },
     {
       "id": "0a09",
@@ -1331,7 +1352,8 @@
       "user_id": 9,
       "user_name": "Nguyễn Thị Thảo",
       "rating": 4,
-      "comment": "Màn hình Dell 4K đẹp, nhưng giá hơi cao so với nhu cầu cơ bản."
+      "comment": "Màn hình Dell 4K đẹp, nhưng giá hơi cao so với nhu cầu cơ bản.",
+      "replies": []
     },
     {
       "id": "0a10",
@@ -1339,7 +1361,8 @@
       "user_id": 10,
       "user_name": "Trần Văn Nam",
       "rating": 5,
-      "comment": "Bàn phím Logitech G Pro X gõ thích, switch thay được là điểm cộng lớn."
+      "comment": "Bàn phím Logitech G Pro X gõ thích, switch thay được là điểm cộng lớn.",
+      "replies": []
     },
     {
       "id": "0a11",
@@ -1347,7 +1370,8 @@
       "user_id": 11,
       "user_name": "Lê Hồng Nhung",
       "rating": 4,
-      "comment": "Chuột MX Master 3S cầm êm, pin lâu, nhưng hơi nặng với tay nhỏ."
+      "comment": "Chuột MX Master 3S cầm êm, pin lâu, nhưng hơi nặng với tay nhỏ.",
+      "replies": []
     },
     {
       "id": "0a12",
@@ -1355,7 +1379,8 @@
       "user_id": 12,
       "user_name": "Phạm Thị Linh",
       "rating": 5,
-      "comment": "Tai nghe Sony WH-1000XM5 chống ồn đỉnh cao, nghe nhạc rất đã."
+      "comment": "Tai nghe Sony WH-1000XM5 chống ồn đỉnh cao, nghe nhạc rất đã.",
+      "replies": []
     },
     {
       "id": "0a13",
@@ -1363,7 +1388,8 @@
       "user_id": 13,
       "user_name": "Hoàng Minh Khôi",
       "rating": 4,
-      "comment": "HP OMEN mạnh mẽ, nhưng giá hơi chát, giảm thêm chút nữa thì tuyệt."
+      "comment": "HP OMEN mạnh mẽ, nhưng giá hơi chát, giảm thêm chút nữa thì tuyệt.",
+      "replies": []
     },
     {
       "id": "0a14",
@@ -1371,7 +1397,8 @@
       "user_id": 14,
       "user_name": "Đặng Thị Hương",
       "rating": 5,
-      "comment": "Acer Nitro 5 cấu hình khủng, RTX 3060 chiến game mượt, rất hài lòng."
+      "comment": "Acer Nitro 5 cấu hình khủng, RTX 3060 chiến game mượt, rất hài lòng.",
+      "replies": []
     },
     {
       "id": "0a15",
@@ -1379,7 +1406,8 @@
       "user_id": 15,
       "user_name": "Nguyễn Quang Vinh",
       "rating": 4,
-      "comment": "PC GVN Ryzen 5 ngon, RTX 4060 ổn, nhưng RAM DDR5 hơi đắt."
+      "comment": "PC GVN Ryzen 5 ngon, RTX 4060 ổn, nhưng RAM DDR5 hơi đắt.",
+      "replies": []
     },
     {
       "id": "0a16",
@@ -1387,7 +1415,8 @@
       "user_id": 16,
       "user_name": "Trần Thị Ngọc",
       "rating": 5,
-      "comment": "RTX 4070 Ti của MSI mạnh mẽ, chơi game 2K cực mượt, đáng đầu tư."
+      "comment": "RTX 4070 Ti của MSI mạnh mẽ, chơi game 2K cực mượt, đáng đầu tư.",
+      "replies": []
     },
     {
       "id": "0a17",
@@ -1395,7 +1424,8 @@
       "user_id": 17,
       "user_name": "Lê Văn Long",
       "rating": 4,
-      "comment": "Nguồn Corsair RM850x ổn định, nhưng dây cáp hơi cứng, khó đi dây."
+      "comment": "Nguồn Corsair RM850x ổn định, nhưng dây cáp hơi cứng, khó đi dây.",
+      "replies": []
     },
     {
       "id": "0a18",
@@ -1403,7 +1433,8 @@
       "user_id": 18,
       "user_name": "Phạm Thị Yến",
       "rating": 5,
-      "comment": "RAM Corsair DDR5 tốc độ cao, RGB đẹp, rất hài lòng khi build PC."
+      "comment": "RAM Corsair DDR5 tốc độ cao, RGB đẹp, rất hài lòng khi build PC.",
+      "replies": []
     },
     {
       "id": "0a19",
@@ -1411,7 +1442,8 @@
       "user_id": 19,
       "user_name": "Nguyễn Minh Tuệ",
       "rating": 4,
-      "comment": "Micro HyperX QuadCast S ghi âm tốt, RGB đẹp, nhưng giá hơi cao."
+      "comment": "Micro HyperX QuadCast S ghi âm tốt, RGB đẹp, nhưng giá hơi cao.",
+      "replies": []
     },
     {
       "id": "0a20",
@@ -1419,7 +1451,8 @@
       "user_id": 20,
       "user_name": "Hoàng Thị Phương",
       "rating": 5,
-      "comment": "Màn hình LG UltraGear 4K tuyệt vời, chơi game và làm đồ họa đều đỉnh."
+      "comment": "Màn hình LG UltraGear 4K tuyệt vời, chơi game và làm đồ họa đều đỉnh.",
+      "replies": []
     },
     {
       "id": "0a21",
@@ -1427,7 +1460,8 @@
       "user_id": 21,
       "user_name": "Trần Văn Hùng",
       "rating": 4,
-      "comment": "Bàn phím Razer gõ sướng, RGB đẹp, nhưng hơi ồn khi gõ mạnh."
+      "comment": "Bàn phím Razer gõ sướng, RGB đẹp, nhưng hơi ồn khi gõ mạnh.",
+      "replies": []
     },
     {
       "id": "0a22",
@@ -1435,7 +1469,8 @@
       "user_id": 22,
       "user_name": "Lê Thị Thu",
       "rating": 3,
-      "comment": "Chuột SteelSeries nhẹ, nhưng cảm giác nút bấm không bền lắm."
+      "comment": "Chuột SteelSeries nhẹ, nhưng cảm giác nút bấm không bền lắm.",
+      "replies": []
     },
     {
       "id": "0a23",
@@ -1443,7 +1478,8 @@
       "user_id": 23,
       "user_name": "Phạm Văn Đạt",
       "rating": 4,
-      "comment": "Tai nghe Razer Barracuda X tiện lợi, nhưng âm bass chưa đủ mạnh."
+      "comment": "Tai nghe Razer Barracuda X tiện lợi, nhưng âm bass chưa đủ mạnh.",
+      "replies": []
     },
     {
       "id": "0a24",
@@ -1451,7 +1487,8 @@
       "user_id": 24,
       "user_name": "Nguyễn Thị Hòa",
       "rating": 4,
-      "comment": "ASUS Vivobook nhẹ, pin lâu, nhưng RAM 8GB hơi hạn chế khi đa nhiệm."
+      "comment": "ASUS Vivobook nhẹ, pin lâu, nhưng RAM 8GB hơi hạn chế khi đa nhiệm.",
+      "replies": []
     },
     {
       "id": "0a25",
@@ -1459,7 +1496,8 @@
       "user_id": 25,
       "user_name": "Trần Minh Tâm",
       "rating": 5,
-      "comment": "Acer Aspire 5 giá tốt, Ryzen 5 mạnh mẽ, làm việc mượt mà."
+      "comment": "Acer Aspire 5 giá tốt, Ryzen 5 mạnh mẽ, làm việc mượt mà.",
+      "replies": []
     },
     {
       "id": "0a26",
@@ -1467,7 +1505,8 @@
       "user_id": 26,
       "user_name": "Lê Thị Hồng",
       "rating": 4,
-      "comment": "MSI Prestige đẹp, GTX 1650 Ti ổn, nhưng RAM 8GB hơi ít."
+      "comment": "MSI Prestige đẹp, GTX 1650 Ti ổn, nhưng RAM 8GB hơi ít.",
+      "replies": []
     },
     {
       "id": "0a27",
@@ -1475,7 +1514,8 @@
       "user_id": 27,
       "user_name": "Phạm Văn Khánh",
       "rating": 3,
-      "comment": "Lenovo IdeaPad 3 giá rẻ, nhưng SSD 256GB hơi nhỏ, cần nâng cấp."
+      "comment": "Lenovo IdeaPad 3 giá rẻ, nhưng SSD 256GB hơi nhỏ, cần nâng cấp.",
+      "replies": []
     },
     {
       "id": "0a28",
@@ -1483,7 +1523,8 @@
       "user_id": 28,
       "user_name": "Nguyễn Thị Mai",
       "rating": 4,
-      "comment": "Dell Inspiron bền, hiệu năng tốt, nhưng thiết kế hơi dày."
+      "comment": "Dell Inspiron bền, hiệu năng tốt, nhưng thiết kế hơi dày.",
+      "replies": []
     },
     {
       "id": "0a29",
@@ -1491,7 +1532,8 @@
       "user_id": 29,
       "user_name": "Hoàng Văn Thắng",
       "rating": 5,
-      "comment": "HP Pavilion 14 đẹp, hiệu năng ổn, rất phù hợp làm việc văn phòng."
+      "comment": "HP Pavilion 14 đẹp, hiệu năng ổn, rất phù hợp làm việc văn phòng.",
+      "replies": []
     },
     {
       "id": "0a30",
@@ -1499,7 +1541,8 @@
       "user_id": 30,
       "user_name": "Trần Thị Lan",
       "rating": 4,
-      "comment": "LG Gram siêu nhẹ, pin lâu, nhưng giá hơi cao so với cấu hình."
+      "comment": "LG Gram siêu nhẹ, pin lâu, nhưng giá hơi cao so với cấu hình.",
+      "replies": []
     },
     {
       "id": "0a31",
@@ -1507,7 +1550,8 @@
       "user_id": 31,
       "user_name": "Lê Văn Dũng",
       "rating": 5,
-      "comment": "ASUS ZenBook 14 sang trọng, hiệu năng tốt, rất đáng mua."
+      "comment": "ASUS ZenBook 14 sang trọng, hiệu năng tốt, rất đáng mua.",
+      "replies": []
     },
     {
       "id": "0a32",
@@ -1515,7 +1559,8 @@
       "user_id": 32,
       "user_name": "Phạm Thị Ngọc",
       "rating": 4,
-      "comment": "Acer Nitro 5 chơi game ngon, nhưng quạt kêu hơi to khi tải nặng."
+      "comment": "Acer Nitro 5 chơi game ngon, nhưng quạt kêu hơi to khi tải nặng.",
+      "replies": []
     },
     {
       "id": "0a33",
@@ -1523,129 +1568,175 @@
       "user_id": 33,
       "user_name": "Nguyễn Văn Hào",
       "rating": 5,
-      "comment": "MSI Creator mạnh mẽ, GTX 1660 Ti làm đồ họa tốt, rất hài lòng."
+      "comment": "MSI Creator mạnh mẽ, GTX 1660 Ti làm đồ họa tốt, rất hài lòng.",
+      "replies": []
+    },
+    {
+      "id": "3792",
+      "product_id": "1",
+      "user_id": 1,
+      "user_name": "Trần Ngọc Huyền",
+      "rating": 4.5,
+      "replies": [
+        {
+          "id": "1745159464503",
+          "user_name": "Trần Ngọc Huyền (Nhân viên)",
+          "reply_text": "Duong Hoang Huy",
+          "reply_date": "2025-04-20"
+        }
+      ]
     }
   ],
   "revenue": [
     {
       "date": "2025-04-01",
-      "amount": 50000000
+      "amount": 50000000,
+      "id": "0579"
     },
     {
       "date": "2025-04-02",
-      "amount": 60000000
+      "amount": 60000000,
+      "id": "a219"
     },
     {
       "date": "2025-04-03",
-      "amount": 45000000
+      "amount": 45000000,
+      "id": "b636"
     },
     {
       "date": "2025-04-04",
-      "amount": 72000000
+      "amount": 72000000,
+      "id": "70d6"
     },
     {
       "date": "2025-04-05",
-      "amount": 58000000
+      "amount": 58000000,
+      "id": "da48"
     },
     {
       "date": "2025-04-06",
-      "amount": 63000000
+      "amount": 63000000,
+      "id": "917b"
     },
     {
       "date": "2025-04-07",
-      "amount": 48000000
+      "amount": 48000000,
+      "id": "ae39"
     },
     {
       "date": "2025-04-08",
-      "amount": 76000000
+      "amount": 76000000,
+      "id": "39b5"
     },
     {
       "date": "2025-04-09",
-      "amount": 53000000
+      "amount": 53000000,
+      "id": "f8cb"
     },
     {
       "date": "2025-04-10",
-      "amount": 69000000
+      "amount": 69000000,
+      "id": "1c0a"
     },
     {
       "date": "2025-04-11",
-      "amount": 41000000
+      "amount": 41000000,
+      "id": "87da"
     },
     {
       "date": "2025-04-12",
-      "amount": 77000000
+      "amount": 77000000,
+      "id": "dd20"
     },
     {
       "date": "2025-04-13",
-      "amount": 62000000
+      "amount": 62000000,
+      "id": "12dc"
     },
     {
       "date": "2025-04-14",
-      "amount": 56000000
+      "amount": 56000000,
+      "id": "4f67"
     },
     {
       "date": "2025-04-15",
-      "amount": 47000000
+      "amount": 47000000,
+      "id": "0a90"
     },
     {
       "date": "2025-04-16",
-      "amount": 65000000
+      "amount": 65000000,
+      "id": "5138"
     },
     {
       "date": "2025-04-17",
-      "amount": 44000000
+      "amount": 44000000,
+      "id": "ee9c"
     },
     {
       "date": "2025-04-18",
-      "amount": 79000000
+      "amount": 79000000,
+      "id": "a1d7"
     },
     {
       "date": "2025-04-19",
-      "amount": 61000000
+      "amount": 61000000,
+      "id": "562c"
     },
     {
       "date": "2025-04-20",
-      "amount": 58000000
+      "amount": 58000000,
+      "id": "a7f3"
     },
     {
       "date": "2025-04-21",
-      "amount": 50000000
+      "amount": 50000000,
+      "id": "4671"
     },
     {
       "date": "2025-04-22",
-      "amount": 73000000
+      "amount": 73000000,
+      "id": "1c6e"
     },
     {
       "date": "2025-04-23",
-      "amount": 55000000
+      "amount": 55000000,
+      "id": "c667"
     },
     {
       "date": "2025-04-24",
-      "amount": 46000000
+      "amount": 46000000,
+      "id": "f31f"
     },
     {
       "date": "2025-04-25",
-      "amount": 68000000
+      "amount": 68000000,
+      "id": "b865"
     },
     {
       "date": "2025-04-26",
-      "amount": 64000000
+      "amount": 64000000,
+      "id": "c39e"
     },
     {
       "date": "2025-04-27",
-      "amount": 49000000
+      "amount": 49000000,
+      "id": "880c"
     },
     {
       "date": "2025-04-28",
-      "amount": 75000000
+      "amount": 75000000,
+      "id": "b292"
     },
     {
       "date": "2025-04-29",
-      "amount": 42000000
+      "amount": 42000000,
+      "id": "eedd"
     },
     {
       "date": "2025-04-30",
-      "amount": 70000000
+      "amount": 70000000,
+      "id": "22b5"
     }
   ]
 }

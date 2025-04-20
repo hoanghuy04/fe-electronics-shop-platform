@@ -1,5 +1,20 @@
 import { get, post } from "./request";
 
+export const saveViewedProduct = (product) => {
+  const viewedProducts = JSON.parse(localStorage.getItem("viewedProducts")) || [];
+  
+  // Kiểm tra nếu sản phẩm đã tồn tại thì không thêm lại
+  const isProductExist = viewedProducts.some((p) => p.id === product.id);
+  if (!isProductExist) {
+    viewedProducts.push(product);
+    localStorage.setItem("viewedProducts", JSON.stringify(viewedProducts));
+  }
+};
+
+export const getViewedProducts = () => {
+  return JSON.parse(localStorage.getItem("viewedProducts")) || [];
+};
+
 export const getProducts = async () => {
   try {
     const products = await get("products");
@@ -13,7 +28,6 @@ export const getProducts = async () => {
     console.error(error);
   }
 };
-
 
 export const searchProductsByTitle = async (keyword) => {
   try {

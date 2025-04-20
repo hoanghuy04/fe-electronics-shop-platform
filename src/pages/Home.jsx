@@ -7,12 +7,14 @@ import { Link } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import laptopgaming from '../../public/laptop-gaming.png'
 import chuotgaming from '../../public/chuot-gaming.png'
+import { getViewedProducts } from "../services/productService";
 
 const Home = () => {
   const [laptops, setLaptops] = useState([]);
   const [pcs, setPCs] = useState([]);
   const [mouse, setMouse] = useState([]);
   const [screens, setScreens] = useState([]);
+  const [viewedProducts, setViewedProducts] = useState([]);
 
   const { products, categories, brands, loading } = useContext(ProductContext)
   // Dữ liệu giả lập cho carousel và banner
@@ -55,6 +57,11 @@ const Home = () => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    const products = getViewedProducts();
+    setViewedProducts(products);
+  }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -147,6 +154,29 @@ const Home = () => {
                 </NavLink>
               ))}
             </div>
+          </div>
+
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Sản phẩm đã xem</div>
+            </div>
+            <Carousel
+              slidesToShow={5}
+              slidesToScroll={1}
+              arrows
+              autoplay
+              className="p-6"
+            >
+              {viewedProducts.length > 0 ? (
+                viewedProducts.map((p) => (
+                  <div key={p.id}>
+                    <ProductCard product={p} />
+                  </div>
+                ))
+              ) : (
+                <div>Không có sản phẩm nào để hiển thị</div>
+              )}
+            </Carousel>
           </div>
 
           <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
