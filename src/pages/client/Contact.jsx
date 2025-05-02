@@ -19,12 +19,9 @@
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
 
-
 //     setShowSuccess(true);
 
-
 //     setFormData({ name: "", email: "", message: "" });
-
 
 //     setTimeout(() => {
 //       setShowSuccess(false);
@@ -134,7 +131,7 @@
 // }
 import React, { useState } from "react";
 
-export default function ContactPage() {
+export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",

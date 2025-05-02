@@ -12,9 +12,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import CartNotification from "./CartNotification";
 import CartMini from "./CartMini";
-import LoginPage from "./LoginPage";
+import LoginPage from "../pages/auth/Login";
 import { useAuth } from "../hooks/AuthContext";
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import { ProductContext } from "../hooks/ProductContext";
 
 const { Search } = Input;
@@ -36,7 +35,6 @@ const Header = () => {
     navigate(`products/category/${slug}`);
   };
 
-
   useEffect(() => {
     if (user?.name && !greeted) {
       setShowGreeting(true);
@@ -46,7 +44,6 @@ const Header = () => {
       }, 2000);
     }
   }, [user, greeted]);
-
 
   useEffect(() => {
     if (!justAdded) return;
@@ -58,7 +55,6 @@ const Header = () => {
     logout();
     navigate("/");
   };
-
 
   const userMenu = (
     <Menu
@@ -106,7 +102,6 @@ const Header = () => {
       ]}
     />
   );
-  
 
   // Xử lý khi người dùng nhập vào ô tìm kiếm
   const handleSearchChange = (e) => {
@@ -140,43 +135,43 @@ const Header = () => {
 
   // Nội dung menu cho dropdown tìm kiếm
   const searchMenu = {
-    items: searchResults.length > 0 ? (
-      searchResults.map((product) => ({
-        key: product.id,
-        label: (
-          <div
-            className="flex items-center"
-            onClick={() => {
-              navigate(`/products/${product.slug}`);
-              setDropdownOpen(false);
-              setSearchValue("");
-            }}
-          >
-            <img
-              src={product.image_url[0] || "placeholder-image-url"}
-              alt={product.title}
-              className="w-12 h-12 object-cover mr-2"
-            />
-            <div>
-              <p className="text-sm font-medium">{product.title}</p>
-              <p className="text-xs text-gray-500">
-                {product.price.toLocaleString()} VNĐ
-              </p>
-            </div>
-          </div>
-        ),
-      }))
-    ) : (
-      [
-        {
-          key: "no-results",
-          label: <p className="text-gray-500">Không tìm thấy sản phẩm nào</p>,
-          disabled: true, // Để không thể nhấp vào
-        },
-      ]
-    ),
+    items:
+      searchResults.length > 0
+        ? searchResults.map((product) => ({
+            key: product.id,
+            label: (
+              <div
+                className="flex items-center"
+                onClick={() => {
+                  navigate(`/products/${product.slug}`);
+                  setDropdownOpen(false);
+                  setSearchValue("");
+                }}
+              >
+                <img
+                  src={product.image_url[0] || "placeholder-image-url"}
+                  alt={product.title}
+                  className="w-12 h-12 object-cover mr-2"
+                />
+                <div>
+                  <p className="text-sm font-medium">{product.title}</p>
+                  <p className="text-xs text-gray-500">
+                    {product.price.toLocaleString()} VNĐ
+                  </p>
+                </div>
+              </div>
+            ),
+          }))
+        : [
+            {
+              key: "no-results",
+              label: (
+                <p className="text-gray-500">Không tìm thấy sản phẩm nào</p>
+              ),
+              disabled: true, // Để không thể nhấp vào
+            },
+          ],
   };
-
 
   return (
     <header className="shadow-lg py-4 sticky top-0 z-10 bg-primary">
@@ -261,31 +256,33 @@ const Header = () => {
         </div>
 
         {/* Tên user */}
-        {user ? (
-          <Dropdown overlay={userMenu} trigger={["click"]}>
-            <div className="flex items-center cursor-pointer">
+        {
+          user ? (
+            <Dropdown overlay={userMenu} trigger={["click"]}>
+              <div className="flex items-center cursor-pointer">
+                <UserOutlined className="mr-2 text-xl" />
+                <span className="truncate max-w-[120px] text-xl text-bold">
+                  {user?.name}
+                </span>
+
+                {showGreeting && (
+                  <div className="fixed top-20 right-5 bg-green-100 border border-green-400 text-green-700 px-6 py-3 rounded-lg shadow-lg z-50">
+                    🥳 Xin chào! {user.name}
+                  </div>
+                )}
+              </div>
+            </Dropdown>
+          ) : (
+            <Link
+              to="/login"
+              className="flex items-center hover:text-orange-500 font-medium text-lg transition-colors duration-200"
+            >
               <UserOutlined className="mr-2 text-xl" />
-              <span className="truncate max-w-[120px] text-xl text-bold">{user?.name}</span>
 
-              {showGreeting && (
-                <div className="fixed top-20 right-5 bg-green-100 border border-green-400 text-green-700 px-6 py-3 rounded-lg shadow-lg z-50">
-                  🥳 Xin chào! {user.name}
-                </div>
-              )}
-
-
-            </div>
-          </Dropdown>
-        ) : (
-          <Link
-            to="/login"
-            className="flex items-center hover:text-orange-500 font-medium text-lg transition-colors duration-200"
-          >
-            <UserOutlined className="mr-2 text-xl" />
-
-            <span>Đăng nhập</span>
-          </Link>
-        )/* )} */}
+              <span>Đăng nhập</span>
+            </Link>
+          ) /* )} */
+        }
       </div>
     </header>
   );

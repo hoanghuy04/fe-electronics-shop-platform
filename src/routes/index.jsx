@@ -6,28 +6,27 @@ import CartStepTwo from "../components/CartStepTwo";
 import CartStepThree from "../components/CartStepThree";
 import CartStepFour from "../components/CartStepFour";
 import { path } from "../constants/path";
-import Account from "../pages/Account";
+import Account from "../pages/client/Account";
 import { AccountProfile } from "../components/AccountProfile";
 import { AccountAddress } from "../components/AccountAddress";
 import { AccountOrderHistory } from "../components/AccountOrderHistory";
-import LoginPage from "../components/LoginPage";
-import RegisterPage from "../components/RegisterPage";
-import ContactPage from "../components/ContactPage";
-import PaymentInstructions from "../components/PaymentInstructions";
+import LoginPage from "../pages/auth/Login";
+import RegisterPage from "../pages/auth/Register";
+import PaymentInstructions from "../pages/client/PaymentInstructions";
 
 import "antd/dist/reset.css";
 
 import AccountViewedProduct from "../components/AccountViewedProduct";
 import AccountOrderHistoryDetail from "../components/AccountOrderHistoryDetail";
-
+import Contact from "../pages/client/Contact";
 
 // Lazy loading để tối ưu hiệu suất
-const Home = lazy(() => import("../pages/Home"));
+const Home = lazy(() => import("../pages/client/Home"));
 // const HP = lazy(() => import("../pages/HP"));
-const ProductDetail = lazy(() => import("../pages/ProductDetail"));
-const Cart = lazy(() => import("../pages/Cart"));
-const NotFound = lazy(() => import("../pages/NotFound"));
-const ListProduct = lazy(() => import("../pages/ListProduct"));
+const ProductDetail = lazy(() => import("../pages/client/ProductDetail"));
+const Cart = lazy(() => import("../pages/client/Cart"));
+const NotFound = lazy(() => import("../pages/client/NotFound"));
+const ListProduct = lazy(() => import("../pages/client/ListProduct"));
 
 const getCurrentStep = () => {
   return parseInt(sessionStorage.getItem("currentStep")) || 1;
@@ -71,7 +70,6 @@ const routes = [
             path: path.cartStepFour,
             element: <ProtectedStep step={4} element={<CartStepFour />} />,
           },
-
         ],
       },
       {
@@ -100,24 +98,22 @@ const routes = [
           },
         ],
       },
-      { path: "*", 
-        element: <Navigate to={path.notFound} /> 
-      },
+      { path: "*", element: <Navigate to={path.notFound} /> },
       {
         path: "/login",
-        element: <LoginPage/>,
+        element: <LoginPage />,
       },
       {
         path: "/register",
-        element: <RegisterPage/>,
+        element: <RegisterPage />,
       },
       {
         path: "/contact",
-        element: <ContactPage/>,
+        element: <Contact />,
       },
       {
         path: "/paymentinstructions",
-        element: <PaymentInstructions/>,
+        element: <PaymentInstructions />,
       },
     ],
   },

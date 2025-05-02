@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 import { Form, Input, Button, message } from "antd";
-import { Link, useNavigate } from "react-router"; 
-import { get } from "../services/request";
-import { useAuth } from "../hooks/AuthContext";
+import { Link, useNavigate } from "react-router";
+import { get } from "../../services/request";
+import { useAuth } from "../../hooks/AuthContext";
 
-export default function LoginPage() {
+export default function Login() {
   const [form] = Form.useForm();
-  const [errorMsg, setErrorMsg] = useState(""); 
-  const navigate = useNavigate(); 
-  const {login} = useAuth();
+  const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
+  const { login } = useAuth();
   const handleLogin = async (values) => {
     try {
       const { email, password } = values;
       const users = await get(`users?email=${email}&password=${password}`);
-      
+
       if (users && users.length > 0) {
         message.success("Đăng nhập thành công!");
-        setErrorMsg(""); 
+        setErrorMsg("");
         login(users[0]);
-          console.log("User in Header:", users);
-        navigate("/"); 
+        console.log("User in Header:", users);
+        navigate("/");
       } else {
         setErrorMsg("Sai tài khoản hoặc mật khẩu");
       }
@@ -46,7 +46,7 @@ export default function LoginPage() {
             name="email"
             rules={[
               { required: true, message: "Vui lòng nhập email!" },
-              { type: "email", message: "Email không hợp lệ!" }
+              { type: "email", message: "Email không hợp lệ!" },
             ]}
           >
             <Input placeholder="Email" />
@@ -60,18 +60,17 @@ export default function LoginPage() {
             <Input.Password placeholder="Mật khẩu" />
           </Form.Item>
 
-          {errorMsg && (
-            <span className="text-red-500 text-sm">{errorMsg}</span> 
-          )}
-
-
+          {errorMsg && <span className="text-red-500 text-sm">{errorMsg}</span>}
 
           <Form.Item>
             <Button
               type="primary"
               htmlType="submit"
               block
-              style={{ backgroundColor: "var(--color-primary)", borderColor: "var(--color-primary)" }}
+              style={{
+                backgroundColor: "var(--color-primary)",
+                borderColor: "var(--color-primary)",
+              }}
             >
               ĐĂNG NHẬP
             </Button>

@@ -892,7 +892,36 @@
       "slug": "tai-nghe"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "HD20250502111107839",
+      "customer_id": 1,
+      "products": [
+        {
+          "id": "2",
+          "title": "Laptop ASUS ZenBook 14 UX425EA",
+          "quantity": 1,
+          "price": 28400000,
+          "discount": 0.07
+        }
+      ],
+      "total_price": 26412000,
+      "status": "PENDING",
+      "order_date": "2025-05-02T04:11:07.518Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "shipping_address": {
+        "full_name": "Tran Huyen",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "ward": "07861",
+          "district": "223",
+          "province": "24"
+        }
+      },
+      "payment_status": "UNPAID"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -902,6 +931,7 @@
       "password": "123456789",
       "phone": "0964424149",
       "dob": "07/07/2023",
+      "role": "USER",
       "address": [
         {
           "id": "DC20250409171555333",

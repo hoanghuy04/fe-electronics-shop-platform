@@ -1,28 +1,28 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Slider, Checkbox, Pagination, Spin } from "antd";
-import { getListOfBrands, getProducts } from "../services/productService";
-import ProductCard from "./../components/ProductCard";
-import { ProductContext } from "../hooks/ProductContext";
+import { getListOfBrands, getProducts } from "../../services/productService";
+import ProductCard from "../../components/ProductCard";
+import { ProductContext } from "../../hooks/ProductContext";
 import { Info } from "lucide-react";
 
 const normalizeGPU = (gpuName) => {
   return gpuName
-    .replace(/Integrated\s*/i, '')
-    .replace(/NVIDIA\s*/gi, '')
-    .replace(/Intel\s*/gi, '')
-    .replace(/GeForce\s*/gi, '')
-    .replace(/®|™/g, '')
-    .replace(/Graphics/i, 'Graphics') // giữ lại từ "Graphics"
+    .replace(/Integrated\s*/i, "")
+    .replace(/NVIDIA\s*/gi, "")
+    .replace(/Intel\s*/gi, "")
+    .replace(/GeForce\s*/gi, "")
+    .replace(/®|™/g, "")
+    .replace(/Graphics/i, "Graphics") // giữ lại từ "Graphics"
     .trim();
 };
 
 const ListProduct = () => {
   const { categorySlug } = useParams();
 
-  const { categories, products, loading } = useContext(ProductContext)
-  const [brandOptions, setBrandOptions] = useState([])
-  const [gpuOptions, setGpuOptions] = useState([])
+  const { categories, products, loading } = useContext(ProductContext);
+  const [brandOptions, setBrandOptions] = useState([]);
+  const [gpuOptions, setGpuOptions] = useState([]);
 
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [priceRange, setPriceRange] = useState([0, 3000000000]);
@@ -43,7 +43,6 @@ const ListProduct = () => {
   ];
   const ramOptions = ["8GB", "16GB", "32GB"];
 
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     const fetchproducts = async () => {
@@ -55,31 +54,27 @@ const ListProduct = () => {
         setMinMaxPrice([minPrice, maxPrice]);
 
         const gpus = products
-          .map(p => p.description["Card đồ họa"])
+          .map((p) => p.description["Card đồ họa"])
           .filter(Boolean) // loại bỏ undefined/null
           .map(normalizeGPU) // chuẩn hóa chuỗi
           .filter((value, index, self) => self.indexOf(value) === index) // loại trùng
-          .sort()
+          .sort();
 
-
-
-        setGpuOptions(gpus)
+        setGpuOptions(gpus);
       }
 
       const responseBrands = await getListOfBrands();
       if (Array.isArray(responseBrands)) {
         const brandsName = responseBrands.map((brand) => brand.name);
-        setBrandOptions(brandsName)
+        setBrandOptions(brandsName);
       }
-
-
     };
     fetchproducts();
   }, [products, loading]);
 
   useEffect(() => {
-    const matchedCategory = categories.find(c => c.slug === categorySlug)
-    const matchedCategoryId = matchedCategory?.id
+    const matchedCategory = categories.find((c) => c.slug === categorySlug);
+    const matchedCategoryId = matchedCategory?.id;
 
     let filtered = products.filter((product) => {
       const matchCategory =
@@ -125,13 +120,13 @@ const ListProduct = () => {
     selectedGPUs,
     selectedBrands,
     products,
-    loading
+    loading,
   ]);
 
   if (loading) {
     <div className="flex items-center justify-center">
       <Spin />
-    </div>
+    </div>;
   }
 
   // Xử lý thay đổi giá
@@ -186,19 +181,23 @@ const ListProduct = () => {
         </div>
         <div className="mb-6">
           <h3 className="font-semibold">CPU</h3>
-          <Checkbox.Group options={cpuOptions} onChange={onCPUChange}
-            style={{ display: "flex", flexDirection: "column", gap: "8px" }} />
+          <Checkbox.Group
+            options={cpuOptions}
+            onChange={onCPUChange}
+            style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+          />
         </div>
         <div className="mb-6">
           <h3 className="font-semibold">RAM</h3>
-          <Checkbox.Group
-            options={ramOptions}
-            onChange={onRAMChange} />
+          <Checkbox.Group options={ramOptions} onChange={onRAMChange} />
         </div>
         <div className="mb-6">
           <h3 className="font-semibold">Card đồ họa</h3>
-          <Checkbox.Group options={gpuOptions} onChange={onGPUChange}
-            style={{ display: "flex", flexDirection: "column", gap: "8px" }} />
+          <Checkbox.Group
+            options={gpuOptions}
+            onChange={onGPUChange}
+            style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+          />
         </div>
         <div className="mb-6">
           <h3 className="font-semibold">Thương hiệu</h3>
@@ -208,7 +207,7 @@ const ListProduct = () => {
 
       {/* Danh sách sản phẩm */}
       <div className="w-3/4 p-4 pt-0">
-        {currentProducts.length > 0 ?
+        {currentProducts.length > 0 ? (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
               {currentProducts.map((product) => (
@@ -227,12 +226,13 @@ const ListProduct = () => {
                 />
               </div>
             )}
-          </> :
+          </>
+        ) : (
           <p className="font-bold text-2xl flex flex-col items-center justify-center h-full text-orange-400">
             <Info size={48} className="m-4" strokeWidth={1.75} />
             Hiện không có sản phẩm nào!
           </p>
-        }
+        )}
       </div>
     </div>
   );
