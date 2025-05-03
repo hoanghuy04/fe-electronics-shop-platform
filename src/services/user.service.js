@@ -10,4 +10,9 @@ export const userApi = {
       throw error;
     }
   },
+  getDefaultAddress: (user) => {
+    if (!user || !user.address || !Array.isArray(user.address)) return null;
+
+    return user.address.find((addr) => addr.default === 1) || null;
+  },
 };

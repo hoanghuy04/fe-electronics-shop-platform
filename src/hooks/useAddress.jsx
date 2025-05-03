@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  getProvinceById,
-  getDistrictById,
-  getWardById,
-} from "../services/address.service";
+import { addressService } from "../services/address.service";
 
 const useAddress = (address) => {
   const [province, setProvince] = useState(null);
@@ -13,7 +9,9 @@ const useAddress = (address) => {
   useEffect(() => {
     const getProvince = async () => {
       if (address?.province) {
-        const provinceData = await getProvinceById(address.province);
+        const provinceData = await addressService.getProvinceById(
+          address.province
+        );
         if (provinceData) {
           setProvince(provinceData);
         }
@@ -28,7 +26,7 @@ const useAddress = (address) => {
   useEffect(() => {
     const getDistrict = async () => {
       if (address?.district && address?.province) {
-        const districtData = await getDistrictById(
+        const districtData = await addressService.getDistrictById(
           address.district,
           address.province
         );
@@ -46,7 +44,10 @@ const useAddress = (address) => {
   useEffect(() => {
     const getWard = async () => {
       if (address?.ward && address?.district) {
-        const wardData = await getWardById(address.ward, address.district);
+        const wardData = await addressService.getWardById(
+          address.ward,
+          address.district
+        );
         if (wardData) {
           setWard(wardData);
         }

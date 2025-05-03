@@ -3,33 +3,20 @@ import { path } from "../constants/path";
 import { useCart } from "../hooks/useCart";
 import { Radio } from "antd";
 import { Package } from "lucide-react";
-import { useEffect, useState } from "react";
-import { post } from "../services/request";
 import { generateId } from "../utils/helpers";
 import useAddress from "../hooks/useAddress";
 import BoxPrice from "./BoxPrice";
+import { useAuth } from "../hooks/AuthContext";
+import { orderService } from "../services/order.service";
 
 export default function CartStepThree() {
-  const { handlePlaceOrder } = useOutletContext();
+  const { handlePlaceOrder, order, setOrder } = useOutletContext();
   const { cart, totalPrice } = useCart();
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
 
-  useEffect(() => {
-    const savedUser = JSON.parse(localStorage.getItem("user"));
-    if (savedUser) {
-      setUser(savedUser);
-    }
-    console.log(savedUser);
-  }, []);
-
-  const address = {
-    province: user?.province,
-    ward: user?.ward,
-    district: user?.district,
-    street: user?.street,
-  };
-
-  const { province, district, ward } = useAddress(address);
+  const { province, district, ward } = useAddress(
+    order.shipping_address.address
+  );
 
   const handleClick = async () => {
     const products = cart.map((item) => ({
@@ -40,36 +27,23 @@ export default function CartStepThree() {
       discount: item.discount,
     }));
 
-    const shipping_address = {
-      full_name: user.name || "",
-      phone: user.phone || "",
-      address: {
-        street: user.street || "",
-        ward: user.ward,
-        district: user.district,
-        province: user.province,
-      },
-    };
-
-    const order = {
+    const completedOrder = {
+      ...order,
       id: generateId("HD"),
-      customer_id: 1,
-      products: products,
+      customer_id: user?.id || 1,
+      products,
       total_price: totalPrice,
       status: "PENDING",
       order_date: new Date().toISOString(),
       payment_method: "Thanh toán khi nhận hàng",
-      shipping_address: shipping_address,
       payment_status: "UNPAID",
-      note: user.note,
     };
 
-    if (order) {
-      const response = await post("orders", order);
-      if (response) {
-        handlePlaceOrder(path.cartStepFour);
-        localStorage.clear();
-      }
+    const response = await orderService.createOrder(completedOrder);
+    if (response) {
+      setOrder(completedOrder);
+      handlePlaceOrder(path.cartStepFour);
+      localStorage.removeItem("cart");
     }
   };
 
@@ -83,24 +57,26 @@ export default function CartStepThree() {
         <div className="space-y-4">
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Khách hàng:</div>
-            <div className="col-span-2 ">{user?.name}</div>
+            <div className="col-span-2 ">
+              {order.shipping_address.full_name}
+            </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Số điện thoại:</div>
-            <div className="col-span-2">{user?.phone}</div>
+            <div className="col-span-2">{order.shipping_address.phone}</div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Địa chỉ nhận hàng:</div>
             <div className="col-span-2">
-              {`${address.street}, ${ward?.full_name}, ${district?.full_name}, ${province?.full_name}`}
+              {`${order.shipping_address.address.street}, ${ward?.full_name}, ${district?.full_name}, ${province?.full_name}`}
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Ghi chú:</div>
-            <div className="col-span-2 ">{user?.note}</div>
+            <div className="col-span-2 ">{order.note}</div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
@@ -150,7 +126,7 @@ export default function CartStepThree() {
       <div className=" w-full mt-8">
         <button
           onClick={handleClick}
-          className="w-full p-2.5 rounded-sm bg-primary !text-white text-lg font-bold cursor-pointer"
+          className="w-full p-2.5 py-5 rounded-sm bg-primary !text-white !text-xl font-bold cursor-pointer"
         >
           THANH TOÁN NGAY
         </button>

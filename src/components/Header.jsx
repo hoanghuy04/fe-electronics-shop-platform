@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 
 import { Dropdown, Menu, Input, Button } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import CartNotification from "./CartNotification";
 import CartMini from "./CartMini";
@@ -16,6 +16,11 @@ import { ProductContext } from "../hooks/ProductContext";
 import { path } from "../constants/path";
 
 const { Search } = Input;
+
+const stickyBanners = [
+  "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_side_web.jpg", // Banner bên trái
+  "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_sticky_230x697.jpg", // Banner bên phải
+];
 
 const Header = () => {
   const { user, logout } = useAuth();
@@ -31,7 +36,7 @@ const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false); // Thay visible bằng open
 
   const handleCategoryFilter = (slug) => {
-    navigate(`products/category/${slug}`);
+    navigate(`products/${slug}/brand/all`);
   };
 
   useEffect(() => {
@@ -192,7 +197,7 @@ const Header = () => {
         </div>
 
         {/* Dropdown "Danh mục" */}
-        {/* <Dropdown
+        <Dropdown
           menu={{
             items: [
               {
@@ -219,7 +224,7 @@ const Header = () => {
             <MenuOutlined className="mr-2 text-sm z-10" />
             <span className="z-10">Danh mục</span>
           </a>
-        </Dropdown> */}
+        </Dropdown>
 
         {/* Input tìm kiếm với dropdown */}
         <div className="flex-1 mx-6">
@@ -280,6 +285,32 @@ const Header = () => {
             <span>Đăng nhập</span>
           </Link>
         )}
+
+        <div className="hidden lg:block">
+          {/* Left Banner */}
+          <div
+            className="fixed left-0 w-[150px] bg-gray-200 z-10"
+            style={{ top: "80px" }}
+          >
+            <div className="text-center w-full h-full overflow-hidden rounded-r-lg shadow-lg">
+              <NavLink to={"products/all/brand/all"}>
+                <img src={stickyBanners[0]} alt="" className="object-contain" />
+              </NavLink>
+            </div>
+          </div>
+
+          {/* Right Banner */}
+          <div
+            className="fixed right-0 w-[150px] bg-gray-200 z-10"
+            style={{ top: "80px" }}
+          >
+            <div className="text-center w-full h-full overflow-hidden rounded-l-lg shadow-lg">
+              <NavLink to={"products/all/brand/all"}>
+                <img src={stickyBanners[1]} alt="" className="object-contain" />
+              </NavLink>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );

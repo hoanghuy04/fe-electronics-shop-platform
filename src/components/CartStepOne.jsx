@@ -1,7 +1,4 @@
-// import { useState } from "react";
 import CartItem from "./CartItem";
-// import { ChevronUp, ChevronDown, TicketPercent } from "lucide-react";
-// import { Input } from "antd";
 import { useOutletContext } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import EmptyCart from "./EmptyCart";
@@ -9,8 +6,6 @@ import { path } from "../constants/path";
 import BoxPrice from "./BoxPrice";
 
 export default function CartStepOne() {
-  // const [showInput, setShowInput] = useState(false);
-  // const [code, setCode] = useState("");
   const { cart, totalPrice } = useCart();
   const { handlePlaceOrder } = useOutletContext();
 
@@ -64,7 +59,7 @@ export default function CartStepOne() {
             <div className=" w-full">
               <button
                 onClick={handleNext}
-                className="w-full p-2.5 rounded-sm bg-primary !text-white text-lg font-bold cursor-pointer"
+                className="w-full p-2.5 py-5 rounded-sm bg-primary !text-white !text-xl font-bold cursor-pointer"
               >
                 ĐẶT HÀNG NGAY
               </button>

@@ -6,7 +6,7 @@ import { useCart } from "../hooks/useCart";
 export default function CartItem({ item }) {
   const { increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
   return (
-    <div className="grid grid-cols-12 grid-flow-row gap-8 mb-4 px-4 pb-5 border-b border-line-border ">
+    <div className="grid grid-cols-12 grid-flow-row gap-8 mb-4 px-4 pb-8 border-b border-line-border ">
       <div className="col-span-8 grid grid-cols-12 grid-flow-row gap-5">
         <div className="col-span-3 text-center">
           <div className="item-img ">

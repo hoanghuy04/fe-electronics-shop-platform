@@ -12,6 +12,7 @@ export default function Cart() {
   const navigate = useNavigate();
   const { cart } = useCart();
   const { user } = useAuth();
+  const [order, setOrder] = useState(null);
 
   const getCurrentStepFromSession = () => {
     return parseInt(sessionStorage.getItem("currentStep")) || 1;
@@ -72,10 +73,10 @@ export default function Cart() {
   }, [pathname, navigate, cart]);
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-2xl mx-auto pb-10">
       <Breadcrumbs current={currentStep} />
-      <StepCart current={currentStep} />
-      <Outlet context={{ handlePlaceOrder }} />
+      <StepCart current={currentStep} className="" />
+      <Outlet context={{ handlePlaceOrder, order, setOrder }} />
     </div>
   );
 }

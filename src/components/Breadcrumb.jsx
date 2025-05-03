@@ -8,7 +8,7 @@ const Breadcrumbs = ({ current }) => {
   };
 
   return (
-    <div className="bg-gray-100 p-5">
+    <div className="bg-body-bg p-5">
       <span>
         <button
           className="px-2 text-lg !text-blue-500 font-semibold cursor-pointer flex gap-4"

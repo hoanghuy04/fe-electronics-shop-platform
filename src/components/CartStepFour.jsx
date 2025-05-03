@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getLatestOrder } from "../services/orderService";
+import { Link } from "react-router-dom";
 import { CircleCheckBig } from "lucide-react";
 import { Button } from "antd";
 import useAddress from "../hooks/useAddress";
+import { orderService } from "../services/order.service";
+import { useAuth } from "../hooks/AuthContext";
 
 export default function CartStepFour() {
   const [order, setOrder] = useState(null);
-  const { state } = useLocation();
-  const navigate = useNavigate();
-
+  const { user } = useAuth();
   const address = {
     province: order?.shipping_address.address?.province,
     ward: order?.shipping_address.address?.ward,
@@ -21,23 +20,18 @@ export default function CartStepFour() {
 
   useEffect(() => {
     const fetchOrder = async () => {
-      if (state?.order) {
-        setOrder(state.order);
-      } else {
-        const lastOrder = await getLatestOrder();
-        if (lastOrder) {
-          setOrder(lastOrder);
-        } else {
-          throw new Error("No order found");
-        }
+      const lastOrder = await orderService.getLatestOrderByUserId(user.id);
+      if (lastOrder) {
+        setOrder(lastOrder);
       }
     };
 
     fetchOrder();
+
     return () => {
       sessionStorage.setItem("currentStep", "1");
     };
-  }, [state, navigate]);
+  }, [user.id]);
 
   return (
     <div className="p-5 bg-white">

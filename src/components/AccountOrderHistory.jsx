@@ -3,8 +3,8 @@ import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import { get } from "../services/request";
 import BoxOrder from "./BoxOrder";
-import { getOrdersByStatus } from "../services/orderService";
 import EmptyView from "./EmptyView";
+import { orderService } from "../services/order.service";
 
 export function AccountOrderHistory() {
   const [order, setOrder] = useState(null);
@@ -53,7 +53,7 @@ export function AccountOrderHistory() {
     const loadInitialData = async () => {
       setLoading(true);
       try {
-        const orders = await getOrdersByStatus();
+        const orders = await orderService.getUserOrders();
         setFilteredOrders(orders);
         setTabLabels((prev) => [
           { ...prev[0], count: orders.length },
