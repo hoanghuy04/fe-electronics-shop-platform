@@ -1,6 +1,5 @@
 import { toast } from "sonner";
 import { get, post } from "./request";
-import { generateId } from "../utils/helpers";
 
 export const authApi = {
   login: async (user) => {

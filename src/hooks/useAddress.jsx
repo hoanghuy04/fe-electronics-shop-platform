@@ -3,7 +3,7 @@ import {
   getProvinceById,
   getDistrictById,
   getWardById,
-} from "../services/address";
+} from "../services/address.service";
 
 const useAddress = (address) => {
   const [province, setProvince] = useState(null);

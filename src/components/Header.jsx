@@ -13,6 +13,7 @@ import CartNotification from "./CartNotification";
 import CartMini from "./CartMini";
 import { useAuth } from "../hooks/AuthContext";
 import { ProductContext } from "../hooks/ProductContext";
+import { path } from "../constants/path";
 
 const { Search } = Input;
 
@@ -59,40 +60,50 @@ const Header = () => {
       items={[
         {
           label: (
-            <div className="flex items-center gap-2 text-black font-medium cursor-default px-2 py-1">
+            <Link
+              to={path.account}
+              className="flex items-center gap-2 text-black font-medium cursor-default px-2 py-1"
+            >
               <i className="fa-regular fa-hand-paper text-base"></i>
               Xin chào! {user?.name}
-            </div>
+            </Link>
           ),
           key: "greeting",
         },
         {
           label: (
-            <div className="flex items-center gap-2 text-black hover:text-blue-500 px-2 py-1">
+            <Link
+              to={path.orderHistory}
+              className="flex items-center gap-2 text-black hover:text-blue-500 px-2 py-1"
+            >
               <i className="fa-solid fa-box text-base"></i>
               Đơn hàng của tôi
-            </div>
+            </Link>
           ),
           key: "orders",
         },
         {
           label: (
-            <div className="flex items-center gap-2 text-black hover:text-blue-500 px-2 py-1">
+            <Link
+              to={path.viewed}
+              className="flex items-center gap-2 text-black hover:text-blue-500 px-2 py-1"
+            >
               <i className="fa-regular fa-clock text-base"></i>
               Đã xem gần đây
-            </div>
+            </Link>
           ),
           key: "recent",
         },
         {
           label: (
-            <div
+            <Link
+              to={path.logout}
               className="flex items-center gap-2 text-black hover:text-red-500 px-2 py-1"
               onClick={handleLogout}
             >
               <i className="fa-solid fa-right-from-bracket text-base"></i>
               Đăng xuất
-            </div>
+            </Link>
           ),
           key: "logout",
         },

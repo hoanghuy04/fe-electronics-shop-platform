@@ -3,7 +3,11 @@ import { Button, Form, Input, Radio, Select } from "antd";
 import { useOutletContext } from "react-router-dom";
 import { path } from "../constants/path";
 import { useCart } from "../hooks/useCart";
-import { getAllProvinces, getDistricts, getWards } from "../services/address";
+import {
+  getAllProvinces,
+  getDistricts,
+  getWards,
+} from "../services/address.service";
 import AddressForm from "./AddressForm";
 import BoxPrice from "./BoxPrice";
 

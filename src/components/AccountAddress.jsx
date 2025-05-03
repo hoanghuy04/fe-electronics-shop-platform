@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import { AccountAddressModal } from "./AccountAddressModal";
 import AccountAddressItem from "./AccountAddressItem";
-import { useOutletContext } from "react-router-dom";
 import { patch } from "../services/request";
+import { useAuth } from "../hooks/AuthContext";
+import { userApi } from "../services/user.service";
+import { toast } from "sonner";
 
 export function AccountAddress() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAdd, setIsAdd] = useState(true);
   const [addressData, setAddressData] = useState(null);
-  const { user } = useOutletContext();
+  const { user } = useAuth();
 
   const showAddModal = () => {
     setIsAdd(true);
@@ -61,7 +63,11 @@ export function AccountAddress() {
   };
 
   const handleUpdateUser = async (data) => {
-    await patch(`users/${data.id}`, data);
+    try {
+      await userApi.updateProfile(data.id, data);
+    } catch (error) {
+      toast.error("Lỗi cập nhật user ", error);
+    }
   };
 
   return (
