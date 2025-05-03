@@ -1,9 +1,9 @@
 import React from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { addToCart } from "../store/actions/cartAction";
-import { useCart } from "../hooks/useCart";
 import { Link } from "react-router-dom";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { useCart } from "../hooks/useCart";
 
 export default function CartMini() {
   // const cart = useSelector((state) => state.cartReducer) || [];

@@ -1,31 +1,12 @@
-import React, { useState } from "react";
-import { Form, Input, Button, message } from "antd";
-import { Link, useNavigate } from "react-router";
-import { get } from "../../services/request";
+import { Form, Input, Button } from "antd";
+import { Link } from "react-router";
 import { useAuth } from "../../hooks/AuthContext";
 
 export default function Login() {
   const [form] = Form.useForm();
-  const [errorMsg, setErrorMsg] = useState("");
-  const navigate = useNavigate();
   const { login } = useAuth();
   const handleLogin = async (values) => {
-    try {
-      const { email, password } = values;
-      const users = await get(`users?email=${email}&password=${password}`);
-
-      if (users && users.length > 0) {
-        message.success("Đăng nhập thành công!");
-        setErrorMsg("");
-        login(users[0]);
-        console.log("User in Header:", users);
-        navigate("/");
-      } else {
-        setErrorMsg("Sai tài khoản hoặc mật khẩu");
-      }
-    } catch (error) {
-      message.error("Lỗi kết nối đến server.");
-    }
+    await login(values);
   };
 
   return (
@@ -59,8 +40,6 @@ export default function Login() {
           >
             <Input.Password placeholder="Mật khẩu" />
           </Form.Item>
-
-          {errorMsg && <span className="text-red-500 text-sm">{errorMsg}</span>}
 
           <Form.Item>
             <Button

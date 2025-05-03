@@ -1,37 +1,13 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router";
-import { Form, Input, Button, message } from "antd";
-import { post } from "../../services/request";
+import { Link } from "react-router";
+import { Form, Input, Button } from "antd";
+import { useAuth } from "../../hooks/AuthContext";
 
 export default function Register() {
   const [loading, setLoading] = useState(false);
-  const nagative = useNavigate();
+  const { register } = useAuth();
   const handleSubmit = async (values) => {
-    setLoading(true);
-    try {
-      const response = await post("users", {
-        email: values.email,
-        name: values.firstName + " " + values.lastName,
-        gender: 0,
-        phone: "",
-        dob: "",
-        address: [],
-        password: values.password,
-        role: "USER",
-      });
-
-      if (response) {
-        message.success("Tạo tài khoản thành công!");
-        nagative("/login");
-      } else {
-        message.error("Tạo tài khoản thất bại!");
-      }
-    } catch (error) {
-      message.error("Có lỗi xảy ra!");
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
+    await register(values);
   };
 
   return (

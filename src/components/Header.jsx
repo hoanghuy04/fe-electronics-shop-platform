@@ -5,14 +5,12 @@ import {
   UserOutlined,
   MenuOutlined,
 } from "@ant-design/icons";
-// import { useSelector } from "react-redux";
 
-import { Dropdown, Menu, Input, Button, Modal, notification } from "antd";
+import { Dropdown, Menu, Input, Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import CartNotification from "./CartNotification";
 import CartMini from "./CartMini";
-import LoginPage from "../pages/auth/Login";
 import { useAuth } from "../hooks/AuthContext";
 import { ProductContext } from "../hooks/ProductContext";
 
@@ -53,7 +51,6 @@ const Header = () => {
   }, [justAdded]);
   const handleLogout = () => {
     logout();
-    navigate("/");
   };
 
   const userMenu = (
@@ -184,7 +181,7 @@ const Header = () => {
         </div>
 
         {/* Dropdown "Danh mục" */}
-        <Dropdown
+        {/* <Dropdown
           menu={{
             items: [
               {
@@ -211,7 +208,7 @@ const Header = () => {
             <MenuOutlined className="mr-2 text-sm z-10" />
             <span className="z-10">Danh mục</span>
           </a>
-        </Dropdown>
+        </Dropdown> */}
 
         {/* Input tìm kiếm với dropdown */}
         <div className="flex-1 mx-6">
@@ -256,33 +253,22 @@ const Header = () => {
         </div>
 
         {/* Tên user */}
-        {
-          user ? (
-            <Dropdown overlay={userMenu} trigger={["click"]}>
-              <div className="flex items-center cursor-pointer">
-                <UserOutlined className="mr-2 text-xl" />
-                <span className="truncate max-w-[120px] text-xl text-bold">
-                  {user?.name}
-                </span>
-
-                {showGreeting && (
-                  <div className="fixed top-20 right-5 bg-green-100 border border-green-400 text-green-700 px-6 py-3 rounded-lg shadow-lg z-50">
-                    🥳 Xin chào! {user.name}
-                  </div>
-                )}
-              </div>
-            </Dropdown>
-          ) : (
-            <Link
-              to="/login"
-              className="flex items-center hover:text-orange-500 font-medium text-lg transition-colors duration-200"
-            >
-              <UserOutlined className="mr-2 text-xl" />
-
-              <span>Đăng nhập</span>
-            </Link>
-          ) /* )} */
-        }
+        {Object.keys(user).length > 0 ? (
+          <Dropdown overlay={userMenu} trigger={["click"]}>
+            <div className="flex items-center cursor-pointer">
+              <UserOutlined className="mr-2 text-lg" />
+              <div className="truncate font-semibold text-lg">{user?.name}</div>
+            </div>
+          </Dropdown>
+        ) : (
+          <Link
+            to="/login"
+            className="flex items-center hover:text-orange-500 font-medium text-lg transition-colors duration-200"
+          >
+            <UserOutlined className="mr-2 text-xl" />
+            <span>Đăng nhập</span>
+          </Link>
+        )}
       </div>
     </header>
   );
