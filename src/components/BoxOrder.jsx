@@ -61,7 +61,7 @@ export default function BoxOrder({ order }) {
       </div>
 
       <div className="flex justify-end mt-4 items-center">
-        <p className="font-semibold">
+        <p className="font-semibold text-xl">
           Tổng tiền:{" "}
           <span className="text-primary">
             {order?.total_price.toLocaleString()}₫
@@ -71,9 +71,9 @@ export default function BoxOrder({ order }) {
 
       <div className="flex justify-end">
         <Link to={`/account/order-history/${order.id}`}>
-          <Button type="primary" className="ml-4">
+          <button className="border border-sub px-3 py-1 text-sm rounded-sm cursor-pointer">
             Xem chi tiết
-          </Button>
+          </button>
         </Link>
       </div>
     </Card>
