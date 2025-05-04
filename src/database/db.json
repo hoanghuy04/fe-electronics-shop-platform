@@ -894,8 +894,222 @@
   ],
   "orders": [
     {
-      "id": "HD20250502111107839",
-      "customer_id": 1,
+      "id": "HD20250504112447091",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "aaa",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "3",
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
+        }
+      ],
+      "total_price": 24641500,
+      "status": "PENDING",
+      "order_date": "2025-05-04T04:24:47.448Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504112513910",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "aaa",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "3",
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
+        }
+      ],
+      "total_price": 24641500,
+      "status": "PENDING",
+      "order_date": "2025-05-04T04:25:13.640Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504135929294",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "aaa",
+          "province": "83",
+          "district": "833",
+          "ward": "28978"
+        }
+      },
+      "note": "",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "1",
+          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
+          "quantity": 1,
+          "price": 24490000,
+          "discount": 0.09
+        }
+      ],
+      "total_price": 22285900,
+      "status": "PENDING",
+      "order_date": "2025-05-04T06:59:29.867Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504155334714",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "aa",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "3",
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
+        }
+      ],
+      "total_price": 24641500,
+      "status": "PENDING",
+      "order_date": "2025-05-04T08:53:34.802Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504174331277",
+      "shipping_address": {
+        "full_name": "Tran Huyen",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "3",
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
+        }
+      ],
+      "total_price": 24641500,
+      "status": "PENDING",
+      "order_date": "2025-05-04T10:43:31.506Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504180548385",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "3",
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
+        }
+      ],
+      "total_price": 24641500,
+      "status": "PENDING",
+      "order_date": "2025-05-04T11:05:48.913Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504180640119",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "15",
+          "title": "PC GVN AMD Ryzen 5 7600X",
+          "quantity": 1,
+          "price": 25990000,
+          "discount": 0.07
+        }
+      ],
+      "total_price": 24170700,
+      "status": "PENDING",
+      "order_date": "2025-05-04T11:06:40.297Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504180815899",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "",
+      "customer_id": "1",
       "products": [
         {
           "id": "2",
@@ -907,22 +1121,12 @@
       ],
       "total_price": 26412000,
       "status": "PENDING",
-      "order_date": "2025-05-02T04:11:07.518Z",
+      "order_date": "2025-05-04T11:08:15.618Z",
       "payment_method": "Thanh toán khi nhận hàng",
-      "shipping_address": {
-        "full_name": "Tran Huyen",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "ward": "07861",
-          "district": "223",
-          "province": "24"
-        }
-      },
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503233704516",
+      "id": "HD20250504181007940",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -946,12 +1150,12 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:37:04.116Z",
+      "order_date": "2025-05-04T11:10:07.401Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503233832754",
+      "id": "HD20250504181057167",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -975,12 +1179,12 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:38:32.596Z",
+      "order_date": "2025-05-04T11:10:57.065Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503234021931",
+      "id": "HD20250504181239285",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1004,12 +1208,12 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:40:21.469Z",
+      "order_date": "2025-05-04T11:12:39.793Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503234401501",
+      "id": "HD20250504181340438",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1033,12 +1237,12 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:44:01.069Z",
+      "order_date": "2025-05-04T11:13:40.226Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503234437539",
+      "id": "HD20250504182645199",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1062,12 +1266,12 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:44:37.381Z",
+      "order_date": "2025-05-04T11:26:45.001Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503234537044",
+      "id": "HD20250504182656585",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1091,12 +1295,12 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:45:37.852Z",
+      "order_date": "2025-05-04T11:26:56.545Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503234624497",
+      "id": "HD20250504182755579",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1120,12 +1324,12 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:46:24.125Z",
+      "order_date": "2025-05-04T11:27:55.281Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503234756997",
+      "id": "HD20250504212748322",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1149,12 +1353,70 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:47:56.357Z",
+      "order_date": "2025-05-04T14:27:48.559Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503234833243",
+      "id": "HD20250504213108497",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "a",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "3",
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
+        }
+      ],
+      "total_price": 24641500,
+      "status": "PENDING",
+      "order_date": "2025-05-04T14:31:08.055Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504213108497",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "a",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "3",
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
+        }
+      ],
+      "total_price": 24641500,
+      "status": "PENDING",
+      "order_date": "2025-05-04T14:31:08.055Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504214048558",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1178,12 +1440,12 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:48:33.124Z",
+      "order_date": "2025-05-04T14:40:48.903Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503234908282",
+      "id": "HD20250504215432728",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1207,12 +1469,41 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:49:08.789Z",
+      "order_date": "2025-05-04T14:54:32.719Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503235310267",
+      "id": "HD20250504215457710",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "2",
+          "title": "Laptop ASUS ZenBook 14 UX425EA",
+          "quantity": 1,
+          "price": 28400000,
+          "discount": 0.07
+        }
+      ],
+      "total_price": 26412000,
+      "status": "PENDING",
+      "order_date": "2025-05-04T14:54:57.727Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504220701095",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1236,12 +1527,12 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:53:10.724Z",
+      "order_date": "2025-05-04T15:07:01.849Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250503235349262",
+      "id": "HD20250504220830321",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1265,7 +1556,7 @@
       ],
       "total_price": 24641500,
       "status": "PENDING",
-      "order_date": "2025-05-03T16:53:49.740Z",
+      "order_date": "2025-05-04T15:08:30.391Z",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     }

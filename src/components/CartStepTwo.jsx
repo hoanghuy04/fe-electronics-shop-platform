@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Radio, Checkbox } from "antd";
-import { useOutletContext } from "react-router-dom";
 import { path } from "../constants/path";
 import { useCart } from "../hooks/useCart";
 import AddressForm from "./AddressForm";
@@ -10,8 +9,7 @@ import { userApi } from "../services/user.service";
 import { addressService } from "../services/address.service";
 
 export default function CartStepTwo() {
-  const { handlePlaceOrder, setOrder } = useOutletContext();
-  const { cart, totalPrice } = useCart();
+  const { cart, totalPrice, handlePlaceOrder, order, setOrder } = useCart();
   const [form] = Form.useForm();
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
@@ -24,7 +22,9 @@ export default function CartStepTwo() {
       const provinceData = await addressService.getAllProvinces();
       setProvinces(provinceData.data);
     };
+
     fetchData();
+
     const defaultAddress = userApi.getDefaultAddress(user);
     if (defaultAddress) {
       setDfAddress(defaultAddress);
@@ -32,22 +32,35 @@ export default function CartStepTwo() {
   }, []);
 
   useEffect(() => {
-    if (user) {
+    if (order) {
       const newForm = {
         gender: user.gender === "Anh" ? "Anh" : "Chị",
-        name: user.name || "",
-        phone: user.phone || "",
-        street: user.street || "",
-        province: user.province || "",
-        district: user.district || "",
-        ward: user.ward || "",
-        note: user.note || "",
+        name: order.shipping_address.full_name || "",
+        phone: order.shipping_address.phone || "",
+        street: order.shipping_address.address?.street || "",
+        province: order.shipping_address.address?.province || "",
+        district: order.shipping_address.address?.district || "",
+        ward: order.shipping_address.address?.ward || "",
+        note: order.note || "",
       };
       form.setFieldsValue(newForm);
       handleChangeProvince(newForm.province);
       handleChangeDistrict(newForm.district);
     }
-  }, []);
+  }, [order]);
+
+  useEffect(() => {
+    if (
+      order?.shipping_address?.address &&
+      dfAddress &&
+      order.shipping_address.address.street === dfAddress.street &&
+      order.shipping_address.address.province === dfAddress.province &&
+      order.shipping_address.address.district === dfAddress.district &&
+      order.shipping_address.address.ward === dfAddress.ward
+    ) {
+      form.setFieldsValue({ dfAddress: true });
+    }
+  }, [dfAddress, order]);
 
   const handleChangeProvince = async (provinceId) => {
     const districtsData = await addressService.getDistricts(provinceId);
@@ -77,7 +90,6 @@ export default function CartStepTwo() {
   const onFinish = async (values) => {
     try {
       const { name, phone, street, province, district, ward, note } = values;
-
       const order = {
         shipping_address: {
           full_name: name,

@@ -1,82 +1,85 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import StepCart from "../../components/StepCart";
 import { path } from "../../constants/path";
-import { useCart } from "../../hooks/useCart";
 import Breadcrumbs from "../../components/Breadcrumb";
 import { useAuth } from "../../hooks/AuthContext";
+import { useCart } from "../../hooks/useCart";
 
 export default function Cart() {
   const [currentStep, setCurrentStep] = useState(0);
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { cart } = useCart();
-  const { user } = useAuth();
-  const [order, setOrder] = useState(null);
+  const { user, loading } = useAuth();
+  const { cart, order, setOrder } = useCart();
+  const hasNavigated = useRef(false);
 
-  const getCurrentStepFromSession = () => {
-    return parseInt(sessionStorage.getItem("currentStep")) || 1;
-  };
-
-  const handlePlaceOrder = (to) => {
-    const stepMap = {
-      [path.cart]: 1,
-      [path.cartStepTwo]: 2,
-      [path.cartStepThree]: 3,
-      [path.cartStepFour]: 4,
-    };
-
-    const nextStep = stepMap[to];
-    if (nextStep) {
-      if (nextStep > 1 && cart.length === 0 && nextStep !== 4) {
-        return;
-      }
-      if (nextStep > 2 && !user) {
-        navigate(path.cartStepTwo);
-        return;
-      }
-      sessionStorage.setItem("currentStep", nextStep.toString());
-      navigate(to);
-    }
+  // Ánh xạ pathname với currentStep
+  const stepMap = {
+    [path.cart]: 0,
+    [path.cartStepTwo]: 1,
+    [path.cartStepThree]: 2,
+    [path.cartStepFour]: 3,
   };
 
   useEffect(() => {
-    const storedStep = getCurrentStepFromSession();
+    if (loading || !user) return;
 
-    if (pathname === path.cart) {
-      setCurrentStep(0);
-    } else if (pathname === path.cartStepTwo) {
-      setCurrentStep(1);
-    } else if (pathname === path.cartStepThree) {
-      setCurrentStep(2);
-    } else if (pathname === path.cartStepFour) {
-      setCurrentStep(3);
+    if (!order?.shipping_address || !order.shipping_address.full_name) {
+      setOrder((prevOrder) => ({
+        ...prevOrder,
+        shipping_address: {
+          ...prevOrder?.shipping_address,
+          full_name: user.name || "",
+          phone: user.phone || "",
+          gender: user.gender || "Anh",
+        },
+      }));
+    }
+  }, [user, loading, setOrder, order]);
+
+  useEffect(() => {
+    if (hasNavigated.current) {
+      hasNavigated.current = false;
+      return;
     }
 
+    const newStep = stepMap[pathname] ?? 0;
+    setCurrentStep(newStep);
+
+    const storedStep = parseInt(sessionStorage.getItem("currentStep") || "1");
     const allowedStep = storedStep - 1;
 
     if (cart.length === 0 && storedStep > 1 && pathname !== path.cartStepFour) {
       sessionStorage.setItem("currentStep", "1");
+      hasNavigated.current = true;
       navigate(path.cart);
-    } else if (!user && storedStep > 2 && pathname !== path.cartStepFour) {
-      sessionStorage.setItem("currentStep", "2");
-      navigate(path.cartStepTwo);
-    } else if (currentStep > allowedStep && pathname !== path.cartStepFour) {
+    } else if (newStep > allowedStep && pathname !== path.cartStepFour) {
       const validPath = [
         path.cart,
         path.cartStepTwo,
         path.cartStepThree,
         path.cartStepFour,
       ][allowedStep];
+      hasNavigated.current = true;
       navigate(validPath);
+    } else if (pathname === path.cartStepFour && !order) {
+      sessionStorage.setItem("currentStep", "1");
+      hasNavigated.current = true;
     }
-  }, [pathname, navigate, cart]);
+  }, [pathname, cart, navigate, order]);
+
+  if (loading) return <div>Đang tải...</div>;
+  if (!user) {
+    navigate(path.login);
+    return null;
+  }
 
   return (
     <div className="max-w-2xl mx-auto pb-10">
       <Breadcrumbs current={currentStep} />
       <StepCart current={currentStep} className="" />
-      <Outlet context={{ handlePlaceOrder, order, setOrder }} />
+      <Outlet />
     </div>
   );
 }

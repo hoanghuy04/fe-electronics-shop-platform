@@ -57,7 +57,6 @@ export default function AddressForm({
         name="ward"
         label="Phường/Xã"
         rules={[{ required: true, message: "Vui lòng chọn phường/xã" }]}
-        allowClear
       >
         <Select placeholder="Chọn phường/xã" disabled={!districtValue}>
           {wards.map((item) => (

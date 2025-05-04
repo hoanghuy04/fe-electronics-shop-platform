@@ -1,4 +1,3 @@
-import { useOutletContext } from "react-router-dom";
 import { path } from "../constants/path";
 import { useCart } from "../hooks/useCart";
 import { Radio } from "antd";
@@ -10,12 +9,11 @@ import { useAuth } from "../hooks/AuthContext";
 import { orderService } from "../services/order.service";
 
 export default function CartStepThree() {
-  const { handlePlaceOrder, order, setOrder } = useOutletContext();
-  const { cart, totalPrice } = useCart();
+  const { cart, totalPrice, handlePlaceOrder, order, setOrder } = useCart();
   const { user } = useAuth();
 
   const { province, district, ward } = useAddress(
-    order.shipping_address.address
+    order?.shipping_address.address
   );
 
   const handleClick = async () => {
@@ -38,10 +36,10 @@ export default function CartStepThree() {
       payment_method: "Thanh toán khi nhận hàng",
       payment_status: "UNPAID",
     };
+    setOrder(completedOrder);
 
     const response = await orderService.createOrder(completedOrder);
     if (response) {
-      setOrder(completedOrder);
       handlePlaceOrder(path.cartStepFour);
       localStorage.removeItem("cart");
     }
@@ -58,25 +56,25 @@ export default function CartStepThree() {
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Khách hàng:</div>
             <div className="col-span-2 ">
-              {order.shipping_address.full_name}
+              {order?.shipping_address.full_name}
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Số điện thoại:</div>
-            <div className="col-span-2">{order.shipping_address.phone}</div>
+            <div className="col-span-2">{order?.shipping_address.phone}</div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Địa chỉ nhận hàng:</div>
             <div className="col-span-2">
-              {`${order.shipping_address.address.street}, ${ward?.full_name}, ${district?.full_name}, ${province?.full_name}`}
+              {`${order?.shipping_address.address?.street}, ${ward?.full_name}, ${district?.full_name}, ${province?.full_name}`}
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Ghi chú:</div>
-            <div className="col-span-2 ">{order.note}</div>
+            <div className="col-span-2 ">{order?.note}</div>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-7">

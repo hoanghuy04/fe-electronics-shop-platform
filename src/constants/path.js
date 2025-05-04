@@ -1,5 +1,5 @@
 export const path = {
-  home: "/",
+  home: "",
   login: "/login",
   logout: "/logout",
   register: "/register",
@@ -15,4 +15,6 @@ export const path = {
   orderHistory: "/account/order-history",
   orderHistoryDetail: "/account/order-history/:id",
   viewed: "/account/viewed",
+  contact: "/contact",
+  paymentInstruction: "/payment-instruction",
 };

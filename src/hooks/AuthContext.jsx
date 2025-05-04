@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
@@ -17,6 +18,7 @@ export const AuthProvider = ({ children }) => {
       setUser(JSON.parse(savedUser));
       setIsAuthenticated(true);
     }
+    setLoading(false);
   }, []);
 
   const login = async (user) => {
@@ -56,6 +58,7 @@ export const AuthProvider = ({ children }) => {
         register,
         logout,
         setUser,
+        loading,
       }}
     >
       {children}

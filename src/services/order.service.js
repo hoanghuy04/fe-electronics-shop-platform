@@ -36,11 +36,11 @@ export const orderService = {
 
   getLatestOrderByUserId: async (userId) => {
     try {
-      const response = await get(
-        `orders?customer_id=${userId}&_sort=order_date&_order=desc&_limit=1`
+      const response = await get(`orders?customer_id=${userId}`);
+      const sorted = response.sort(
+        (a, b) => new Date(b.order_date) - new Date(a.order_date)
       );
-      console.log(response);
-      return response.length > 0 ? response[0] : null;
+      return sorted.length > 0 ? sorted[0] : null;
     } catch (error) {
       console.error("Lỗi khi lấy đơn hàng mới nhất:", error);
       return null;

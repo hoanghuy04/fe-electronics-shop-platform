@@ -1,20 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { CircleCheckBig } from "lucide-react";
 import { Button } from "antd";
 import useAddress from "../hooks/useAddress";
+import { useCart } from "../hooks/useCart";
 import { orderService } from "../services/order.service";
 import { useAuth } from "../hooks/AuthContext";
 
 export default function CartStepFour() {
-  const [order, setOrder] = useState(null);
+  const { order, setOrder } = useCart();
   const { user } = useAuth();
-  const address = {
-    province: order?.shipping_address.address?.province,
-    ward: order?.shipping_address.address?.ward,
-    district: order?.shipping_address.address?.district,
-    street: order?.shipping_address.address?.street,
-  };
+
+  const address = useMemo(
+    () => ({
+      province: order?.shipping_address.address?.province,
+      ward: order?.shipping_address.address?.ward,
+      district: order?.shipping_address.address?.district,
+      street: order?.shipping_address.address?.street,
+    }),
+    [order]
+  );
 
   const { province, district, ward } = useAddress(address);
 
@@ -31,7 +36,9 @@ export default function CartStepFour() {
     return () => {
       sessionStorage.setItem("currentStep", "1");
     };
-  }, [user.id]);
+  }, []);
+
+  if (!order) return <div>Đang tải...</div>;
 
   return (
     <div className="p-5 bg-white">
@@ -88,7 +95,9 @@ export default function CartStepFour() {
           <div className="grid grid-cols-3 gap-4 mb-7 font-semibold">
             <div className="">&#8226; Tổng tiền:</div>
             <div className="text-primary col-span-2">
-              {order?.total_price.toLocaleString()}₫
+              {order?.total_price != null &&
+                order?.total_price.toLocaleString()}
+              ₫
             </div>
           </div>
 

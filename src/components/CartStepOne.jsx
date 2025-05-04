@@ -1,13 +1,11 @@
 import CartItem from "./CartItem";
-import { useOutletContext } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
 import EmptyCart from "./EmptyCart";
 import { path } from "../constants/path";
 import BoxPrice from "./BoxPrice";
 
 export default function CartStepOne() {
-  const { cart, totalPrice } = useCart();
-  const { handlePlaceOrder } = useOutletContext();
+  const { cart, totalPrice, handlePlaceOrder } = useCart();
 
   const handleNext = () => {
     if (cart.length > 0) {
