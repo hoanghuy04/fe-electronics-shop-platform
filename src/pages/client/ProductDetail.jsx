@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Breadcrumb, Carousel, Spin, Modal, Form, Rate, Input, Button } from "antd";
-import ProductCard from "../components/ProductCard";
-import { searchProductsByTitle } from "../services/productService";
-import { useCart } from "../hooks/useCart";
-import { addReplyToReview, addReview, getReviewsByProductID } from "../services/ReviewService"; // Thêm getReviewsByProductID
-import ReviewsModal from "../components/ReviewsModal";
+import {
+  Breadcrumb,
+  Carousel,
+  Spin,
+  Modal,
+  Form,
+  Rate,
+  Input,
+  Button,
+} from "antd";
+import ProductCard from "../../components/ProductCard";
+import { searchProductsByTitle } from "../../services/productService";
+import { useCart } from "../../hooks/useCart";
+import { addReview, getReviewsByProductID } from "../../services/ReviewService";
+import ReviewsModal from "../../components/ReviewsModal";
 
 const initItemsBreadcum = [
   {
@@ -53,9 +62,10 @@ const ProductDetail = () => {
     };
 
     try {
-      const updatedReview = await addReplyToReview(currentReviewId, 
-        [...reviews.find((r) => r.id === currentReviewId).replies, replyData],
-      );
+      const updatedReview = await addReplyToReview(currentReviewId, [
+        ...reviews.find((r) => r.id === currentReviewId).replies,
+        replyData,
+      ]);
 
       setReviews((prev) =>
         prev.map((review) =>
@@ -216,8 +226,9 @@ const ProductDetail = () => {
                 {thumbnailImages.map((img, index) => (
                   <div
                     key={index}
-                    className={`w-20 h-20 rounded-md overflow-hidden cursor-pointer border-2 ${mainImage === img ? "border-blue-500" : "border-gray-300"
-                      }`}
+                    className={`w-20 h-20 rounded-md overflow-hidden cursor-pointer border-2 ${
+                      mainImage === img ? "border-blue-500" : "border-gray-300"
+                    }`}
                     onClick={() => setMainImage(img)}
                   >
                     <img
@@ -231,7 +242,9 @@ const ProductDetail = () => {
             </div>
 
             <div>
-              <h1 className="font-bold text-3xl text-gray-800">{product.title}</h1>
+              <h1 className="font-bold text-3xl text-gray-800">
+                {product.title}
+              </h1>
               <div className="flex items-center mt-2">
                 <span className="text-yellow-400">0.0 ★</span>
                 <a href="/" className="ml-2 text-gray-500">
@@ -279,9 +292,17 @@ const ProductDetail = () => {
 
           <div className="mt-6 rounded-lg shadow-lg bg-white py-4 px-8">
             <div className="text-2xl font-bold m-0">Sản phẩm tương tự</div>
-            <Carousel slidesToShow={4} slidesToScroll={1} arrows className="p-6">
+            <Carousel
+              slidesToShow={4}
+              slidesToScroll={1}
+              arrows
+              className="p-6"
+            >
               {relevantProducts.map((relevantProduct) => (
-                <ProductCard key={relevantProduct.id} product={relevantProduct} />
+                <ProductCard
+                  key={relevantProduct.id}
+                  product={relevantProduct}
+                />
               ))}
             </Carousel>
           </div>
@@ -307,29 +328,43 @@ const ProductDetail = () => {
                 <span className="text-yellow-500 text-lg">
                   {reviews.length > 0
                     ? (
-                      reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
-                    ).toFixed(1) + " ★"
+                        reviews.reduce((sum, r) => sum + r.rating, 0) /
+                        reviews.length
+                      ).toFixed(1) + " ★"
                     : "0.0 ★"}
                 </span>
-                <span className="ml-2 text-gray-500">({reviews.length} đánh giá)</span>
+                <span className="ml-2 text-gray-500">
+                  ({reviews.length} đánh giá)
+                </span>
               </div>
               <div className="space-y-4 max-h-64 overflow-y-auto">
                 {reviews.map((review) => (
-                  <div key={review.id} className="border-b border-gray-200 pb-4">
+                  <div
+                    key={review.id}
+                    className="border-b border-gray-200 pb-4"
+                  >
                     <div className="flex items-center">
                       <span className="font-medium">{review.user_name}</span>
-                      <span className="ml-2 text-yellow-500">{review.rating} ★</span>
+                      <span className="ml-2 text-yellow-500">
+                        {review.rating} ★
+                      </span>
                     </div>
                     <p className="text-gray-600 mt-1">{review.comment}</p>
-                    <span className="text-gray-500 text-sm">Đăng ngày 10/04/2025</span>
+                    <span className="text-gray-500 text-sm">
+                      Đăng ngày 10/04/2025
+                    </span>
 
                     {/* Hiển thị các phản hồi */}
                     <div className="mt-2 pl-4 border-l-2 border-gray-200">
                       {review.replies.map((reply) => (
                         <div key={reply.id} className="mb-2">
                           <div className="flex items-center">
-                            <span className="font-medium">{reply.user_name}</span>
-                            <span className="ml-2 text-gray-500 text-sm">{reply.reply_date}</span>
+                            <span className="font-medium">
+                              {reply.user_name}
+                            </span>
+                            <span className="ml-2 text-gray-500 text-sm">
+                              {reply.reply_date}
+                            </span>
                           </div>
                           <p className="text-gray-600">{reply.reply_text}</p>
                         </div>
@@ -342,13 +377,25 @@ const ProductDetail = () => {
                       onCancel={handleReplyModalCancel}
                       footer={null}
                     >
-                      <Form form={replyForm} layout="vertical" onFinish={handleReplySubmit}>
+                      <Form
+                        form={replyForm}
+                        layout="vertical"
+                        onFinish={handleReplySubmit}
+                      >
                         <Form.Item
                           name="reply_text"
                           label="Nội dung phản hồi"
-                          rules={[{ required: true, message: "Vui lòng nhập nội dung phản hồi!" }]}
+                          rules={[
+                            {
+                              required: true,
+                              message: "Vui lòng nhập nội dung phản hồi!",
+                            },
+                          ]}
                         >
-                          <Input.TextArea rows={4} placeholder="Nhập phản hồi của bạn..." />
+                          <Input.TextArea
+                            rows={4}
+                            placeholder="Nhập phản hồi của bạn..."
+                          />
                         </Form.Item>
                         <Form.Item>
                           <Button type="primary" htmlType="submit">
@@ -365,7 +412,6 @@ const ProductDetail = () => {
                     >
                       Trả lời
                     </Button>
-
                   </div>
                 ))}
               </div>
@@ -393,16 +439,23 @@ const ProductDetail = () => {
               <Form.Item
                 name="rating"
                 label="Điểm đánh giá"
-                rules={[{ required: true, message: "Vui lòng chọn điểm đánh giá!" }]}
+                rules={[
+                  { required: true, message: "Vui lòng chọn điểm đánh giá!" },
+                ]}
               >
                 <Rate allowHalf defaultValue={5} />
               </Form.Item>
               <Form.Item
                 name="comment"
                 label="Bình luận"
-                rules={[{ required: true, message: "Vui lòng nhập bình luận!" }]}
+                rules={[
+                  { required: true, message: "Vui lòng nhập bình luận!" },
+                ]}
               >
-                <Input.TextArea rows={4} placeholder="Nhập bình luận của bạn..." />
+                <Input.TextArea
+                  rows={4}
+                  placeholder="Nhập bình luận của bạn..."
+                />
               </Form.Item>
               <Form.Item>
                 <Button type="primary" htmlType="submit">

@@ -1,16 +1,24 @@
 import { BrowserRouter } from "react-router-dom";
-import { AdminProvider } from "./pages/admin/context/AdminContext";
-import { SearchProvider } from "./pages/admin/context/SearchContext";
-import AllRoutes from './components/AllRoutes';
+import AllRoutes from "./components/AllRoutes";
+import ScrollToTop from "./utils/ScrollToTop";
+import { Toaster } from "sonner";
 
-export default function App() {
+function App() {
   return (
-    <BrowserRouter>
-      <AdminProvider>
-        <SearchProvider>
-          <AllRoutes />
-        </SearchProvider>
-      </AdminProvider>
-    </BrowserRouter>
+    <>
+      <Toaster
+        richColors={true}
+        toastOptions={{
+          style: {
+            padding: "22px",
+            fontSize: "16px",
+          },
+        }}
+      />
+      <ScrollToTop />
+      <AllRoutes />
+    </>
   );
 }
+
+export default App;

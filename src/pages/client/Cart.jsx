@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import StepCart from "../components/StepCart";
-import { path } from "../constants/path";
-import { useCart } from "../hooks/useCart";
-import Breadcrumbs from "../components/Breadcrumb";
+import StepCart from "../../components/StepCart";
+import { path } from "../../constants/path";
+import { useCart } from "../../hooks/useCart";
+import Breadcrumbs from "../../components/Breadcrumb";
+import { useAuth } from "../../hooks/AuthContext";
 
 export default function Cart() {
   const [currentStep, setCurrentStep] = useState(0);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { cart } = useCart();
+  const { user } = useAuth();
 
   const getCurrentStepFromSession = () => {
     return parseInt(sessionStorage.getItem("currentStep")) || 1;
@@ -28,7 +30,6 @@ export default function Cart() {
       if (nextStep > 1 && cart.length === 0 && nextStep !== 4) {
         return;
       }
-      const user = localStorage.getItem("user");
       if (nextStep > 2 && !user) {
         navigate(path.cartStepTwo);
         return;
@@ -40,7 +41,6 @@ export default function Cart() {
 
   useEffect(() => {
     const storedStep = getCurrentStepFromSession();
-    const user = localStorage.getItem("user");
 
     if (pathname === path.cart) {
       setCurrentStep(0);

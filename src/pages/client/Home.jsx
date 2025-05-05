@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Carousel, Spin } from "antd";
-import ProductCard from "../components/ProductCard";
-import { ProductContext } from "../hooks/ProductContext";
-import { categoryColor } from './../constants/categoryColor';
+import ProductCard from "../../components/ProductCard";
+import { ProductContext } from "../../hooks/ProductContext";
+import { categoryColor } from "../../constants/categoryColor";
 import { Link } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
-import laptopgaming from '../../public/laptop-gaming.png'
-import chuotgaming from '../../public/chuot-gaming.png'
-import { getViewedProducts } from "../services/productService";
+import laptopgaming from "/public/laptop-gaming.png";
+import chuotgaming from "/public/chuot-gaming.png";
+import { getViewedProducts } from "../../services/productService";
 
 const Home = () => {
   const [laptops, setLaptops] = useState([]);
@@ -16,32 +16,59 @@ const Home = () => {
   const [screens, setScreens] = useState([]);
   const [viewedProducts, setViewedProducts] = useState([]);
 
-  const { products, categories, brands, loading } = useContext(ProductContext)
+  const { products, categories, brands, loading } = useContext(ProductContext);
   // Dữ liệu giả lập cho carousel và banner
   const carouselImages = [
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_web_slider_800x400.jpg", navigation: "products/pc-gvn/brand/all" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_04_laptop_gaming_banner_web_slider_800x400.jpg", navigation: "products/laptop/brand/all" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_800x400.jpg", navigation: "products/all" },
+    {
+      src: "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_web_slider_800x400.jpg",
+      navigation: "products/pc-gvn/brand/all",
+    },
+    {
+      src: "https://file.hstatic.net/200000722513/file/thang_04_laptop_gaming_banner_web_slider_800x400.jpg",
+      navigation: "products/laptop/brand/all",
+    },
+    {
+      src: "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_800x400.jpg",
+      navigation: "products/all",
+    },
   ];
-
 
   const rightBanners = [
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-01.png", navigation: "products/pc-gvn/brand/all" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-02.png", navigation: "products/ban-phim/brand/all" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-03.png", navigation: "products/ban-phim/brand/all" }
+    {
+      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-01.png",
+      navigation: "products/pc-gvn/brand/all",
+    },
+    {
+      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-02.png",
+      navigation: "products/ban-phim/brand/all",
+    },
+    {
+      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-03.png",
+      navigation: "products/ban-phim/brand/all",
+    },
   ];
 
-
   const bottomBanners = [
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-09_acdc7c6d37584f0eb1ce8d35ba45507e.png", navigation: "products/loa-micro-webcam/brand/all" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-08.png", navigation: "products/man-hinh/brand/all" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-07.png", navigation: "products/chuot-lot-chuot/brand/all" },
-    { src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-06.png", navigation: "products/pc-gvn/brand/all" }
+    {
+      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-09_acdc7c6d37584f0eb1ce8d35ba45507e.png",
+      navigation: "products/loa-micro-webcam/brand/all",
+    },
+    {
+      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-08.png",
+      navigation: "products/man-hinh/brand/all",
+    },
+    {
+      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-07.png",
+      navigation: "products/chuot-lot-chuot/brand/all",
+    },
+    {
+      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-06.png",
+      navigation: "products/pc-gvn/brand/all",
+    },
   ];
 
   const searchProductsByTitle = (keyword) => {
     try {
-
       if (!products || !Array.isArray(products)) {
         throw new Error("Dữ liệu sản phẩm không hợp lệ");
       }
@@ -64,7 +91,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    window.scrollTo({ top: 0, behavior: "smooth" });
     try {
       const lts = searchProductsByTitle("laptop");
       setLaptops(lts);
@@ -73,29 +100,24 @@ const Home = () => {
       setPCs(pcs);
 
       const mouseList = searchProductsByTitle("Chuột");
-      setMouse(mouseList)
-
+      setMouse(mouseList);
 
       const screenList = searchProductsByTitle("Màn hình");
-      setScreens(screenList)
-
-
+      setScreens(screenList);
     } catch (error) {
       console.error(error);
     }
-
   }, [products, loading]);
 
   if (loading) {
     <div className="flex items-center justify-center">
       <Spin />
-    </div>
+    </div>;
   }
 
   return (
     <div className="container mx-auto px-6 lg:px-8 py-8">
       <div className="flex flex-col  gap-6">
-
         <div className="main-content">
           <div className=" rounded-lg shadow-lg bg-white py-12 px-8">
             {/* Phần chính: Carousel và banner bên phải */}
@@ -109,7 +131,7 @@ const Home = () => {
                   className="rounded-lg overflow-hidden "
                 >
                   {carouselImages.map((image, index) => (
-                    <NavLink key={index} to={(image.navigation)}>
+                    <NavLink key={index} to={image.navigation}>
                       <img
                         src={image.src}
                         alt={`Carousel ${index + 1}`}
@@ -184,19 +206,24 @@ const Home = () => {
               <div className="text-2xl font-bold ml-3">Laptop</div>
               <div className="flex">
                 {/* Dynamically render brand buttons */}
-                {[...new Set(laptops.map((laptop) => laptop.brand))].map((brand, index) => (
-                  <div key={index} className="mr-2">
-                    <NavLink
-                      to={`products/laptop/brand/${brand}`}
-                      key={index}
-                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
-                    >
-                      {brand}
-                    </NavLink>
-                  </div>
-                ))}
+                {[...new Set(laptops.map((laptop) => laptop.brand))].map(
+                  (brand, index) => (
+                    <div key={index} className="mr-2">
+                      <NavLink
+                        to={`products/laptop/brand/${brand}`}
+                        key={index}
+                        className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                      >
+                        {brand}
+                      </NavLink>
+                    </div>
+                  )
+                )}
                 <div className="">
-                  <NavLink to={`products/laptop/brand/all`} className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer">
+                  <NavLink
+                    to={`products/laptop/brand/all`}
+                    className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                  >
                     Xem tất cả
                   </NavLink>
                 </div>
@@ -221,7 +248,6 @@ const Home = () => {
             </Carousel>
           </div>
 
-
           {/* Banners */}
           <section className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
             <div className="container mx-auto px-4">
@@ -230,15 +256,25 @@ const Home = () => {
                   <div className="p-6 md:p-8 flex flex-col md:flex-row items-center">
                     <div className="w-full md:w-1/2 mb-6 md:mb-0 text-white">
                       <h3 className="text-2xl font-bold mb-2">Laptop Gaming</h3>
-                      <p className="mb-4">Trải nghiệm chơi game đỉnh cao với laptop gaming mới nhất</p>
+                      <p className="mb-4">
+                        Trải nghiệm chơi game đỉnh cao với laptop gaming mới
+                        nhất
+                      </p>
                       <div className="mt-10">
-                        <NavLink to={"products/laptop-gaming/brand/all"} className="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg font-medium transition-colors">
+                        <NavLink
+                          to={"products/laptop-gaming/brand/all"}
+                          className="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg font-medium transition-colors"
+                        >
                           Khám phá ngay
                         </NavLink>
                       </div>
                     </div>
                     <div className="w-full h-full md:w-1/2">
-                      <img src={laptopgaming} alt="Laptop Gaming" className="w-[306px] h-[306px]" />
+                      <img
+                        src={laptopgaming}
+                        alt="Laptop Gaming"
+                        className="w-[306px] h-[306px]"
+                      />
                     </div>
                   </div>
                 </div>
@@ -247,9 +283,15 @@ const Home = () => {
                   <div className="p-6 md:p-8 flex flex-col md:flex-row items-center">
                     <div className="w-full md:w-1/2 mb-6 md:mb-0 text-white">
                       <h3 className="text-2xl font-bold mb-2">Chuột Gaming</h3>
-                      <p className="mb-4">Tối ưu phản xạ và độ chính xác trong từng pha hành động với chuột gaming hiệu suất cao</p>
+                      <p className="mb-4">
+                        Tối ưu phản xạ và độ chính xác trong từng pha hành động
+                        với chuột gaming hiệu suất cao
+                      </p>
                       <div className="mt-10">
-                        <NavLink to={"products/chuot-lot-chuot/brand/all"} className=" bg-white text-purple-600 hover:bg-purple-50 px-4 py-2 rounded-lg font-medium transition-colors">
+                        <NavLink
+                          to={"products/chuot-lot-chuot/brand/all"}
+                          className=" bg-white text-purple-600 hover:bg-purple-50 px-4 py-2 rounded-lg font-medium transition-colors"
+                        >
                           Tìm hiểu thêm
                         </NavLink>
                       </div>
@@ -284,21 +326,22 @@ const Home = () => {
             </div>
           </section> */}
 
-
           <section className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
             <div className="container mx-auto px-4">
-              <div className="text-2xl md:text-3xl font-bold text-center mb-8">Thương hiệu nổi bật</div>
+              <div className="text-2xl md:text-3xl font-bold text-center mb-8">
+                Thương hiệu nổi bật
+              </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
                 {brands.map((brand, index) => (
                   <NavLink
                     key={index}
                     to={`products/all/brand/${brand.name}`}
-                    className={`${categoryColor[index % 6]} rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
+                    className={`${
+                      categoryColor[index % 6]
+                    } rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
                   >
-                    <div className="flex justify-center mb-4">
-                      {brand.icon}
-                    </div>
+                    <div className="flex justify-center mb-4">{brand.icon}</div>
                     <h3 className="font-medium">{brand.name}</h3>
                   </NavLink>
                 ))}
@@ -311,19 +354,24 @@ const Home = () => {
               <div className="text-2xl font-bold ml-3">Màn hình </div>
               <div className="flex">
                 {/* Dynamically render brand buttons */}
-                {[...new Set(screens.map((s) => s.brand))].map((brand, index) => (
-                  <div key={index} className="mr-2">
-                    <NavLink
-                      to={`products/man-hinh/brand/${brand}`}
-                      key={index}
-                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
-                    >
-                      {brand}
-                    </NavLink>
-                  </div>
-                ))}
+                {[...new Set(screens.map((s) => s.brand))].map(
+                  (brand, index) => (
+                    <div key={index} className="mr-2">
+                      <NavLink
+                        to={`products/man-hinh/brand/${brand}`}
+                        key={index}
+                        className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                      >
+                        {brand}
+                      </NavLink>
+                    </div>
+                  )
+                )}
                 <div className="">
-                  <NavLink to={`products/man-hinh/brand/all`} className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer">
+                  <NavLink
+                    to={`products/man-hinh/brand/all`}
+                    className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                  >
                     Xem tất cả
                   </NavLink>
                 </div>
@@ -364,7 +412,10 @@ const Home = () => {
                   </div>
                 ))}
                 <div className="">
-                  <NavLink to={`products/pc-gvn/brand/all`} className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer">
+                  <NavLink
+                    to={`products/pc-gvn/brand/all`}
+                    className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                  >
                     Xem tất cả
                   </NavLink>
                 </div>
@@ -405,7 +456,10 @@ const Home = () => {
                   </div>
                 ))}
                 <div className="">
-                  <NavLink to={`products/chuot-lot-chuot/brand/all`} className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer">
+                  <NavLink
+                    to={`products/chuot-lot-chuot/brand/all`}
+                    className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                  >
                     Xem tất cả
                   </NavLink>
                 </div>
@@ -434,18 +488,30 @@ const Home = () => {
             <div className="grid grid-cols-3 gap-4">
               <div className="col-span-2 overflow-hidden">
                 <NavLink to={"products/man-hinh/brand/all"}>
-                  <img src="https://file.hstatic.net/200000722513/file/thang_03_banner_fanpage_cover_edit.jpg" alt="" className="w-full object-cover rounded-2xl" />
+                  <img
+                    src="https://file.hstatic.net/200000722513/file/thang_03_banner_fanpage_cover_edit.jpg"
+                    alt=""
+                    className="w-full object-cover rounded-2xl"
+                  />
                 </NavLink>
               </div>
               <div className="grid grid-cols-1 gap-4">
                 <div className=" overflow-hidden">
                   <NavLink to={"products/chuot-lot-chuot/brand/all"}>
-                    <img src="https://file.hstatic.net/200000722513/file/banner_790x250_tai_nghe_6f6dcb17d3a54fcc88b3de96762d2d41.jpg" alt="" className="w-full h-full object-cover rounded-lg" />
+                    <img
+                      src="https://file.hstatic.net/200000722513/file/banner_790x250_tai_nghe_6f6dcb17d3a54fcc88b3de96762d2d41.jpg"
+                      alt=""
+                      className="w-full h-full object-cover rounded-lg"
+                    />
                   </NavLink>
                 </div>
                 <div className=" overflow-hidden">
                   <NavLink to={"products/pc-gvn/brand/all"}>
-                    <img src="https://file.hstatic.net/200000722513/file/bot_promotion_banner_small_2_2ad55c2345c64fbfb87dab4957b33914.png" alt="" className="w-full h-full object-cover rounded-lg" />
+                    <img
+                      src="https://file.hstatic.net/200000722513/file/bot_promotion_banner_small_2_2ad55c2345c64fbfb87dab4957b33914.png"
+                      alt=""
+                      className="w-full h-full object-cover rounded-lg"
+                    />
                   </NavLink>
                 </div>
               </div>
@@ -458,49 +524,107 @@ const Home = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="flex items-start p-4 py-12 border-r-2 border-gray-200 ">
                   <div className="bg-blue-100 p-3 rounded-full mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Sản phẩm chính hãng</h3>
-                    <p className="text-gray-600">Cam kết hàng chính hãng 100% với đầy đủ giấy tờ, hóa đơn</p>
+                    <h3 className="font-bold text-lg mb-2">
+                      Sản phẩm chính hãng
+                    </h3>
+                    <p className="text-gray-600">
+                      Cam kết hàng chính hãng 100% với đầy đủ giấy tờ, hóa đơn
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-start p-4 py-12 border-r-2 border-gray-200">
                   <div className="bg-blue-100 p-3 rounded-full mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Giao hàng nhanh chóng</h3>
-                    <p className="text-gray-600">Giao hàng nhanh trong vòng 2 giờ tại Hà Nội và TP.HCM</p>
+                    <h3 className="font-bold text-lg mb-2">
+                      Giao hàng nhanh chóng
+                    </h3>
+                    <p className="text-gray-600">
+                      Giao hàng nhanh trong vòng 2 giờ tại Hà Nội và TP.HCM
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-start p-4 py-12 border-r-2 border-gray-200">
                   <div className="bg-blue-100 p-3 rounded-full mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Bảo hành dài hạn</h3>
-                    <p className="text-gray-600">Chính sách bảo hành lên đến 24 tháng cho các sản phẩm</p>
+                    <p className="text-gray-600">
+                      Chính sách bảo hành lên đến 24 tháng cho các sản phẩm
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-start p-4 py-12">
                   <div className="bg-blue-100 p-3 rounded-full mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 text-blue-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Thanh toán an toàn</h3>
-                    <p className="text-gray-600">Hỗ trợ nhiều phương thức thanh toán an toàn, bảo mật</p>
+                    <h3 className="font-bold text-lg mb-2">
+                      Thanh toán an toàn
+                    </h3>
+                    <p className="text-gray-600">
+                      Hỗ trợ nhiều phương thức thanh toán an toàn, bảo mật
+                    </p>
                   </div>
                 </div>
               </div>

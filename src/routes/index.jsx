@@ -6,28 +6,27 @@ import CartStepTwo from "../components/CartStepTwo";
 import CartStepThree from "../components/CartStepThree";
 import CartStepFour from "../components/CartStepFour";
 import { path } from "../constants/path";
-import Account from "../pages/Account";
+import Account from "../pages/client/Account";
 import { AccountProfile } from "../components/AccountProfile";
 import { AccountAddress } from "../components/AccountAddress";
 import { AccountOrderHistory } from "../components/AccountOrderHistory";
-import LoginPage from "../components/LoginPage";
-import RegisterPage from "../components/RegisterPage";
-import ContactPage from "../components/ContactPage";
-import PaymentInstructions from "../components/PaymentInstructions";
+import LoginPage from "../pages/auth/Login";
+import RegisterPage from "../pages/auth/Register";
+import PaymentInstructions from "../pages/client/PaymentInstructions";
+
+import "antd/dist/reset.css";
+
 import AccountViewedProduct from "../components/AccountViewedProduct";
 import AccountOrderHistoryDetail from "../components/AccountOrderHistoryDetail";
-import DefaultLayoutAdmin from "../layout/DefaultLayoutAdmin";
+import Contact from "../pages/client/Contact";
 
 // Lazy loading để tối ưu hiệu suất
-const Home = lazy(() => import("../pages/Home"));
-const ProductDetail = lazy(() => import("../pages/ProductDetail"));
-const Cart = lazy(() => import("../pages/Cart"));
-const NotFound = lazy(() => import("../pages/NotFound"));
-const ListProduct = lazy(() => import("../pages/ListProduct"));
-import ProductManagement from './../pages/admin/ProductManagement';
-import OrderManagement from './../pages/admin/OrderManagement';
-import Report from "../pages/admin/Report";
-import Overview from '../pages/admin/Overview';
+const Home = lazy(() => import("../pages/client/Home"));
+// const HP = lazy(() => import("../pages/HP"));
+const ProductDetail = lazy(() => import("../pages/client/ProductDetail"));
+const Cart = lazy(() => import("../pages/client/Cart"));
+const NotFound = lazy(() => import("../pages/client/NotFound"));
+const ListProduct = lazy(() => import("../pages/client/ListProduct"));
 
 const getCurrentStep = () => {
   return parseInt(sessionStorage.getItem("currentStep")) || 1;
@@ -44,11 +43,13 @@ const ProtectedStep = ({ step, element }) => {
   );
 };
 
-const customerRoutes = [
+const routes = [
   {
     path: path.home,
     element: <DefaultLayout />,
     children: [
+      // { path: "", element: <Home /> },
+      { path: path.notFound, element: <NotFound /> },
       { path: "", element: <Home /> },
       { path: path.productDetail, element: <ProductDetail /> },
       { path: path.productCategoryBrand, element: <ListProduct /> },
@@ -75,40 +76,47 @@ const customerRoutes = [
         path: path.account,
         element: <Account />,
         children: [
-          { path: "", element: <AccountProfile /> },
-          { path: path.address, element: <AccountAddress /> },
-          { path: path.orderHistory, element: <AccountOrderHistory /> },
-          { path: path.orderHistoryDetail, element: <AccountOrderHistoryDetail /> },
-          { path: path.viewed, element: <AccountViewedProduct /> },
+          {
+            path: "",
+            element: <AccountProfile />,
+          },
+          {
+            path: path.address,
+            element: <AccountAddress />,
+          },
+          {
+            path: path.orderHistory,
+            element: <AccountOrderHistory />,
+          },
+          {
+            path: path.orderHistoryDetail,
+            element: <AccountOrderHistoryDetail />,
+          },
+          {
+            path: path.viewed,
+            element: <AccountViewedProduct />,
+          },
         ],
       },
-      { path: path.login, element: <LoginPage /> },
-      { path: path.register, element: <RegisterPage /> },
-      // { path: path.logout, element: <Logout /> },
-      { path: "/contact", element: <ContactPage /> },
-      { path: "/paymentinstructions", element: <PaymentInstructions /> },
+      { path: "*", element: <Navigate to={path.notFound} /> },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/paymentinstructions",
+        element: <PaymentInstructions />,
+      },
     ],
   },
-  { path: path.notFound, element: <NotFound /> },
-];
-
-const adminRoutes = [
-  {
-    path: path.homeAdmin,
-    element: <DefaultLayoutAdmin />,
-    children: [
-      { path: path.overview, element: <Overview /> },
-      { path: path.productManagement, element: <ProductManagement /> },
-      { path: path.orderManagement, element: <OrderManagement /> },
-      { path: path.report, element: <Report /> },
-    ],
-  },
-];
-
-const routes = [
-  ...customerRoutes,
-  ...adminRoutes,
-  { path: "*", element: <Navigate to={path.notFound} /> },
 ];
 
 export default routes;
