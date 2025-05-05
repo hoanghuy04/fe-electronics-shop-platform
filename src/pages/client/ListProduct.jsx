@@ -31,7 +31,7 @@ const initItemsBreadcum = [
 
 const ListProduct = () => {
   const { categorySlug, brandSlug } = useParams();
-  const { categories, products, loading } = useContext(ProductContext);
+  const { brands, categories, products, loading } = useContext(ProductContext);
   const { state } = useLocation();
 
   // State declarations
@@ -55,6 +55,9 @@ const ListProduct = () => {
 
   // Initial data fetch and setup
   useEffect(() => {
+
+    console.log(brandSlug);
+    
 
     // Set breadcrumb items based on categorySlug
     const category = categories.find((c) => c.slug === categorySlug);
@@ -83,12 +86,25 @@ const ListProduct = () => {
         const isAllCategory = categorySlug === "all";
         let initialFilteredProducts = products;
         let category = null;
+        let brand = null;
+        
+        brand = brands.find((b) => b.name == brandSlug) || null;
+        console.log(brand);
+        
+
+        if (brand) {
+          setSelectedBrands([brand.name]);
+          initialFilteredProducts = initialFilteredProducts.filter(
+            (p) => p.brand === brand.name
+          );
+        }
 
         if (!isAllCategory && categories?.length) {
           category = categories.find((c) => c.slug === categorySlug) || null;
           setSelectedCategory(category);
+
           if (category) {
-            initialFilteredProducts = products.filter(
+            initialFilteredProducts = initialFilteredProducts.filter(
               (p) => p.category_id.toString() === category.id
             );
           }
