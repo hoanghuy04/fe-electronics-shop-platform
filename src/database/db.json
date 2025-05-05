@@ -191,31 +191,6 @@
       ]
     },
     {
-      "id": "9",
-      "title": "Màn hình Dell UltraSharp U2723QE 27 inch",
-      "category_id": 8,
-      "description": {
-        "Size": "27 inch",
-        "Resolution": "4K UHD (3840x2160)",
-        "Panel": "IPS",
-        "Refresh Rate": "60Hz"
-      },
-      "price": 13990000,
-      "discount": 0.06,
-      "brand": "DELL",
-      "slug": "man-hinh-dell-ultrasharp-u2723qe",
-      "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
-    },
-    {
       "id": "10",
       "title": "Bàn phím cơ Logitech G Pro X",
       "category_id": 9,
@@ -229,31 +204,6 @@
       "discount": 0.15,
       "brand": "LOGITECH",
       "slug": "ban-phim-co-logitech-g-pro-x",
-      "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
-    },
-    {
-      "id": "11",
-      "title": "Chuột Logitech MX Master 3S",
-      "category_id": 10,
-      "description": {
-        "Sensor": "Darkfield 8000 DPI",
-        "Buttons": "7 programmable buttons",
-        "Battery": "Up to 70 days",
-        "Connectivity": "USB-C, Wireless"
-      },
-      "price": 2690000,
-      "discount": 0.1,
-      "brand": "LOGITECH",
-      "slug": "chuot-logitech-mx-master-3s",
       "image_url": [
         "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
         "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
@@ -465,31 +415,6 @@
       ]
     },
     {
-      "id": "20",
-      "title": "Màn hình LG UltraGear 27GP950-B",
-      "category_id": 8,
-      "description": {
-        "Size": "27 inch",
-        "Resolution": "4K UHD (3840x2160)",
-        "Panel": "Nano IPS",
-        "Refresh Rate": "144Hz (Overclock 160Hz)"
-      },
-      "price": 19990000,
-      "discount": 0.1,
-      "brand": "LG - Gram",
-      "slug": "man-hinh-lg-ultragear-27gp950-b",
-      "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
-    },
-    {
       "id": "21",
       "title": "Bàn phím Razer BlackWidow V4 Pro",
       "category_id": 9,
@@ -503,31 +428,6 @@
       "discount": 0.12,
       "brand": "RAZER",
       "slug": "ban-phim-razer-blackwidow-v4-pro",
-      "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
-    },
-    {
-      "id": "22",
-      "title": "Chuột SteelSeries Rival 5",
-      "category_id": 10,
-      "description": {
-        "Sensor": "TrueMove Air, 18000 DPI",
-        "Buttons": "9 programmable buttons",
-        "Lighting": "RGB",
-        "Weight": "85g"
-      },
-      "price": 1790000,
-      "discount": 0.1,
-      "brand": "STEELSERIES",
-      "slug": "chuot-steelseries-rival-5",
       "image_url": [
         "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
         "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
@@ -796,6 +696,368 @@
         "https://product.hstatic.net/200000722513/product/1024__4__4023a88a25bd474c896c86c3fcf8ebfe_1024x1024.png",
         "https://product.hstatic.net/200000722513/product/1024_997277b1fa94401893e37e032814f346_1024x1024.png"
       ]
+    },
+    {
+      "id": "34",
+      "title": "PC GVN AMD Ryzen 5 5600X",
+      "category_id": 3,
+      "description": {
+        "CPU": "AMD Ryzen™ 5 5600X, 6C/12T, Max Turbo up to 4.6GHz",
+        "RAM": "16GB DDR4-3600",
+        "SSD": "1TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3060 12GB"
+      },
+      "price": 18990000,
+      "discount": 0.05,
+      "brand": "GVN",
+      "slug": "pc-gvn-amd-ryzen-5-5600x",
+      "image_url": [
+        "https://lh3.googleusercontent.com/chQP_2KiyLvnI05zoasJgDt8PgVyMBseDMQGszkr-LQx6vOzuOYV-R3GDj-L_ORQeC50JR93TxYfYbac56un05mWzQRpLe7r=w500-rw",
+        "https://lh3.googleusercontent.com/L5N0koSLGhfwZK7v3y5_r_SiJXLMZTSqfMdeXCbF_4uUDH8CCNljY4BWC4P0-6VjbFs2cUVSke1dBVmd2cnyvovttXW88Og=w1000-rw",
+        "https://lh3.googleusercontent.com/grCw1LnhwMvYcBD4…XeQqGqgvbWkqjmpJW97S56ngjc4r6UTS-u3YMbEE=w1000-rw"
+      ]
+    },
+    {
+      "id": "35",
+      "title": "PC ASUS ROG Intel i7-13700KF",
+      "category_id": 3,
+      "description": {
+        "CPU": "Intel® Core™ i7-13700KF, 16C/24T, Max Turbo up to 5.4GHz",
+        "RAM": "32GB DDR5-5200",
+        "SSD": "1TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 4070 Ti 12GB"
+      },
+      "price": 34990000,
+      "discount": 0.1,
+      "brand": "ASUS",
+      "slug": "pc-asus-rog-intel-i7-13700kf",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/6969_f4488b40487540aa91c2a77e9c863396_medium.png"
+      ]
+    },
+    {
+      "id": "36",
+      "title": "PC MSI Gaming AMD Ryzen 7 5800X",
+      "category_id": 3,
+      "description": {
+        "CPU": "AMD Ryzen™ 7 5800X, 8C/16T, Max Turbo up to 4.7GHz",
+        "RAM": "32GB DDR4-3600",
+        "SSD": "500GB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3070 8GB"
+      },
+      "price": 27990000,
+      "discount": 0.07,
+      "brand": "MSI",
+      "slug": "pc-msi-gaming-amd-ryzen-7-5800x",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/5000d_white_aero_d254c2c1d006470dad47a5a4b6c116e8_medium.png"
+      ]
+    },
+    {
+      "id": "37",
+      "title": "PC HP Pavilion Intel i5-12400F",
+      "category_id": 3,
+      "description": {
+        "CPU": "Intel® Core™ i5-12400F, 6C/12T, Max Turbo up to 4.4GHz",
+        "RAM": "16GB DDR4-3200",
+        "SSD": "512GB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® GTX 1650 4GB"
+      },
+      "price": 14990000,
+      "discount": 0.06,
+      "brand": "HP",
+      "slug": "pc-hp-pavilion-intel-i5-12400f",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/cougar_2101a66491414b49a99fcd1e4e0421ad_medium.png"
+      ]
+    },
+    {
+      "id": "38",
+      "title": "PC Dell Alienware AMD Ryzen 9 5900X",
+      "category_id": 3,
+      "description": {
+        "CPU": "AMD Ryzen™ 9 5900X, 12C/24T, Max Turbo up to 4.8GHz",
+        "RAM": "64GB DDR4-3600",
+        "SSD": "2TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 4080 16GB"
+      },
+      "price": 49990000,
+      "discount": 0.12,
+      "brand": "DELL",
+      "slug": "pc-dell-alienware-amd-ryzen-9-5900x",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gvn07935__1__b45c07447bad4fd3ba19046a4ea15744_medium.png"
+      ]
+    },
+    {
+      "id": "39",
+      "title": "PC Acer Predator Intel i9-13900KF",
+      "category_id": 3,
+      "description": {
+        "CPU": "Intel® Core™ i9-13900KF, 24C/32T, Max Turbo up to 5.8GHz",
+        "RAM": "32GB DDR5-6000",
+        "SSD": "1TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 4090 24GB"
+      },
+      "price": 59990000,
+      "discount": 0.15,
+      "brand": "ACER",
+      "slug": "pc-acer-predator-intel-i9-13900kf",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/4060_ddae7a383d2c4f56b9116644fe20906f_medium.png"
+      ]
+    },
+    {
+      "id": "40",
+      "title": "PC Lenovo Legion AMD Ryzen 5 7600",
+      "category_id": 3,
+      "description": {
+        "CPU": "AMD Ryzen™ 5 7600, 6C/12T, Max Turbo up to 5.1GHz",
+        "RAM": "16GB DDR5-5200",
+        "SSD": "1TB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3060 Ti 8GB"
+      },
+      "price": 22990000,
+      "discount": 0.09,
+      "brand": "LENOVO",
+      "slug": "pc-lenovo-legion-amd-ryzen-5-7600",
+      "image_url": [
+        "https://file.hstatic.net/200000722513/file/asus_195eebbae0a44f84b7131bec913a6884.png"
+      ]
+    },
+    {
+      "id": "41",
+      "title": "PC Gigabyte AORUS Intel i7-12700F",
+      "category_id": 3,
+      "description": {
+        "CPU": "Intel® Core™ i7-12700F, 12C/20T, Max Turbo up to 4.9GHz",
+        "RAM": "32GB DDR4-3200",
+        "SSD": "512GB NVMe SSD",
+        "Card đồ họa": "NVIDIA® GeForce® RTX 3080 10GB"
+      },
+      "price": 31990000,
+      "discount": 0.08,
+      "brand": "GIGABYTE",
+      "slug": "pc-gigabyte-aorus-intel-i7-12700f",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/cmp_04ff98d4357840358b2ef20cd45300d8_medium.png"
+      ]
+    },
+    {
+      "id": "42",
+      "title": "Chuột Logitech MX Master 3S",
+      "category_id": 10,
+      "description": {
+        "Sensor": "Darkfield 8000 DPI",
+        "Buttons": "7 programmable buttons",
+        "Battery": "Up to 70 days",
+        "Connectivity": "USB-C, Wireless"
+      },
+      "price": 2690000,
+      "discount": 0.1,
+      "brand": "LOGITECH",
+      "slug": "chuot-logitech-mx-master-3s",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-chuot-rapoo-vt9-air-gaming-khong-day-trang-tim-1_da46d2436086461ba8b099c873c01ae8_medium.png"
+      ]
+    },
+    {
+      "id": "43",
+      "title": "Chuột Logitech G Pro X Superlight",
+      "category_id": 10,
+      "description": {
+        "Sensor": "HERO 25K",
+        "Buttons": "5 programmable buttons",
+        "Battery": "Up to 70 hours",
+        "Connectivity": "Wireless, USB"
+      },
+      "price": 3290000,
+      "discount": 0.15,
+      "brand": "LOGITECH",
+      "slug": "chuot-logitech-g-pro-x-superlight",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/gearvn-chuot-rapoo-mt760-mini-khong-day-den-1_b58d194a97c545cfa71ca6ae6125a64e_medium.png"
+      ]
+    },
+    {
+      "id": "44",
+      "title": "Chuột Razer DeathAdder V2",
+      "category_id": 10,
+      "description": {
+        "Sensor": "Focus+ 20K DPI",
+        "Buttons": "8 programmable buttons",
+        "Battery": "Wired",
+        "Connectivity": "USB"
+      },
+      "price": 1390000,
+      "discount": 0.2,
+      "brand": "RAZER",
+      "slug": "chuot-razer-deathadder-v2",
+      "image_url": [
+        "//product.hstatic.net/200000722513/product/1-2_d48628cb79b3407cbc7b5c8e81c9db08_medium.png"
+      ]
+    },
+    {
+      "id": "45",
+      "title": "Chuột Corsair Harpoon RGB Wireless",
+      "category_id": 10,
+      "description": {
+        "Sensor": "PMW3325 10000 DPI",
+        "Buttons": "6 programmable buttons",
+        "Battery": "Up to 60 hours",
+        "Connectivity": "Wireless, USB"
+      },
+      "price": 1090000,
+      "discount": 0.1,
+      "brand": "CORSAIR",
+      "slug": "chuot-corsair-harpoon-rgb-wireless",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/pro2-lightspeed-white-gallery1_a41f9f8af44c4758922011fa73633c7a_medium.png"
+      ]
+    },
+    {
+      "id": "46",
+      "title": "Chuột Logitech M650 L",
+      "category_id": 10,
+      "description": {
+        "Sensor": "Optical 4000 DPI",
+        "Buttons": "5 buttons",
+        "Battery": "Up to 24 months",
+        "Connectivity": "Bluetooth, USB Receiver"
+      },
+      "price": 890000,
+      "discount": 0.05,
+      "brand": "LOGITECH",
+      "slug": "chuot-logitech-m650-l",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/logitech-mx-master-3-mid-grey-mouse-1_260cc3f6213143fb8f091d61fb9d68e9_928861ee1035484793f559eb8173ceb8_medium.jpg"
+      ]
+    },
+    {
+      "id": "47",
+      "title": "Chuột Microsoft Bluetooth Ergonomic",
+      "category_id": 10,
+      "description": {
+        "Sensor": "Bluetooth tracking sensor",
+        "Buttons": "4 buttons",
+        "Battery": "Up to 12 months",
+        "Connectivity": "Bluetooth"
+      },
+      "price": 990000,
+      "discount": 0.1,
+      "brand": "MICROSOFT",
+      "slug": "chuot-microsoft-bluetooth-ergonomic",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/mx-master-3s-mouse-top-view-graphite_880f7c80882541c2b4e349b7ed0fa439_de0fb8d222ec49bfb11d909a1f116f7e_medium.png"
+      ]
+    },
+    {
+      "id": "48",
+      "title": "Chuột SteelSeries Rival 3 Wireless",
+      "category_id": 10,
+      "description": {
+        "Sensor": "TrueMove Air",
+        "Buttons": "6 buttons",
+        "Battery": "Up to 400 hours",
+        "Connectivity": "Wireless, Bluetooth"
+      },
+      "price": 1590000,
+      "discount": 0.15,
+      "brand": "STEELSERIES",
+      "slug": "chuot-steelseries-rival-3-wireless",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/chuot-gaming-logitech-g502-x-cor__5__29ead39fdafe4eefa4cb6070434003ef_medium.png"
+      ]
+    },
+    {
+      "id": "49",
+      "title": "Màn hình LG UltraGear 27GP950-B",
+      "category_id": 8,
+      "description": {
+        "Size": "27 inch",
+        "Resolution": "4K UHD (3840x2160)",
+        "Panel": "Nano IPS",
+        "Refresh Rate": "144Hz (Overclock 160Hz)"
+      },
+      "price": 19990000,
+      "discount": 0.1,
+      "brand": "LG - Gram",
+      "slug": "man-hinh-lg-ultragear-27gp950-b",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/asus_vg279q3a_gearvn_af438e4f48e241879c57aa33c28a06a9_medium.jpg"
+      ]
+    },
+    {
+      "id": "50",
+      "title": "Màn hình ASUS ROG Swift PG32UQ",
+      "category_id": 8,
+      "description": {
+        "Size": "32 inch",
+        "Resolution": "4K UHD (3840x2160)",
+        "Panel": "IPS",
+        "Refresh Rate": "144Hz"
+      },
+      "price": 25990000,
+      "discount": 0.1,
+      "brand": "ASUS",
+      "slug": "man-hinh-asus-rog-swift-pg32uq",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/msi_g244f_e2_gearvn_784763b88e6246269adfc568b49e46e3_medium.jpg"
+      ]
+    },
+    {
+      "id": "51",
+      "title": "Màn hình Dell UltraSharp U2723QE",
+      "category_id": 8,
+      "description": {
+        "Size": "27 inch",
+        "Resolution": "4K UHD (3840x2160)",
+        "Panel": "IPS",
+        "Refresh Rate": "60Hz"
+      },
+      "price": 14990000,
+      "discount": 0.05,
+      "brand": "DELL",
+      "slug": "man-hinh-dell-ultrasharp-u2723qe",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/1_6bf24e36cbd34fd990728781a18e1653_befa433a45b84594bf6aa5a5c8526365_medium.jpg"
+      ]
+    },
+    {
+      "id": "52",
+      "title": "Màn hình Samsung Smart Monitor M8",
+      "category_id": 8,
+      "description": {
+        "Size": "32 inch",
+        "Resolution": "4K UHD (3840x2160)",
+        "Panel": "VA",
+        "Refresh Rate": "60Hz"
+      },
+      "price": 11990000,
+      "discount": 0.12,
+      "brand": "SAMSUNG",
+      "slug": "man-hinh-samsung-smart-monitor-m8",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/mb24v9_mb27v9-02.png_172955dc7e914473a0cc0b4e6ffc1513_medium.jpg"
+      ]
+    },
+    {
+      "id": "53",
+      "title": "Màn hình Gigabyte M27Q X",
+      "category_id": 8,
+      "description": {
+        "Size": "27 inch",
+        "Resolution": "QHD (2560x1440)",
+        "Panel": "IPS",
+        "Refresh Rate": "240Hz"
+      },
+      "price": 9990000,
+      "discount": 0.1,
+      "brand": "GIGABYTE",
+      "slug": "man-hinh-gigabyte-m27q-x",
+      "image_url": [
+        "https://product.hstatic.net/200000722513/product/large01_c6adf3377eb1458d9b04ad0655dd24ec_medium.jpg"
+      ]
     }
   ],
   "brands": [
@@ -1059,7 +1321,21 @@
       "user_id": 1,
       "user_name": "Trần Ngọc Huyền",
       "rating": 4,
-      "comment": "Laptop Lenovo này mạnh mẽ với RAM 32GB, nhưng SSD 512GB hơi ít so với nhu cầu của mình."
+      "comment": "Laptop Lenovo này mạnh mẽ với RAM 32GB, nhưng SSD 512GB hơi ít so với nhu cầu của mình.",
+      "replies": [
+        {
+          "id": 1,
+          "user_name": "Trần Ngọc Huyền (Nhân viên)",
+          "reply_text": "Cảm ơn bạn đã đánh giá! Chúng tôi rất vui khi bạn hài lòng với sản phẩm.",
+          "reply_date": "2025-04-20"
+        },
+        {
+          "id": 2,
+          "user_name": "Nguyễn Văn A",
+          "reply_text": "Cảm ơn bạn đã hỗ trợ!",
+          "reply_date": "2025-04-21"
+        }
+      ]
     },
     {
       "id": "0a02",
@@ -1067,7 +1343,8 @@
       "user_id": 2,
       "user_name": "Nguyễn Văn Anh",
       "rating": 5,
-      "comment": "ASUS ZenBook mỏng nhẹ, SSD 1TB rất thoải mái, dùng làm việc văn phòng cực thích."
+      "comment": "ASUS ZenBook mỏng nhẹ, SSD 1TB rất thoải mái, dùng làm việc văn phòng cực thích.",
+      "replies": []
     },
     {
       "id": "0a03",
@@ -1075,7 +1352,8 @@
       "user_id": 3,
       "user_name": "Lê Thị Mai",
       "rating": 4,
-      "comment": "MSI Katana chơi game tốt, nhưng máy hơi nóng khi chơi lâu, cần thêm tản nhiệt."
+      "comment": "MSI Katana chơi game tốt, nhưng máy hơi nóng khi chơi lâu, cần thêm tản nhiệt.",
+      "replies": []
     },
     {
       "id": "0a04",
@@ -1083,7 +1361,8 @@
       "user_id": 4,
       "user_name": "Phạm Minh Tuấn",
       "rating": 3,
-      "comment": "PC GVN cấu hình ổn trong tầm giá, nhưng GTX 1660 Super hơi yếu với game mới."
+      "comment": "PC GVN cấu hình ổn trong tầm giá, nhưng GTX 1660 Super hơi yếu với game mới.",
+      "replies": []
     },
     {
       "id": "0a05",
@@ -1091,7 +1370,8 @@
       "user_id": 5,
       "user_name": "Hoàng Thị Lan",
       "rating": 5,
-      "comment": "Mainboard ASUS ROG xịn xò, hỗ trợ DDR5 và PCIe 5.0, rất đáng tiền."
+      "comment": "Mainboard ASUS ROG xịn xò, hỗ trợ DDR5 và PCIe 5.0, rất đáng tiền.",
+      "replies": []
     },
     {
       "id": "0a06",
@@ -1099,7 +1379,8 @@
       "user_id": 6,
       "user_name": "Đỗ Quốc Hùng",
       "rating": 4,
-      "comment": "Case Cooler Master đẹp, thoáng khí, nhưng RGB hơi khó điều chỉnh."
+      "comment": "Case Cooler Master đẹp, thoáng khí, nhưng RGB hơi khó điều chỉnh.",
+      "replies": []
     },
     {
       "id": "0a07",
@@ -1107,7 +1388,8 @@
       "user_id": 7,
       "user_name": "Vũ Thị Hồng",
       "rating": 5,
-      "comment": "SSD Samsung 990 Pro tốc độ siêu nhanh, dùng để khởi động máy rất mượt."
+      "comment": "SSD Samsung 990 Pro tốc độ siêu nhanh, dùng để khởi động máy rất mượt.",
+      "replies": []
     },
     {
       "id": "0a08",
@@ -1115,7 +1397,8 @@
       "user_id": 8,
       "user_name": "Bùi Minh Đức",
       "rating": 3,
-      "comment": "Loa JBL Flip 6 âm thanh hay, nhưng pin không được như kỳ vọng."
+      "comment": "Loa JBL Flip 6 âm thanh hay, nhưng pin không được như kỳ vọng.",
+      "replies": []
     },
     {
       "id": "0a09",
@@ -1123,7 +1406,8 @@
       "user_id": 9,
       "user_name": "Nguyễn Thị Thảo",
       "rating": 4,
-      "comment": "Màn hình Dell 4K đẹp, nhưng giá hơi cao so với nhu cầu cơ bản."
+      "comment": "Màn hình Dell 4K đẹp, nhưng giá hơi cao so với nhu cầu cơ bản.",
+      "replies": []
     },
     {
       "id": "0a10",
@@ -1131,7 +1415,8 @@
       "user_id": 10,
       "user_name": "Trần Văn Nam",
       "rating": 5,
-      "comment": "Bàn phím Logitech G Pro X gõ thích, switch thay được là điểm cộng lớn."
+      "comment": "Bàn phím Logitech G Pro X gõ thích, switch thay được là điểm cộng lớn.",
+      "replies": []
     },
     {
       "id": "0a11",
@@ -1139,7 +1424,8 @@
       "user_id": 11,
       "user_name": "Lê Hồng Nhung",
       "rating": 4,
-      "comment": "Chuột MX Master 3S cầm êm, pin lâu, nhưng hơi nặng với tay nhỏ."
+      "comment": "Chuột MX Master 3S cầm êm, pin lâu, nhưng hơi nặng với tay nhỏ.",
+      "replies": []
     },
     {
       "id": "0a12",
@@ -1147,7 +1433,8 @@
       "user_id": 12,
       "user_name": "Phạm Thị Linh",
       "rating": 5,
-      "comment": "Tai nghe Sony WH-1000XM5 chống ồn đỉnh cao, nghe nhạc rất đã."
+      "comment": "Tai nghe Sony WH-1000XM5 chống ồn đỉnh cao, nghe nhạc rất đã.",
+      "replies": []
     },
     {
       "id": "0a13",
@@ -1155,7 +1442,8 @@
       "user_id": 13,
       "user_name": "Hoàng Minh Khôi",
       "rating": 4,
-      "comment": "HP OMEN mạnh mẽ, nhưng giá hơi chát, giảm thêm chút nữa thì tuyệt."
+      "comment": "HP OMEN mạnh mẽ, nhưng giá hơi chát, giảm thêm chút nữa thì tuyệt.",
+      "replies": []
     },
     {
       "id": "0a14",
@@ -1163,7 +1451,8 @@
       "user_id": 14,
       "user_name": "Đặng Thị Hương",
       "rating": 5,
-      "comment": "Acer Nitro 5 cấu hình khủng, RTX 3060 chiến game mượt, rất hài lòng."
+      "comment": "Acer Nitro 5 cấu hình khủng, RTX 3060 chiến game mượt, rất hài lòng.",
+      "replies": []
     },
     {
       "id": "0a15",
@@ -1171,7 +1460,8 @@
       "user_id": 15,
       "user_name": "Nguyễn Quang Vinh",
       "rating": 4,
-      "comment": "PC GVN Ryzen 5 ngon, RTX 4060 ổn, nhưng RAM DDR5 hơi đắt."
+      "comment": "PC GVN Ryzen 5 ngon, RTX 4060 ổn, nhưng RAM DDR5 hơi đắt.",
+      "replies": []
     },
     {
       "id": "0a16",
@@ -1179,7 +1469,8 @@
       "user_id": 16,
       "user_name": "Trần Thị Ngọc",
       "rating": 5,
-      "comment": "RTX 4070 Ti của MSI mạnh mẽ, chơi game 2K cực mượt, đáng đầu tư."
+      "comment": "RTX 4070 Ti của MSI mạnh mẽ, chơi game 2K cực mượt, đáng đầu tư.",
+      "replies": []
     },
     {
       "id": "0a17",
@@ -1187,7 +1478,8 @@
       "user_id": 17,
       "user_name": "Lê Văn Long",
       "rating": 4,
-      "comment": "Nguồn Corsair RM850x ổn định, nhưng dây cáp hơi cứng, khó đi dây."
+      "comment": "Nguồn Corsair RM850x ổn định, nhưng dây cáp hơi cứng, khó đi dây.",
+      "replies": []
     },
     {
       "id": "0a18",
@@ -1195,7 +1487,8 @@
       "user_id": 18,
       "user_name": "Phạm Thị Yến",
       "rating": 5,
-      "comment": "RAM Corsair DDR5 tốc độ cao, RGB đẹp, rất hài lòng khi build PC."
+      "comment": "RAM Corsair DDR5 tốc độ cao, RGB đẹp, rất hài lòng khi build PC.",
+      "replies": []
     },
     {
       "id": "0a19",
@@ -1203,7 +1496,8 @@
       "user_id": 19,
       "user_name": "Nguyễn Minh Tuệ",
       "rating": 4,
-      "comment": "Micro HyperX QuadCast S ghi âm tốt, RGB đẹp, nhưng giá hơi cao."
+      "comment": "Micro HyperX QuadCast S ghi âm tốt, RGB đẹp, nhưng giá hơi cao.",
+      "replies": []
     },
     {
       "id": "0a20",
@@ -1211,7 +1505,8 @@
       "user_id": 20,
       "user_name": "Hoàng Thị Phương",
       "rating": 5,
-      "comment": "Màn hình LG UltraGear 4K tuyệt vời, chơi game và làm đồ họa đều đỉnh."
+      "comment": "Màn hình LG UltraGear 4K tuyệt vời, chơi game và làm đồ họa đều đỉnh.",
+      "replies": []
     },
     {
       "id": "0a21",
@@ -1219,7 +1514,8 @@
       "user_id": 21,
       "user_name": "Trần Văn Hùng",
       "rating": 4,
-      "comment": "Bàn phím Razer gõ sướng, RGB đẹp, nhưng hơi ồn khi gõ mạnh."
+      "comment": "Bàn phím Razer gõ sướng, RGB đẹp, nhưng hơi ồn khi gõ mạnh.",
+      "replies": []
     },
     {
       "id": "0a22",
@@ -1227,7 +1523,8 @@
       "user_id": 22,
       "user_name": "Lê Thị Thu",
       "rating": 3,
-      "comment": "Chuột SteelSeries nhẹ, nhưng cảm giác nút bấm không bền lắm."
+      "comment": "Chuột SteelSeries nhẹ, nhưng cảm giác nút bấm không bền lắm.",
+      "replies": []
     },
     {
       "id": "0a23",
@@ -1235,7 +1532,8 @@
       "user_id": 23,
       "user_name": "Phạm Văn Đạt",
       "rating": 4,
-      "comment": "Tai nghe Razer Barracuda X tiện lợi, nhưng âm bass chưa đủ mạnh."
+      "comment": "Tai nghe Razer Barracuda X tiện lợi, nhưng âm bass chưa đủ mạnh.",
+      "replies": []
     },
     {
       "id": "0a24",
@@ -1243,7 +1541,8 @@
       "user_id": 24,
       "user_name": "Nguyễn Thị Hòa",
       "rating": 4,
-      "comment": "ASUS Vivobook nhẹ, pin lâu, nhưng RAM 8GB hơi hạn chế khi đa nhiệm."
+      "comment": "ASUS Vivobook nhẹ, pin lâu, nhưng RAM 8GB hơi hạn chế khi đa nhiệm.",
+      "replies": []
     },
     {
       "id": "0a25",
@@ -1251,7 +1550,8 @@
       "user_id": 25,
       "user_name": "Trần Minh Tâm",
       "rating": 5,
-      "comment": "Acer Aspire 5 giá tốt, Ryzen 5 mạnh mẽ, làm việc mượt mà."
+      "comment": "Acer Aspire 5 giá tốt, Ryzen 5 mạnh mẽ, làm việc mượt mà.",
+      "replies": []
     },
     {
       "id": "0a26",
@@ -1259,7 +1559,8 @@
       "user_id": 26,
       "user_name": "Lê Thị Hồng",
       "rating": 4,
-      "comment": "MSI Prestige đẹp, GTX 1650 Ti ổn, nhưng RAM 8GB hơi ít."
+      "comment": "MSI Prestige đẹp, GTX 1650 Ti ổn, nhưng RAM 8GB hơi ít.",
+      "replies": []
     },
     {
       "id": "0a27",
@@ -1267,7 +1568,8 @@
       "user_id": 27,
       "user_name": "Phạm Văn Khánh",
       "rating": 3,
-      "comment": "Lenovo IdeaPad 3 giá rẻ, nhưng SSD 256GB hơi nhỏ, cần nâng cấp."
+      "comment": "Lenovo IdeaPad 3 giá rẻ, nhưng SSD 256GB hơi nhỏ, cần nâng cấp.",
+      "replies": []
     },
     {
       "id": "0a28",
@@ -1275,7 +1577,8 @@
       "user_id": 28,
       "user_name": "Nguyễn Thị Mai",
       "rating": 4,
-      "comment": "Dell Inspiron bền, hiệu năng tốt, nhưng thiết kế hơi dày."
+      "comment": "Dell Inspiron bền, hiệu năng tốt, nhưng thiết kế hơi dày.",
+      "replies": []
     },
     {
       "id": "0a29",
@@ -1283,7 +1586,8 @@
       "user_id": 29,
       "user_name": "Hoàng Văn Thắng",
       "rating": 5,
-      "comment": "HP Pavilion 14 đẹp, hiệu năng ổn, rất phù hợp làm việc văn phòng."
+      "comment": "HP Pavilion 14 đẹp, hiệu năng ổn, rất phù hợp làm việc văn phòng.",
+      "replies": []
     },
     {
       "id": "0a30",
@@ -1291,7 +1595,8 @@
       "user_id": 30,
       "user_name": "Trần Thị Lan",
       "rating": 4,
-      "comment": "LG Gram siêu nhẹ, pin lâu, nhưng giá hơi cao so với cấu hình."
+      "comment": "LG Gram siêu nhẹ, pin lâu, nhưng giá hơi cao so với cấu hình.",
+      "replies": []
     },
     {
       "id": "0a31",
@@ -1299,7 +1604,8 @@
       "user_id": 31,
       "user_name": "Lê Văn Dũng",
       "rating": 5,
-      "comment": "ASUS ZenBook 14 sang trọng, hiệu năng tốt, rất đáng mua."
+      "comment": "ASUS ZenBook 14 sang trọng, hiệu năng tốt, rất đáng mua.",
+      "replies": []
     },
     {
       "id": "0a32",
@@ -1307,7 +1613,8 @@
       "user_id": 32,
       "user_name": "Phạm Thị Ngọc",
       "rating": 4,
-      "comment": "Acer Nitro 5 chơi game ngon, nhưng quạt kêu hơi to khi tải nặng."
+      "comment": "Acer Nitro 5 chơi game ngon, nhưng quạt kêu hơi to khi tải nặng.",
+      "replies": []
     },
     {
       "id": "0a33",
@@ -1315,7 +1622,175 @@
       "user_id": 33,
       "user_name": "Nguyễn Văn Hào",
       "rating": 5,
-      "comment": "MSI Creator mạnh mẽ, GTX 1660 Ti làm đồ họa tốt, rất hài lòng."
+      "comment": "MSI Creator mạnh mẽ, GTX 1660 Ti làm đồ họa tốt, rất hài lòng.",
+      "replies": []
+    },
+    {
+      "id": "3792",
+      "product_id": "1",
+      "user_id": 1,
+      "user_name": "Trần Ngọc Huyền",
+      "rating": 4.5,
+      "replies": [
+        {
+          "id": "1745159464503",
+          "user_name": "Trần Ngọc Huyền (Nhân viên)",
+          "reply_text": "Duong Hoang Huy",
+          "reply_date": "2025-04-20"
+        }
+      ]
+    }
+  ],
+  "revenue": [
+    {
+      "date": "2025-04-01",
+      "amount": 50000000,
+      "id": "0579"
+    },
+    {
+      "date": "2025-04-02",
+      "amount": 60000000,
+      "id": "a219"
+    },
+    {
+      "date": "2025-04-03",
+      "amount": 45000000,
+      "id": "b636"
+    },
+    {
+      "date": "2025-04-04",
+      "amount": 72000000,
+      "id": "70d6"
+    },
+    {
+      "date": "2025-04-05",
+      "amount": 58000000,
+      "id": "da48"
+    },
+    {
+      "date": "2025-04-06",
+      "amount": 63000000,
+      "id": "917b"
+    },
+    {
+      "date": "2025-04-07",
+      "amount": 48000000,
+      "id": "ae39"
+    },
+    {
+      "date": "2025-04-08",
+      "amount": 76000000,
+      "id": "39b5"
+    },
+    {
+      "date": "2025-04-09",
+      "amount": 53000000,
+      "id": "f8cb"
+    },
+    {
+      "date": "2025-04-10",
+      "amount": 69000000,
+      "id": "1c0a"
+    },
+    {
+      "date": "2025-04-11",
+      "amount": 41000000,
+      "id": "87da"
+    },
+    {
+      "date": "2025-04-12",
+      "amount": 77000000,
+      "id": "dd20"
+    },
+    {
+      "date": "2025-04-13",
+      "amount": 62000000,
+      "id": "12dc"
+    },
+    {
+      "date": "2025-04-14",
+      "amount": 56000000,
+      "id": "4f67"
+    },
+    {
+      "date": "2025-04-15",
+      "amount": 47000000,
+      "id": "0a90"
+    },
+    {
+      "date": "2025-04-16",
+      "amount": 65000000,
+      "id": "5138"
+    },
+    {
+      "date": "2025-04-17",
+      "amount": 44000000,
+      "id": "ee9c"
+    },
+    {
+      "date": "2025-04-18",
+      "amount": 79000000,
+      "id": "a1d7"
+    },
+    {
+      "date": "2025-04-19",
+      "amount": 61000000,
+      "id": "562c"
+    },
+    {
+      "date": "2025-04-20",
+      "amount": 58000000,
+      "id": "a7f3"
+    },
+    {
+      "date": "2025-04-21",
+      "amount": 50000000,
+      "id": "4671"
+    },
+    {
+      "date": "2025-04-22",
+      "amount": 73000000,
+      "id": "1c6e"
+    },
+    {
+      "date": "2025-04-23",
+      "amount": 55000000,
+      "id": "c667"
+    },
+    {
+      "date": "2025-04-24",
+      "amount": 46000000,
+      "id": "f31f"
+    },
+    {
+      "date": "2025-04-25",
+      "amount": 68000000,
+      "id": "b865"
+    },
+    {
+      "date": "2025-04-26",
+      "amount": 64000000,
+      "id": "c39e"
+    },
+    {
+      "date": "2025-04-27",
+      "amount": 49000000,
+      "id": "880c"
+    },
+    {
+      "date": "2025-04-28",
+      "amount": 75000000,
+      "id": "b292"
+    },
+    {
+      "date": "2025-04-29",
+      "amount": 42000000,
+      "id": "eedd"
+    },
+    {
+      "date": "2025-04-30",
+      "amount": 70000000,
+      "id": "22b5"
     }
   ]
 }

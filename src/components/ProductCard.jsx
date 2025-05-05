@@ -34,7 +34,7 @@ export default function ProductCard(props) {
     >
       {/* Nếu có discount, bao bọc card bằng Badge.Ribbon */}
       {product.discount > 0 ? (
-        <Badge.Ribbon text="Giảm giá" style={{padding: "4px 10px", fontSize: "16px", fontStyle: 'italic', fontWeight: "bold"}} color="red">
+        <Badge.Ribbon text={`Giảm ${(product.discount * 100).toFixed(0)}%`}  style={{padding: "4px 10px", fontSize: "16px", fontStyle: 'italic', fontWeight: "bold"}} color="red">
           <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200 flex flex-col">
             {/* Hình ảnh sản phẩm */}
             <div className="w-full aspect-[4/3] overflow-hidden">

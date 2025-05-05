@@ -44,8 +44,7 @@ const routes = [
       { path: "", element: <Home /> },
       { path: path.notFound, element: <NotFound /> },
       { path: path.productDetail, element: <ProductDetail /> },
-      { path: path.productCategory, element: <ListProduct /> },
-
+      { path: path.productCategoryBrand, element: <ListProduct /> },
       {
         path: path.cart,
         element: <Cart />,

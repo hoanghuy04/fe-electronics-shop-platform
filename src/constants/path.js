@@ -4,7 +4,7 @@ export const path = {
   logout: "/logout",
   register: "/register",
   productDetail: "/products/:slug",
-  productCategory: "/products/category/:categorySlug",
+  productCategoryBrand: "/products/:categorySlug/brand/:brandSlug",
   cart: "/cart",
   cartStepTwo: "/cart/step-two",
   cartStepThree: "/cart/step-three",

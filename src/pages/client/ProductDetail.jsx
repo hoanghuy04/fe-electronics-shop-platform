@@ -13,7 +13,7 @@ import {
 import ProductCard from "../../components/ProductCard";
 import { searchProductsByTitle } from "../../services/productService";
 import { useCart } from "../../hooks/useCart";
-import { addReview, getReviewsByProductID } from "../../services/ReviewService"; // Thêm getReviewsByProductID
+import { addReview, getReviewsByProductID } from "../../services/ReviewService";
 import ReviewsModal from "../../components/ReviewsModal";
 
 const initItemsBreadcum = [
@@ -38,6 +38,46 @@ const ProductDetail = () => {
   const [form] = Form.useForm();
   const { addToCart } = useCart();
   const [itemsBreadcum, setItemsBreadcum] = useState(initItemsBreadcum);
+
+  const [isReplyModalVisible, setIsReplyModalVisible] = useState(false);
+  const [currentReviewId, setCurrentReviewId] = useState(null);
+  const [replyForm] = Form.useForm();
+
+  const handleReplyClick = (reviewId) => {
+    setCurrentReviewId(reviewId);
+    setIsReplyModalVisible(true);
+  };
+
+  const handleReplyModalCancel = () => {
+    setIsReplyModalVisible(false);
+    replyForm.resetFields();
+  };
+
+  const handleReplySubmit = async (values) => {
+    const replyData = {
+      id: Date.now().toString(),
+      user_name: "Trần Ngọc Huyền (Nhân viên)", // Hoặc lấy từ thông tin đăng nhập
+      reply_text: values.reply_text,
+      reply_date: new Date().toISOString().split("T")[0],
+    };
+
+    try {
+      const updatedReview = await addReplyToReview(currentReviewId, [
+        ...reviews.find((r) => r.id === currentReviewId).replies,
+        replyData,
+      ]);
+
+      setReviews((prev) =>
+        prev.map((review) =>
+          review.id === currentReviewId ? updatedReview : review
+        )
+      );
+      setIsReplyModalVisible(false);
+      replyForm.resetFields();
+    } catch (error) {
+      console.error("Lỗi khi gửi phản hồi:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -250,6 +290,23 @@ const ProductDetail = () => {
             </div>
           </div>
 
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-4 px-8">
+            <div className="text-2xl font-bold m-0">Sản phẩm tương tự</div>
+            <Carousel
+              slidesToShow={4}
+              slidesToScroll={1}
+              arrows
+              className="p-6"
+            >
+              {relevantProducts.map((relevantProduct) => (
+                <ProductCard
+                  key={relevantProduct.id}
+                  product={relevantProduct}
+                />
+              ))}
+            </Carousel>
+          </div>
+
           <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div className="device-configuration rounded-lg shadow-lg bg-white py-4 px-8">
               <div className="text-lg font-bold mb-4">Cấu hình thiết bị</div>
@@ -281,7 +338,7 @@ const ProductDetail = () => {
                 </span>
               </div>
               <div className="space-y-4 max-h-64 overflow-y-auto">
-                {reviews.slice(0, 2).map((review) => (
+                {reviews.map((review) => (
                   <div
                     key={review.id}
                     className="border-b border-gray-200 pb-4"
@@ -296,6 +353,65 @@ const ProductDetail = () => {
                     <span className="text-gray-500 text-sm">
                       Đăng ngày 10/04/2025
                     </span>
+
+                    {/* Hiển thị các phản hồi */}
+                    <div className="mt-2 pl-4 border-l-2 border-gray-200">
+                      {review.replies.map((reply) => (
+                        <div key={reply.id} className="mb-2">
+                          <div className="flex items-center">
+                            <span className="font-medium">
+                              {reply.user_name}
+                            </span>
+                            <span className="ml-2 text-gray-500 text-sm">
+                              {reply.reply_date}
+                            </span>
+                          </div>
+                          <p className="text-gray-600">{reply.reply_text}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <Modal
+                      title="Trả lời đánh giá"
+                      visible={isReplyModalVisible}
+                      onCancel={handleReplyModalCancel}
+                      footer={null}
+                    >
+                      <Form
+                        form={replyForm}
+                        layout="vertical"
+                        onFinish={handleReplySubmit}
+                      >
+                        <Form.Item
+                          name="reply_text"
+                          label="Nội dung phản hồi"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Vui lòng nhập nội dung phản hồi!",
+                            },
+                          ]}
+                        >
+                          <Input.TextArea
+                            rows={4}
+                            placeholder="Nhập phản hồi của bạn..."
+                          />
+                        </Form.Item>
+                        <Form.Item>
+                          <Button type="primary" htmlType="submit">
+                            Gửi phản hồi
+                          </Button>
+                        </Form.Item>
+                      </Form>
+                    </Modal>
+                    {/* Nút trả lời */}
+                    <Button
+                      type="link"
+                      onClick={() => handleReplyClick(review.id)}
+                      className="text-blue-500 mt-2"
+                    >
+                      Trả lời
+                    </Button>
                   </div>
                 ))}
               </div>
@@ -356,23 +472,6 @@ const ProductDetail = () => {
             isReviewsModalVisible={isReviewsModalVisible}
             handleReviewsModalCancel={handleReviewsModalCancel}
           />
-
-          <div className="mt-6 rounded-lg shadow-lg bg-white py-4 px-8">
-            <div className="text-2xl font-bold m-0">Sản phẩm liên quan</div>
-            <Carousel
-              slidesToShow={4}
-              slidesToScroll={1}
-              arrows
-              className="p-6"
-            >
-              {relevantProducts.map((relevantProduct) => (
-                <ProductCard
-                  key={relevantProduct.id}
-                  product={relevantProduct}
-                />
-              ))}
-            </Carousel>
-          </div>
         </div>
       )}
     </div>

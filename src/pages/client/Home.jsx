@@ -7,66 +7,65 @@ import { Link } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import laptopgaming from "/public/laptop-gaming.png";
 import chuotgaming from "/public/chuot-gaming.png";
+import { getViewedProducts } from "../../services/productService";
 
 const Home = () => {
   const [laptops, setLaptops] = useState([]);
   const [pcs, setPCs] = useState([]);
+  const [mouse, setMouse] = useState([]);
+  const [screens, setScreens] = useState([]);
+  const [viewedProducts, setViewedProducts] = useState([]);
 
   const { products, categories, brands, loading } = useContext(ProductContext);
   // Dữ liệu giả lập cho carousel và banner
   const carouselImages = [
     {
       src: "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_web_slider_800x400.jpg",
-      navigation: "products/category/pc-gvn",
+      navigation: "products/pc-gvn/brand/all",
     },
     {
       src: "https://file.hstatic.net/200000722513/file/thang_04_laptop_gaming_banner_web_slider_800x400.jpg",
-      navigation: "products/category/laptop",
+      navigation: "products/laptop/brand/all",
     },
     {
       src: "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_800x400.jpg",
-      navigation: "products/category/all",
+      navigation: "products/all",
     },
   ];
 
   const rightBanners = [
     {
       src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-01.png",
-      navigation: "products/category/pc-gvn",
+      navigation: "products/pc-gvn/brand/all",
     },
     {
       src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-02.png",
-      navigation: "products/category/ban-phim",
+      navigation: "products/ban-phim/brand/all",
     },
     {
       src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-03.png",
-      navigation: "products/category/ban-phim",
+      navigation: "products/ban-phim/brand/all",
     },
   ];
 
   const bottomBanners = [
     {
       src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-09_acdc7c6d37584f0eb1ce8d35ba45507e.png",
-      navigation: "products/category/loa-micro-webcam",
+      navigation: "products/loa-micro-webcam/brand/all",
     },
     {
       src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-08.png",
-      navigation: "products/category/man-hinh",
+      navigation: "products/man-hinh/brand/all",
     },
     {
       src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-07.png",
-      navigation: "products/category/chuot-lot-chuot",
+      navigation: "products/chuot-lot-chuot/brand/all",
     },
     {
       src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-06.png",
-      navigation: "products/category/pc-gvn",
+      navigation: "products/pc-gvn/brand/all",
     },
   ];
-
-  // const stickyBanners = [
-  //   "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_side_web.jpg", // Banner bên trái
-  //   "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_sticky_230x697.jpg", // Banner bên phải
-  // ];
 
   const searchProductsByTitle = (keyword) => {
     try {
@@ -87,6 +86,11 @@ const Home = () => {
   };
 
   useEffect(() => {
+    const products = getViewedProducts();
+    setViewedProducts(products);
+  }, []);
+
+  useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     try {
       const lts = searchProductsByTitle("laptop");
@@ -94,6 +98,12 @@ const Home = () => {
 
       const pcs = searchProductsByTitle("pc");
       setPCs(pcs);
+
+      const mouseList = searchProductsByTitle("Chuột");
+      setMouse(mouseList);
+
+      const screenList = searchProductsByTitle("Màn hình");
+      setScreens(screenList);
     } catch (error) {
       console.error(error);
     }
@@ -108,17 +118,6 @@ const Home = () => {
   return (
     <div className="container mx-auto px-6 lg:px-8 py-8">
       <div className="flex flex-col  gap-6">
-        {/* Banner sticky bên trái */}
-        {/* <div className="hidden lg:block w-[160px] flex-shrink-0">
-          <a href="#" className="block sticky top-20">
-            <img
-              src={stickyBanners[0]}
-              alt="Sticky Banner Left"
-              className="w-[160px] object-cover rounded-lg shadow-lg"
-            />
-          </a>
-        </div> */}
-
         <div className="main-content">
           <div className=" rounded-lg shadow-lg bg-white py-12 px-8">
             {/* Phần chính: Carousel và banner bên phải */}
@@ -179,28 +178,75 @@ const Home = () => {
             </div>
           </div>
 
-          <section className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
-            <div className="container mx-auto px-4">
-              <div className="text-2xl md:text-3xl font-bold text-center mb-8">
-                Thương hiệu nổi bật
-              </div>
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Sản phẩm đã xem</div>
+            </div>
+            <Carousel
+              slidesToShow={5}
+              slidesToScroll={1}
+              arrows
+              autoplay
+              className="p-6"
+            >
+              {viewedProducts.length > 0 ? (
+                viewedProducts.map((p) => (
+                  <div key={p.id}>
+                    <ProductCard product={p} />
+                  </div>
+                ))
+              ) : (
+                <div>Không có sản phẩm nào để hiển thị</div>
+              )}
+            </Carousel>
+          </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
-                {brands.map((brand, index) => (
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Laptop</div>
+              <div className="flex">
+                {/* Dynamically render brand buttons */}
+                {[...new Set(laptops.map((laptop) => laptop.brand))].map(
+                  (brand, index) => (
+                    <div key={index} className="mr-2">
+                      <NavLink
+                        to={`products/laptop/brand/${brand}`}
+                        key={index}
+                        className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                      >
+                        {brand}
+                      </NavLink>
+                    </div>
+                  )
+                )}
+                <div className="">
                   <NavLink
-                    key={index}
-                    to={`products/category/${brand.slug}`}
-                    className={`${
-                      categoryColor[index % 6]
-                    } rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
+                    to={`products/laptop/brand/all`}
+                    className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
                   >
-                    <div className="flex justify-center mb-4">{brand.icon}</div>
-                    <h3 className="font-medium">{brand.name}</h3>
+                    Xem tất cả
                   </NavLink>
-                ))}
+                </div>
               </div>
             </div>
-          </section>
+            <Carousel
+              slidesToShow={5}
+              slidesToScroll={1}
+              arrows
+              autoplay
+              className="p-6"
+            >
+              {laptops.length > 0 ? (
+                laptops.map((laptop) => (
+                  <div key={laptop.id}>
+                    <ProductCard product={laptop} />
+                  </div>
+                ))
+              ) : (
+                <div>Không có laptop nào để hiển thị</div>
+              )}
+            </Carousel>
+          </div>
 
           {/* Banners */}
           <section className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
@@ -216,7 +262,7 @@ const Home = () => {
                       </p>
                       <div className="mt-10">
                         <NavLink
-                          to={"products/category/laptop-gaming"}
+                          to={"products/laptop-gaming/brand/all"}
                           className="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg font-medium transition-colors"
                         >
                           Khám phá ngay
@@ -243,7 +289,7 @@ const Home = () => {
                       </p>
                       <div className="mt-10">
                         <NavLink
-                          to={"products/category/chuot-lot-chuot"}
+                          to={"products/chuot-lot-chuot/brand/all"}
                           className=" bg-white text-purple-600 hover:bg-purple-50 px-4 py-2 rounded-lg font-medium transition-colors"
                         >
                           Tìm hiểu thêm
@@ -259,20 +305,16 @@ const Home = () => {
             </div>
           </section>
 
-          <section className="rounded-lg shadow-lg bg-white py-10 px-8 mt-6">
+          {/* <section className="rounded-lg shadow-lg bg-white py-10 px-8 mt-6">
             <div className="container mx-auto px-4">
-              <div className="text-2xl md:text-3xl font-bold text-center mb-8">
-                Danh Mục Sản Phẩm
-              </div>
+              <div className="text-2xl md:text-3xl font-bold text-center mb-8">Danh Mục Sản Phẩm</div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {categories.slice(0, 6).map((category, index) => (
                   <NavLink
                     key={index}
-                    to={`products/category/${category.slug}`}
-                    className={`${
-                      categoryColor[index % 6]
-                    } rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
+                    to={`products/${category.slug}/brand/all`}
+                    className={`${categoryColor[index % 6]} rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
                   >
                     <div className="flex justify-center mb-4">
                       {category.icon}
@@ -282,21 +324,70 @@ const Home = () => {
                 ))}
               </div>
             </div>
+          </section> */}
+
+          <section className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="container mx-auto px-4">
+              <div className="text-2xl md:text-3xl font-bold text-center mb-8">
+                Thương hiệu nổi bật
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+                {brands.map((brand, index) => (
+                  <NavLink
+                    key={index}
+                    to={`products/all/brand/${brand.name}`}
+                    className={`${
+                      categoryColor[index % 6]
+                    } rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
+                  >
+                    <div className="flex justify-center mb-4">{brand.icon}</div>
+                    <h3 className="font-medium">{brand.name}</h3>
+                  </NavLink>
+                ))}
+              </div>
+            </div>
           </section>
 
-          <div className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
-            <div className="text-2xl font-bold ml-3">Laptop Nổi Bật</div>
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Màn hình </div>
+              <div className="flex">
+                {/* Dynamically render brand buttons */}
+                {[...new Set(screens.map((s) => s.brand))].map(
+                  (brand, index) => (
+                    <div key={index} className="mr-2">
+                      <NavLink
+                        to={`products/man-hinh/brand/${brand}`}
+                        key={index}
+                        className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                      >
+                        {brand}
+                      </NavLink>
+                    </div>
+                  )
+                )}
+                <div className="">
+                  <NavLink
+                    to={`products/man-hinh/brand/all`}
+                    className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                  >
+                    Xem tất cả
+                  </NavLink>
+                </div>
+              </div>
+            </div>
             <Carousel
-              slidesToShow={4}
+              slidesToShow={5}
               slidesToScroll={1}
               arrows
               autoplay
               className="p-6"
             >
-              {laptops.length > 0 ? (
-                laptops.map((laptop) => (
-                  <div key={laptop.id}>
-                    <ProductCard product={laptop} />
+              {screens.length > 0 ? (
+                screens.map((s) => (
+                  <div key={s.id}>
+                    <ProductCard product={s} />
                   </div>
                 ))
               ) : (
@@ -306,9 +397,32 @@ const Home = () => {
           </div>
 
           <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
-            <div className="text-2xl font-bold ml-3">PC Nổi Bật</div>
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Máy tính để bàn</div>
+              <div className="flex">
+                {[...new Set(pcs.map((m) => m.brand))].map((brand, index) => (
+                  <div key={index} className="mr-2">
+                    <NavLink
+                      to={`products/pc-gvn/brand/${brand}`}
+                      key={index}
+                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                    >
+                      {brand}
+                    </NavLink>
+                  </div>
+                ))}
+                <div className="">
+                  <NavLink
+                    to={`products/pc-gvn/brand/all`}
+                    className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                  >
+                    Xem tất cả
+                  </NavLink>
+                </div>
+              </div>
+            </div>
             <Carousel
-              slidesToShow={4}
+              slidesToShow={5}
               slidesToScroll={1}
               arrows
               autoplay
@@ -326,26 +440,83 @@ const Home = () => {
             </Carousel>
           </div>
 
-          {/* <div className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
-            <div className="text-2xl font-bold ml-3">Sản phẩm khác</div>
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Chuột nổi bật</div>
+              <div className="flex">
+                {[...new Set(mouse.map((m) => m.brand))].map((brand, index) => (
+                  <div key={index} className="mr-2">
+                    <NavLink
+                      to={`products/chuot-lot-chuot/brand/${brand}`}
+                      key={index}
+                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                    >
+                      {brand}
+                    </NavLink>
+                  </div>
+                ))}
+                <div className="">
+                  <NavLink
+                    to={`products/chuot-lot-chuot/brand/all`}
+                    className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                  >
+                    Xem tất cả
+                  </NavLink>
+                </div>
+              </div>
+            </div>
             <Carousel
-              slidesToShow={4}
+              slidesToShow={5}
               slidesToScroll={1}
               arrows
               autoplay
               className="p-6"
             >
-              {others.length > 0 ? (
-                others.map((p) => (
-                  <div key={p.id}>
-                    <ProductCard product={p} />
+              {mouse.length > 0 ? (
+                mouse.map((m) => (
+                  <div key={m.id}>
+                    <ProductCard product={m} />
                   </div>
                 ))
               ) : (
                 <div>Không có sản phẩm nào để hiển thị</div>
               )}
             </Carousel>
-          </div> */}
+          </div>
+
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="grid grid-cols-3 gap-4">
+              <div className="col-span-2 overflow-hidden">
+                <NavLink to={"products/man-hinh/brand/all"}>
+                  <img
+                    src="https://file.hstatic.net/200000722513/file/thang_03_banner_fanpage_cover_edit.jpg"
+                    alt=""
+                    className="w-full object-cover rounded-2xl"
+                  />
+                </NavLink>
+              </div>
+              <div className="grid grid-cols-1 gap-4">
+                <div className=" overflow-hidden">
+                  <NavLink to={"products/chuot-lot-chuot/brand/all"}>
+                    <img
+                      src="https://file.hstatic.net/200000722513/file/banner_790x250_tai_nghe_6f6dcb17d3a54fcc88b3de96762d2d41.jpg"
+                      alt=""
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </NavLink>
+                </div>
+                <div className=" overflow-hidden">
+                  <NavLink to={"products/pc-gvn/brand/all"}>
+                    <img
+                      src="https://file.hstatic.net/200000722513/file/bot_promotion_banner_small_2_2ad55c2345c64fbfb87dab4957b33914.png"
+                      alt=""
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </NavLink>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Features */}
           <section className="mt-6  rounded-lg shadow-lg bg-white py-12 px-8">
@@ -460,17 +631,6 @@ const Home = () => {
             </div>
           </section>
         </div>
-
-        {/* Banner sticky bên phải */}
-        {/* <div className="hidden lg:block w-[160px] flex-shrink-0">
-          <a href="#" className="block sticky top-20">
-            <img
-              src={stickyBanners[1]}
-              alt="Sticky Banner Right"
-              className="w-[160px] object-cover rounded-lg shadow-lg"
-            />
-          </a>
-        </div> */}
       </div>
     </div>
   );

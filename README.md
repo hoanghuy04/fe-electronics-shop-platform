@@ -1,41 +1,84 @@
-📦 my-project
- ┣ 📂 public
- ┃ ┗ 📄 index.html
- ┣ 📂 src
- ┃ ┣ 📂 assets              # Chứa hình ảnh, biểu tượng, styles
- ┃ ┣ 📂 components          # Các component UI có thể tái sử dụng
- ┃ ┃ ┣ 📜 Header.jsx
- ┃ ┃ ┣ 📜 Footer.jsx
- ┃ ┃ ┗ 📜 AllRoutes.jsx
- ┃ ┣ 📂 layout              # Layout chung cho toàn bộ ứng dụng
- ┃ ┃ ┗ 📜 LayoutDefault.jsx
- ┃ ┣ 📂 pages               # Các trang chính của ứng dụng
- ┃ ┃ ┣ 📜 Home.jsx
- ┃ ┃ ┣ 📜 ProductDetail.jsx
- ┃ ┃ ┣ 📜 Cart.jsx
- ┃ ┃ ┗ 📜 NotFound.jsx
- ┃ ┣ 📂 store               # Redux Store
- ┃ ┃ ┣ 📂 reducers          # Chứa các reducer của Redux
- ┃ ┃ ┃ ┣ 📜 cartReducer.js
- ┃ ┃ ┃ ┣ 📜 userReducer.js
- ┃ ┃ ┃ ┗ 📜 index.js        # Kết hợp tất cả reducers
- ┃ ┃ ┣ 📜 actions.js        # Các action của Redux
- ┃ ┃ ┗ 📜 store.js          # Cấu hình Redux Store
- ┃ ┣ 📂 services            # Chứa các hàm gọi API
- ┃ ┃ ┣ 📜 request.js        # Cấu hình fetch API
- ┃ ┃ ┣ 📜 productService.js # CRUD sản phẩm
- ┃ ┃ ┗ 📜 userService.js    # CRUD user
- ┃ ┣ 📂 utils               # Các hàm tiện ích chung
- ┃ ┃ ┣ 📜 helpers.js
- ┃ ┃ ┗ 📜 constants.js      # Chứa các biến toàn cục
- ┃ ┣ 📂 database            # Giả lập database (dùng JSON Server)
- ┃ ┃ ┣ 📜 product-categories.json
- ┃ ┃ ┣ 📜 products.json
- ┃ ┃ ┣ 📜 users.json
- ┃ ┃ ┗ 📜 orders.json
- ┃ ┣ 📜 App.jsx             # Component gốc của ứng dụng
- ┃ ┣ 📜 main.jsx            # Điểm vào chính của React (ReactDOM)
- ┃ ┗ 📜 index.css           # CSS tổng thể
- ┣ 📜 package.json
- ┣ 📜 vite.config.js
- ┗ 📜 README.md
+
+# fe-electronics-shop-platform
+
+A simple and responsive frontend for an electronics shopping platform, built with **ReactJS**, **Tailwind CSS**, **Ant Design**, and **JSON Server** for mock API.
+
+---
+
+## 🚀 Features
+
+- 🛒 Product listing with filters (brand, price,...)
+- 🔍 Product detail page
+- 🎯 Category and brand filtering
+- 🧭 Navigation with breadcrumbs
+- 🖼️ Responsive layout using Tailwind CSS
+- 📦 Component library integration with Ant Design
+- 🔗 Connects to a mock REST API via JSON Server
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology    | Description                     |
+|---------------|---------------------------------|
+| ReactJS       | Frontend JavaScript library     |
+| Tailwind CSS  | Utility-first CSS framework     |
+| Ant Design    | React UI component library      |
+| JSON Server   | Mock REST API for development   |
+
+---
+
+## 📂 Project Structure
+
+```
+fe-electronics-shop-platform/
+├── public/
+├── src/
+│   ├── assets/         # Images, icons...
+│   ├── components/     # Shared UI components (Header, Footer, etc.)
+│   ├── constants/      # Constant variables
+│   ├── database/       # Local JSON
+│   ├── pages/          # Pages (Home, ListProduct, ProductDetail, etc.)
+│   ├── services/       # API services
+│   └── App.jsx         # Main App entry
+└── index.html          # Main HTML entry point
+```
+
+---
+
+## 🧪 Getting Started
+
+### 1. Clone this repo
+
+```bash
+git clone https://github.com/hoanghuy04/fe-electronics-shop-platform.git
+cd fe-electronics-shop-platform
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the frontend
+
+```bash
+npm run dev
+```
+
+### 4. Start the mock backend (JSON Server)
+
+```bash
+npm run serve-json
+```
+
+----
+
+The app will run at `http://localhost:5173` and the API at `http://localhost:3000`.
+
+## 📌 Notes
+
+- Data is stored in `db.json` and served via JSON Server.
+- Filtering is done via API query params.
+- Ensure both frontend and JSON server are running for full functionality.
