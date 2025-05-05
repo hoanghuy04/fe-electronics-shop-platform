@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Form, Input, Select, Button, Radio, ConfigProvider, Spin } from "antd";
 import { generateId } from "../utils/helpers";
-import {
-  getAllProvinces,
-  getDistricts,
-  getWards,
-} from "../services/address.service";
 import AddressForm from "./AddressForm";
+import { addressService } from "../services/address.service";
 
 const { Option } = Select;
 
@@ -36,14 +32,16 @@ export function AccountAddressModal(props) {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const provinceData = await getAllProvinces();
+        const provinceData = await addressService.getAllProvinces();
         setProvinces(provinceData.data);
 
         if (!isAdd && addressData) {
-          const districtsData = await getDistricts(addressData.province);
+          const districtsData = await addressService.getDistricts(
+            addressData.province
+          );
           setDistricts(districtsData.data);
 
-          const wardsData = await getWards(addressData.district);
+          const wardsData = await addressService.getWards(addressData.district);
           setWards(wardsData.data);
         }
       } finally {
@@ -54,7 +52,7 @@ export function AccountAddressModal(props) {
   }, [isAdd, addressData]);
 
   const handleChangeProvince = async (provinceId) => {
-    const districtsData = await getDistricts(provinceId);
+    const districtsData = await addressService.getDistricts(provinceId);
     setDistricts(districtsData.data);
 
     form.setFieldsValue({
@@ -66,7 +64,7 @@ export function AccountAddressModal(props) {
   };
 
   const handleChangeDistrict = async (districtId) => {
-    const wardsData = await getWards(districtId);
+    const wardsData = await addressService.getWards(districtId);
     setWards(wardsData.data);
 
     form.setFieldsValue({

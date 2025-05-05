@@ -1,59 +1,69 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form, Input, Radio, Select } from "antd";
-import { useOutletContext } from "react-router-dom";
+import { Button, Form, Input, Radio, Checkbox } from "antd";
 import { path } from "../constants/path";
 import { useCart } from "../hooks/useCart";
-import {
-  getAllProvinces,
-  getDistricts,
-  getWards,
-} from "../services/address.service";
 import AddressForm from "./AddressForm";
 import BoxPrice from "./BoxPrice";
-
-const { Option } = Select;
+import { useAuth } from "../hooks/AuthContext";
+import { userApi } from "../services/user.service";
+import { addressService } from "../services/address.service";
 
 export default function CartStepTwo() {
-  const { handlePlaceOrder } = useOutletContext();
-  const { cart, totalPrice } = useCart();
+  const { cart, totalPrice, handlePlaceOrder, order, setOrder } = useCart();
   const [form] = Form.useForm();
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [wards, setWards] = useState([]);
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
+  const [dfAddress, setDfAddress] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
-      const provinceData = await getAllProvinces();
+      const provinceData = await addressService.getAllProvinces();
       setProvinces(provinceData.data);
     };
+
     fetchData();
+
+    const defaultAddress = userApi.getDefaultAddress(user);
+    if (defaultAddress) {
+      setDfAddress(defaultAddress);
+    }
   }, []);
 
   useEffect(() => {
-    const savedUser = JSON.parse(localStorage.getItem("user"));
-    if (savedUser) {
-      setUser(savedUser);
+    if (order) {
       const newForm = {
-        gender: savedUser.gender === "Anh" ? "Anh" : "Chị",
-        name: savedUser.name || "",
-        phone: savedUser.phone || "",
-        street: savedUser.street || "",
-        province: savedUser.province || "",
-        district: savedUser.district || "",
-        ward: savedUser.ward || "",
-        note: savedUser.note || "",
-        delivery: savedUser.delivery || "",
-        shipping: savedUser.shipping || "",
+        gender: user.gender === "Anh" ? "Anh" : "Chị",
+        name: order.shipping_address.full_name || "",
+        phone: order.shipping_address.phone || "",
+        street: order.shipping_address.address?.street || "",
+        province: order.shipping_address.address?.province || "",
+        district: order.shipping_address.address?.district || "",
+        ward: order.shipping_address.address?.ward || "",
+        note: order.note || "",
       };
       form.setFieldsValue(newForm);
       handleChangeProvince(newForm.province);
       handleChangeDistrict(newForm.district);
     }
-  }, []);
+  }, [order]);
+
+  useEffect(() => {
+    if (
+      order?.shipping_address?.address &&
+      dfAddress &&
+      order.shipping_address.address.street === dfAddress.street &&
+      order.shipping_address.address.province === dfAddress.province &&
+      order.shipping_address.address.district === dfAddress.district &&
+      order.shipping_address.address.ward === dfAddress.ward
+    ) {
+      form.setFieldsValue({ dfAddress: true });
+    }
+  }, [dfAddress, order]);
 
   const handleChangeProvince = async (provinceId) => {
-    const districtsData = await getDistricts(provinceId);
+    const districtsData = await addressService.getDistricts(provinceId);
     setDistricts(districtsData.data);
 
     if (user === undefined) {
@@ -67,7 +77,7 @@ export default function CartStepTwo() {
   };
 
   const handleChangeDistrict = async (districtId) => {
-    const wardsData = await getWards(districtId);
+    const wardsData = await addressService.getWards(districtId);
     setWards(wardsData.data);
 
     if (user === undefined) {
@@ -77,17 +87,55 @@ export default function CartStepTwo() {
     }
   };
 
-  const onFinish = (values) => {
-    form
-      .validateFields()
-      .then(() => {
-        setUser(values);
-        localStorage.setItem("user", JSON.stringify(values));
-        handlePlaceOrder(path.cartStepThree);
-      })
-      .catch((errorInfo) => {
-        console.log("Validation Failed:", errorInfo);
+  const onFinish = async (values) => {
+    try {
+      const { name, phone, street, province, district, ward, note } = values;
+      const order = {
+        shipping_address: {
+          full_name: name,
+          phone: phone,
+          address: {
+            street,
+            province,
+            district,
+            ward,
+          },
+        },
+        note: note || "",
+      };
+
+      setOrder(order);
+      handlePlaceOrder(path.cartStepThree);
+    } catch (errorInfo) {
+      console.log("Validation Failed:", errorInfo);
+    }
+  };
+
+  const handleChangeDefaultAddress = async (e) => {
+    const checked = e.target.checked;
+
+    if (checked && dfAddress) {
+      const { province, district, ward, street } = dfAddress;
+
+      form.setFieldsValue({
+        province,
+        district,
+        ward,
+        street: typeof street === "string" ? street : "",
       });
+
+      await handleChangeProvince(province);
+      await handleChangeDistrict(district);
+    } else {
+      form.setFieldsValue({
+        street: undefined,
+        province: undefined,
+        district: undefined,
+        ward: undefined,
+      });
+      setDistricts([]);
+      setWards([]);
+    }
   };
 
   return (
@@ -99,7 +147,6 @@ export default function CartStepTwo() {
         initialValues={{
           gender: "Anh",
           shipping: "free",
-          delivery: "home",
         }}
         className="[&_.ant-form-item]:!mb-2"
       >
@@ -138,13 +185,14 @@ export default function CartStepTwo() {
 
         <h2 className="font-semibold text-base mt-4">Chọn cách nhận hàng</h2>
         <Form.Item
-          name="delivery"
-          className="mt-2"
-          rules={[{ required: true, message: "Vui lòng chọn cách nhận hàng" }]}
+          name="dfAddress"
+          valuePropName="checked"
+          label={null}
+          className="!mb-0"
         >
-          <Radio.Group>
-            <Radio value="home">Giao hàng tận nơi</Radio>
-          </Radio.Group>
+          <Checkbox onChange={handleChangeDefaultAddress}>
+            Sử dụng địa chỉ mặc định
+          </Checkbox>
         </Form.Item>
 
         <AddressForm
@@ -176,7 +224,7 @@ export default function CartStepTwo() {
             block
             htmlType="submit"
             style={{ padding: "18px" }}
-            className="w-full !p-4.5 rounded-sm !bg-primary !text-white !text-lg  !font-bold cursor-pointer"
+            className="!w-full !px-4.5 !py-8 rounded-sm !bg-primary !text-white !text-xl  !font-bold cursor-pointer"
           >
             ĐẶT HÀNG NGAY
           </Button>
