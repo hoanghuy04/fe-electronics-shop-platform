@@ -1,12 +1,18 @@
 import { Form, Input, Button } from "antd";
-import { Link } from "react-router";
 import { useAuth } from "../../hooks/AuthContext";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import { path } from "../../constants/path";
 
 export default function Login() {
   const [form] = Form.useForm();
   const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const { state } = useLocation();
+
   const handleLogin = async (values) => {
     await login(values);
+    navigate(state?.from || path.home, { replace: true });
   };
 
   return (

@@ -1203,31 +1203,104 @@
   ],
   "orders": [
     {
-      "id": "HD20250502111107839",
-      "customer_id": 1,
-      "products": [
-        {
-          "id": "2",
-          "title": "Laptop ASUS ZenBook 14 UX425EA",
-          "quantity": 1,
-          "price": 28400000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 26412000,
-      "status": "PENDING",
-      "order_date": "2025-05-02T04:11:07.518Z",
-      "payment_method": "Thanh toán khi nhận hàng",
+      "id": "HD20250504231103433",
       "shipping_address": {
-        "full_name": "Tran Huyen",
+        "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
         "address": {
           "street": "Ho Chi Minh",
-          "ward": "07861",
-          "district": "223",
-          "province": "24"
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
         }
       },
+      "note": "",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "3",
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
+        }
+      ],
+      "total_price": 24641500,
+      "status": "PENDING",
+      "order_date": "2025-05-04T16:11:03.070Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504231126333",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "1",
+          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
+          "quantity": 1,
+          "price": 24490000,
+          "discount": 0.09
+        },
+        {
+          "id": "13",
+          "title": "Laptop gaming HP OMEN 16 wf0129TX 8W943PA",
+          "quantity": 1,
+          "price": 64990000,
+          "discount": 0.08
+        },
+        {
+          "id": "14",
+          "title": "Laptop Gaming Acer Nitro 5 AN515-58",
+          "quantity": 1,
+          "price": 34990000,
+          "discount": 0.1
+        }
+      ],
+      "total_price": 113567700,
+      "status": "PENDING",
+      "order_date": "2025-05-04T16:11:26.334Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "UNPAID"
+    },
+    {
+      "id": "HD20250504231136773",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "note": "",
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "4",
+          "title": "PC GVN Intel i5-13400F",
+          "quantity": 1,
+          "price": 15990000,
+          "discount": 0.08
+        }
+      ],
+      "total_price": 14710800,
+      "status": "PENDING",
+      "order_date": "2025-05-04T16:11:36.190Z",
+      "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     }
   ],

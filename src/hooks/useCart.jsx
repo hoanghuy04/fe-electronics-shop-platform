@@ -1,10 +1,21 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  useCallback,
+} from "react";
+import { useNavigate } from "react-router-dom";
+import { path } from "../constants/path";
 
 const CartContext = createContext();
 
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [justAdded, setJustAdded] = useState(null);
+  const [order, setOrder] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart"));
@@ -24,7 +35,6 @@ export default function CartProvider({ children }) {
       tmp = cart.map((item) =>
         item.id == product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
-
       setJustAdded({ ...existingItem, quantity: existingItem.quantity + 1 });
     } else {
       tmp = [...cart, { ...product, quantity: 1 }];
@@ -63,10 +73,33 @@ export default function CartProvider({ children }) {
     setCart(updatedCart);
   };
 
-  const totalPrice = cart.reduce(
-    (sum, product) =>
-      sum + product.quantity * product.price * (1 - product.discount),
-    0
+  const totalPrice = useMemo(() => {
+    return cart.reduce(
+      (sum, product) =>
+        sum + product.quantity * product.price * (1 - product.discount),
+      0
+    );
+  }, [cart]);
+
+  const handlePlaceOrder = useCallback(
+    (to) => {
+      const stepMap = {
+        [path.cart]: 1,
+        [path.cartStepTwo]: 2,
+        [path.cartStepThree]: 3,
+        [path.cartStepFour]: 4,
+      };
+
+      const nextStep = stepMap[to];
+      if (nextStep) {
+        if (nextStep > 1 && cart.length === 0 && nextStep !== 4) {
+          return;
+        }
+        sessionStorage.setItem("currentStep", nextStep.toString());
+        navigate(to);
+      }
+    },
+    [navigate, cart]
   );
 
   return (
@@ -80,6 +113,9 @@ export default function CartProvider({ children }) {
         increaseQuantity,
         totalPrice,
         justAdded,
+        order,
+        setOrder,
+        handlePlaceOrder,
       }}
     >
       {children}
