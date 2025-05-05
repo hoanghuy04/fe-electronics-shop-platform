@@ -151,39 +151,39 @@ const Header = () => {
     items:
       searchResults.length > 0
         ? searchResults.map((product) => ({
-            key: product.id,
-            label: (
-              <div
-                className="flex items-center"
-                onClick={() => {
-                  navigate(`/products/${product.slug}`);
-                  setDropdownOpen(false);
-                  setSearchValue("");
-                }}
-              >
-                <img
-                  src={product.image_url[0] || "placeholder-image-url"}
-                  alt={product.title}
-                  className="w-12 h-12 object-cover mr-2"
-                />
-                <div>
-                  <p className="text-sm font-medium">{product.title}</p>
-                  <p className="text-xs text-gray-500">
-                    {product.price.toLocaleString()} VNĐ
-                  </p>
-                </div>
+          key: product.id,
+          label: (
+            <div
+              className="flex items-center"
+              onClick={() => {
+                navigate(`/products/${product.slug}`);
+                setDropdownOpen(false);
+                setSearchValue("");
+              }}
+            >
+              <img
+                src={product.image_url[0] || "placeholder-image-url"}
+                alt={product.title}
+                className="w-12 h-12 object-cover mr-2"
+              />
+              <div>
+                <p className="text-sm font-medium">{product.title}</p>
+                <p className="text-xs text-gray-500">
+                  {product.price.toLocaleString()} VNĐ
+                </p>
               </div>
-            ),
-          }))
+            </div>
+          ),
+        }))
         : [
-            {
-              key: "no-results",
-              label: (
-                <p className="text-gray-500">Không tìm thấy sản phẩm nào</p>
-              ),
-              disabled: true, // Để không thể nhấp vào
-            },
-          ],
+          {
+            key: "no-results",
+            label: (
+              <p className="text-gray-500">Không tìm thấy sản phẩm nào</p>
+            ),
+            disabled: true, // Để không thể nhấp vào
+          },
+        ],
   };
 
   return (
@@ -248,15 +248,18 @@ const Header = () => {
         </div>
 
         {/* Hotline */}
-        <div className="flex items-center hover:text-blue-600 transition-colors duration-200">
+        <a
+          href="tel:19005301"
+          className="flex items-center  transition-colors duration-200"
+        >
           <PhoneOutlined className="mr-2 text-xl" />
           <span className="font-semibold text-lg">Hotline: 1900.5301</span>
-        </div>
+        </a>
 
         {/* Tra cứu đơn hàng */}
         <Link
-          to="/track-order"
-          className="flex items-center hover:text-blue-600 mx-6 font-medium text-lg transition-colors duration-200"
+          to="/account/order-history"
+          className="flex items-center mx-6 font-medium text-lg transition-colors duration-200"
         >
           <SearchOutlined className="mr-2 text-xl" />
           <span>Tra cứu đơn hàng</span>

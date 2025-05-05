@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import AccountViewedProductCard from "./AccountViewedProductCard";
+// import AccountViewedProductCard from "./AccountViewedProductCard";
 import EmptyView from "./EmptyView";
+import ProductCard from "./ProductCard";
 
 export default function AccountViewedProduct() {
   const [data, setData] = useState([]);
@@ -24,7 +25,8 @@ export default function AccountViewedProduct() {
             data
               .reverse()
               .map((item) => (
-                <AccountViewedProductCard product={item} key={item.id} />
+                // <AccountViewedProductCard product={item} key={item.id} />
+                <ProductCard product={item} key={item.id} />
               ))}
         </div>
         {data.length <= 0 && (
