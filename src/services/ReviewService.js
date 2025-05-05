@@ -1,4 +1,4 @@
-import { get, post } from "./request";
+import { get, post, patch } from "./request";
 
 export const addReview = async (reviewData) => {
 
@@ -27,3 +27,15 @@ export const getReviewsByProductID = async (productID) => {
     console.error(error);
   }
 }
+
+export const addReplyToReview = async (reviewId, replyData) => {
+    try {
+      const updatedReview = await patch(`reviews/${reviewId}`, {
+        replies: [...replyData],
+      });
+      return updatedReview;
+    } catch (error) {
+      console.error("Lỗi khi thêm phản hồi:", error);
+      throw error;
+    }
+  };

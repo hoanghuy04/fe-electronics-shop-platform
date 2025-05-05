@@ -1,7 +1,8 @@
 import { Input, Button, DatePicker, Radio, Form, Row, Col, Select } from "antd";
 import dayjs from "dayjs";
-import { useOutletContext } from "react-router-dom";
-import { patch } from "../services/request";
+import { userApi } from "../services/user.service";
+import { useAuth } from "../hooks/AuthContext";
+import { toast } from "sonner";
 
 const layout = {
   labelCol: { span: 6 },
@@ -15,7 +16,8 @@ const { Option } = Select;
 
 export function AccountProfile() {
   const [form] = Form.useForm();
-  const { user } = useOutletContext();
+  const { user } = useAuth();
+  console.log(user);
 
   const onFinish = (values) => {
     const dob = values.day + "/" + values.month + "/" + values.year.$y;
@@ -37,7 +39,11 @@ export function AccountProfile() {
   };
 
   const handleUpdateUser = async (data) => {
-    await patch(`users/${data.id}`, data);
+    try {
+      await userApi.updateProfile(data.id, data);
+    } catch (error) {
+      toast.error("Lỗi cập nhật user ", error);
+    }
   };
 
   return (

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Form, Input, Select, Button, Radio, ConfigProvider, Spin } from "antd";
 import { generateId } from "../utils/helpers";
-import { getAllProvinces, getDistricts, getWards } from "../services/address";
+import {
+  getAllProvinces,
+  getDistricts,
+  getWards,
+} from "../services/address.service";
 import AddressForm from "./AddressForm";
 
 const { Option } = Select;
