@@ -7,14 +7,13 @@ import { Link } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import laptopgaming from "/public/laptop-gaming.png";
 import chuotgaming from "/public/chuot-gaming.png";
-import { getViewedProducts } from "../../services/productService";
 
 const Home = () => {
   const [laptops, setLaptops] = useState([]);
   const [pcs, setPCs] = useState([]);
   const [mouse, setMouse] = useState([]);
   const [screens, setScreens] = useState([]);
-  const [viewedProducts, setViewedProducts] = useState([]);
+  const {viewedProducts} =useContext(ProductContext);
 
   const { products, categories, brands, loading } = useContext(ProductContext);
   // Dữ liệu giả lập cho carousel và banner
@@ -84,12 +83,7 @@ const Home = () => {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    const products = getViewedProducts();
-    setViewedProducts(products);
-  }, []);
-
+  
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     try {

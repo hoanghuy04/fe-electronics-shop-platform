@@ -4,6 +4,7 @@
       "id": "1",
       "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
       "category_id": 1,
+      "created_at": "2023-10-01T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ Ultra 7 155H, 16C (6P + 8E + 2LPE) / 22T, Max Turbo up to 4.8GHz, 24MB",
         "RAM": "32GB Soldered LPDDR5x-7467",
@@ -29,6 +30,7 @@
       "id": "2",
       "title": "Laptop ASUS ZenBook 14 UX425EA",
       "category_id": 1,
+      "created_at": "2023-10-02T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i7-1165G7 Processor 2.8 GHz (12M Cache, up to 4.7 GHz, 4 cores)",
         "RAM": "16GB LPDDR4X on board",
@@ -50,6 +52,7 @@
       "id": "3",
       "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
       "category_id": 2,
+      "created_at": "2023-10-03T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i7-12700H, 14C/20T, Max Turbo up to 4.7GHz, 24MB",
         "RAM": "16GB DDR4-3200",
@@ -76,6 +79,7 @@
       "id": "4",
       "title": "PC GVN Intel i5-13400F",
       "category_id": 3,
+      "created_at": "2023-10-04T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i5-13400F, 10C/16T, Max Turbo up to 4.6GHz",
         "RAM": "16GB DDR4-3200",
@@ -94,6 +98,7 @@
       "id": "5",
       "title": "Mainboard ASUS ROG Strix Z790-E",
       "category_id": 4,
+      "created_at": "2023-10-05T12:00:00Z",
       "description": {
         "Chipset": "Intel® Z790",
         "Socket": "LGA 1700",
@@ -119,6 +124,7 @@
       "id": "6",
       "title": "Case Cooler Master MasterBox TD500",
       "category_id": 5,
+      "created_at": "2023-10-06T12:00:00Z",
       "description": {
         "Type": "Mid Tower",
         "Material": "Tempered Glass, Steel",
@@ -144,6 +150,7 @@
       "id": "7",
       "title": "SSD Samsung 990 Pro 1TB",
       "category_id": 6,
+      "created_at": "2023-10-07T12:00:00Z",
       "description": {
         "Capacity": "1TB",
         "Interface": "PCIe 4.0 NVMe",
@@ -169,6 +176,7 @@
       "id": "8",
       "title": "Loa Bluetooth JBL Flip 6",
       "category_id": 7,
+      "created_at": "2023-10-08T12:00:00Z",
       "description": {
         "Power": "20W RMS",
         "Battery": "12 hours",
@@ -194,6 +202,7 @@
       "id": "10",
       "title": "Bàn phím cơ Logitech G Pro X",
       "category_id": 9,
+      "created_at": "2023-10-10T12:00:00Z",
       "description": {
         "Switch": "Hot-swappable (GX Blue Clicky)",
         "Layout": "Tenkeyless",
@@ -219,6 +228,7 @@
       "id": "12",
       "title": "Tai nghe Sony WH-1000XM5",
       "category_id": 11,
+      "created_at": "2023-10-12T12:00:00Z",
       "description": {
         "Type": "Over-ear",
         "Noise Cancelling": "Yes, Industry-leading",
@@ -244,6 +254,7 @@
       "id": "13",
       "title": "Laptop gaming HP OMEN 16 wf0129TX 8W943PA",
       "category_id": 1,
+      "created_at": "2023-10-13T12:00:00Z",
       "description": {
         "CPU": "AMD Ryzen™ 7 7735U, 8C/16T, Max Boost up to 4.75GHz",
         "RAM": "16GB LPDDR5-6400",
@@ -266,6 +277,7 @@
       "id": "14",
       "title": "Laptop Gaming Acer Nitro 5 AN515-58",
       "category_id": 2,
+      "created_at": "2023-10-14T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i9-12900H, 14C/20T, Max Turbo up to 5.0GHz",
         "RAM": "32GB DDR5-4800",
@@ -293,6 +305,7 @@
       "id": "15",
       "title": "PC GVN AMD Ryzen 5 7600X",
       "category_id": 3,
+      "created_at": "2023-10-15T12:00:00Z",
       "description": {
         "CPU": "AMD Ryzen™ 5 7600X, 6C/12T, Max Boost up to 5.3GHz",
         "RAM": "32GB DDR5-5200",
@@ -318,6 +331,7 @@
       "id": "16",
       "title": "VGA MSI GeForce RTX 4070 Ti",
       "category_id": 4,
+      "created_at": "2023-10-16T12:00:00Z",
       "description": {
         "GPU": "NVIDIA® GeForce® RTX 4070 Ti",
         "Memory": "12GB GDDR6X",
@@ -343,6 +357,7 @@
       "id": "17",
       "title": "Nguồn Corsair RM850x",
       "category_id": 5,
+      "created_at": "2023-10-17T12:00:00Z",
       "description": {
         "Wattage": "850W",
         "Efficiency": "80 PLUS Gold",
@@ -368,6 +383,7 @@
       "id": "18",
       "title": "RAM Corsair Vengeance 32GB DDR5",
       "category_id": 6,
+      "created_at": "2023-10-18T12:00:00Z",
       "description": {
         "Capacity": "32GB (2x16GB)",
         "Speed": "DDR5-6000",
@@ -393,6 +409,7 @@
       "id": "19",
       "title": "Micro HyperX QuadCast S",
       "category_id": 7,
+      "created_at": "2023-10-19T12:00:00Z",
       "description": {
         "Type": "Condenser",
         "Polar Patterns": "Stereo, Omnidirectional, Cardioid, Bidirectional",
@@ -418,6 +435,7 @@
       "id": "21",
       "title": "Bàn phím Razer BlackWidow V4 Pro",
       "category_id": 9,
+      "created_at": "2023-10-21T12:00:00Z",
       "description": {
         "Switch": "Razer Green Mechanical",
         "Layout": "Full-size",
@@ -443,6 +461,7 @@
       "id": "23",
       "title": "Tai nghe Razer Barracuda X",
       "category_id": 11,
+      "created_at": "2023-10-23T12:00:00Z",
       "description": {
         "Type": "Wireless Over-ear",
         "Drivers": "40mm",
@@ -468,6 +487,7 @@
       "id": "24",
       "title": "Laptop ASUS Vivobook 14 A1407CA LY008WS",
       "category_id": 1,
+      "created_at": "2023-10-24T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i5-1135G7, 4 nhân, 8 luồng, Max Turbo 4.2GHz",
         "RAM": "8GB DDR4 3200MHz",
@@ -493,6 +513,7 @@
       "id": "25",
       "title": "Laptop ACER Aspire 5 A515-45",
       "category_id": 2,
+      "created_at": "2023-10-25T12:00:00Z",
       "description": {
         "CPU": "AMD Ryzen 5 5500U, 6 nhân, 12 luồng, Max Turbo 4.0GHz",
         "RAM": "16GB DDR4 3200MHz",
@@ -516,6 +537,7 @@
       "id": "26",
       "title": "Laptop MSI Prestige 14 AI Studio C1VEG 056VN",
       "category_id": 3,
+      "created_at": "2023-10-26T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i7-10750H, 6 nhân, 12 luồng, Max Turbo 5.0GHz",
         "RAM": "8GB DDR4 2933MHz",
@@ -539,6 +561,7 @@
       "id": "27",
       "title": "Laptop LENOVO IdeaPad 3 15ADA6",
       "category_id": 4,
+      "created_at": "2023-10-27T12:00:00Z",
       "description": {
         "CPU": "AMD Ryzen 3 5300U, 4 nhân, 8 luồng, Max Turbo 3.8GHz",
         "RAM": "8GB DDR4 3200MHz",
@@ -559,6 +582,7 @@
       "id": "28",
       "title": "Laptop DELL Inspiron 15 5000",
       "category_id": 5,
+      "created_at": "2023-10-28T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i5-1135G7, 4 nhân, 8 luồng, Max Turbo 4.2GHz",
         "RAM": "16GB DDR4 3200MHz",
@@ -583,6 +607,7 @@
       "id": "29",
       "title": "Laptop HP Pavilion 14",
       "category_id": 6,
+      "created_at": "2023-10-29T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i7-1165G7, 4 nhân, 8 luồng, Max Turbo 4.7GHz",
         "RAM": "16GB DDR4 3200MHz",
@@ -605,7 +630,8 @@
     {
       "id": "30",
       "title": "Laptop LG Gram 14",
-      "category_id": 7,
+      "category_id": 1,
+      "created_at": "2023-10-30T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i5-1135G7, 4 nhân, 8 luồng, Max Turbo 4.2GHz",
         "RAM": "8GB LPDDR4X",
@@ -628,7 +654,7 @@
     {
       "id": "31",
       "title": "Laptop ASUS ZenBook 14",
-      "category_id": 8,
+      "category_id": 1,
       "description": {
         "CPU": "Intel® Core™ i7-1165G7, 4 nhân, 8 luồng, Max Turbo 4.7GHz",
         "RAM": "16GB LPDDR4X",
@@ -677,6 +703,7 @@
       "id": "33",
       "title": "Laptop MSI Creator M16 HX C14VFG 040VN",
       "category_id": 10,
+      "created_at": "2024-05-05T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i7-10750H, 6 nhân, 12 luồng, Max Turbo 5.0GHz",
         "RAM": "16GB DDR4 2933MHz",
@@ -701,6 +728,7 @@
       "id": "34",
       "title": "PC GVN AMD Ryzen 5 5600X",
       "category_id": 3,
+      "created_at": "2024-05-06T12:00:00Z",
       "description": {
         "CPU": "AMD Ryzen™ 5 5600X, 6C/12T, Max Turbo up to 4.6GHz",
         "RAM": "16GB DDR4-3600",
@@ -721,6 +749,7 @@
       "id": "35",
       "title": "PC ASUS ROG Intel i7-13700KF",
       "category_id": 3,
+      "created_at": "2024-05-07T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i7-13700KF, 16C/24T, Max Turbo up to 5.4GHz",
         "RAM": "32GB DDR5-5200",
@@ -739,6 +768,7 @@
       "id": "36",
       "title": "PC MSI Gaming AMD Ryzen 7 5800X",
       "category_id": 3,
+      "created_at": "2024-05-08T12:00:00Z",
       "description": {
         "CPU": "AMD Ryzen™ 7 5800X, 8C/16T, Max Turbo up to 4.7GHz",
         "RAM": "32GB DDR4-3600",
@@ -757,6 +787,7 @@
       "id": "37",
       "title": "PC HP Pavilion Intel i5-12400F",
       "category_id": 3,
+      "created_at": "2024-05-09T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i5-12400F, 6C/12T, Max Turbo up to 4.4GHz",
         "RAM": "16GB DDR4-3200",
@@ -775,6 +806,7 @@
       "id": "38",
       "title": "PC Dell Alienware AMD Ryzen 9 5900X",
       "category_id": 3,
+      "created_at": "2024-05-10T12:00:00Z",
       "description": {
         "CPU": "AMD Ryzen™ 9 5900X, 12C/24T, Max Turbo up to 4.8GHz",
         "RAM": "64GB DDR4-3600",
@@ -793,6 +825,7 @@
       "id": "39",
       "title": "PC Acer Predator Intel i9-13900KF",
       "category_id": 3,
+      "created_at": "2024-05-11T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i9-13900KF, 24C/32T, Max Turbo up to 5.8GHz",
         "RAM": "32GB DDR5-6000",
@@ -811,6 +844,7 @@
       "id": "40",
       "title": "PC Lenovo Legion AMD Ryzen 5 7600",
       "category_id": 3,
+      "created_at": "2024-05-12T12:00:00Z",
       "description": {
         "CPU": "AMD Ryzen™ 5 7600, 6C/12T, Max Turbo up to 5.1GHz",
         "RAM": "16GB DDR5-5200",
@@ -829,6 +863,7 @@
       "id": "41",
       "title": "PC Gigabyte AORUS Intel i7-12700F",
       "category_id": 3,
+      "created_at": "2024-05-13T12:00:00Z",
       "description": {
         "CPU": "Intel® Core™ i7-12700F, 12C/20T, Max Turbo up to 4.9GHz",
         "RAM": "32GB DDR4-3200",
@@ -847,6 +882,7 @@
       "id": "42",
       "title": "Chuột Logitech MX Master 3S",
       "category_id": 10,
+      "created_at": "2024-05-14T12:00:00Z",
       "description": {
         "Sensor": "Darkfield 8000 DPI",
         "Buttons": "7 programmable buttons",
@@ -865,6 +901,7 @@
       "id": "43",
       "title": "Chuột Logitech G Pro X Superlight",
       "category_id": 10,
+      "created_at": "2024-05-15T12:00:00Z",
       "description": {
         "Sensor": "HERO 25K",
         "Buttons": "5 programmable buttons",
@@ -883,6 +920,7 @@
       "id": "44",
       "title": "Chuột Razer DeathAdder V2",
       "category_id": 10,
+      "created_at": "2024-05-16T12:00:00Z",
       "description": {
         "Sensor": "Focus+ 20K DPI",
         "Buttons": "8 programmable buttons",
@@ -901,6 +939,7 @@
       "id": "45",
       "title": "Chuột Corsair Harpoon RGB Wireless",
       "category_id": 10,
+      "created_at": "2024-05-17T12:00:00Z",
       "description": {
         "Sensor": "PMW3325 10000 DPI",
         "Buttons": "6 programmable buttons",
@@ -919,6 +958,7 @@
       "id": "46",
       "title": "Chuột Logitech M650 L",
       "category_id": 10,
+      "created_at": "2024-05-18T12:00:00Z",
       "description": {
         "Sensor": "Optical 4000 DPI",
         "Buttons": "5 buttons",
@@ -937,6 +977,7 @@
       "id": "47",
       "title": "Chuột Microsoft Bluetooth Ergonomic",
       "category_id": 10,
+      "created_at": "2024-05-19T12:00:00Z",
       "description": {
         "Sensor": "Bluetooth tracking sensor",
         "Buttons": "4 buttons",
@@ -955,6 +996,7 @@
       "id": "48",
       "title": "Chuột SteelSeries Rival 3 Wireless",
       "category_id": 10,
+      "created_at": "2024-05-20T12:00:00Z",
       "description": {
         "Sensor": "TrueMove Air",
         "Buttons": "6 buttons",
@@ -973,6 +1015,7 @@
       "id": "49",
       "title": "Màn hình LG UltraGear 27GP950-B",
       "category_id": 8,
+      "created_at": "2024-05-01T12:00:00Z",
       "description": {
         "Size": "27 inch",
         "Resolution": "4K UHD (3840x2160)",
@@ -991,6 +1034,7 @@
       "id": "50",
       "title": "Màn hình ASUS ROG Swift PG32UQ",
       "category_id": 8,
+      "created_at": "2024-05-02T12:00:00Z",
       "description": {
         "Size": "32 inch",
         "Resolution": "4K UHD (3840x2160)",
@@ -1009,6 +1053,7 @@
       "id": "51",
       "title": "Màn hình Dell UltraSharp U2723QE",
       "category_id": 8,
+      "created_at": "2024-05-03T12:00:00Z",
       "description": {
         "Size": "27 inch",
         "Resolution": "4K UHD (3840x2160)",
@@ -1027,6 +1072,7 @@
       "id": "52",
       "title": "Màn hình Samsung Smart Monitor M8",
       "category_id": 8,
+      "created_at": "2024-05-04T12:00:00Z",
       "description": {
         "Size": "32 inch",
         "Resolution": "4K UHD (3840x2160)",
@@ -1045,6 +1091,7 @@
       "id": "53",
       "title": "Màn hình Gigabyte M27Q X",
       "category_id": 8,
+      "created_at": "2024-05-05T12:00:00Z", 
       "description": {
         "Size": "27 inch",
         "Resolution": "QHD (2560x1440)",

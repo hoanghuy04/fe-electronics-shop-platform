@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { getListOfBrands, getListOfCategories, getProducts } from "../services/productService";
+import { getListOfBrands, getListOfCategories, getProducts, getViewedProducts } from "../services/productService";
 
 export const ProductContext = createContext();
 
@@ -8,9 +8,13 @@ export const ProductProvider = ({ children }) => {
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true)
+    const [viewedProducts, setViewedProducts] = useState([]);
 
     // Lấy danh sách categories khi component mount
     useEffect(() => {
+        const products = getViewedProducts();
+        setViewedProducts(products);
+        
         const fetchData = async () => {
             setLoading(true)
             try {
@@ -34,7 +38,7 @@ export const ProductProvider = ({ children }) => {
     }, []);
 
     return (
-        <ProductContext.Provider value={{ brands, setBrands, products, setProducts, categories, setCategories, loading, setLoading }}>
+        <ProductContext.Provider value={{ brands, setBrands, products, setProducts, categories, setCategories, loading, setLoading, viewedProducts }}>
             {children}
         </ProductContext.Provider>
     );

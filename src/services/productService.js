@@ -79,54 +79,50 @@ export const searchProductsBySlug = async (slug) => {
   }
 };
 
-// Search products by filters
 export const searchProductsByFilters = async (filters) => {
   try {
-    const { categorySlug, priceRange, cpus, rams, gpus, brands } = filters;
+    const { categorySlug, priceRange, brands, descriptionFilters } = filters;
     const products = await getProducts();
 
+    // lấy ra id của danh muc theo categorySlug
+    const categories = await getListOfCategories();
+    const category = categories.find((cat) => cat.slug === categorySlug);
+    const categoryId = category ? category.id : null;
+    
+
+
     return products.filter((product) => {
+      // Lọc theo danh mục
       const matchCategory =
         !categorySlug || categorySlug === "all"
           ? true
-          : product.category_id === categorySlug;
+          : product.category_id == categoryId;
 
+      // Lọc theo giá
       const matchPrice =
         priceRange?.length === 2
           ? product.price >= priceRange[0] && product.price <= priceRange[1]
           : true;
 
-      const matchCPU =
-        cpus?.length > 0
-          ? product.description?.CPU &&
-            cpus.some((cpu) => product.description.CPU.includes(cpu))
-          : true;
-
-      const matchRAM =
-        rams?.length > 0
-          ? product.description?.RAM &&
-            rams.some((ram) => product.description.RAM.includes(ram))
-          : true;
-
-      const matchGPU =
-        gpus?.length > 0
-          ? product.description?.["Card đồ họa"] &&
-            gpus.some((gpu) =>
-              normalizeGPU(product.description["Card đồ họa"]).includes(gpu)
-            )
-          : true;
-
+      // Lọc theo hãng
       const matchBrand =
         brands?.length > 0 ? brands.includes(product.brand) : true;
 
-      return (
-        matchCategory &&
-        matchPrice &&
-        matchCPU &&
-        matchRAM &&
-        matchGPU &&
-        matchBrand
+      // Lọc theo thuộc tính động trong descriptionFilters
+      const matchDescription = Object.keys(descriptionFilters || {}).every(
+        (key) => {
+          const selectedValues = descriptionFilters[key];
+          if (!selectedValues?.length) return true; // Không có giá trị được chọn, bỏ qua
+
+          const productValue = product.description?.[key];
+          if (!productValue) return false; // Sản phẩm không có thuộc tính này
+
+          // So sánh trực tiếp giá trị gốc với các giá trị được chọn
+          return selectedValues.some((value) => productValue === value);
+        }
       );
+
+      return matchCategory && matchPrice && matchBrand && matchDescription;
     });
   } catch (error) {
     console.error("Error filtering products:", error);
