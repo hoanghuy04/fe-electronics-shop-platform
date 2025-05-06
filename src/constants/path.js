@@ -17,4 +17,11 @@ export const path = {
   viewed: "/account/viewed",
   contact: "/contact",
   paymentInstruction: "/payment-instruction",
+  // Admin paths
+  homeAdmin: "/admin",
+  productManagement: "products",
+  orderManagement: "orders",
+  report: "reports",
+  userManagement: "users",
+  loginAdmin: "/loginAdmin",
 };

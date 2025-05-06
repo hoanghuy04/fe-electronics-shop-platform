@@ -1409,7 +1409,7 @@
       ]
     },
     {
-      "id": "3a1f",
+      "id": "2",
       "email": "daolinh28102004@gmail.com",
       "name": "Đào Linh",
       "gender": 0,
@@ -1417,6 +1417,17 @@
       "dob": "",
       "address": [],
       "password": "123"
+    },
+    {
+      "id": "3",
+      "email": "12@gmail.com",
+      "password": "123",
+      "name": "Dương Hoàng Huy",
+      "gender": 1,
+      "phone": "0364635032",
+      "dob": "06/12/2004",
+      "role": "ADMIN",
+      "address": []
     }
   ],
   "reviews": [

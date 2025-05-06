@@ -11,17 +11,12 @@ import {
   Input,
   Breadcrumb,
 } from "antd";
-import {
-  getListOfBrands,
-  normalizeCPU,
-  normalizeGPU,
-  normalizeSSD,
-  searchProductsByFilters,
-} from "../../services/productService";
 import ProductCard from "../../components/ProductCard";
 import { ProductContext } from "../../hooks/ProductContext";
 import { Info } from "lucide-react";
 import { FilterOutlined, DownOutlined } from "@ant-design/icons";
+import { productService } from './../../services/product.service';
+import { normalizeCPU, normalizeGPU, normalizeSSD } from './../../utils/productUtils';
 
 const initItemsBreadcum = [
   {
@@ -134,7 +129,7 @@ const ListProduct = () => {
       }
 
       try {
-        const brands = await getListOfBrands();
+        const brands = await productService.getListOfBrands();
         if (Array.isArray(brands)) {
           const brandNames = brands.map((b) => b.name);
           setBrandOptions(brandNames);
@@ -183,7 +178,7 @@ const ListProduct = () => {
       let results =
         searchResults.length > 0
           ? searchResults
-          : await searchProductsByFilters(filters);
+          : await productService.searchProductsByFilters(filters);
 
 
       // Apply sorting if selected

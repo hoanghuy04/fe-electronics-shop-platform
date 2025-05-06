@@ -11,11 +11,11 @@ import {
   Button,
 } from "antd";
 import ProductCard from "../../components/ProductCard";
-import { searchProductsByTitle } from "../../services/productService";
 import { useCart } from "../../hooks/useCart";
-import { addReview, getReviewsByProductID } from "../../services/ReviewService";
 import ReviewsModal from "../../components/ReviewsModal";
 import { ProductContext } from "../../hooks/ProductContext";
+import { productService } from './../../services/product.service';
+import { reviewService } from "../../services/review.service";
 
 const initItemsBreadcum = [
   {
@@ -83,7 +83,7 @@ const ProductDetail = () => {
     const fetchAllProducts = async () => {
       try {
         setLoading(true);
-        const products = await searchProductsByTitle("");
+        const products = await productService.searchProductsByTitle("");
         if (products && Array.isArray(products)) {
           setAllProducts(products);
         } else {
@@ -170,7 +170,7 @@ const ProductDetail = () => {
 
     const fetchReviews = async () => {
       try {
-        const productReviews = await getReviewsByProductID(product.id);
+        const productReviews = await reviewService.getReviewsByProductID(product.id);
         if (productReviews && Array.isArray(productReviews)) {
           setReviews(productReviews);
         } else {
@@ -214,7 +214,7 @@ const ProductDetail = () => {
     };
 
     try {
-      const result = await addReview(reviewData);
+      const result = await reviewService.addReview(reviewData);
       if (result) {
         console.log("Đánh giá đã được thêm:", result);
         setReviews((prev) => [...prev, result]);

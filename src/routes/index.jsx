@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import DefaultLayout from "./../layout/DefaultLayout";
+import DefaultLayoutAdmin from "./../layout/DefaultLayoutAdmin";
 import CartStepOne from "../components/CartStepOne";
 import CartStepTwo from "../components/CartStepTwo";
 import CartStepThree from "../components/CartStepThree";
@@ -13,30 +14,59 @@ import { AccountOrderHistory } from "../components/AccountOrderHistory";
 import LoginPage from "../pages/auth/Login";
 import RegisterPage from "../pages/auth/Register";
 import PaymentInstructions from "../pages/client/PaymentInstructions";
-import "antd/dist/reset.css";
 import AccountViewedProduct from "../components/AccountViewedProduct";
 import AccountOrderHistoryDetail from "../components/AccountOrderHistoryDetail";
 import Contact from "../pages/client/Contact";
-import { useAuth } from "../hooks/AuthContext";
+import { AdminProtectedRoute, RejectedRoute, UserProtectedRoute } from "./RouteGuard";
+import LoginAdmin from "../pages/auth/LoginAdmin";
 
-// Lazy loading
+// Lazy loading client pages
 const Home = lazy(() => import("../pages/client/Home"));
 const ProductDetail = lazy(() => import("../pages/client/ProductDetail"));
 const Cart = lazy(() => import("../pages/client/Cart"));
 const NotFound = lazy(() => import("../pages/client/NotFound"));
 const ListProduct = lazy(() => import("../pages/client/ListProduct"));
 
-function ProtectedRoute() {
-  const { isAuthenticated } = useAuth();
-  return isAuthenticated ? <Outlet /> : <Navigate to={path.login} />;
-}
+// Lazy loading admin pages
+const Overview = lazy(() => import("../pages/admin/Overview"));
+const ProductManagement = lazy(() => import("../pages/admin/ProductManagement"));
+const OrderManagement = lazy(() => import("../pages/admin/OrderManagement"));
+const Reports = lazy(() => import("../pages/admin/Reports"));
+const UserManagement = lazy(() => import("../pages/admin/UserManagement"));
 
-function RejectedRoute() {
-  const { isAuthenticated } = useAuth();
-  return !isAuthenticated ? <Outlet /> : <Navigate to={path.home} />;
-}
+// function ProtectedRoute() {
+//   const { isAuthenticated } = useAuth();
+//   return isAuthenticated ? <Outlet /> : <Navigate to={path.login} />;
+// }
+
+// function RejectedRoute() {
+//   const { isAuthenticated } = useAuth();
+//   return !isAuthenticated ? <Outlet /> : <Navigate to={path.home} />;
+// }
 
 const routes = [
+  {
+    path: path.loginAdmin,
+    element: <LoginAdmin />,
+  }
+  , {
+    path: path.homeAdmin,
+    element: <DefaultLayoutAdmin />,
+    children: [
+      {
+        path: "",
+        element: <AdminProtectedRoute />,
+        children: [
+          { path: "", element: <Overview /> },
+          { path: path.productManagement, element: <ProductManagement /> },
+          { path: path.orderManagement, element: <OrderManagement /> },
+          { path: path.report, element: <Reports /> },
+          { path: path.userManagement, element: <UserManagement /> },
+        ],
+      },
+      { path: "*", element: <Navigate to={path.notFound} /> },
+    ],
+  },
   {
     path: path.home,
     element: <DefaultLayout />,
@@ -52,7 +82,7 @@ const routes = [
           { path: "", element: <CartStepOne /> },
           {
             path: "",
-            element: <ProtectedRoute />,
+            element: <UserProtectedRoute />,
             children: [
               { path: path.cartStepTwo, element: <CartStepTwo /> },
               { path: path.cartStepThree, element: <CartStepThree /> },
@@ -61,10 +91,9 @@ const routes = [
           },
         ],
       },
-
       {
         path: "",
-        element: <ProtectedRoute />,
+        element: <UserProtectedRoute />,
         children: [
           {
             path: path.account,
@@ -82,22 +111,21 @@ const routes = [
           },
         ],
       },
-
       { path: path.contact, element: <Contact /> },
       { path: path.paymentInstruction, element: <PaymentInstructions /> },
-
       {
         path: "",
         element: <RejectedRoute />,
         children: [
           { path: path.login, element: <LoginPage /> },
+          { path: path.loginAdmin, element: <LoginPage /> },
           { path: path.register, element: <RegisterPage /> },
         ],
       },
-
       { path: "*", element: <Navigate to={path.notFound} /> },
     ],
   },
+
 ];
 
 export default routes;
