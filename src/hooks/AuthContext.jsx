@@ -21,14 +21,19 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const login = async (user) => {
-    const auth = await authApi.login(user);
+  const login = async (userData) => {
+    const auth = await authApi.login(userData);
     if (auth) {
       toast.success("Đăng nhập thành công");
       setUser(auth);
       setIsAuthenticated(true);
       localStorage.setItem("user", JSON.stringify(auth));
-      navigate(path.home);
+      // Redirect based on role
+      if (auth.role === "ADMIN") {
+        navigate(path.homeAdmin);
+      } else {
+        navigate(path.home);
+      }
     } else {
       toast.error("Tài khoản hoặc mật khẩu không đúng");
     }
@@ -36,7 +41,6 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (user) => {
     const newUser = await authApi.register(user);
-    console.log(newUser);
     if (newUser) {
       toast.success("Tài khoản đã được tạo");
       navigate(path.login);
@@ -66,5 +70,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-//3
 export const useAuth = () => useContext(AuthContext);

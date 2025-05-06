@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import {
   Breadcrumb,
   Carousel,
@@ -11,30 +11,30 @@ import {
   Button,
 } from "antd";
 import ProductCard from "../../components/ProductCard";
-import { searchProductsByTitle } from "../../services/productService";
 import { useCart } from "../../hooks/useCart";
-import { addReview, getReviewsByProductID } from "../../services/ReviewService";
 import ReviewsModal from "../../components/ReviewsModal";
+import { ProductContext } from "../../hooks/ProductContext";
+import { productService } from './../../services/product.service';
+import { reviewService } from "../../services/review.service";
 
 const initItemsBreadcum = [
   {
     title: <a href="/">Trang chủ</a>,
   },
-  {
-    title: <a href="/products/category/all">Danh sách sản phẩm</a>,
-  },
 ];
 
 const ProductDetail = () => {
   const { slug } = useParams();
+  const { state } = useLocation();
   const [product, setProduct] = useState(null);
+  const { viewedProducts, categories } = useContext(ProductContext);
   const [relevantProducts, setRelevantProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [mainImage, setMainImage] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isModalVisible, setIsModalVisible] = useState(false); // Modal thêm đánh giá
-  const [isReviewsModalVisible, setIsReviewsModalVisible] = useState(false); // Modal xem tất cả đánh giá
-  const [reviews, setReviews] = useState([]); // Danh sách đánh giá
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isReviewsModalVisible, setIsReviewsModalVisible] = useState(false);
+  const [reviews, setReviews] = useState([]);
   const [form] = Form.useForm();
   const { addToCart } = useCart();
   const [itemsBreadcum, setItemsBreadcum] = useState(initItemsBreadcum);
@@ -56,7 +56,7 @@ const ProductDetail = () => {
   const handleReplySubmit = async (values) => {
     const replyData = {
       id: Date.now().toString(),
-      user_name: "Trần Ngọc Huyền (Nhân viên)", // Hoặc lấy từ thông tin đăng nhập
+      user_name: "Trần Ngọc Huyền (Nhân viên)",
       reply_text: values.reply_text,
       reply_date: new Date().toISOString().split("T")[0],
     };
@@ -83,7 +83,7 @@ const ProductDetail = () => {
     const fetchAllProducts = async () => {
       try {
         setLoading(true);
-        const products = await searchProductsByTitle("");
+        const products = await productService.searchProductsByTitle("");
         if (products && Array.isArray(products)) {
           setAllProducts(products);
         } else {
@@ -108,8 +108,41 @@ const ProductDetail = () => {
         if (foundProduct) {
           setProduct(foundProduct);
           setMainImage(foundProduct.image_url[0]);
-          setItemsBreadcum((prev) => [...prev, { title: foundProduct.title }]);
 
+          // Update breadcrumb
+          const breadcrumbItems = [...initItemsBreadcum];
+          let categoryLink = "/products/all/brand/all";
+          let categoryTitle = "Danh sách sản phẩm";
+
+          // if (state?.categorySlug) {
+          //   const category = categories.find(
+          //     (c) => c.slug === state.categorySlug
+          //   );
+          //   if (category) {
+          //     categoryLink = `/products/${category.slug}/brand/all`;
+          //     categoryTitle = category.name;
+          //   } else {
+          //     categoryLink = `/products/${state.categorySlug}/brand/all`;
+          //     categoryTitle = state.categorySlug
+          //       .replace(/-/g, " ")
+          //       .replace(/\b\w/g, (c) => c.toUpperCase());
+          //   }
+          // } else {
+            const productCategory = categories.find(
+              (c) => c.id.toString() === foundProduct.category_id.toString()
+            );
+            if (productCategory) {
+              categoryLink = `/products/${productCategory.slug}/brand/all`;
+              categoryTitle = productCategory.name;
+            }
+          // }
+
+          breadcrumbItems.push({
+            title: <a href={categoryLink}>{categoryTitle}</a>,
+          });
+          breadcrumbItems.push({ title: foundProduct.title });
+
+          setItemsBreadcum(breadcrumbItems);
           const keyword = foundProduct.title.split(" ")[0].toUpperCase();
           const related = allProducts.filter((productFilter) => {
             return (
@@ -130,15 +163,14 @@ const ProductDetail = () => {
     };
 
     fetchProduct();
-  }, [slug, allProducts]);
+  }, [slug, allProducts, categories, state]);
 
-  // Lấy danh sách đánh giá khi sản phẩm được tải
   useEffect(() => {
     if (!product) return;
 
     const fetchReviews = async () => {
       try {
-        const productReviews = await getReviewsByProductID(product.id); // Giả định có API này
+        const productReviews = await reviewService.getReviewsByProductID(product.id);
         if (productReviews && Array.isArray(productReviews)) {
           setReviews(productReviews);
         } else {
@@ -171,8 +203,8 @@ const ProductDetail = () => {
   };
 
   const handleSubmitReview = async (values) => {
-    const userId = 1; // Giả định userId
-    const username = "Trần Ngọc Huyền"; // Giả định username
+    const userId = 1;
+    const username = "Trần Ngọc Huyền";
     const reviewData = {
       product_id: product.id,
       user_id: userId,
@@ -182,10 +214,10 @@ const ProductDetail = () => {
     };
 
     try {
-      const result = await addReview(reviewData);
+      const result = await reviewService.addReview(reviewData);
       if (result) {
         console.log("Đánh giá đã được thêm:", result);
-        setReviews((prev) => [...prev, result]); // Cập nhật danh sách đánh giá
+        setReviews((prev) => [...prev, result]);
         setIsModalVisible(false);
         form.resetFields();
       }
@@ -246,7 +278,14 @@ const ProductDetail = () => {
                 {product.title}
               </h1>
               <div className="flex items-center mt-2">
-                <span className="text-yellow-400">0.0 ★</span>
+                <span className="text-yellow-400">
+                  {reviews.length > 0
+                    ? (
+                        reviews.reduce((sum, r) => sum + r.rating, 0) /
+                        reviews.length
+                      ).toFixed(1) + " ★"
+                    : "0.0 ★"}
+                </span>
                 <a href="/" className="ml-2 text-gray-500">
                   Xem đánh giá
                 </a>
@@ -354,7 +393,6 @@ const ProductDetail = () => {
                       Đăng ngày 10/04/2025
                     </span>
 
-                    {/* Hiển thị các phản hồi */}
                     <div className="mt-2 pl-4 border-l-2 border-gray-200">
                       {review.replies.map((reply) => (
                         <div key={reply.id} className="mb-2">
@@ -404,7 +442,6 @@ const ProductDetail = () => {
                         </Form.Item>
                       </Form>
                     </Modal>
-                    {/* Nút trả lời */}
                     <Button
                       type="link"
                       onClick={() => handleReplyClick(review.id)}
@@ -428,7 +465,29 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          {/* Modal thêm đánh giá */}
+          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+            <div className="flex justify-between items-center mb-6">
+              <div className="text-2xl font-bold ml-3">Sản phẩm đã xem</div>
+            </div>
+            <Carousel
+              slidesToShow={5}
+              slidesToScroll={1}
+              arrows
+              autoplay
+              className="p-6"
+            >
+              {viewedProducts.length > 0 ? (
+                viewedProducts.map((p) => (
+                  <div key={p.id}>
+                    <ProductCard product={p} />
+                  </div>
+                ))
+              ) : (
+                <div>Không có sản phẩm nào để hiển thị</div>
+              )}
+            </Carousel>
+          </div>
+
           <Modal
             title="Thêm đánh giá của bạn"
             visible={isModalVisible}
@@ -465,7 +524,6 @@ const ProductDetail = () => {
             </Form>
           </Modal>
 
-          {/* Modal xem tất cả đánh giá */}
           <ReviewsModal
             product={product}
             reviews={reviews}
