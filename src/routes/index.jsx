@@ -17,8 +17,13 @@ import PaymentInstructions from "../pages/client/PaymentInstructions";
 import AccountViewedProduct from "../components/AccountViewedProduct";
 import AccountOrderHistoryDetail from "../components/AccountOrderHistoryDetail";
 import Contact from "../pages/client/Contact";
-import { AdminProtectedRoute, RejectedRoute, UserProtectedRoute } from "./RouteGuard";
+import {
+  AdminProtectedRoute,
+  RejectedRoute,
+  UserProtectedRoute,
+} from "./RouteGuard";
 import LoginAdmin from "../pages/auth/LoginAdmin";
+import BrandManagement from "../pages/admin/BrandManagement";
 
 // Lazy loading client pages
 const Home = lazy(() => import("../pages/client/Home"));
@@ -29,7 +34,9 @@ const ListProduct = lazy(() => import("../pages/client/ListProduct"));
 
 // Lazy loading admin pages
 const Overview = lazy(() => import("../pages/admin/Overview"));
-const ProductManagement = lazy(() => import("../pages/admin/ProductManagement"));
+const ProductManagement = lazy(() =>
+  import("../pages/admin/ProductManagement")
+);
 const OrderManagement = lazy(() => import("../pages/admin/OrderManagement"));
 const Reports = lazy(() => import("../pages/admin/Reports"));
 const UserManagement = lazy(() => import("../pages/admin/UserManagement"));
@@ -48,8 +55,8 @@ const routes = [
   {
     path: path.loginAdmin,
     element: <LoginAdmin />,
-  }
-  , {
+  },
+  {
     path: path.homeAdmin,
     element: <DefaultLayoutAdmin />,
     children: [
@@ -62,6 +69,7 @@ const routes = [
           { path: path.orderManagement, element: <OrderManagement /> },
           { path: path.report, element: <Reports /> },
           { path: path.userManagement, element: <UserManagement /> },
+          { path: path.brandManagement, element: <BrandManagement /> },
         ],
       },
       { path: "*", element: <Navigate to={path.notFound} /> },
@@ -125,7 +133,6 @@ const routes = [
       { path: "*", element: <Navigate to={path.notFound} /> },
     ],
   },
-
 ];
 
 export default routes;

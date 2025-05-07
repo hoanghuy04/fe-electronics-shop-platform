@@ -1,7 +1,6 @@
-import { BrowserRouter } from "react-router-dom";
 import AllRoutes from "./components/AllRoutes";
-import ScrollToTop from "./utils/ScrollToTop";
 import { Toaster } from "sonner";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (

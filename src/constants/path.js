@@ -24,4 +24,5 @@ export const path = {
   report: "reports",
   userManagement: "users",
   loginAdmin: "/loginAdmin",
+  brandManagement: "brands",
 };

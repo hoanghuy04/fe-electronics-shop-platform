@@ -1,5 +1,5 @@
-import { Content, Footer } from 'antd/es/layout/layout';
-import React from 'react';
+import { Content, Footer } from "antd/es/layout/layout";
+import React from "react";
 import { Layout, Menu, Avatar, Badge, Input } from "antd";
 import {
   SearchOutlined,
@@ -9,9 +9,10 @@ import {
   MessageOutlined,
   BarChartOutlined,
   DashboardOutlined,
+  HddOutlined,
 } from "@ant-design/icons";
-import { NavLink, Outlet } from 'react-router-dom';
-import { path } from '../constants/path';
+import { NavLink, Outlet } from "react-router-dom";
+import { path } from "../constants/path";
 
 const menuItems = [
   {
@@ -20,14 +21,31 @@ const menuItems = [
     label: <NavLink to={path.homeAdmin}>Overview</NavLink>,
   },
   {
+    key: `${path.homeAdmin}/${path.brandManagement}`,
+    icon: <HddOutlined />,
+    label: (
+      <NavLink to={`${path.homeAdmin}/${path.brandManagement}`}>
+        Brand Management
+      </NavLink>
+    ),
+  },
+  {
     key: `${path.homeAdmin}/${path.productManagement}`,
     icon: <ProjectOutlined />,
-    label: <NavLink to={`${path.homeAdmin}/${path.productManagement}`}>Product Management</NavLink>,
+    label: (
+      <NavLink to={`${path.homeAdmin}/${path.productManagement}`}>
+        Product Management
+      </NavLink>
+    ),
   },
   {
     key: `${path.homeAdmin}/${path.userManagement}`,
     icon: <TeamOutlined />,
-    label: <NavLink to={`${path.homeAdmin}/${path.userManagement}`}>User Management</NavLink>,
+    label: (
+      <NavLink to={`${path.homeAdmin}/${path.userManagement}`}>
+        User Management
+      </NavLink>
+    ),
   },
   {
     key: `${path.homeAdmin}/${path.report}`,
@@ -37,17 +55,26 @@ const menuItems = [
   {
     key: `${path.homeAdmin}/${path.orderManagement}`,
     icon: <MessageOutlined />,
-    label: <NavLink to={`${path.homeAdmin}/${path.orderManagement}`}>Order Management</NavLink>,
+    label: (
+      <NavLink to={`${path.homeAdmin}/${path.orderManagement}`}>
+        Order Management
+      </NavLink>
+    ),
   },
 ];
 
 export default function DefaultLayoutAdmin() {
   return (
-    <div className='min-h-screen grid grid-cols-[250px_1fr] grid-rows-[auto_1fr_auto]'>
+    <div className="min-h-screen grid grid-cols-[250px_1fr] grid-rows-[auto_1fr_auto]">
       {/* Sidebar */}
       <div className="bg-white shadow-md row-span-3">
         <div className="p-4 flex justify-center">
-          <a href={path.homeAdmin} className="text-2xl font-bold text-blue-500 text-center cursor-pointer">LOGO</a>
+          <a
+            href={path.homeAdmin}
+            className="text-2xl font-bold text-blue-500 text-center cursor-pointer"
+          >
+            LOGO
+          </a>
         </div>
         <Menu
           defaultSelectedKeys={[path.homeAdmin]}
