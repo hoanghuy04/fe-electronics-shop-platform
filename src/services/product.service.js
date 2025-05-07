@@ -1,5 +1,5 @@
 import { toast } from "sonner";
-import { get } from "./request";
+import { get, post, put } from "./request";
 
 export const productService = {
   getProducts: async () => {
@@ -113,6 +113,30 @@ export const productService = {
     } catch (error) {
       toast.error("Lỗi khi lấy danh sách hãng:", error);
       return [];
+    }
+  },
+
+  addProduct: async (productData) => {
+    try {
+      const response = await post(`products`, {
+        ...productData,
+        created_at: new Date().toISOString(),
+        total_sales: productData.total_sales || 0, 
+      });
+      return response.data; 
+    } catch (error) {
+      console.error('Error adding product:', error.response?.data || error.message);
+      throw new Error(error.response?.data?.message || 'Không thể thêm sản phẩm');
+    }
+  },
+  
+ updateProduct: async (id, productData) => {
+    try {
+      const response = await put(`products/${id}`, productData);
+      return response.data; 
+    } catch (error) {
+      console.error('Error updating product:', error.response?.data || error.message);
+      throw new Error(error.response?.data?.message || 'Không thể cập nhật sản phẩm');
     }
   },
 };

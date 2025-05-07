@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
     }
     setLoading(false);
+    
   }, []);
 
   const login = async (userData) => {
