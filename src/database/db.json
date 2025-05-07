@@ -1,20 +1,14 @@
 {
   "products": [
     {
-      "id": "1",
       "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
-      "category_id": 1,
-      "created_at": "2023-10-01T12:00:00Z",
-      "description": {
-        "CPU": "Intel® Core™ Ultra 7 155H, 16C (6P + 8E + 2LPE) / 22T, Max Turbo up to 4.8GHz, 24MB",
-        "RAM": "32GB Soldered LPDDR5x-7467",
-        "SSD": "512GB SSD M.2 2242 PCIe® 4.0x4 NVMe® (1 slot, nâng cấp tối đa 1TB)",
-        "Card đồ họa": "Integrated Intel® Arc™ Graphics"
-      },
-      "price": 24490000,
+      "price": 19999999,
       "discount": 0.09,
+      "category_id": 1,
       "brand": "LENOVO",
-      "slug": "laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn",
+      "stock": 0,
+      "total_sales": 10,
+      "status": "inactive",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531047/products/product_1_0.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531049/products/product_1_1.png",
@@ -22,33 +16,38 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531052/products/product_1_3.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531054/products/product_1_4.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531057/products/product_1_5.png",
-        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531061/products/product_1_6.png",
-        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531063/products/product_1_7.png"
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531061/products/product_1_6.png"
       ],
-      "total_sales": 1
+      "description": {
+        "CPU": "Intel® Core™ Ultra 7 155H, 16C (6P + 8E + 2LPE) / 22T, Max Turbo up to 4.8GHz, 24MB",
+        "RAM": "32GB Soldered LPDDR5x-7467",
+        "SSD": "512GB SSD M.2 2242 PCIe® 4.0x4 NVMe® (1 slot, nâng cấp tối đa 1TB)",
+        "Card đồ họa": "Integrated Intel® Arc™ Graphics"
+      },
+      "id": "1"
     },
     {
-      "id": "2",
       "title": "Laptop ASUS ZenBook 14 UX425EA",
-      "category_id": 1,
-      "created_at": "2023-10-02T12:00:00Z",
-      "description": {
-        "CPU": "Intel® Core™ i7-1165G7 Processor 2.8 GHz (12M Cache, up to 4.7 GHz, 4 cores)",
-        "RAM": "16GB LPDDR4X on board",
-        "SSD": "1TB SSD M.2 NVMe™ PCIe® 3.0",
-        "Card đồ họa": "Intel® Iris® Xe Graphics"
-      },
       "price": 28400000,
       "discount": 0.07,
+      "category_id": 1,
       "brand": "ASUS",
-      "slug": "laptop-asus-zenbook-14-ux425ea",
+      "stock": 10,
+      "total_sales": 0,
+      "status": "active",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531065/products/product_2_0.jpg",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531067/products/product_2_1.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531069/products/product_2_2.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531071/products/product_2_3.png"
       ],
-      "total_sales": 0
+      "description": {
+        "CPU": "Intel® Core™ i7-1165G7 Processor 2.8 GHz (12M Cache, up to 4.7 GHz, 4 cores)",
+        "RAM": "16GB LPDDR4X on board",
+        "SSD": "1TB SSD M.2 NVMe™ PCIe® 3.0",
+        "Card đồ họa": "Intel® Iris® Xe Graphics"
+      },
+      "id": "2"
     },
     {
       "id": "3",
@@ -76,7 +75,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531083/products/product_3_7.jpg",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531084/products/product_3_8.jpg"
       ],
-      "total_sales": 1
+      "total_sales": 1,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "4",
@@ -96,7 +97,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531084/products/product_4_0.jpg"
       ],
-      "total_sales": 1
+      "total_sales": 1,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "5",
@@ -123,7 +126,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531097/products/product_5_6.jpg",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531098/products/product_5_7.jpg"
       ],
-      "total_sales": 0 
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "6",
@@ -150,7 +155,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531106/products/product_6_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531107/products/product_6_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "7",
@@ -177,7 +184,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531113/products/product_7_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531113/products/product_7_7.png"
       ],
-      "total_sales": 0 
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "8",
@@ -204,7 +213,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531120/products/product_8_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531121/products/product_8_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "10",
@@ -231,7 +242,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531127/products/product_10_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531128/products/product_10_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "12",
@@ -258,7 +271,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531134/products/product_12_6.png",
         "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf484十一e45e9a0f7b5624232b44e_1024x1024.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "13",
@@ -282,7 +297,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531143/products/product_13_3.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531145/products/product_13_4.png"
       ],
-      "total_sales": 1 
+      "total_sales": 1,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "14",
@@ -311,7 +328,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531164/products/product_14_8.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531166/products/product_14_9.png"
       ],
-      "total_sales": 1
+      "total_sales": 1,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "15",
@@ -338,7 +357,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531172/products/product_15_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531173/products/product_15_7.png"
       ],
-      "total_sales": 1
+      "total_sales": 1,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "16",
@@ -365,7 +386,8 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531179/products/product_16_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531180/products/product_16_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 0
     },
     {
       "id": "17",
@@ -392,7 +414,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531187/products/product_17_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531188/products/product_17_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "18",
@@ -419,7 +443,8 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531194/products/product_18_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531195/products/product_18_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 0
     },
     {
       "id": "19",
@@ -446,7 +471,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531202/products/product_19_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531203/products/product_19_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "21",
@@ -473,7 +500,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531209/products/product_21_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531210/products/product_21_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "23",
@@ -500,7 +529,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531216/products/product_23_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531217/products/product_23_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "24",
@@ -527,7 +558,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531231/products/product_24_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531233/products/product_24_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "25",
@@ -552,7 +585,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531240/products/product_25_4.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531241/products/product_25_5.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "26",
@@ -577,7 +612,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531252/products/product_26_4.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531253/products/product_26_5.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "27",
@@ -599,7 +636,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531257/products/product_27_1.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531259/products/product_27_2.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "28",
@@ -625,7 +664,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531275/products/product_28_5.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531277/products/product_28_6.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "29",
@@ -650,7 +691,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531287/products/product_29_4.jpg",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531288/products/product_29_5.jpg"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "30",
@@ -675,7 +718,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531298/products/product_30_4.jpg",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531300/products/product_30_5.jpg"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "31",
@@ -699,7 +744,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531306/products/product_31_4.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531309/products/product_31_5.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "32",
@@ -725,7 +772,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531316/products/product_32_6.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531317/products/product_32_7.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "33",
@@ -751,7 +800,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531327/products/product_33_5.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531329/products/product_33_6.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "34",
@@ -773,7 +824,8 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531332/products/product_34_1.webp",
         "https://lh3.googleusercontent.com/grCw1LnhwMvYcBD4…XeQqGqgvbWkqjmpJW97S56ngjc4r6UTS-u3YMbEE=w1000-rw"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 0
     },
     {
       "id": "35",
@@ -793,7 +845,8 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531333/products/product_35_0.png"
       ],
-      "total_sales": 1
+      "total_sales": 1,
+      "stock": 0
     },
     {
       "id": "36",
@@ -813,7 +866,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531335/products/product_36_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "37",
@@ -833,7 +888,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531336/products/product_37_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "38",
@@ -853,7 +910,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531338/products/product_38_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "39",
@@ -873,7 +932,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531340/products/product_39_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "40",
@@ -893,7 +954,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531341/products/product_40_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "41",
@@ -913,7 +976,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531342/products/product_41_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "42",
@@ -933,7 +998,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531344/products/product_42_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "43",
@@ -953,7 +1020,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531345/products/product_43_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "44",
@@ -973,7 +1042,9 @@
       "image_url": [
         "//product.hstatic.net/200000722513/product/1-2_d48628cb79b3407cbc7b5c8e81c9db08_medium.png"
       ],
-      "total_sales": 0 
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "45",
@@ -993,7 +1064,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531369/products/product_45_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "46",
@@ -1013,7 +1086,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531370/products/product_46_0.jpg"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "47",
@@ -1033,7 +1108,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531372/products/product_47_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "48",
@@ -1053,7 +1130,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531374/products/product_48_0.png"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "49",
@@ -1073,7 +1152,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531376/products/product_49_0.jpg"
       ],
-      "total_sales": 0 
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "50",
@@ -1093,7 +1174,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531377/products/product_50_0.jpg"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "51",
@@ -1113,7 +1196,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531378/products/product_51_0.jpg"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "52",
@@ -1133,7 +1218,9 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531380/products/product_52_0.jpg"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     },
     {
       "id": "53",
@@ -1153,44 +1240,131 @@
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531381/products/product_53_0.jpg"
       ],
-      "total_sales": 0
+      "total_sales": 0,
+      "stock": 10,
+      "status": "active"
     }
   ],
   "brands": [
     {
-      "id": "1",
-      "name": "ASUS",
-      "slug": "asus"
-    },
-    {
-      "id": "2",
+      "id": 1,
       "name": "ACER",
-      "slug": "acer"
+      "slug": "acer",
+      "createdAt": "2025-01-01T00:00:00.000Z"
     },
     {
-      "id": "3",
-      "name": "MSI",
-      "slug": "msi"
+      "id": 2,
+      "name": "ASUS",
+      "slug": "asus",
+      "createdAt": "202-01-01T00:00:00.000Z"
     },
     {
-      "id": "4",
-      "name": "LENOVO",
-      "slug": "lenovo"
+      "id": 3,
+      "name": "COOLER MASTER",
+      "slug": "cooler-master",
+      "createdAt": "2025-05-07T00:00:00.000Z"
     },
     {
-      "id": "5",
+      "id": 4,
+      "name": "CORSAIR",
+      "slug": "corsair",
+      "createdAt": "2025-04-07T00:00:00.000Z"
+    },
+    {
+      "id": 5,
       "name": "DELL",
-      "slug": "dell"
+      "slug": "dell",
+      "createdAt": "2025-04-07T00:00:00.000Z"
     },
     {
-      "id": "6",
+      "id": 6,
+      "name": "GIGABYTE",
+      "slug": "gigabyte",
+      "createdAt": "2025-04-07T00:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "name": "GVN",
+      "slug": "gvn",
+      "createdAt": "2025-05-07T00:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "name": "HP",
+      "slug": "hp",
+      "createdAt": "2025-05-07T00:00:00.000Z"
+    },
+    {
+      "id": 9,
       "name": "HP - Pavilion",
-      "slug": "hp-pavilion"
+      "slug": "hp-pavilion",
+      "createdAt": "2025-05-07T00:00:00.000Z"
     },
     {
-      "id": "7",
+      "id": 10,
+      "name": "HYPERX",
+      "slug": "hyperx",
+      "createdAt": "2025-05-07T00:00:00.000Z"
+    },
+    {
+      "id": 11,
+      "name": "JBL",
+      "slug": "jbl",
+      "createdAt": "2025-05-07T00:00:00.000Z"
+    },
+    {
+      "id": 12,
+      "name": "LENOVO",
+      "slug": "lenovo",
+      "createdAt": "2025-05-07T00:00:00.000Z"
+    },
+    {
+      "id": 13,
       "name": "LG - Gram",
-      "slug": "lg-gram"
+      "slug": "lg-gram",
+      "createdAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 14,
+      "name": "LOGITECH",
+      "slug": "logitech",
+      "createdAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 15,
+      "name": "MICROSOFT",
+      "slug": "microsoft",
+      "createdAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 16,
+      "name": "MSI",
+      "slug": "msi",
+      "createdAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 17,
+      "name": "RAZER",
+      "slug": "razer",
+      "createdAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 18,
+      "name": "SAMSUNG",
+      "slug": "samsung",
+      "createdAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 19,
+      "name": "SONY",
+      "slug": "sony",
+      "createdAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 20,
+      "name": "STEELSERIES",
+      "slug": "steelseries",
+      "createdAt": "2025-01-01T00:00:00.000Z"
     }
   ],
   "categories": [

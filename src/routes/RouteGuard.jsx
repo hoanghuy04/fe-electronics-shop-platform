@@ -19,7 +19,12 @@ export const UserProtectedRoute = () => {
 };
 
 export const AdminProtectedRoute = () => {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, user, loading } = useAuth();
+  
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
+  
   if (!isAuthenticated) {
     return <Navigate to={path.loginAdmin} />;
   }
