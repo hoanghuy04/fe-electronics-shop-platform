@@ -16,15 +16,16 @@
       "brand": "LENOVO",
       "slug": "laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531047/products/product_1_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531049/products/product_1_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531051/products/product_1_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531052/products/product_1_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531054/products/product_1_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531057/products/product_1_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531061/products/product_1_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531063/products/product_1_7.png"
+      ],
+      "total_sales": 1
     },
     {
       "id": "2",
@@ -42,11 +43,12 @@
       "brand": "ASUS",
       "slug": "laptop-asus-zenbook-14-ux425ea",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/laptop_asus_zenbook_ux425ea_ki439t_320ab92b6b17426b8218f29b760eaf28_17ca6ece3e094aa49d17e8d1bd96dc2e_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/-laptop-asus-zenbook-ux425ea-ki429t-2_719203fb0e4241e0994003a0408d47a3_5c370d05d934479ebde93a63a4035df1_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/-laptop-asus-zenbook-ux425ea-ki429t-3_1881182235fd4f0b95380bbeed14b0a1_429b5bbd95bf4c2aa509b5a828f597d8_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/-laptop-asus-zenbook-ux425ea-ki429t-4_c7899f1ed9504c40bb70d6cf3b1929b6_8f2bcf4857304a7f88c3b944bc0d4bb9_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531065/products/product_2_0.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531067/products/product_2_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531069/products/product_2_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531071/products/product_2_3.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "3",
@@ -64,16 +66,17 @@
       "brand": "MSI",
       "slug": "laptop-gaming-msi-katana-gf66-12ud",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/1205vn_da651643e91047bfa9729c53f93ffc6e_large_39f1561f3448481c94add35d7fda7dc4_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-1_a336f129fc874587a476e4c7dfecabdf_0c12a98a67b34ec2882cca1f36106763_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-2_2e289c7ac8514d2ba14d4c73c885a0bb_582c356fef73423ea48a3fac1dd7e63a_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-3_2d450979c0d847a2b7cf5a12e366cea7_26f2a5646027421a9e5b3bacadb335f5_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-4_dbc0252c879b4e49801c4a569244ae70_c12c8dfd0e1c44cd86160f5ed03b9290_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-5_e3ac8d246b9446d497eaf7676f94e265_8ae9b4769d23443eb9644c7dc2885e1d_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-6_194702ae6ec94939843530fb56c1d880_aac9a124f63b40a38ff2a4aad0b80e0f_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-7_55172d4c9837409ea3b16fa1308fc8d6_d9bacd36e27c4fe6b0e64ce4d07493e8_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/p-gaming-msi-katana-15-b13vek-252vn-8_d24dc0524cb3494da30d26ebfa759f4e_28a1b97fecbf4490a0cd9cf49bcdc568_1024x1024.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531072/products/product_3_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531075/products/product_3_1.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531076/products/product_3_2.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531078/products/product_3_3.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531079/products/product_3_4.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531081/products/product_3_5.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531082/products/product_3_6.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531083/products/product_3_7.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531084/products/product_3_8.jpg"
+      ],
+      "total_sales": 1
     },
     {
       "id": "4",
@@ -91,8 +94,9 @@
       "brand": "GVN",
       "slug": "pc-gvn-intel-i5-13400f",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/69185_mb520_mesh_black_046710cfb36f4eefa6b474bffb1aa81c_1024x1024.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531084/products/product_4_0.jpg"
+      ],
+      "total_sales": 1
     },
     {
       "id": "5",
@@ -110,15 +114,16 @@
       "brand": "ASUS",
       "slug": "mainboard-asus-rog-strix-z790-e",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-01_13f2ec4b1afe43d2bd763fc5bc31bada_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-02_f3db0628f5a9456c9127feb6b8cbb600_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-03_b51a25507d4e4b9291522ba650837059_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-04_977babc4b5b940d491dcb985ecc16ab4_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-05_6ddeef78ca574188bf6921eb0a3f8850_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-06_62a4fc9128e84a0e88b39fb88460bcfc_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-07_d8687737e9e445ac843cab696c6879e1_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/rog-strix-z890-e-gaming-wifi-08_b6bbce255c1c40948fe5a9680e7f8182_1024x1024.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531086/products/product_5_0.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531088/products/product_5_1.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531090/products/product_5_2.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531092/products/product_5_3.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531093/products/product_5_4.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531095/products/product_5_5.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531097/products/product_5_6.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531098/products/product_5_7.jpg"
+      ],
+      "total_sales": 0 
     },
     {
       "id": "6",
@@ -136,15 +141,16 @@
       "brand": "COOLER MASTER",
       "slug": "case-cooler-master-masterbox-td500",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531100/products/product_6_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531101/products/product_6_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531102/products/product_6_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531103/products/product_6_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531104/products/product_6_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531105/products/product_6_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531106/products/product_6_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531107/products/product_6_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "7",
@@ -162,15 +168,16 @@
       "brand": "SAMSUNG",
       "slug": "ssd-samsung-990-pro-1tb",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531107/products/product_7_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531108/products/product_7_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531109/products/product_7_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531110/products/product_7_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531111/products/product_7_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531112/products/product_7_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531113/products/product_7_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531113/products/product_7_7.png"
+      ],
+      "total_sales": 0 
     },
     {
       "id": "8",
@@ -188,15 +195,16 @@
       "brand": "JBL",
       "slug": "loa-bluetooth-jbl-flip-6",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531114/products/product_8_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531115/products/product_8_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531116/products/product_8_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531117/products/product_8_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531118/products/product_8_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531119/products/product_8_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531120/products/product_8_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531121/products/product_8_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "10",
@@ -214,15 +222,16 @@
       "brand": "LOGITECH",
       "slug": "ban-phim-co-logitech-g-pro-x",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531122/products/product_10_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531123/products/product_10_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531123/products/product_10_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531124/products/product_10_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531125/products/product_10_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531126/products/product_10_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531127/products/product_10_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531128/products/product_10_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "12",
@@ -240,15 +249,16 @@
       "brand": "SONY",
       "slug": "tai-nghe-sony-wh-1000xm5",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531129/products/product_12_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531130/products/product_12_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531131/products/product_12_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531131/products/product_12_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531132/products/product_12_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531133/products/product_12_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531134/products/product_12_6.png",
         "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf484十一e45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+      ],
+      "total_sales": 0
     },
     {
       "id": "13",
@@ -266,12 +276,13 @@
       "brand": "HP - Pavilion",
       "slug": "laptop-gaming-hp-omen-16-wf0129tx-8w943pa",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/1_2c90b3c9a87b4eeeb92f9f0562e7fb5a_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/2_f14e6aa33f5c4b7e9ab12a464ee8a9d7_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/khung-laptop-23_45586436bb10427bb88d0ad8047c873e_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/omen-16-wf0129tx-8w943pa-i9-13900hx_3_64a45634dc464aa1b8bd85dc350ca91b_36a98f9fcb5d45b5a01878a23aeea568_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/omen-16-wf0129tx-8w943pa-i9-13900hx_4_72263fddaf6045dd9922c428befa45d6_580ba3c9517c4779956c4b9f5d00e04f_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531138/products/product_13_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531140/products/product_13_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531142/products/product_13_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531143/products/product_13_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531145/products/product_13_4.png"
+      ],
+      "total_sales": 1 
     },
     {
       "id": "14",
@@ -289,17 +300,18 @@
       "brand": "ACER",
       "slug": "laptop-gaming-acer-nitro-5-an515-58",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/773y_a8b891d89f3b4d81a01777e2160b644c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/eec226f57c41a7865fdc18004a57c8_master_f56fd9b017244342821d65c8c49efe28_989a9cb595aa4f2080160f8289688ba2_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/ec7e6f7d614e22bc068cded6d505ea_master_3a1475a0c7cd4f588a5cd624f2a1daf3_457929a869514b1db22d2d32ca1fac0b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/179678a2954c9e8cea64ec72945b3c_master_fbcc31c55d5f43c1860085135f5b0a0e_1acd14cee8384aa986c9214f52079aa8_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/179678a2954c9e8cea64ec72945b3c_master_fbcc31c55d5f43c1860085135f5b0a0e_1acd14cee8384aa986c9214f52079aa8_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/fe2769ba0040c59929f58641d85409_master_1b48676e034340379d49fab4078b5949_c025782cba2f47baa0131afac8e5ad30_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/e3c50335064d65b15e572f95612ed0_master_6facf058e2694df78f8371089f4200f0_9acc1d50a9bf4c85afc9fc35c0b6fc7e_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/b671b00815405fb9b89d57fd75fcdb_master_75687ca028984d6a8f5e60f5ba841733_2352d5edd30b4993b04b81adc364bf21_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/46b1da48a74ec5bb334ba865736f22_master_90122c0857e7471bb6165765a3d39a0c_5535d3bc45d84ff9b40b3b4398e96723_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/5cc96deb4a422486449aa2dd6a4499_master_f3d6b9eceeca4dfc912c63f4e635da2a_945ef69382b044e3be84253431b09bb2_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531146/products/product_14_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531148/products/product_14_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531151/products/product_14_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531153/products/product_14_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531154/products/product_14_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531156/products/product_14_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531159/products/product_14_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531162/products/product_14_7.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531164/products/product_14_8.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531166/products/product_14_9.png"
+      ],
+      "total_sales": 1
     },
     {
       "id": "15",
@@ -317,15 +329,16 @@
       "brand": "GVN",
       "slug": "pc-gvn-amd-ryzen-5-7600x",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531167/products/product_15_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531168/products/product_15_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531169/products/product_15_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531170/products/product_15_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531171/products/product_15_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531171/products/product_15_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531172/products/product_15_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531173/products/product_15_7.png"
+      ],
+      "total_sales": 1
     },
     {
       "id": "16",
@@ -343,15 +356,16 @@
       "brand": "MSI",
       "slug": "vga-msi-geforce-rtx-4070-ti",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531174/products/product_16_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531175/products/product_16_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531176/products/product_16_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531177/products/product_16_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531178/products/product_16_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531179/products/product_16_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531179/products/product_16_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531180/products/product_16_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "17",
@@ -369,15 +383,16 @@
       "brand": "CORSAIR",
       "slug": "nguon-corsair-rm850x",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531181/products/product_17_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531183/products/product_17_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531183/products/product_17_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531185/products/product_17_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531185/products/product_17_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531186/products/product_17_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531187/products/product_17_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531188/products/product_17_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "18",
@@ -395,15 +410,16 @@
       "brand": "CORSAIR",
       "slug": "ram-corsair-vengeance-32gb-ddr5",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531189/products/product_18_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531190/products/product_18_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531191/products/product_18_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531191/products/product_18_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531192/products/product_18_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531193/products/product_18_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531194/products/product_18_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531195/products/product_18_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "19",
@@ -421,15 +437,16 @@
       "brand": "HYPERX",
       "slug": "micro-hyperx-quadcast-s",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531196/products/product_19_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531196/products/product_19_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531198/products/product_19_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531199/products/product_19_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531200/products/product_19_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531202/products/product_19_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531202/products/product_19_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531203/products/product_19_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "21",
@@ -447,15 +464,16 @@
       "brand": "RAZER",
       "slug": "ban-phim-razer-blackwidow-v4-pro",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531204/products/product_21_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531205/products/product_21_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531206/products/product_21_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531207/products/product_21_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531208/products/product_21_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531208/products/product_21_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531209/products/product_21_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531210/products/product_21_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "23",
@@ -473,15 +491,16 @@
       "brand": "RAZER",
       "slug": "tai-nghe-razer-barracuda-x",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-1_fe41e3e174ca423d95d3fd467b303941_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-2_09492600c9ed4629a686b4c07b3b958b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-3_09043bd4c42949e58951ca380f486bc6_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-4_6dc4647a201d45ce8fdb442c25fa4397_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-5_041ed400c81d4dd0ac3e0fe92631bc7c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-6_705720082599443fb9c394a016629ab0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-7_88a6240a45a64a178e7d34ff823f7524_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/gearvn-laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn-8_7bfcf4843bee45e9a0f7b5624232b44e_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531211/products/product_23_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531212/products/product_23_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531212/products/product_23_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531213/products/product_23_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531214/products/product_23_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531215/products/product_23_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531216/products/product_23_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531217/products/product_23_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "24",
@@ -499,15 +518,16 @@
       "brand": "ASUS",
       "slug": "laptop-asus-vivobook-14-a1407ca-ly008ws",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/a1407ca-ly008ws_eba5146a3513490499521adcea66b98b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_1_4065402643f84b3fb84dd79434caf692_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_2_cee0cdd35abb4925a4346dc30dd4a14c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_3_5304a993a9ab413296e7b2fdb7b293d8_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_4_4e6ef45b0e484a97974c289db8e1808a_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_6_adb612c508884cf6b916b0848e212dae_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_7_9059a87fdf924b32873b7f96e31e5860_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/asus_vivobook_14_a1407_9_4ace837607a9411f861160f3ccc54d77_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531219/products/product_24_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531221/products/product_24_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531222/products/product_24_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531225/products/product_24_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531227/products/product_24_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531229/products/product_24_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531231/products/product_24_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531233/products/product_24_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "25",
@@ -525,13 +545,14 @@
       "brand": "ACER",
       "slug": "laptop-acer-aspire-5-a515-45",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/ava_23fd058fa70a49d3820477678e2e8a49_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1_d21202e1b01745b1985532ed26f08cce_0c6c719df49e4e66b559b37e677f397e_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1_d21202e1b01745b1985532ed26f08cce_0c6c719df49e4e66b559b37e677f397e_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/3_7bca6b7fdd10450db4e38fdec32f0e30_c6807e3a36f647c7a8355384659b3045_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/3_7bca6b7fdd10450db4e38fdec32f0e30_c6807e3a36f647c7a8355384659b3045_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/4_f617aa0b51a7486e8db7b64fdbac2f7a_8bb80f5755724cf6a8e5556e504432ea_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531234/products/product_25_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531236/products/product_25_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531238/products/product_25_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531239/products/product_25_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531240/products/product_25_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531241/products/product_25_5.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "26",
@@ -549,13 +570,14 @@
       "brand": "MSI",
       "slug": "laptop-msi-prestige-14-ai-studio-c1veg-056vn",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/ava_e10fafc0165e4a2cb5380668574e512d_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024__1__51da43ccf4d7474a96cac0be97ce938d_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024__2__75b72195b1f64cf0b00ef5018698aa0e_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024__4__4bf54c10eb7942d3b36f4139fc8be525_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024__4__4bf54c10eb7942d3b36f4139fc8be525_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024__4__4bf54c10eb7942d3b36f4139fc8be525_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531242/products/product_26_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531246/products/product_26_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531249/products/product_26_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531251/products/product_26_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531252/products/product_26_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531253/products/product_26_5.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "27",
@@ -573,10 +595,11 @@
       "brand": "LENOVO",
       "slug": "laptop-lenovo-ideapad-3-15ada6",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/82h803rsvn_2aa1769ff2cc4459877e0d7f0abc0b3f_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/ideapad_3_14iau7_ct2_04_7d6a3c4d4a1d4074bdccac7f82264587_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/ideapad_3_14iau7_ct2_03_ac2ba52446a24d25a3b6e83ae56c7734_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531255/products/product_27_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531257/products/product_27_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531259/products/product_27_2.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "28",
@@ -594,14 +617,15 @@
       "brand": "DELL",
       "slug": "laptop-dell-inspiron-15-5000",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/ava_bb5d57d896da4c98b70ea4353e8867d3_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/2_eba8ce3d06404a5bba58b4022b1c2ee8_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/notebook-inspiron-15-3520-black-gallery-4_39ed983e14654b478119009a3f248e5a_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/in3520-xnb-01-bk_4b2c2617532645f585dca60ee1135e61_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/in3520nt-cnb-00060lb055-bk_13f7074cc2694e6e95dca984d32a2cd0_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/in3520nt-cnb-00060rb055-bk_f9f025b16d1049f4a7f3b5c49387d7b7_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/in3520nt-cnb-00180bf090-bk_9d452c64927e4e33b7d0fd3427a2db98_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531262/products/product_28_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531264/products/product_28_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531267/products/product_28_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531270/products/product_28_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531272/products/product_28_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531275/products/product_28_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531277/products/product_28_6.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "29",
@@ -619,13 +643,14 @@
       "brand": "HP - Pavilion",
       "slug": "laptop-hp-pavilion-14",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/aptop-hp-pavilion-15-eg0506tx-46m05pa_3f2e2cb97f6b4ed192752aa774e1b9b4_7514240edc9a4ee98c2f88b18c0fc039_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/top-hp-pavilion-15-eg0506tx-46m05pa-1_a04f18486f014aa38e272a7d85460bda_938e2d4541b741aeb6869212713d08d3_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/top-hp-pavilion-15-eg0506tx-46m05pa-2_8b54d9c584924366a0a6a3bd9e5c74f7_b808000e08264c4682f5c3323dc21d9e_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/top-hp-pavilion-15-eg0506tx-46m05pa-3_0a956ddfd0cb4c379851f02e50668eed_f2db73ad0737440a9215b15acdcc66ba_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/top-hp-pavilion-15-eg0506tx-46m05pa-4_2f59df3abcf3441c84a0f76920071e9f_c140e0b0c2d446f5b1909bc2bd2308c4_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/top-hp-pavilion-15-eg0506tx-46m05pa-4_2f59df3abcf3441c84a0f76920071e9f_c140e0b0c2d446f5b1909bc2bd2308c4_1024x1024.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531279/products/product_29_0.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531281/products/product_29_1.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531283/products/product_29_2.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531285/products/product_29_3.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531287/products/product_29_4.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531288/products/product_29_5.jpg"
+      ],
+      "total_sales": 0
     },
     {
       "id": "30",
@@ -643,13 +668,14 @@
       "brand": "LG - Gram",
       "slug": "laptop-lg-gram-14",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/lg-gram-16-2023_1931fb9a41a14aef8a831b48c1156e5b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/5.hinhanhsanpham1_91cb12ab3aab44059bd5158a09f430c6_668b4c66e2e5412c805d9c1e40c41c0b_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/6.hinhanhsanpham3_57d9eb66f67f470191b98bbc66e1636d_44a8741204274ca6af4c389857d92b75_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/7.hinhanhsanpham3_81d79ee5be1b44ec996e293c65d07ce0_b654bd4f3ed04b07877ddd235001a063_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/4.kichthuocmay_7b1a2e5d22274903b9241869062b56dd_20e8bb5e2e5d4e0f9bc22466c6946bd9_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/90r-g-17-flexible-connectivity-mobile_8b536225d6d74cf9b54535917c181d17_9218a07858534b34a28989266077cca8_1024x1024.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531290/products/product_30_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531292/products/product_30_1.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531294/products/product_30_2.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531297/products/product_30_3.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531298/products/product_30_4.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531300/products/product_30_5.jpg"
+      ],
+      "total_sales": 0
     },
     {
       "id": "31",
@@ -666,13 +692,14 @@
       "brand": "ASUS",
       "slug": "laptop-asus-zenbook-14",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/ux3407qa-qd299ws_1_e0a9f6e222304bf7923b5ee2b33b6ac8_1024x1024.jpg",
-        "https://product.hstatic.net/200000722513/product/zenbook_a14_ux3407_product_photo_zabriskie_beige_01_067ae1f51b54482499321e5ba898c3ec_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/zenbook_a14_ux3407_product_photo_zabriskie_beige_01_067ae1f51b54482499321e5ba898c3ec_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/zenbook_a14_ux3407_product_photo_zabriskie_beige_04_a2de245d3d9540b4bfb5e7264bff030e_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/zenbook_a14_ux3407_product_photo_zabriskie_beige_05_13b5a645facc439083f0ed3636f4766c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/zenbook_a14_ux3407_product_photo_zabriskie_beige_08__1__ce26a0ea080c431d866191fc81fc3a39_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531302/products/product_31_0.jpg",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531303/products/product_31_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531304/products/product_31_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531305/products/product_31_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531306/products/product_31_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531309/products/product_31_5.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "32",
@@ -689,15 +716,16 @@
       "brand": "ACER",
       "slug": "laptop-acer-nitro-5-an515-45",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/773y_a8b891d89f3b4d81a01777e2160b644c_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/eec226f57c41a7865fdc18004a57c8_master_f56fd9b017244342821d65c8c49efe28_989a9cb595aa4f2080160f8289688ba2_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/ec7e6f7d614e22bc068cded6d505ea_master_3a1475a0c7cd4f588a5cd624f2a1daf3_457929a869514b1db22d2d32ca1fac0b_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/179678a2954c9e8cea64ec72945b3c_master_fbcc31c55d5f43c1860085135f5b0a0e_1acd14cee8384aa986c9214f52079aa8_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/fe2769ba0040c59929f58641d85409_master_1b48676e034340379d49fab4078b5949_c025782cba2f47baa0131afac8e5ad30_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/e3c50335064d65b15e572f95612ed0_master_6facf058e2694df78f8371089f4200f0_9acc1d50a9bf4c85afc9fc35c0b6fc7e_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/b671b00815405fb9b89d57fd75fcdb_master_75687ca028984d6a8f5e60f5ba841733_2352d5edd30b4993b04b81adc364bf21_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/46b1da48a74ec5bb334ba865736f22_master_90122c0857e7471bb6165765a3d39a0c_5535d3bc45d84ff9b40b3b4398e96723_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531310/products/product_32_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531311/products/product_32_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531312/products/product_32_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531313/products/product_32_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531314/products/product_32_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531315/products/product_32_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531316/products/product_32_6.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531317/products/product_32_7.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "33",
@@ -715,14 +743,15 @@
       "brand": "MSI",
       "slug": "laptop-msi-creator-m16-hx-c14vfg-040vn",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/ava_25460ee3a28147a2b15a774f6035ee98_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024__1__389c660e3b0347059bb51da01de4c1de_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024__2__34b618d746df464d9e6c991bfc23bab7_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024__2__34b618d746df464d9e6c991bfc23bab7_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024__3__3a8cef647e9340ea94e231f764232d62_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024__4__4023a88a25bd474c896c86c3fcf8ebfe_1024x1024.png",
-        "https://product.hstatic.net/200000722513/product/1024_997277b1fa94401893e37e032814f346_1024x1024.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531319/products/product_33_0.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531320/products/product_33_1.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531321/products/product_33_2.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531322/products/product_33_3.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531325/products/product_33_4.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531327/products/product_33_5.png",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531329/products/product_33_6.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "34",
@@ -740,10 +769,11 @@
       "brand": "GVN",
       "slug": "pc-gvn-amd-ryzen-5-5600x",
       "image_url": [
-        "https://lh3.googleusercontent.com/chQP_2KiyLvnI05zoasJgDt8PgVyMBseDMQGszkr-LQx6vOzuOYV-R3GDj-L_ORQeC50JR93TxYfYbac56un05mWzQRpLe7r=w500-rw",
-        "https://lh3.googleusercontent.com/L5N0koSLGhfwZK7v3y5_r_SiJXLMZTSqfMdeXCbF_4uUDH8CCNljY4BWC4P0-6VjbFs2cUVSke1dBVmd2cnyvovttXW88Og=w1000-rw",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531330/products/product_34_0.webp",
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531332/products/product_34_1.webp",
         "https://lh3.googleusercontent.com/grCw1LnhwMvYcBD4…XeQqGqgvbWkqjmpJW97S56ngjc4r6UTS-u3YMbEE=w1000-rw"
-      ]
+      ],
+      "total_sales": 0
     },
     {
       "id": "35",
@@ -761,8 +791,9 @@
       "brand": "ASUS",
       "slug": "pc-asus-rog-intel-i7-13700kf",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/6969_f4488b40487540aa91c2a77e9c863396_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531333/products/product_35_0.png"
+      ],
+      "total_sales": 1
     },
     {
       "id": "36",
@@ -780,8 +811,9 @@
       "brand": "MSI",
       "slug": "pc-msi-gaming-amd-ryzen-7-5800x",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/5000d_white_aero_d254c2c1d006470dad47a5a4b6c116e8_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531335/products/product_36_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "37",
@@ -799,8 +831,9 @@
       "brand": "HP",
       "slug": "pc-hp-pavilion-intel-i5-12400f",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/cougar_2101a66491414b49a99fcd1e4e0421ad_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531336/products/product_37_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "38",
@@ -818,8 +851,9 @@
       "brand": "DELL",
       "slug": "pc-dell-alienware-amd-ryzen-9-5900x",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gvn07935__1__b45c07447bad4fd3ba19046a4ea15744_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531338/products/product_38_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "39",
@@ -837,8 +871,9 @@
       "brand": "ACER",
       "slug": "pc-acer-predator-intel-i9-13900kf",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/4060_ddae7a383d2c4f56b9116644fe20906f_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531340/products/product_39_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "40",
@@ -856,8 +891,9 @@
       "brand": "LENOVO",
       "slug": "pc-lenovo-legion-amd-ryzen-5-7600",
       "image_url": [
-        "https://file.hstatic.net/200000722513/file/asus_195eebbae0a44f84b7131bec913a6884.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531341/products/product_40_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "41",
@@ -875,8 +911,9 @@
       "brand": "GIGABYTE",
       "slug": "pc-gigabyte-aorus-intel-i7-12700f",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/cmp_04ff98d4357840358b2ef20cd45300d8_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531342/products/product_41_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "42",
@@ -894,8 +931,9 @@
       "brand": "LOGITECH",
       "slug": "chuot-logitech-mx-master-3s",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-chuot-rapoo-vt9-air-gaming-khong-day-trang-tim-1_da46d2436086461ba8b099c873c01ae8_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531344/products/product_42_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "43",
@@ -913,8 +951,9 @@
       "brand": "LOGITECH",
       "slug": "chuot-logitech-g-pro-x-superlight",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/gearvn-chuot-rapoo-mt760-mini-khong-day-den-1_b58d194a97c545cfa71ca6ae6125a64e_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531345/products/product_43_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "44",
@@ -933,7 +972,8 @@
       "slug": "chuot-razer-deathadder-v2",
       "image_url": [
         "//product.hstatic.net/200000722513/product/1-2_d48628cb79b3407cbc7b5c8e81c9db08_medium.png"
-      ]
+      ],
+      "total_sales": 0 
     },
     {
       "id": "45",
@@ -951,8 +991,9 @@
       "brand": "CORSAIR",
       "slug": "chuot-corsair-harpoon-rgb-wireless",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/pro2-lightspeed-white-gallery1_a41f9f8af44c4758922011fa73633c7a_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531369/products/product_45_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "46",
@@ -970,8 +1011,9 @@
       "brand": "LOGITECH",
       "slug": "chuot-logitech-m650-l",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/logitech-mx-master-3-mid-grey-mouse-1_260cc3f6213143fb8f091d61fb9d68e9_928861ee1035484793f559eb8173ceb8_medium.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531370/products/product_46_0.jpg"
+      ],
+      "total_sales": 0
     },
     {
       "id": "47",
@@ -989,8 +1031,9 @@
       "brand": "MICROSOFT",
       "slug": "chuot-microsoft-bluetooth-ergonomic",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/mx-master-3s-mouse-top-view-graphite_880f7c80882541c2b4e349b7ed0fa439_de0fb8d222ec49bfb11d909a1f116f7e_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531372/products/product_47_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "48",
@@ -1008,8 +1051,9 @@
       "brand": "STEELSERIES",
       "slug": "chuot-steelseries-rival-3-wireless",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/chuot-gaming-logitech-g502-x-cor__5__29ead39fdafe4eefa4cb6070434003ef_medium.png"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531374/products/product_48_0.png"
+      ],
+      "total_sales": 0
     },
     {
       "id": "49",
@@ -1027,8 +1071,9 @@
       "brand": "LG - Gram",
       "slug": "man-hinh-lg-ultragear-27gp950-b",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/asus_vg279q3a_gearvn_af438e4f48e241879c57aa33c28a06a9_medium.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531376/products/product_49_0.jpg"
+      ],
+      "total_sales": 0 
     },
     {
       "id": "50",
@@ -1046,8 +1091,9 @@
       "brand": "ASUS",
       "slug": "man-hinh-asus-rog-swift-pg32uq",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/msi_g244f_e2_gearvn_784763b88e6246269adfc568b49e46e3_medium.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531377/products/product_50_0.jpg"
+      ],
+      "total_sales": 0
     },
     {
       "id": "51",
@@ -1065,8 +1111,9 @@
       "brand": "DELL",
       "slug": "man-hinh-dell-ultrasharp-u2723qe",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/1_6bf24e36cbd34fd990728781a18e1653_befa433a45b84594bf6aa5a5c8526365_medium.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531378/products/product_51_0.jpg"
+      ],
+      "total_sales": 0
     },
     {
       "id": "52",
@@ -1084,8 +1131,9 @@
       "brand": "SAMSUNG",
       "slug": "man-hinh-samsung-smart-monitor-m8",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/mb24v9_mb27v9-02.png_172955dc7e914473a0cc0b4e6ffc1513_medium.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531380/products/product_52_0.jpg"
+      ],
+      "total_sales": 0
     },
     {
       "id": "53",
@@ -1103,8 +1151,9 @@
       "brand": "GIGABYTE",
       "slug": "man-hinh-gigabyte-m27q-x",
       "image_url": [
-        "https://product.hstatic.net/200000722513/product/large01_c6adf3377eb1458d9b04ad0655dd24ec_medium.jpg"
-      ]
+        "https://res.cloudinary.com/dnsallii0/image/upload/v1746531381/products/product_53_0.jpg"
+      ],
+      "total_sales": 0
     }
   ],
   "brands": [

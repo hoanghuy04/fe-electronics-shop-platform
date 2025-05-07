@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "antd";
-import { getReviewsByProductID } from "../services/ReviewService";
 import { ProductContext } from "../hooks/ProductContext";
+import { reviewService } from './../services/review.service';
 
 export default function ProductCard(props) {
   const { product } = props;
@@ -15,12 +15,15 @@ export default function ProductCard(props) {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const reviews = await getReviewsByProductID(product.id);
+        const reviews = await reviewService.getReviewsByProductID(product.id);
         if (reviews && reviews.length > 0) {
           const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
           const avgRating = (totalRating / reviews.length).toFixed(1);
           setAverageRating(avgRating);
           setReviewCount(reviews.length);
+        } else {
+          setAverageRating(0);
+          setReviewCount(0);
         }
       } catch (error) {
         console.error("Failed to fetch reviews:", error);
