@@ -1,4 +1,5 @@
-import { get, patch, post } from "./request";
+import { productService } from "./product.service";
+import { get, post } from "./request";
 
 export const orderService = {
   createOrder: async (order) => {
@@ -9,7 +10,7 @@ export const orderService = {
         const productId = item.id;
         const quantity = item.quantity;
 
-        const product = await get(`products/${productId}`);
+        const product = await productService.getProductById(productId);
 
         if (product.stock >= quantity) {
           const updatedProduct = {
@@ -17,7 +18,7 @@ export const orderService = {
             total_sales: product.total_sales + quantity,
           };
 
-          await patch(`products/${productId}`, updatedProduct);
+          await productService.updateProduct(productId, updatedProduct);
         } else {
           console.error(`Sản phẩm "${item.title}" không đủ hàng trong kho.`);
         }
@@ -86,6 +87,38 @@ export const orderService = {
     } catch (error) {
       console.error("Lỗi khi lọc đơn hàng:", error);
       return { data: [], total: 0 };
+    }
+  },
+
+  getRevenueGroupedByBrand: async () => {
+    try {
+      const orders = await get("orders");
+      if (!Array.isArray(orders) || orders.length === 0) return {};
+
+      const revenueMap = {};
+
+      for (const order of orders) {
+        for (const product of order.products) {
+          const fullProduct = await productService.getProductById(product.id);
+          const brandId = fullProduct?.brand_id;
+
+          if (!brandId) continue;
+
+          const revenue =
+            product.price * product.quantity * (1 - product.discount);
+
+          if (revenueMap[brandId]) {
+            revenueMap[brandId] += revenue;
+          } else {
+            revenueMap[brandId] = revenue;
+          }
+        }
+      }
+
+      return revenueMap;
+    } catch (error) {
+      console.error("Lỗi khi tính doanh thu tất cả brands:", error);
+      return {};
     }
   },
 };
