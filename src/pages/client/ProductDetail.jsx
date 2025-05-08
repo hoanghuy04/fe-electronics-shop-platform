@@ -9,6 +9,7 @@ import {
   Rate,
   Input,
   Button,
+  Tooltip,
 } from "antd";
 import ProductCard from "../../components/ProductCard";
 import { useCart } from "../../hooks/useCart";
@@ -42,6 +43,8 @@ const ProductDetail = () => {
   const [isReplyModalVisible, setIsReplyModalVisible] = useState(false);
   const [currentReviewId, setCurrentReviewId] = useState(null);
   const [replyForm] = Form.useForm();
+
+  const [isOutOfStock, setOutOfStock] = useState(false);
 
   const handleReplyClick = (reviewId) => {
     setCurrentReviewId(reviewId);
@@ -107,6 +110,7 @@ const ProductDetail = () => {
         const foundProduct = allProducts.find((p) => p.slug === slug);
         if (foundProduct) {
           setProduct(foundProduct);
+          setOutOfStock(foundProduct.stock === 0);
           setMainImage(foundProduct.image_url[0]);
 
           // Update breadcrumb
@@ -128,13 +132,13 @@ const ProductDetail = () => {
           //       .replace(/\b\w/g, (c) => c.toUpperCase());
           //   }
           // } else {
-            const productCategory = categories.find(
-              (c) => c.id.toString() === foundProduct.category_id.toString()
-            );
-            if (productCategory) {
-              categoryLink = `/products/${productCategory.slug}/brand/all`;
-              categoryTitle = productCategory.name;
-            }
+          const productCategory = categories.find(
+            (c) => c.id.toString() === foundProduct.category_id.toString()
+          );
+          if (productCategory) {
+            categoryLink = `/products/${productCategory.slug}/brand/all`;
+            categoryTitle = productCategory.name;
+          }
           // }
 
           breadcrumbItems.push({
@@ -258,9 +262,8 @@ const ProductDetail = () => {
                 {thumbnailImages.map((img, index) => (
                   <div
                     key={index}
-                    className={`w-20 h-20 rounded-md overflow-hidden cursor-pointer border-2 ${
-                      mainImage === img ? "border-blue-500" : "border-gray-300"
-                    }`}
+                    className={`w-20 h-20 rounded-md overflow-hidden cursor-pointer border-2 ${mainImage === img ? "border-blue-500" : "border-gray-300"
+                      }`}
                     onClick={() => setMainImage(img)}
                   >
                     <img
@@ -281,9 +284,9 @@ const ProductDetail = () => {
                 <span className="text-yellow-400">
                   {reviews.length > 0
                     ? (
-                        reviews.reduce((sum, r) => sum + r.rating, 0) /
-                        reviews.length
-                      ).toFixed(1) + " ★"
+                      reviews.reduce((sum, r) => sum + r.rating, 0) /
+                      reviews.length
+                    ).toFixed(1) + " ★"
                     : "0.0 ★"}
                 </span>
                 <a href="/" className="ml-2 text-gray-500">
@@ -306,12 +309,21 @@ const ProductDetail = () => {
               </div>
 
               <div className="mt-5">
-                <button
-                  onClick={() => addToCart(product)}
-                  className="bg-primary !text-white px-4 py-3 rounded-md cursor-pointer"
-                >
-                  MUA NGAY - GIAO NHANH TỐC HÀNH
-                </button>
+                <Tooltip title={isOutOfStock ? "Tạm thời hết hàng" : ""}>
+                  <Button
+                    onClick={() => addToCart(product)}
+                    className={`px-4 py-3 rounded-md cursor-pointer ${isOutOfStock ? "bg-gray-300 !text-gray-600" : "bg-primary !text-white"
+                      }`}
+                    style={{
+                      background: isOutOfStock ? "#d9d9d9" : "#E30019",
+                      padding: "20px 12px",
+                      border: "none", 
+                    }}
+                    disabled={isOutOfStock}
+                  >
+                    MUA NGAY - GIAO NHANH TỐC HÀNH
+                  </Button>
+                </Tooltip>
                 <div className="mt-10 text-gray-700">
                   <p className="font-semibold">Thông tin chung:</p>
                   <ul className="list-disc list-inside">
@@ -367,9 +379,9 @@ const ProductDetail = () => {
                 <span className="text-yellow-500 text-lg">
                   {reviews.length > 0
                     ? (
-                        reviews.reduce((sum, r) => sum + r.rating, 0) /
-                        reviews.length
-                      ).toFixed(1) + " ★"
+                      reviews.reduce((sum, r) => sum + r.rating, 0) /
+                      reviews.length
+                    ).toFixed(1) + " ★"
                     : "0.0 ★"}
                 </span>
                 <span className="ml-2 text-gray-500">

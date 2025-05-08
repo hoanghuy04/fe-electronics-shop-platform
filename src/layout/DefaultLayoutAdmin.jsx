@@ -32,7 +32,7 @@ const menuItems = [
   {
     key: `${path.homeAdmin}/${path.productManagement}`,
     icon: <ProjectOutlined />,
-    label: <NavLink to={`${path.homeAdmin}/${path.productManagement}`}>Product Management</NavLink>,
+    label: <NavLink to={`${path.homeAdmin}/${path.productManagement}`}>Quản lí Sản phẩm</NavLink>,
   },
   {
     key: `${path.homeAdmin}/${path.userManagement}`,

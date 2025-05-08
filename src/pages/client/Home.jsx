@@ -89,12 +89,14 @@ const Home = () => {
         throw new Error("Dữ liệu sản phẩm không hợp lệ");
       }
 
-      const brandIds = products.map((product) => product.brandId);
+      const brandIds = products.map((product) => product.brand_id);
 
-      return brandIds.map((brandId) => {
+      const uniqueBrandIds = [...new Set(brandIds)];
+      const brandNames = uniqueBrandIds.map((brandId) => {
         const brand = brands.find((b) => b.id === brandId);
         return brand ? brand.name : null;
-      }).filter(name => name !== null);
+      });
+      return brandNames.filter((name) => name !== null);
     } catch (error) {
       console.error(error);
     }

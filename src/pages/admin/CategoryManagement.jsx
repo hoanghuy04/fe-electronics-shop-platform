@@ -1,5 +1,3 @@
-"use client"
-
 import { Button, Tag, Modal, Form, Input, message, Checkbox, Tooltip, Select } from "antd"
 import {
   PencilLine,
@@ -13,11 +11,13 @@ import {
   FolderPlus,
   Eye,
   EyeOff,
+  TagIcon,
 } from "lucide-react"
 import { use, useContext, useEffect, useState } from "react"
 import DataTable from "react-data-table-component"
-import { Pie } from "@ant-design/charts"
 import { ProductContext } from './../../hooks/ProductContext';
+import { DualAxes } from '@ant-design/plots';
+import { categoryService } from './../../services/category.service';
 
 export default function CategoryManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -35,9 +35,6 @@ export default function CategoryManagement() {
     status: "",
   })
 
-  // Card 1: Total categories
-  const totalCategories = () => tableData.length
-
   // Card 2: Category status
   const categoryStatus = () => {
     const active = tableData.filter((category) => category.active === 1).length
@@ -52,7 +49,7 @@ export default function CategoryManagement() {
 
     categories.forEach((category) => {
       const sales = products
-        .filter((product) => product.category_id === category.id)
+        .filter((product) => product.category_id == category.id)
         .reduce((sum, product) => sum + product.total_sales, 0)
 
       categorySales[category.id] = {
@@ -69,22 +66,21 @@ export default function CategoryManagement() {
       .slice(0, 5)
   }
 
-  // Card 4: Product distribution by category (for pie chart)
-  const productDistribution = () => {
-    const distribution = {}
+  // Card 4: Product distribution by category
+  const productsByCategory = () => {
+    const categoryCounts = {};
+    products.forEach((product) => {
+      const categoryName = categories.find((category) => category.id == product.category_id)?.name || "Khác";
+      categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1;
+    });
 
-    categories.forEach((category) => {
-      const count = products.filter((product) => product.category_id === category.id).length
-      if (count > 0) {
-        distribution[category.id] = {
-          type: category.name,
-          value: count,
-        }
-      }
-    })
-
-    return Object.values(distribution)
-  }
+    return Object.entries(categoryCounts)
+      .sort((a, b) => b[1] - a[1])
+      .reduce((acc, [category, count]) => {
+        acc[category] = count;
+        return acc;
+      }, {});
+  };
 
   const handleRowSelected = ({ selectedRows }) => {
     setSelectedRows(selectedRows)
@@ -170,6 +166,8 @@ export default function CategoryManagement() {
 
       if (modalMode === "edit" && selectedCategory.id) {
         // Update existing category
+        const updatedCategory = categoryService.updateCategory(selectedCategory.id, categoryData)
+        console.log("Updated category:", updatedCategory);
         const updatedCategories = tableData.map((category) =>
           category.id === selectedCategory.id ? { ...category, ...categoryData } : category,
         )
@@ -181,11 +179,16 @@ export default function CategoryManagement() {
           id: String(tableData.length + 1),
           ...categoryData,
         }
+
+        const createdCategory = await categoryService.addCategory(newCategory)
+        console.log("Created category:", createdCategory);
+        // Add new category to the table data
         setTableData([newCategory, ...tableData])
         setIsModalOpen(false)
       }
 
       form.resetFields()
+      setFilters([])
       message.success(modalMode === "edit" ? "Cập nhật danh mục thành công" : "Thêm danh mục thành công")
     } catch (error) {
       console.log("Operation failed:", error)
@@ -224,7 +227,7 @@ export default function CategoryManagement() {
     {
       name: "Số sản phẩm",
       selector: (row) => {
-        const count = products.filter((product) => product.category_id === row.id).length
+        const count = products.filter((product) => product.category_id == row.id).length
         return count
       },
       sortable: true,
@@ -273,8 +276,15 @@ export default function CategoryManagement() {
                 className="cursor-pointer text-red-500"
                 size={18}
                 onClick={() => {
+                  const updatedCategory = { ...row, active: 0 }
+                  categoryService.updateCategory(updatedCategory.id, updatedCategory)
+                  .then(() => {
+                    message.success("Cập nhật trạng thái danh mục thành công")
+                  })
+
+
                   const updatedCategories = tableData.map((category) =>
-                    category.id === row.id ? { ...category, active: 0 } : category,
+                    category.id === row.id ? updatedCategory : category,
                   )
                   setTableData(updatedCategories)
                 }}
@@ -284,8 +294,13 @@ export default function CategoryManagement() {
                 className="cursor-pointer text-green-500"
                 size={18}
                 onClick={() => {
+                  const updatedCategory = { ...row, active: 1 }
+                  categoryService.updateCategory(updatedCategory.id, updatedCategory)
+                  .then(() => {
+                    message.success("Cập nhật trạng thái danh mục thành công")
+                  })
                   const updatedCategories = tableData.map((category) =>
-                    category.id === row.id ? { ...category, active: 1 } : category,
+                    category.id === row.id ? updatedCategory : category,
                   )
                   setTableData(updatedCategories)
                 }}
@@ -305,27 +320,6 @@ export default function CategoryManagement() {
       })
     }
   }, [selectedCategory, isModalOpen, modalMode, form])
-
-  // Config for pie chart
-  const pieConfig = {
-    appendPadding: 10,
-    data: productDistribution(),
-    angleField: "value",
-    colorField: "type",
-    radius: 0.8,
-    label: {
-      type: "outer",
-      content: "{name} {percentage}",
-    },
-    interactions: [
-      {
-        type: "pie-legend-active",
-      },
-      {
-        type: "element-active",
-      },
-    ],
-  }
 
   return (
     <div className="p-6 bg-gray-100">
@@ -375,73 +369,83 @@ export default function CategoryManagement() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Column 1: Metrics */}
-          <div className="space-y-6">
-            {/* Card 1: Total Categories */}
-            <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-              <div className="bg-green-100 p-3 rounded-full mr-4">
-                <Package className="h-6 w-6 text-green-600" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-700">Tổng số danh mục</h3>
-                <p className="text-3xl font-bold text-green-600">{totalCategories()}</p>
-              </div>
+          {/* Card 1: Total Categories */}
+          <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+            <div className="bg-green-100 p-3 rounded-full mr-4">
+              <Package className="h-6 w-6 text-green-600" />
             </div>
-
-            {/* Card 2: Category Status */}
-            <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-              <div className="bg-blue-100 p-3 rounded-full mr-4">
-                <FolderOpen className="h-6 w-6 text-blue-600" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-700">Tình trạng danh mục</h3>
-                <div className="flex gap-4">
-                  <p className="text-xl font-bold text-blue-600">
-                    {categoryStatus().active} <span className="text-sm font-normal">đang hoạt động</span>
-                  </p>
-                  <p className="text-xl font-bold text-red-500">
-                    {categoryStatus().inactive} <span className="text-sm font-normal">đã ẩn</span>
-                  </p>
-                </div>
-              </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-700">Tổng số danh mục</h3>
+              <p className="text-3xl font-bold text-green-600">{categories.length}</p>
             </div>
+          </div>
 
-            {/* Card 3: Top Categories */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <div className="bg-purple-100 p-3 rounded-full mr-4">
-                  <BarChart3 className="h-6 w-6 text-purple-600" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-700">Top danh mục hoạt động mạnh nhất</h3>
-              </div>
-              <div className="space-y-4">
-                {topCategories().map((category, index) => (
-                  <div key={category.id} className="flex items-center">
-                    <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="font-bold text-purple-600">{index + 1}</span>
-                    </div>
-                    <div className="flex-grow min-w-0">
-                      <p className="text-sm font-medium text-gray-900 truncate">{category.name}</p>
-                      <p className="text-xs text-gray-500">{category.active === 1 ? "Đang hoạt động" : "Đã ẩn"}</p>
-                    </div>
-                    <div className="flex-shrink-0 text-right">
-                      <p className="text-sm font-medium text-gray-900">{category.totalSales} sản phẩm đã bán</p>
-                    </div>
-                  </div>
-                ))}
+          {/* Card 2: Category Status */}
+          <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+            <div className="bg-blue-100 p-3 rounded-full mr-4">
+              <FolderOpen className="h-6 w-6 text-blue-600" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-700">Tình trạng danh mục</h3>
+              <div className="flex gap-4">
+                <p className="text-xl font-bold text-blue-600">
+                  {categoryStatus().active} <span className="text-sm font-normal">đang hoạt động</span>
+                </p>
+                <p className="text-xl font-bold text-red-500">
+                  {categoryStatus().inactive} <span className="text-sm font-normal">đã ẩn</span>
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Column 2: Pie Chart */}
+          {/* Card 3: Top Categories */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="flex items-center mb-4">
+              <div className="bg-purple-100 p-3 rounded-full mr-4">
+                <BarChart3 className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-700">Top danh mục hoạt động mạnh nhất</h3>
+            </div>
+            <div className="space-y-4">
+              {topCategories().map((category, index) => (
+                <div key={category.id} className="flex items-center">
+                  <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="font-bold text-purple-600">{index + 1}</span>
+                  </div>
+                  <div className="flex-grow min-w-0">
+                    <p className="text-sm font-medium text-gray-900 truncate">{category.name}</p>
+                    <p className="text-xs text-gray-500">{category.active === 1 ? "Đang hoạt động" : "Đã ẩn"}</p>
+                  </div>
+                  <div className="flex-shrink-0 text-right">
+                    <p className="text-sm font-medium text-gray-900">{category.totalSales} sản phẩm đã bán</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="flex items-center mb-4">
               <div className="bg-yellow-100 p-3 rounded-full mr-4">
-                <FolderOpen className="h-6 w-6 text-yellow-600" />
+                <TagIcon className="h-6 w-6 text-yellow-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-700">Phân bố sản phẩm theo danh mục</h3>
+              <h3 className="text-lg font-semibold text-gray-700">Số lượng theo danh mục</h3>
             </div>
-            <div className="h-[400px]">
-              <Pie {...pieConfig} />
+            <div className="space-y-3">
+              {Object.entries(productsByCategory()).map(([category, count]) => (
+                <div key={category} className="flex items-center justify-between">
+                  <span className="text-gray-700">{category}</span>
+                  <div className="flex items-center">
+                    <div className="w-40 bg-gray-200 rounded-full h-2.5 mr-2">
+                      <div
+                        className="bg-yellow-500 h-2.5 rounded-full"
+                        style={{ width: `${(count / products.length) * 100}%` }}
+                      ></div>
+                    </div>
+                    <span className="text-sm font-medium text-gray-700">{count}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

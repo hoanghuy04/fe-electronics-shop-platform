@@ -1,4 +1,4 @@
-import { Button, Tag, Modal, Form, Input, Select, Upload, message, Checkbox } from "antd";
+import { Button, Tag, Modal, Form, Input, Select, Upload, message, Checkbox, Tooltip } from "antd";
 import {
   PencilLine,
   BarChart3,
@@ -13,6 +13,8 @@ import {
   PackagePlus,
   PackageMinus,
   PackageX,
+  EyeOff,
+  Eye,
 } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
@@ -39,9 +41,6 @@ export default function ProductManagement() {
     brand: "",
     stock: "",
   });
-
-  // Card 1: Total products
-  const totalProducts = () => tableData.length;
 
   // Card 2: In stock / out of stock products
   const stockStatus = () => {
@@ -161,11 +160,11 @@ export default function ProductManagement() {
     setFileList(
       product.image_url
         ? product.image_url.map((url, index) => ({
-            uid: index,
-            name: `image-${index}.jpg`,
-            status: "done",
-            url,
-          }))
+          uid: index,
+          name: `image-${index}.jpg`,
+          status: "done",
+          url,
+        }))
         : []
     );
     if (!product.id) {
@@ -237,8 +236,6 @@ export default function ProductManagement() {
   };
 
   const onFinish = async (values) => {
-    console.log(values);
-    
     try {
       // Chuyển description từ chuỗi thành object
       const descriptionObj = parseDescription(values.description);
@@ -267,9 +264,15 @@ export default function ProductManagement() {
         setIsModalOpen(false);
       } else {
         // Thêm sản phẩm mới
-        const newProduct = await productService.addProduct(productData);
-        console.log("Added new product:", newProduct);
-        setTableData([newProduct, ...tableData]);
+        const newProduct = {
+          id: String(products.length + 1),
+          ...productData,
+        };
+
+        const createdProduct = await productService.addProduct(newProduct);
+        // Cập nhật danh sách sản phẩm
+        console.log("Added new product:", createdProduct);
+        setTableData([createdProduct, ...tableData]);
         setIsModalOpen(false);
       }
       form.resetFields();
@@ -352,7 +355,7 @@ export default function ProductManagement() {
       sortable: true,
       cell: (row) => (
         <Tag color={row.status === "active" ? "orange" : "red"}>
-          {row.status === "active" ? "Đang bán" : "Ngừng bán"}
+          {row.status === "active" ? "Đang hoạt động" : "Đã ẩn"}
         </Tag>
       ),
     },
@@ -362,14 +365,55 @@ export default function ProductManagement() {
       center: true,
       cell: (row) => (
         <div className="flex justify-center">
-          <PencilLine
-            className="cursor-pointer"
-            onClick={() => {
-              setSelectedProduct(row);
-              showModal(row);
-            }}
-          />
-          <span style={{ display: "none" }}>{row.id}</span>
+          <Tooltip title="Chỉnh sửa">
+            <PencilLine
+              className="cursor-pointer text-blue-500 mr-2"
+              size={18}
+              onClick={() => {
+                setSelectedProduct(row);
+                showModal(row);
+              }}
+            />
+            <span style={{ display: "none" }}>{row.id}</span>
+          </Tooltip>
+
+          <Tooltip title={row.active === 1 ? "Ẩn sản phẩm" : "Hiện sản phẩm"}>
+            {row.status === "active" ? (
+              <EyeOff
+                className="cursor-pointer text-red-500"
+                size={18}
+                onClick={() => {
+                  const updatedProduct = { ...row, status: "inactive" };
+                  productService.updateProduct(row.id, updatedProduct)
+                    .then(() => {
+                      message.success("Sản phẩm đã được ẩn thành công");
+                    })
+
+                  const updatedProducts = tableData.map((product) =>
+                    product.id === row.id ? updatedProduct : product,
+                  )
+                  setTableData(updatedProducts)
+                }}
+              />
+            ) : (
+              <Eye
+                className="cursor-pointer text-green-500"
+                size={18}
+                onClick={() => {
+                  const updatedProduct = { ...row, status: "active" };
+                  productService.updateProduct(row.id, updatedProduct)
+                    .then(() => {
+                      message.success("Sản phẩm đã được hiện thành công");
+                    })
+
+                  const updatedProducts = tableData.map((product) =>
+                    product.id === row.id ? updatedProduct : product,
+                  )
+                  setTableData(updatedProducts)
+                }}
+              />
+            )}
+          </Tooltip>
         </div>
       ),
     },
@@ -384,8 +428,9 @@ export default function ProductManagement() {
       form.setFieldsValue({
         ...selectedProduct,
         category_id: selectedProduct.category_id,
-        brand: selectedProduct.brand,
+        brand: brands.find((brand) => brand.id == selectedProduct.brand_id)?.name,
         status: selectedProduct.status === "active",
+        price: selectedProduct.price.toLocaleString("vi-VN").split(",")[0],
         description: formatDescription(selectedProduct.description),
       });
     }
@@ -429,7 +474,7 @@ export default function ProductManagement() {
                 wrapperCol={{ span: 16 }}
                 rules={[{ required: true, message: "Vui lòng nhập giá" }]}
               >
-                <Input type="number" min="0" />
+                <Input type="text" min="0" />
               </Form.Item>
 
               <Form.Item
@@ -556,7 +601,7 @@ SSD: 512GB"
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-700">Tổng sản phẩm</h3>
-              <p className="text-3xl font-bold text-green-600">{totalProducts()}</p>
+              <p className="text-3xl font-bold text-green-600">{products.length}</p>
             </div>
           </div>
 
@@ -611,7 +656,7 @@ SSD: 512GB"
                     <div className="w-40 bg-gray-200 rounded-full h-2.5 mr-2">
                       <div
                         className="bg-yellow-500 h-2.5 rounded-full"
-                        style={{ width: `${(count / totalProducts()) * 100}%` }}
+                        style={{ width: `${(count / products.length) * 100}%` }}
                       ></div>
                     </div>
                     <span className="text-sm font-medium text-gray-700">{count}</span>
@@ -707,10 +752,13 @@ SSD: 512GB"
 
             <div className="text-end mb-4">
               <div className="space-x-2 flex items-center justify-end gap-2">
-                <Button onClick={showAddProductModal} className="">
-                  <PackagePlus />
-                </Button>
+                <Tooltip title="Thêm sản phẩm mới">
+                  <Button onClick={showAddProductModal} type="primary" className="">
+                    <PackagePlus />
+                  </Button>
+                </Tooltip>
 
+                <Tooltip title="Ẩn sản phẩm đã chọn">
                 <Button
                   onClick={inactiveProducts}
                   className=""
@@ -719,6 +767,7 @@ SSD: 512GB"
                 >
                   <PackageX />
                 </Button>
+                </Tooltip>
               </div>
             </div>
           </div>

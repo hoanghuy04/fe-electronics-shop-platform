@@ -113,7 +113,15 @@ export default function ProductCard(props) {
   return (
     <div key={product.id} className="py-4 px-2 cursor-pointer" onClick={handleClick}>
       {/* Apply multiple ribbons if both conditions are met */}
-      {product.discount > 0 && isNewProduct() && product.discount > 0 ? (
+      {product.stock === 0 ?
+        <Badge.Ribbon
+          text="Hết hàng"
+          style={{ padding: "4px 10px", fontSize: "16px", fontStyle: "italic", fontWeight: "bold" }}
+          color="red"
+        >
+          {renderProductCard()}
+        </Badge.Ribbon>
+      : product.discount > 0 && isNewProduct() && product.discount > 0 ? (
         <Badge.Ribbon
           text={`Giảm ${(product.discount * 100).toFixed(0)}%`}
           style={{ padding: "4px 10px", fontSize: "16px", fontStyle: "italic", fontWeight: "bold" }}
