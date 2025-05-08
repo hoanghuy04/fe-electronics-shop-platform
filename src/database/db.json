@@ -77,8 +77,8 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531083/products/product_3_7.jpg",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531084/products/product_3_8.jpg"
       ],
-      "total_sales": 2,
-      "stock": 9,
+      "total_sales": 3,
+      "stock": 8,
       "status": "inactive"
     },
     {
@@ -330,8 +330,8 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531164/products/product_14_8.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531166/products/product_14_9.png"
       ],
-      "total_sales": 1,
-      "stock": 10,
+      "total_sales": 5,
+      "stock": 6,
       "status": "inactive"
     },
     {
@@ -1474,7 +1474,7 @@
   ],
   "orders": [
     {
-      "id": "HD20250508145053213",
+      "id": "HD20250509004154186",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1485,9 +1485,15 @@
           "ward": "26725"
         }
       },
-      "note": "",
       "customer_id": "1",
       "products": [
+        {
+          "id": "14",
+          "title": "Laptop Gaming Acer Nitro 5 AN515-58",
+          "quantity": 2,
+          "price": 34990000,
+          "discount": 0.1
+        },
         {
           "id": "3",
           "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
@@ -1496,20 +1502,91 @@
           "discount": 0.15
         }
       ],
-      "total_price": 24641500,
+      "total_price": 87623500,
       "status": {
-        "current": "PENDING",
+        "current": "DELIVERED",
         "history": [
           {
             "status": "PENDING",
-            "updated_at": "2025-05-08T07:50:53.109Z",
+            "updated_at": "2025-05-08T17:41:54.443Z",
             "note": "Đơn hàng được tạo"
+          },
+          {
+            "status": "PROCESSING",
+            "updated_at": "2025-05-08T17:47:02.782Z",
+            "note": "Cập nhật trạng thái đơn hàng"
+          },
+          {
+            "status": "SHIPPED",
+            "updated_at": "2025-05-08T17:47:15.070Z",
+            "note": "Đơn hàng đang vận chuyển"
+          },
+          {
+            "status": "DELIVERED",
+            "updated_at": "2025-05-08T17:48:30.918Z",
+            "note": "Đơn hàng đã hoàn thành"
           }
         ]
       },
-      "order_date": "2025-05-08T07:50:53.109Z",
+      "order_date": "2025-05-08T17:41:54.443Z",
       "payment_method": "Thanh toán khi nhận hàng",
-      "payment_status": "UNPAID"
+      "payment_status": "PAID",
+      "addressString": "Ho Chi Minh, Phường Hắc Dịch, Thị xã Phú Mỹ, Tỉnh Bà Rịa - Vũng Tàu"
+    },
+    {
+      "id": "HD202505090041544654",
+      "shipping_address": {
+        "full_name": "Trần Ngọc Huyền",
+        "phone": "0964424149",
+        "address": {
+          "street": "Ho Chi Minh",
+          "province": "77",
+          "district": "754",
+          "ward": "26725"
+        }
+      },
+      "customer_id": "1",
+      "products": [
+        {
+          "id": "14",
+          "title": "Laptop Gaming Acer Nitro 5 AN515-58",
+          "quantity": 2,
+          "price": 34990000,
+          "discount": 0.1
+        },
+        {
+          "id": "3",
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
+        }
+      ],
+      "total_price": 87623500,
+      "status": {
+        "current": "CANCELLED",
+        "history": [
+          {
+            "status": "PENDING",
+            "updated_at": "2025-05-08T17:41:54.443Z",
+            "note": "Đơn hàng được tạo"
+          },
+          {
+            "status": "PROCESSING",
+            "updated_at": "2025-05-08T17:47:02.782Z",
+            "note": "Cập nhật trạng thái đơn hàng"
+          },
+          {
+            "status": "CANCELLED",
+            "updated_at": "2025-05-08T17:47:15.070Z",
+            "note": "Khách yêu cầu huỷ"
+          }
+        ]
+      },
+      "order_date": "2025-05-08T17:41:54.443Z",
+      "payment_method": "Thanh toán khi nhận hàng",
+      "payment_status": "PAID",
+      "addressString": "Ho Chi Minh, Phường Hắc Dịch, Thị xã Phú Mỹ, Tỉnh Bà Rịa - Vũng Tàu"
     }
   ],
   "users": [

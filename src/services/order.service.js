@@ -1,5 +1,11 @@
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(utc);
+
+import { addressService } from "./address.service";
 import { productService } from "./product.service";
-import { get, post } from "./request";
+import { get, post, put } from "./request";
 
 export const orderService = {
   createOrder: async (order) => {
@@ -32,23 +38,34 @@ export const orderService = {
     }
   },
 
-  updateOrderStatus: (order, newStatus, note = "") => {
+  updateOrder: async (order, updatedFields) => {
     const now = new Date().toISOString();
+    const updatedStatus = updatedFields.status || "PENDING";
 
-    return {
-      ...order,
-      status: {
-        current: newStatus,
-        history: [
-          ...(order.status?.history || []),
-          {
-            status: newStatus,
-            updated_at: now,
-            note: note || orderService.getDefaultNote(newStatus),
-          },
-        ],
-      },
+    const newStatusHistory = {
+      status: updatedStatus,
+      updated_at: now,
+      note: updatedFields.note || orderService.getDefaultNote(updatedStatus),
     };
+
+    const isDelivered = updatedStatus === "DELIVERED";
+
+    try {
+      const updatedOrder = {
+        ...order,
+        ...updatedFields,
+        payment_status: isDelivered ? "PAID" : order.payment_status,
+        status: {
+          current: updatedStatus,
+          history: [...(order.status?.history || []), newStatusHistory],
+        },
+      };
+
+      return await put(`orders/${order.id}`, updatedOrder);
+    } catch (error) {
+      console.error("Lỗi khi cập nhật đơn hàng:", error);
+      throw error;
+    }
   },
 
   getDefaultNote: (status) => {
@@ -160,7 +177,7 @@ export const orderService = {
 
   getOrdersPaginated: async (page = 1, limit = 5) => {
     try {
-      const allOrders = await get("orders"); // lấy tất cả
+      const allOrders = await get("orders");
 
       if (!Array.isArray(allOrders)) throw new Error("Invalid order data");
 
@@ -172,16 +189,115 @@ export const orderService = {
       const start = (page - 1) * limit;
       const paginated = sortedOrders.slice(start, start + limit);
 
+      const result = await Promise.all(
+        paginated.map(async (order) => {
+          let addressString = "";
+          try {
+            const addr = order.shipping_address?.address;
+            const [province, district, ward] = await Promise.all([
+              addressService.getProvinceById(addr?.province),
+              addressService.getDistrictById(addr?.district, addr?.province),
+              addressService.getWardById(addr?.ward, addr?.district),
+            ]);
+
+            addressString = [
+              addr.street,
+              ward?.full_name,
+              district?.full_name,
+              province?.full_name,
+            ]
+              .filter(Boolean)
+              .join(", ");
+          } catch (err) {
+            console.warn("Không thể lấy địa chỉ đầy đủ:", err);
+          }
+
+          return {
+            ...order,
+            addressString,
+          };
+        })
+      );
+
       return {
-        data: paginated,
+        data: result,
         total,
       };
     } catch (error) {
-      console.error("Lỗi khi phân trang đơn hàng (client sort):", error);
+      console.error("Lỗi khi phân trang đơn hàng", error);
       return {
         data: [],
         total: 0,
       };
+    }
+  },
+
+  getOrdersAndStats: async (
+    type = "day",
+    date = dayjs(),
+    page = 1,
+    limit = 5
+  ) => {
+    try {
+      const allOrders = await get("orders");
+
+      const format = {
+        day: "YYYY-MM-DD",
+        month: "YYYY-MM",
+        year: "YYYY",
+      }[type];
+
+      const currentKey = dayjs(date).format(format);
+      const prevKey = dayjs(date).subtract(1, type).format(format);
+
+      const currentStats = { revenue: 0, totalOrders: 0, pendingOrders: 0 };
+      const prevStats = { revenue: 0, totalOrders: 0, pendingOrders: 0 };
+
+      const filtered = [];
+
+      for (const order of allOrders) {
+        console.log("orderdate", order.order_date);
+        const orderKey = dayjs.utc(order.order_date).local().format(format);
+
+        console.log("orderke y", orderKey);
+        const revenue = order.total_price;
+
+        const stats =
+          orderKey === currentKey
+            ? currentStats
+            : orderKey === prevKey
+            ? prevStats
+            : null;
+
+        if (orderKey === currentKey) {
+          filtered.push(order);
+        }
+
+        if (stats) {
+          stats.revenue += revenue;
+          stats.totalOrders += 1;
+          if (order.status?.current === "PENDING") {
+            stats.pendingOrders += 1;
+          }
+        }
+      }
+
+      const sorted = filtered.sort(
+        (a, b) => new Date(b.order_date) - new Date(a.order_date)
+      );
+      const total = sorted.length;
+      const start = (page - 1) * limit;
+      const paginated = sorted.slice(start, start + limit);
+
+      return {
+        data: paginated,
+        total,
+        currentStats,
+        prevStats,
+      };
+    } catch (e) {
+      console.error("Lỗi khi lấy orders và thống kê:", e);
+      throw e;
     }
   },
 };

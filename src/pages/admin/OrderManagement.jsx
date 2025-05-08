@@ -7,9 +7,10 @@ import {
   Modal,
   message,
   Skeleton,
-  Tag,
   Select,
   DatePicker,
+  Divider,
+  Steps,
 } from "antd";
 import {
   Plus,
@@ -29,6 +30,10 @@ import {
   ClockCircleOutlined,
 } from "@ant-design/icons";
 import dayjs from "dayjs";
+import TagStatus from "../../components/TagStatus";
+import useAddress from "../../hooks/useAddress";
+import AddressDisplay from "../../components/AddressDisplay";
+import HistoryCartItem from "../../components/HistoryCartItem";
 
 export default function OrderManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,6 +44,7 @@ export default function OrderManagement() {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [form] = Form.useForm();
+  const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
   const [totalRevenue, setTotalRevenue] = useState({ value: 0, change: 0 });
   const [totalOrders, setTotalOrders] = useState({ value: 0, change: 0 });
   const [pendingOrders, setPendingOrders] = useState({ value: 0, change: 0 });
@@ -48,14 +54,6 @@ export default function OrderManagement() {
   const [perPage, setPerPage] = useState(5);
   const [totalRows, setTotalRows] = useState(0);
 
-  const statusColors = {
-    pending: "orange",
-    processing: "blue",
-    shipped: "cyan",
-    delivered: "green",
-    cancelled: "red",
-  };
-
   const statusOptions = [
     { label: "Pending", value: "pending" },
     { label: "Processing", value: "processing" },
@@ -64,80 +62,116 @@ export default function OrderManagement() {
     { label: "Cancelled", value: "cancelled" },
   ];
 
+  const ORDER_FLOW = [
+    { key: "PENDING", label: "Chờ xác nhận" },
+    { key: "PROCESSING", label: "Đang xử lý" },
+    { key: "SHIPPED", label: "Đã gửi hàng" },
+    { key: "DELIVERED", label: "Đã giao hàng" },
+  ];
+
+  const CANCEL_STEP = { key: "CANCELLED", label: "Đã huỷ" };
+
+  useEffect(() => {
+    fetchData(currentPage, perPage);
+  }, [selectedDate, filterType, currentPage, perPage]);
+
+  const historyMap = {};
+  (selectedOrder?.status.history || []).forEach((item) => {
+    historyMap[item.status] = item;
+  });
+
+  // const completedKeys = selectedOrder?.status.history.map((h) => h.status);
+
+  const stepsToRender = [...ORDER_FLOW];
+  if (selectedOrder?.status.current === "CANCELLED") {
+    const lastStatusBeforeCancel = selectedOrder?.status.history
+      .reverse()
+      .find((h) => h.status !== "CANCELLED")?.status;
+
+    const insertIndex =
+      ORDER_FLOW.findIndex((s) => s.key === lastStatusBeforeCancel) + 1;
+    stepsToRender.splice(insertIndex, 0, CANCEL_STEP);
+  }
+
   const handleFilterChange = (type) => {
     setFilterType(type);
-    fetchOrderStats(type, selectedDate);
+    fetchData(type, selectedDate);
   };
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    fetchOrderStats(filterType, date);
+    fetchData(filterType, date);
   };
 
   useEffect(() => {
-    fetchOrderTableData();
-    fetchOrderStats();
+    fetchData(currentPage, perPage);
   }, []);
 
-  const fetchOrderTableData = async (page = currentPage, limit = perPage) => {
-    setLoadingTable(true);
-    try {
-      const response = await orderService.getOrdersPaginated(page, limit);
-      setOrders(response.data);
-      setTotalRows(response.total);
-    } catch (error) {
-      message.error("Failed to fetch orders");
-      console.error(error);
-    }
-    setLoadingTable(false);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    fetchData(page, perPage);
   };
 
-  const fetchOrderStats = async (type = filterType, date = selectedDate) => {
-    // setLoadingStats(true);
-    // try {
-    //   const stats = await orderService.getOverviewStatsByFilter(type, date);
-    //   const prevDate = dayjs(date).subtract(1, type);
-    //   const prevStats = await orderService.getOverviewStatsByFilter(
-    //     type,
-    //     prevDate
-    //   );
-    //   const calcChange = (current, prev) => {
-    //     if (prev === 0) return current === 0 ? 0 : 100;
-    //     return Number((((current - prev) / prev) * 100).toFixed(2));
-    //   };
-    //   const revenueChange = calcChange(stats.revenue, prevStats.revenue);
-    //   const ordersChange = calcChange(stats.totalOrders, prevStats.totalOrders);
-    //   const pendingChange = calcChange(
-    //     stats.pendingOrders,
-    //     prevStats.pendingOrders
-    //   );
-    //   setTotalRevenue({ value: stats.revenue, change: revenueChange });
-    //   setTotalOrders({ value: stats.totalOrders, change: ordersChange });
-    //   setPendingOrders({ value: stats.pendingOrders, change: pendingChange });
-    // } catch (error) {
-    //   message.error("Failed to fetch order statistics");
-    //   console.error(error);
-    // }
-    // setLoadingStats(false);
+  const handlePerRowsChange = (newPerPage, page) => {
+    setPerPage(newPerPage);
+    fetchData(page, newPerPage);
+  };
+
+  const fetchData = async (page = 1, limit = 5) => {
+    setLoadingTable(true);
+    try {
+      const { data, total, currentStats, prevStats } =
+        await orderService.getOrdersAndStats(
+          filterType,
+          selectedDate,
+          page,
+          limit
+        );
+
+      setOrders(data);
+      setTotalRows(total);
+
+      const calcChange = (current, prev) => {
+        if (prev === 0) return current === 0 ? 0 : 100;
+        return Number((((current - prev) / prev) * 100).toFixed(2));
+      };
+
+      setTotalRevenue({
+        value: currentStats.revenue,
+        change: calcChange(currentStats.revenue, prevStats.revenue),
+      });
+
+      setTotalOrders({
+        value: currentStats.totalOrders,
+        change: calcChange(currentStats.totalOrders, prevStats.totalOrders),
+      });
+
+      setPendingOrders({
+        value: currentStats.pendingOrders,
+        change: calcChange(currentStats.pendingOrders, prevStats.pendingOrders),
+      });
+    } catch (error) {
+      message.error("Không thể tải dữ liệu thống kê & đơn hàng", error);
+    }
+    setLoadingTable(false);
   };
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
   };
 
-  const filteredOrders = orders.filter(
-    (order) =>
-      order.orderId.toLowerCase().includes(searchTerm) ||
-      order.status.toLowerCase().includes(searchTerm)
+  const filteredOrders = orders.filter((order) =>
+    order.id.toLowerCase().includes(searchTerm)
   );
 
   const showModal = (order = null) => {
     setSelectedOrder(order);
-    setIsModalOpen(true);
+    setIsStatusModalOpen(true);
+    console.log(order);
+
     if (order) {
       form.setFieldsValue({
-        ...order,
-        date: dayjs(order.date),
+        status: order.status?.current,
       });
     } else {
       form.resetFields();
@@ -148,86 +182,72 @@ export default function OrderManagement() {
     setSelectedOrder(order);
     setIsViewModalOpen(true);
   };
+  const handleStatusUpdate = async (values) => {
+    console.log("Dữ liệu cập nhật:", values);
+    try {
+      const updatedOrder = orderService.updateOrder(selectedOrder, {
+        status: values.status,
+        note: values.note,
+      });
 
-  const handleCancel = () => {
-    setIsModalOpen(false);
-    form.resetFields();
-  };
+      await orderService.updateOrder(selectedOrder.id, updatedOrder);
+      message.success("Cập nhật trạng thái thành công");
 
-  const handleViewCancel = () => {
-    setIsViewModalOpen(false);
-  };
-
-  const handleOk = () => {
-    form.submit();
-  };
-
-  const onFinish = async (values) => {
-    values.date = values.date.format("YYYY-MM-DD");
-
-    if (selectedOrder) {
-      try {
-        await orderService.updateOrder(selectedOrder.id, values);
-        message.success("Order updated successfully");
-      } catch (error) {
-        message.error("Failed to update order");
-        console.error(error);
-        return;
-      }
-    } else {
-      try {
-        await orderService.createOrder(values);
-        message.success("Order created successfully");
-      } catch (error) {
-        message.error(error.message || "An error occurred");
-        return;
-      }
+      setIsStatusModalOpen(false);
+      form.resetFields();
+      fetchData(currentPage, perPage);
+    } catch (error) {
+      console.error(error);
+      message.error("Cập nhật thất bại");
     }
-
-    fetchOrderStats();
-    fetchOrderTableData();
-    handleCancel();
   };
 
   const columns = [
     {
-      name: "Order ID",
-      selector: (row) => row.orderId,
-      sortable: true,
+      name: "STT",
+      cell: (row, index) => (currentPage - 1) * perPage + index + 1,
+      width: "70px",
     },
     {
-      name: "Date",
+      name: "Mã",
+      selector: (row) => row.id,
+      sortable: true,
+      width: "200px",
+    },
+    {
+      name: "Ngày đặt đơn",
       selector: (row) => {
-        const date = new Date(row.date);
-        return date.toLocaleDateString();
+        const [year, month, day] = row.order_date.split("T")[0].split("-");
+        return `${day}/${month}/${year}`;
       },
       sortable: true,
+      width: "150px",
     },
     {
-      name: "Items",
-      selector: (row) => row.items,
+      name: "Tên KH",
+      selector: (row) => row.shipping_address.full_name,
+      sortable: true,
+      wrap: true,
+    },
+    {
+      name: "Địa chỉ",
+      selector: (row) => row.addressString,
+      sortable: false,
+      width: "300px",
+      wrap: true,
+    },
+    {
+      name: "Tổng tiền",
+      selector: (row) => row.total_price.toLocaleString("vi-VN") ?? "0",
       sortable: true,
     },
     {
-      name: "Status",
-      selector: (row) => (
-        <Tag color={statusColors[row.status] || "default"}>
-          {row.status.charAt(0).toUpperCase() + row.status.slice(1)}
-        </Tag>
-      ),
+      name: "Trạng thái",
+      selector: (row) => <TagStatus status={row.status?.current} />,
       sortable: true,
     },
     {
-      name: "Amount",
-      selector: (row) =>
-        row.amount.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        }),
-      sortable: true,
-    },
-    {
-      name: "Action",
+      name: "",
       center: true,
       cell: (row) => (
         <div className="flex items-center space-x-2">
@@ -272,31 +292,31 @@ export default function OrderManagement() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         <OverviewItem
-          title="Total Revenue"
+          title="Tổng doanh thu"
           value={totalRevenue.value.toLocaleString("en-US", {
             style: "currency",
             currency: "USD",
           })}
           icon={<DollarOutlined className="text-green-500" />}
-          change={{ value: totalRevenue.change, text: "vs previous period" }}
+          change={{ value: totalRevenue.change, text: "so với kì trước" }}
           className="bg-green-50"
           iconClassName="bg-white text-green-500"
         />
 
         <OverviewItem
-          title="Total Orders"
+          title="Tổng hoá đơn"
           value={totalOrders.value.toLocaleString("en-US")}
           icon={<ShoppingCartOutlined className="text-blue-500" />}
-          change={{ value: totalOrders.change, text: "vs previous period" }}
+          change={{ value: totalOrders.change, text: "so với kì trước" }}
           className="bg-blue-50"
           iconClassName="bg-white text-blue-500"
         />
 
         <OverviewItem
-          title="Pending Orders"
+          title="Hoá đơn chờ xử lý"
           value={pendingOrders.value}
           icon={<ClockCircleOutlined className="text-orange-500" />}
-          change={{ value: pendingOrders.change, text: "vs previous period" }}
+          change={{ value: pendingOrders.change, text: "so với kì trước" }}
           className="bg-orange-50"
           iconClassName="bg-white text-orange-500"
         />
@@ -318,12 +338,7 @@ export default function OrderManagement() {
 
           <div className="col-span-7"></div>
 
-          <div className="col-span-2 text-end mb-4">
-            <Button onClick={() => showModal()}>
-              <Plus className="mr-2" />
-              New Order
-            </Button>
-          </div>
+          <div className="col-span-2 text-end mb-4"></div>
         </div>
 
         {loadingTable ? (
@@ -337,15 +352,12 @@ export default function OrderManagement() {
             paginationTotalRows={totalRows}
             paginationPerPage={perPage}
             paginationRowsPerPageOptions={[5, 10, 15, 20]}
-            onChangePage={(page) => {
-              setCurrentPage(page);
-              fetchOrderTableData(page, perPage);
-            }}
-            onChangeRowsPerPage={(newPerPage, page) => {
-              setPerPage(newPerPage);
-              setCurrentPage(page);
-              fetchOrderTableData(page, newPerPage);
-            }}
+            noDataComponent="Không tìm thấy order nào nào"
+            // selectableRows
+            // onSelectedRowsChange={handleRowSelected}
+            // selectableRowsHighlight
+            onChangePage={handlePageChange}
+            onChangeRowsPerPage={handlePerRowsChange}
             highlightOnHover
             customStyles={{
               headCells: {
@@ -365,132 +377,179 @@ export default function OrderManagement() {
         )}
       </div>
 
-      {/* Edit/Create Order Modal */}
       <Modal
-        title={selectedOrder ? "Update Order" : "Create New Order"}
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        width={600}
-      >
-        <Form form={form} layout="vertical" onFinish={onFinish}>
-          <Form.Item
-            label="Order ID"
-            name="orderId"
-            rules={[{ required: true, message: "Please enter the order ID" }]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Date"
-            name="date"
-            rules={[{ required: true, message: "Please select a date" }]}
-          >
-            <DatePicker style={{ width: "100%" }} />
-          </Form.Item>
-
-          <Form.Item
-            label="Items"
-            name="items"
-            rules={[
-              { required: true, message: "Please enter the number of items" },
-            ]}
-          >
-            <Input type="number" min={1} />
-          </Form.Item>
-
-          <Form.Item
-            label="Status"
-            name="status"
-            rules={[{ required: true, message: "Please select a status" }]}
-          >
-            <Select options={statusOptions} />
-          </Form.Item>
-
-          <Form.Item
-            label="Amount"
-            name="amount"
-            rules={[{ required: true, message: "Please enter the amount" }]}
-          >
-            <Input type="number" min={0} step={0.01} prefix="$" />
-          </Form.Item>
-        </Form>
-      </Modal>
-
-      {/* View Order Modal */}
-      <Modal
-        title="Order Details"
+        title="Chi tiết đơn hàng"
         open={isViewModalOpen}
-        onCancel={handleViewCancel}
+        centered
+        onCancel={() => setIsViewModalOpen(false)}
         footer={[
-          <Button key="close" onClick={handleViewCancel}>
-            Close
+          <Button key="close" onClick={() => setIsViewModalOpen(false)}>
+            Đóng
           </Button>,
           <Button
             key="edit"
             type="primary"
             onClick={() => {
-              handleViewCancel();
+              setIsViewModalOpen(false);
               showModal(selectedOrder);
             }}
           >
-            Edit
+            Chỉnh sửa
           </Button>,
         ]}
-        width={600}
+        width={1000}
       >
         {selectedOrder && (
           <div className="space-y-4">
-            <div className="flex items-center justify-between border-b pb-2">
-              <div className="flex items-center">
-                <FileText className="h-5 w-5 text-blue-600 mr-2" />
-                <span className="font-semibold">Order ID:</span>
-              </div>
-              <span>{selectedOrder.orderId}</span>
+            <div className="grid grid-cols-2 gap-4">
+              <p>
+                <strong>Mã đơn hàng:</strong> {selectedOrder.id}
+              </p>
+              <p>
+                <strong>Ngày đặt hàng:</strong>{" "}
+                {new Date(selectedOrder.order_date).toLocaleString("vi-VN")}
+              </p>
+              <p>
+                <strong>Trạng thái đơn hàng:</strong>{" "}
+                <TagStatus status={selectedOrder.status.current} />
+              </p>
+              <p>
+                <strong>Trạng thái thanh toán:</strong>{" "}
+                <TagStatus status={selectedOrder.payment_status} />
+              </p>
             </div>
 
-            <div className="flex items-center justify-between border-b pb-2">
-              <div className="flex items-center">
-                <ClockCircleOutlined className="h-5 w-5 text-blue-600 mr-2" />
-                <span className="font-semibold">Date:</span>
-              </div>
-              <span>{new Date(selectedOrder.date).toLocaleDateString()}</span>
+            <Divider />
+
+            <div className="grid grid-cols-2 gap-4">
+              <p>
+                <strong>Khách hàng:</strong>{" "}
+                {selectedOrder.shipping_address.full_name}
+              </p>
+              <p>
+                <strong>Số điện thoại:</strong>{" "}
+                {selectedOrder.shipping_address.phone}
+              </p>
+              <p className="col-span-2">
+                <strong>Địa chỉ:</strong>{" "}
+                <AddressDisplay
+                  address={selectedOrder.shipping_address.address}
+                />
+              </p>
             </div>
 
-            <div className="flex items-center justify-between border-b pb-2">
-              <div className="flex items-center">
-                <ShoppingBag className="h-5 w-5 text-blue-600 mr-2" />
-                <span className="font-semibold">Items:</span>
-              </div>
-              <span>{selectedOrder.items}</span>
+            <Divider />
+
+            <div className="grid grid-cols-2 gap-4">
+              <p>
+                <strong>Phương thức thanh toán:</strong>{" "}
+                {selectedOrder.payment_method}
+              </p>
+              <p>
+                <strong>Tổng tiền:</strong>{" "}
+                {selectedOrder.total_price.toLocaleString()}
+              </p>
             </div>
 
-            <div className="flex items-center justify-between border-b pb-2">
-              <div className="flex items-center">
-                <ShoppingCartOutlined className="h-5 w-5 text-blue-600 mr-2" />
-                <span className="font-semibold">Status:</span>
-              </div>
-              <Tag color={statusColors[selectedOrder.status] || "default"}>
-                {selectedOrder.status.charAt(0).toUpperCase() +
-                  selectedOrder.status.slice(1)}
-              </Tag>
-            </div>
+            {selectedOrder.status.history?.length > 0 && (
+              <>
+                <Divider />
+                <p>
+                  <strong>Lịch sử trạng thái:</strong>
+                </p>
+                <Steps
+                  size="small"
+                  current={stepsToRender.findIndex(
+                    (s) => s.key === selectedOrder.status.current
+                  )}
+                >
+                  {stepsToRender.map((step) => {
+                    const historyItem = historyMap[step.key];
+                    const isCancelled = step.key === "CANCELLED";
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <DollarOutlined className="h-5 w-5 text-blue-600 mr-2" />
-                <span className="font-semibold">Amount:</span>
-              </div>
-              <span>
-                {selectedOrder.amount.toLocaleString("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                })}
-              </span>
-            </div>
+                    return (
+                      <Steps.Step
+                        key={step.key}
+                        status={
+                          isCancelled
+                            ? "error"
+                            : historyItem
+                            ? "finish"
+                            : "wait"
+                        }
+                        title={step.label}
+                        description={
+                          historyItem
+                            ? `${dayjs(historyItem.updated_at).format(
+                                "HH:mm:ss D/M/YYYY"
+                              )}: ${historyItem.note}`
+                            : "Chưa có dữ liệu"
+                        }
+                      />
+                    );
+                  })}
+                </Steps>
+              </>
+            )}
+
+            {selectedOrder.products && (
+              <>
+                <Divider />
+                <p>
+                  <strong>Sản phẩm:</strong>
+                </p>
+                {selectedOrder.products.map((product) => (
+                  <HistoryCartItem product={product} key={product.id} />
+                ))}
+              </>
+            )}
+
+            {selectedOrder.note && (
+              <>
+                <Divider />
+                <p>
+                  <strong>Ghi chú:</strong> {selectedOrder.note}
+                </p>
+              </>
+            )}
           </div>
         )}
+      </Modal>
+
+      <Modal
+        title="Cập nhật trạng thái đơn hàng"
+        open={isStatusModalOpen}
+        centered
+        destroyOnClose
+        onCancel={() => {
+          setIsStatusModalOpen(false);
+          form.resetFields();
+        }}
+        onOk={() => form.submit()}
+        okText="Cập nhật"
+        cancelText="Hủy"
+      >
+        <Form form={form} layout="vertical" onFinish={handleStatusUpdate}>
+          <Form.Item
+            name="status"
+            label="Trạng thái"
+            rules={[{ required: true, message: "Vui lòng chọn trạng thái" }]}
+          >
+            <Select
+              placeholder="Chọn trạng thái đơn hàng"
+              options={[
+                { label: "Chờ xác nhận", value: "PENDING" },
+                { label: "Đang xử lý", value: "PROCESSING" },
+                { label: "Đã gửi hàng", value: "SHIPPED" },
+                { label: "Đã giao hàng", value: "DELIVERED" },
+                { label: "Đã hủy", value: "CANCELLED" },
+              ]}
+            />
+          </Form.Item>
+          <Form.Item name="note" label="Ghi chú">
+            <Input.TextArea rows={3} placeholder="Lý do thay đổi trạng thái" />
+          </Form.Item>
+        </Form>
       </Modal>
     </div>
   );
