@@ -1,4 +1,13 @@
-import { Button, Form, Input, Modal, message, Skeleton, Tag } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  Modal,
+  message,
+  Skeleton,
+  Tag,
+  Switch,
+} from "antd";
 import {
   Plus,
   LayoutDashboard,
@@ -24,7 +33,7 @@ export default function BrandManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [brands, setBrands] = useState([]);
   const [loadingTable, setLoadingTable] = useState(true);
-  const [loadingStats, setLoadingStats] = useState(true);
+  const [, setLoadingStats] = useState(true);
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [form] = Form.useForm();
@@ -353,6 +362,10 @@ export default function BrandManagement() {
             rules={[{ required: true, message: "Vui lòng nhập slug" }]}
           >
             <Input />
+          </Form.Item>
+
+          <Form.Item label="Trạng thái" name="active" valuePropName="checked">
+            <Switch checkedChildren="Đang bán" unCheckedChildren="Ngừng bán" />
           </Form.Item>
         </Form>
       </Modal>

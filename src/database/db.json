@@ -1249,11 +1249,10 @@
   ],
   "brands": [
     {
-      "id": "1",
       "name": "ACER",
       "slug": "acer",
       "created_date": "2025-06-06T00:00:00.000Z",
-      "active": 1
+      "id": "1"
     },
     {
       "id": "2",
