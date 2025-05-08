@@ -74,5 +74,4 @@ export const put = async (path, options) => {
     console.error("PUT error:", error);
     return null;
   }
-}
-
+};

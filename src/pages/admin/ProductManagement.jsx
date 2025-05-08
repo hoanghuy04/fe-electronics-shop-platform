@@ -140,7 +140,7 @@ export default function ProductManagement() {
 
     if (filters.brand) {
       result = result.filter((item) => {
-        const brandName = brands.find((brand) => brand.name == item.brand)?.name || "";
+        const brandName = brands.find((brand) => brand.id == item.brand_id)?.name || "";
         return brandName.toLowerCase().includes(filters.brand.toLowerCase());
       });
     }
@@ -326,7 +326,7 @@ export default function ProductManagement() {
     {
       name: "Thương hiệu",
       width: columnWidth,
-      selector: (row) => row.brand,
+      selector: (row) => brands.find((brand) => brand.id == row.brand_id)?.name || "Khác",
       sortable: true,
     },
     {
@@ -341,7 +341,7 @@ export default function ProductManagement() {
     {
       name: "Đã bán",
       width: "100px",
-      // center: true,
+      center: true,
       selector: (row) => row.total_sales || 0,
       sortable: true,
     },
@@ -359,7 +359,7 @@ export default function ProductManagement() {
     {
       name: "",
       width: columnWidth,
-      // center: true,
+      center: true,
       cell: (row) => (
         <div className="flex justify-center">
           <PencilLine

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 import { Carousel, Spin } from "antd";
 import ProductCard from "../../components/ProductCard";
 import { ProductContext } from "../../hooks/ProductContext";
@@ -13,9 +13,8 @@ const Home = () => {
   const [pcs, setPCs] = useState([]);
   const [mouse, setMouse] = useState([]);
   const [screens, setScreens] = useState([]);
-  const {viewedProducts} =useContext(ProductContext);
+  const { viewedProducts, setViewedProducts, products, categories, brands, loading } = useContext(ProductContext);
 
-  const { products, categories, brands, loading } = useContext(ProductContext);
   // Dữ liệu giả lập cho carousel và banner
   const carouselImages = [
     {
@@ -83,9 +82,25 @@ const Home = () => {
       console.error(error);
     }
   };
-  
+
+  const getBrandNamesByProducts = (products) => {
+    try {
+      if (!products || !Array.isArray(products)) {
+        throw new Error("Dữ liệu sản phẩm không hợp lệ");
+      }
+
+      const brandIds = products.map((product) => product.brandId);
+
+      return brandIds.map((brandId) => {
+        const brand = brands.find((b) => b.id === brandId);
+        return brand ? brand.name : null;
+      }).filter(name => name !== null);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
     try {
       const lts = searchProductsByTitle("laptop");
       setLaptops(lts);
@@ -101,10 +116,11 @@ const Home = () => {
     } catch (error) {
       console.error(error);
     }
+
   }, [products, loading]);
 
   if (loading) {
-    <div className="flex items-center justify-center">
+    return <div className="flex items-center justify-center">
       <Spin />
     </div>;
   }
@@ -200,7 +216,7 @@ const Home = () => {
               <div className="text-2xl font-bold ml-3">Laptop</div>
               <div className="flex">
                 {/* Dynamically render brand buttons */}
-                {[...new Set(laptops.map((laptop) => laptop.brand))].map(
+                {getBrandNamesByProducts(laptops).map(
                   (brand, index) => (
                     <div key={index} className="mr-2">
                       <NavLink
@@ -331,9 +347,8 @@ const Home = () => {
                   <NavLink
                     key={index}
                     to={`products/all/brand/${brand.name}`}
-                    className={`${
-                      categoryColor[index % 6]
-                    } rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
+                    className={`${categoryColor[index % 6]
+                      } rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
                   >
                     <div className="flex justify-center mb-4">{brand.icon}</div>
                     <h3 className="font-medium">{brand.name}</h3>
@@ -348,7 +363,7 @@ const Home = () => {
               <div className="text-2xl font-bold ml-3">Màn hình </div>
               <div className="flex">
                 {/* Dynamically render brand buttons */}
-                {[...new Set(screens.map((s) => s.brand))].map(
+                {getBrandNamesByProducts(screens).map(
                   (brand, index) => (
                     <div key={index} className="mr-2">
                       <NavLink
@@ -394,7 +409,7 @@ const Home = () => {
             <div className="flex justify-between items-center mb-6">
               <div className="text-2xl font-bold ml-3">Máy tính để bàn</div>
               <div className="flex">
-                {[...new Set(pcs.map((m) => m.brand))].map((brand, index) => (
+                {getBrandNamesByProducts(pcs).map((brand, index) => (
                   <div key={index} className="mr-2">
                     <NavLink
                       to={`products/pc-gvn/brand/${brand}`}
@@ -438,7 +453,7 @@ const Home = () => {
             <div className="flex justify-between items-center mb-6">
               <div className="text-2xl font-bold ml-3">Chuột nổi bật</div>
               <div className="flex">
-                {[...new Set(mouse.map((m) => m.brand))].map((brand, index) => (
+                {getBrandNamesByProducts(mouse).map((brand, index) => (
                   <div key={index} className="mr-2">
                     <NavLink
                       to={`products/chuot-lot-chuot/brand/${brand}`}

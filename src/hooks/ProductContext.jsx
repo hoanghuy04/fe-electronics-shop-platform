@@ -13,11 +13,19 @@ export const ProductProvider = ({ children }) => {
 
     // Lấy danh sách categories khi component mount
     useEffect(() => {
-        const products = localStorageService.getViewedProducts();
-        localStorageService.saveViewedProduct(products);
-        
+
         const fetchData = async () => {
             setLoading(true)
+            const products = localStorageService.getViewedProducts();
+
+            if (products.length > 0) {
+                const uniqueProducts = products.filter((item, index) => {
+                    return products.findIndex((i) => i.id === item.id) === index;
+                });
+                setViewedProducts(uniqueProducts);
+                // localStorageService.saveViewedProduct(uniqueProducts);
+            }
+
             try {
                 const categoriesData = await productService.getListOfCategories();
                 setCategories(categoriesData);
@@ -39,7 +47,7 @@ export const ProductProvider = ({ children }) => {
     }, []);
 
     return (
-        <ProductContext.Provider value={{ brands, setBrands, products, setProducts, categories, setCategories, loading, setLoading, viewedProducts }}>
+        <ProductContext.Provider value={{ brands, setBrands, products, setProducts, categories, setCategories, loading, setLoading, viewedProducts, setViewedProducts }}>
             {children}
         </ProductContext.Provider>
     );
