@@ -1247,144 +1247,124 @@
   ],
   "brands": [
     {
-      "id": "1",
+      "id": 1,
       "name": "ACER",
       "slug": "acer",
-      "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-01-01T00:00:00.000Z"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "ASUS",
       "slug": "asus",
-      "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "createdAt": "202-01-01T00:00:00.000Z"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "COOLER MASTER",
       "slug": "cooler-master",
-      "created_date": "2025-05-07T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-05-07T00:00:00.000Z"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "CORSAIR",
       "slug": "corsair",
-      "created_date": "2025-04-07T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-04-07T00:00:00.000Z"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "DELL",
       "slug": "dell",
-      "created_date": "2025-04-07T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-04-07T00:00:00.000Z"
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "GIGABYTE",
       "slug": "gigabyte",
-      "created_date": "2025-04-07T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-04-07T00:00:00.000Z"
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "GVN",
       "slug": "gvn",
-      "created_date": "2025-05-07T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-05-07T00:00:00.000Z"
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "HP",
       "slug": "hp",
-      "created_date": "2025-05-07T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-05-07T00:00:00.000Z"
     },
     {
-      "id": "9",
+      "id": 9,
       "name": "HP - Pavilion",
       "slug": "hp-pavilion",
-      "created_date": "2025-05-07T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-05-07T00:00:00.000Z"
     },
     {
-      "id": "10",
+      "id": 10,
       "name": "HYPERX",
       "slug": "hyperx",
-      "created_date": "2025-05-07T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-05-07T00:00:00.000Z"
     },
     {
-      "id": "11",
+      "id": 11,
       "name": "JBL",
       "slug": "jbl",
-      "created_date": "2025-05-07T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-05-07T00:00:00.000Z"
     },
     {
-      "id": "12",
+      "id": 12,
       "name": "LENOVO",
       "slug": "lenovo",
-      "created_date": "2025-05-07T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-05-07T00:00:00.000Z"
     },
     {
-      "id": "13",
+      "id": 13,
       "name": "LG - Gram",
       "slug": "lg-gram",
-      "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-01-01T00:00:00.000Z"
     },
     {
-      "id": "14",
+      "id": 14,
       "name": "LOGITECH",
       "slug": "logitech",
-      "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-01-01T00:00:00.000Z"
     },
     {
-      "id": "15",
+      "id": 15,
       "name": "MICROSOFT",
       "slug": "microsoft",
-      "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-01-01T00:00:00.000Z"
     },
     {
-      "id": "16",
+      "id": 16,
       "name": "MSI",
       "slug": "msi",
-      "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-01-01T00:00:00.000Z"
     },
     {
-      "id": "17",
+      "id": 17,
       "name": "RAZER",
       "slug": "razer",
-      "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-01-01T00:00:00.000Z"
     },
     {
-      "id": "18",
+      "id": 18,
       "name": "SAMSUNG",
       "slug": "samsung",
-      "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-01-01T00:00:00.000Z"
     },
     {
-      "id": "19",
+      "id": 19,
       "name": "SONY",
       "slug": "sony",
-      "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-01-01T00:00:00.000Z"
     },
     {
-      "id": "20",
+      "id": 20,
       "name": "STEELSERIES",
       "slug": "steelseries",
-      "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "createdAt": "2025-01-01T00:00:00.000Z"
     }
   ],
   "categories": [
