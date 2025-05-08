@@ -1,13 +1,31 @@
-import { toast } from "sonner";
-import { get, post } from "./request";
+import { get, patch, post } from "./request";
 
 export const orderService = {
   createOrder: async (order) => {
     try {
       const response = await post("orders", order);
+
+      for (const item of order.products) {
+        const productId = item.id;
+        const quantity = item.quantity;
+
+        const product = await get(`products/${productId}`);
+
+        if (product.stock >= quantity) {
+          const updatedProduct = {
+            stock: product.stock - quantity,
+            total_sales: product.total_sales + quantity,
+          };
+
+          await patch(`products/${productId}`, updatedProduct);
+        } else {
+          console.error(`Sản phẩm "${item.title}" không đủ hàng trong kho.`);
+        }
+      }
+
       return response;
     } catch (error) {
-      toast.error("Lỗi khi tạo đơn hàng:", error);
+      console.error("Lỗi khi tạo đơn hàng:", error);
       return null;
     }
   },
@@ -19,7 +37,7 @@ export const orderService = {
       );
       return response;
     } catch (error) {
-      toast.error("Lỗi khi lấy danh sách đơn hàng:", error);
+      console.error("Lỗi khi lấy danh sách đơn hàng:", error);
       return [];
     }
   },
@@ -29,7 +47,7 @@ export const orderService = {
       const response = await get(`orders/${id}`);
       return response;
     } catch (error) {
-      toast.error("Lỗi khi lấy đơn hàng theo ID:", error);
+      console.error("Lỗi khi lấy đơn hàng theo ID:", error);
       return null;
     }
   },
@@ -66,7 +84,7 @@ export const orderService = {
       console.log(paginated);
       return { data: paginated, total };
     } catch (error) {
-      toast.error("Lỗi khi lọc đơn hàng:", error);
+      console.error("Lỗi khi lọc đơn hàng:", error);
       return { data: [], total: 0 };
     }
   },
