@@ -14,6 +14,7 @@ export const orderService = {
 
         if (product.stock >= quantity) {
           const updatedProduct = {
+            ...product,
             stock: product.stock - quantity,
             total_sales: product.total_sales + quantity,
           };
@@ -28,6 +29,42 @@ export const orderService = {
     } catch (error) {
       console.error("Lỗi khi tạo đơn hàng:", error);
       return null;
+    }
+  },
+
+  updateOrderStatus: (order, newStatus, note = "") => {
+    const now = new Date().toISOString();
+
+    return {
+      ...order,
+      status: {
+        current: newStatus,
+        history: [
+          ...(order.status?.history || []),
+          {
+            status: newStatus,
+            updated_at: now,
+            note: note || orderService.getDefaultNote(newStatus),
+          },
+        ],
+      },
+    };
+  },
+
+  getDefaultNote: (status) => {
+    switch (status) {
+      case "PENDING":
+        return "Đơn hàng mới được tạo";
+      case "CONFIRMED":
+        return "Đơn hàng đang được xử lý";
+      case "SHIPPED":
+        return "Đơn hàng đang vận chuyển";
+      case "DELIVERED":
+        return "Đơn hàng đã hoàn thành";
+      case "CANCELLED":
+        return "Đơn hàng đã bị huỷ";
+      default:
+        return "Cập nhật trạng thái đơn hàng";
     }
   },
 
@@ -65,24 +102,23 @@ export const orderService = {
       return null;
     }
   },
-  getOrdersByStatus: async (userId, status = "ALL", page = 1, limit = 5) => {
+  getOrdersByStatus: async (userId, status, page = 1, limit = 5) => {
     try {
-      const queryParams = new URLSearchParams({ customer_id: userId });
-      if (status !== "ALL") {
-        queryParams.append("status", status);
-      }
+      const allOrders = await get(`orders?customer_id=${userId}`);
 
-      const allOrders = await get(`orders?${queryParams.toString()}`);
+      const filtered =
+        status === "ALL"
+          ? allOrders
+          : allOrders.filter((o) => o.status?.current === status);
 
-      const sorted = allOrders.sort(
+      const sorted = filtered.sort(
         (a, b) => new Date(b.order_date) - new Date(a.order_date)
       );
 
       const total = sorted.length;
-
       const start = (page - 1) * limit;
       const paginated = sorted.slice(start, start + limit);
-      console.log(paginated);
+
       return { data: paginated, total };
     } catch (error) {
       console.error("Lỗi khi lọc đơn hàng:", error);
@@ -119,6 +155,33 @@ export const orderService = {
     } catch (error) {
       console.error("Lỗi khi tính doanh thu tất cả brands:", error);
       return {};
+    }
+  },
+
+  getOrdersPaginated: async (page = 1, limit = 5) => {
+    try {
+      const allOrders = await get("orders"); // lấy tất cả
+
+      if (!Array.isArray(allOrders)) throw new Error("Invalid order data");
+
+      const sortedOrders = allOrders.sort(
+        (a, b) => new Date(b.order_date) - new Date(a.order_date)
+      );
+
+      const total = sortedOrders.length;
+      const start = (page - 1) * limit;
+      const paginated = sortedOrders.slice(start, start + limit);
+
+      return {
+        data: paginated,
+        total,
+      };
+    } catch (error) {
+      console.error("Lỗi khi phân trang đơn hàng (client sort):", error);
+      return {
+        data: [],
+        total: 0,
+      };
     }
   },
 };

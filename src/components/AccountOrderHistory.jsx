@@ -16,22 +16,30 @@ export function AccountOrderHistory() {
   const [isSearching, setIsSearching] = useState(false);
   const [activeTab, setActiveTab] = useState("1");
   const [tabLabels, setTabLabels] = useState([
-    { key: "1", label: "TẤT CẢ", count: 0 },
-    { key: "2", label: "ĐANG XỬ LÝ", count: 0 },
-    { key: "3", label: "HOÀN THÀNH", count: 0 },
-    { key: "4", label: "HỦY", count: 0 },
+    { key: "ALL", label: "TẤT CẢ", count: 0 },
+    { key: "PENDING", label: "MỚI", count: 0 },
+    { key: "CONFIRMED", label: "ĐANG XỬ LÝ", count: 0 },
+    { key: "SHIPPED", label: "ĐANG VẬN CHUYỂN", count: 0 },
+    { key: "DELIVERED", label: "HOÀN THÀNH", count: 0 },
+    { key: "CANCELLED", label: "HỦY", count: 0 },
   ]);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(2);
 
   const getStatusByKey = (key) => {
+    console.log(key);
     switch (key) {
       case "2":
         return "PENDING";
       case "3":
-        return "SUCCESS";
+        return "CONFIRMED";
       case "4":
-        return "CANCEL";
+        return "SHIPPED";
+      case "5":
+        return "DELIVERED";
+      case "6":
+        return "CANCELLED";
       default:
         return "ALL";
     }
@@ -41,6 +49,7 @@ export function AccountOrderHistory() {
     setLoading(true);
     try {
       const status = getStatusByKey(statusKey);
+      console.log(status);
       const { data, total } = await orderService.getOrdersByStatus(
         user.id,
         status,

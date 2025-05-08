@@ -31,11 +31,21 @@ export default function CartStepThree() {
       customer_id: user?.id || 1,
       products,
       total_price: totalPrice,
-      status: "PENDING",
+      status: {
+        current: "PENDING",
+        history: [
+          {
+            status: "PENDING",
+            updated_at: new Date().toISOString(),
+            note: "Đơn hàng được tạo",
+          },
+        ],
+      },
       order_date: new Date().toISOString(),
       payment_method: "Thanh toán khi nhận hàng",
       payment_status: "UNPAID",
     };
+
     setOrder(completedOrder);
 
     const response = await orderService.createOrder(completedOrder);
