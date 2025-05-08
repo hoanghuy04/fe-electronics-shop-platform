@@ -2,13 +2,13 @@
   "products": [
     {
       "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
-      "price": 19999999,
-      "discount": 0.09,
-      "category_id": 1,
-      "brand": "LENOVO",
-      "stock": 0,
-      "total_sales": 10,
-      "status": "inactive",
+      "price": "1",
+      "discount": "1",
+      "category_id": "2",
+      "brand": 2,
+      "stock": "2",
+      "total_sales": "9",
+      "status": "active",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531047/products/product_1_0.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531049/products/product_1_1.png",

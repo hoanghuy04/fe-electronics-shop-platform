@@ -341,7 +341,7 @@ export default function ProductManagement() {
     {
       name: "Đã bán",
       width: "100px",
-      center: true,
+      // center: true,
       selector: (row) => row.total_sales || 0,
       sortable: true,
     },
@@ -359,7 +359,7 @@ export default function ProductManagement() {
     {
       name: "",
       width: columnWidth,
-      center: true,
+      // center: true,
       cell: (row) => (
         <div className="flex justify-center">
           <PencilLine
