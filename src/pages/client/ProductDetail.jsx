@@ -17,6 +17,7 @@ import ReviewsModal from "../../components/ReviewsModal";
 import { ProductContext } from "../../hooks/ProductContext";
 import { productService } from './../../services/product.service';
 import { reviewService } from "../../services/review.service";
+import { useAuth } from "../../hooks/AuthContext";
 
 const initItemsBreadcum = [
   {
@@ -25,6 +26,8 @@ const initItemsBreadcum = [
 ];
 
 const ProductDetail = () => {
+
+  const { user } = useAuth();
   const { slug } = useParams();
   const { state } = useLocation();
   const [product, setProduct] = useState(null);
@@ -59,7 +62,7 @@ const ProductDetail = () => {
   const handleReplySubmit = async (values) => {
     const replyData = {
       id: Date.now().toString(),
-      user_name: "Trần Ngọc Huyền (Nhân viên)",
+      user_name: user ? user.name : "Nhân viên",
       reply_text: values.reply_text,
       reply_date: new Date().toISOString().split("T")[0],
     };
@@ -113,25 +116,10 @@ const ProductDetail = () => {
           setOutOfStock(foundProduct.stock === 0);
           setMainImage(foundProduct.image_url[0]);
 
-          // Update breadcrumb
           const breadcrumbItems = [...initItemsBreadcum];
           let categoryLink = "/products/all/brand/all";
           let categoryTitle = "Danh sách sản phẩm";
 
-          // if (state?.categorySlug) {
-          //   const category = categories.find(
-          //     (c) => c.slug === state.categorySlug
-          //   );
-          //   if (category) {
-          //     categoryLink = `/products/${category.slug}/brand/all`;
-          //     categoryTitle = category.name;
-          //   } else {
-          //     categoryLink = `/products/${state.categorySlug}/brand/all`;
-          //     categoryTitle = state.categorySlug
-          //       .replace(/-/g, " ")
-          //       .replace(/\b\w/g, (c) => c.toUpperCase());
-          //   }
-          // } else {
           const productCategory = categories.find(
             (c) => c.id.toString() === foundProduct.category_id.toString()
           );
@@ -139,7 +127,6 @@ const ProductDetail = () => {
             categoryLink = `/products/${productCategory.slug}/brand/all`;
             categoryTitle = productCategory.name;
           }
-          // }
 
           breadcrumbItems.push({
             title: <a href={categoryLink}>{categoryTitle}</a>,
@@ -207,12 +194,10 @@ const ProductDetail = () => {
   };
 
   const handleSubmitReview = async (values) => {
-    const userId = 1;
-    const username = "Trần Ngọc Huyền";
     const reviewData = {
       product_id: product.id,
-      user_id: userId,
-      user_name: username,
+      user_id: user.id,
+      user_name: user.name,
       rating: values.rating,
       comment: values.comment,
     };
@@ -317,7 +302,7 @@ const ProductDetail = () => {
                     style={{
                       background: isOutOfStock ? "#d9d9d9" : "#E30019",
                       padding: "20px 12px",
-                      border: "none", 
+                      border: "none",
                     }}
                     disabled={isOutOfStock}
                   >
@@ -454,13 +439,15 @@ const ProductDetail = () => {
                         </Form.Item>
                       </Form>
                     </Modal>
-                    <Button
-                      type="link"
-                      onClick={() => handleReplyClick(review.id)}
-                      className="text-blue-500 mt-2"
-                    >
-                      Trả lời
-                    </Button>
+                    {(user?.role === "ADMIN" || user.id == review.user_id) && (
+                      <Button
+                        type="link"
+                        onClick={() => handleReplyClick(review.id)}
+                        className="text-blue-500 mt-2"
+                      >
+                        Trả lời
+                      </Button>
+                    )}
                   </div>
                 ))}
               </div>

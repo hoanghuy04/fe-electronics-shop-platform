@@ -55,9 +55,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("user");
     
     if (role === "ADMIN") {
-      navigate(path.loginAdmin);
-    } else {
-      navigate(path.home);
+      navigate(path.login);
     }
   };
 

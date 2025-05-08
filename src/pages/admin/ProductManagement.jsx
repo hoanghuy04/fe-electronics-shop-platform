@@ -11,7 +11,6 @@ import {
   CloudUpload,
   Search,
   PackagePlus,
-  PackageMinus,
   PackageX,
   EyeOff,
   Eye,
@@ -34,7 +33,6 @@ export default function ProductManagement() {
   const [form] = Form.useForm();
   const [fileList, setFileList] = useState([]);
 
-  // Search filters
   const [filters, setFilters] = useState({
     name: "",
     category: "",
@@ -42,14 +40,14 @@ export default function ProductManagement() {
     stock: "",
   });
 
-  // Card 2: In stock / out of stock products
+  const totalProducts = () => products.length;
+
   const stockStatus = () => {
     const inStock = tableData.filter((product) => product.stock > 0).length;
     const outOfStock = tableData.filter((product) => product.stock === 0).length;
     return { inStock, outOfStock };
   };
 
-  // Card 3: Products by category
   const productsByCategory = () => {
     const categoryCounts = {};
     tableData.forEach((product) => {
@@ -65,12 +63,10 @@ export default function ProductManagement() {
       }, {});
   };
 
-  // Card 4: Top products
   const topProducts = () => {
     return [...tableData].sort((a, b) => b.total_sales - a.total_sales).slice(0, 5);
   };
 
-  // Card 5: Price range or average price
   const priceMetrics = () => {
     if (tableData.length === 0) return { avg: 0, min: 0, max: 0 };
 
@@ -98,7 +94,6 @@ export default function ProductManagement() {
       );
       const updatedProducts = await Promise.all(updatePromises);
 
-      // Cập nhật tableData với các sản phẩm đã được cập nhật
       setTableData((prevData) =>
         prevData.map((product) => {
           const updatedProduct = updatedProducts.find((up) => up.id === product.id);
@@ -106,7 +101,6 @@ export default function ProductManagement() {
         })
       );
 
-      // Reset selectedRows
       setSelectedRows([]);
       message.success(`Đã ngừng bán ${updatedProducts.length} sản phẩm thành công`);
     } catch (error) {
@@ -122,7 +116,6 @@ export default function ProductManagement() {
     }
   }, [loading, products]);
 
-  // Apply filters to data
   useEffect(() => {
     let result = [...tableData];
 
@@ -151,7 +144,7 @@ export default function ProductManagement() {
     }
 
     setFilteredData(result);
-  }, [filters, tableData, categories]);
+  }, [filters, tableData, categories, brands]);
 
   const showModal = (product = {}) => {
     setSelectedProduct(product);
@@ -237,20 +230,22 @@ export default function ProductManagement() {
 
   const onFinish = async (values) => {
     try {
-      // Chuyển description từ chuỗi thành object
-      const descriptionObj = parseDescription(values.description);
-
-      // Lấy danh sách URL ảnh từ fileList
-      const imageUrls = fileList
-        .filter((file) => file.status === "done")
-        .map((file) => file.response?.url || file.url)
-        .filter(Boolean);
-
+      // Chuyển đổi kiểu dữ liệu
       const productData = {
         ...values,
+        price: parseFloat(values.price) || 0,
+        discount: parseFloat(values.discount) || 0,
+        stock: parseInt(values.stock, 10) || 0,
+        total_sales: modalMode === "edit" ? parseInt(values.total_sales, 10) || 0 : 0,
+        category_id: values.category_id ? String(values.category_id) : values.category_id,
+        brand_id: values.brand ? String(values.brand_id) : values.brand_id, 
         status: values.status ? "active" : "inactive",
-        description: descriptionObj,
-        image_url: imageUrls.length > 0 ? imageUrls : ["/placeholder.svg"],
+        description: parseDescription(values.description),
+        image_url: fileList
+          .filter((file) => file.status === "done")
+          .map((file) => file.response?.url || file.url)
+          .filter(Boolean) || ["/placeholder.svg"],
+        slug: modalMode === "add" ? values.slug : undefined, 
       };
 
       if (modalMode === "edit" && selectedProduct.id) {
@@ -364,52 +359,54 @@ export default function ProductManagement() {
       width: columnWidth,
       center: true,
       cell: (row) => (
-        <div className="flex justify-center">
+        <div className="flex justify-center space-x-2">
           <Tooltip title="Chỉnh sửa">
             <PencilLine
-              className="cursor-pointer text-blue-500 mr-2"
+              className="cursor-pointer text-blue-500"
               size={18}
               onClick={() => {
                 setSelectedProduct(row);
                 showModal(row);
               }}
             />
-            <span style={{ display: "none" }}>{row.id}</span>
           </Tooltip>
-
-          <Tooltip title={row.active === 1 ? "Ẩn sản phẩm" : "Hiện sản phẩm"}>
+          <Tooltip title={row.status === "active" ? "Ẩn sản phẩm" : "Hiện sản phẩm"}>
             {row.status === "active" ? (
               <EyeOff
                 className="cursor-pointer text-red-500"
                 size={18}
-                onClick={() => {
-                  const updatedProduct = { ...row, status: "inactive" };
-                  productService.updateProduct(row.id, updatedProduct)
-                    .then(() => {
-                      message.success("Sản phẩm đã được ẩn thành công");
-                    })
-
-                  const updatedProducts = tableData.map((product) =>
-                    product.id === row.id ? updatedProduct : product,
-                  )
-                  setTableData(updatedProducts)
+                onClick={async () => {
+                  try {
+                    const updatedProduct = { ...row, status: "inactive" };
+                    await productService.updateProduct(row.id, updatedProduct);
+                    setTableData((prevData) =>
+                      prevData.map((product) =>
+                        product.id === row.id ? updatedProduct : product
+                      )
+                    );
+                    message.success("Sản phẩm đã được ẩn thành công");
+                  } catch (error) {
+                    message.error("Đã xảy ra lỗi khi ẩn sản phẩm");
+                  }
                 }}
               />
             ) : (
               <Eye
                 className="cursor-pointer text-green-500"
                 size={18}
-                onClick={() => {
-                  const updatedProduct = { ...row, status: "active" };
-                  productService.updateProduct(row.id, updatedProduct)
-                    .then(() => {
-                      message.success("Sản phẩm đã được hiện thành công");
-                    })
-
-                  const updatedProducts = tableData.map((product) =>
-                    product.id === row.id ? updatedProduct : product,
-                  )
-                  setTableData(updatedProducts)
+                onClick={async () => {
+                  try {
+                    const updatedProduct = { ...row, status: "active" };
+                    await productService.updateProduct(row.id, updatedProduct);
+                    setTableData((prevData) =>
+                      prevData.map((product) =>
+                        product.id === row.id ? updatedProduct : product
+                      )
+                    );
+                    message.success("Sản phẩm đã được hiện thành công");
+                  } catch (error) {
+                    message.error("Đã xảy ra lỗi khi hiện sản phẩm");
+                  }
                 }}
               />
             )}
@@ -420,17 +417,10 @@ export default function ProductManagement() {
   ];
 
   useEffect(() => {
-    setFilteredData(tableData);
-  }, [tableData]);
-
-  useEffect(() => {
     if (isModalOpen && modalMode === "edit" && selectedProduct.id) {
       form.setFieldsValue({
         ...selectedProduct,
-        category_id: selectedProduct.category_id,
-        brand: brands.find((brand) => brand.id == selectedProduct.brand_id)?.name,
         status: selectedProduct.status === "active",
-        price: selectedProduct.price.toLocaleString("vi-VN").split(",")[0],
         description: formatDescription(selectedProduct.description),
       });
     }
@@ -474,7 +464,7 @@ export default function ProductManagement() {
                 wrapperCol={{ span: 16 }}
                 rules={[{ required: true, message: "Vui lòng nhập giá" }]}
               >
-                <Input type="text" min="0" />
+                <Input type="number" min="0" step="0.01" />
               </Form.Item>
 
               <Form.Item
@@ -498,7 +488,7 @@ export default function ProductManagement() {
               >
                 <Select>
                   {categories.map((category) => (
-                    <Select.Option key={category.id} value={category.id}>
+                    <Select.Option key={category.id} value={String(category.id)}>
                       {category.name}
                     </Select.Option>
                   ))}
@@ -507,14 +497,14 @@ export default function ProductManagement() {
 
               <Form.Item
                 label="Thương hiệu"
-                name="brand"
+                name="brand_id"
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
                 rules={[{ required: true, message: "Vui lòng chọn thương hiệu" }]}
               >
                 <Select>
                   {brands.map((brand) => (
-                    <Select.Option key={brand.id} value={brand.id}>
+                    <Select.Option key={brand.id} value={String(brand.id)}>
                       {brand.name}
                     </Select.Option>
                   ))}
@@ -601,7 +591,7 @@ SSD: 512GB"
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-700">Tổng sản phẩm</h3>
-              <p className="text-3xl font-bold text-green-600">{products.length}</p>
+              <p className="text-3xl font-bold text-green-600">{totalProducts()}</p>
             </div>
           </div>
 
@@ -656,7 +646,7 @@ SSD: 512GB"
                     <div className="w-40 bg-gray-200 rounded-full h-2.5 mr-2">
                       <div
                         className="bg-yellow-500 h-2.5 rounded-full"
-                        style={{ width: `${(count / products.length) * 100}%` }}
+                        style={{ width: `${(count / totalProducts()) * 100}%` }}
                       ></div>
                     </div>
                     <span className="text-sm font-medium text-gray-700">{count}</span>
@@ -681,7 +671,9 @@ SSD: 512GB"
                   </div>
                   <div className="flex-grow min-w-0">
                     <p className="text-sm font-medium text-gray-900 truncate">{product.title}</p>
-                    <p className="text-xs text-gray-500">{product.brand}</p>
+                    <p className="text-xs text-gray-500">
+                      {brands.find((brand) => brand.id == product.brand_id)?.name || "Khác"}
+                    </p>
                   </div>
                   <div className="flex-shrink-0 text-right">
                     <p className="text-sm font-medium text-gray-900">({product.total_sales}) đã bán</p>
@@ -753,20 +745,19 @@ SSD: 512GB"
             <div className="text-end mb-4">
               <div className="space-x-2 flex items-center justify-end gap-2">
                 <Tooltip title="Thêm sản phẩm mới">
-                  <Button onClick={showAddProductModal} type="primary" className="">
+                  <Button onClick={showAddProductModal} type="primary">
                     <PackagePlus />
                   </Button>
                 </Tooltip>
 
                 <Tooltip title="Ẩn sản phẩm đã chọn">
-                <Button
-                  onClick={inactiveProducts}
-                  className=""
-                  disabled={selectedRows.length === 0}
-                  danger
-                >
-                  <PackageX />
-                </Button>
+                  <Button
+                    onClick={inactiveProducts}
+                    disabled={selectedRows.length === 0}
+                    danger
+                  >
+                    <PackageX />
+                  </Button>
                 </Tooltip>
               </div>
             </div>

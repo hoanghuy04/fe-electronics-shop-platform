@@ -23,7 +23,6 @@ export const path = {
   orderManagement: "orders",
   report: "reports",
   userManagement: "users",
-  loginAdmin: "/loginAdmin",
   brandManagement: "brands",
   categoryManagement: "categories",
 };
