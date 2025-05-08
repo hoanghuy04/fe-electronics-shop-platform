@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 import { Carousel, Spin } from "antd";
 import ProductCard from "../../components/ProductCard";
 import { ProductContext } from "../../hooks/ProductContext";
@@ -13,9 +13,15 @@ const Home = () => {
   const [pcs, setPCs] = useState([]);
   const [mouse, setMouse] = useState([]);
   const [screens, setScreens] = useState([]);
-  const {viewedProducts} =useContext(ProductContext);
+  const {
+    viewedProducts,
+    setViewedProducts,
+    products,
+    categories,
+    brands,
+    loading,
+  } = useContext(ProductContext);
 
-  const { products, categories, brands, loading } = useContext(ProductContext);
   // Dữ liệu giả lập cho carousel và banner
   const carouselImages = [
     {
@@ -83,9 +89,27 @@ const Home = () => {
       console.error(error);
     }
   };
-  
+
+  const getBrandNamesByProducts = (products) => {
+    try {
+      if (!products || !Array.isArray(products)) {
+        throw new Error("Dữ liệu sản phẩm không hợp lệ");
+      }
+
+      const brandIds = products.map((product) => product.brand_id);
+
+      const uniqueBrandIds = [...new Set(brandIds)];
+      const brandNames = uniqueBrandIds.map((brandId) => {
+        const brand = brands.find((b) => b.id === brandId);
+        return brand ? brand.name : null;
+      });
+      return brandNames.filter((name) => name !== null);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
     try {
       const lts = searchProductsByTitle("laptop");
       setLaptops(lts);
@@ -104,9 +128,11 @@ const Home = () => {
   }, [products, loading]);
 
   if (loading) {
-    <div className="flex items-center justify-center">
-      <Spin />
-    </div>;
+    return (
+      <div className="flex items-center justify-center">
+        <Spin />
+      </div>
+    );
   }
 
   return (
@@ -200,19 +226,17 @@ const Home = () => {
               <div className="text-2xl font-bold ml-3">Laptop</div>
               <div className="flex">
                 {/* Dynamically render brand buttons */}
-                {[...new Set(laptops.map((laptop) => laptop.brand))].map(
-                  (brand, index) => (
-                    <div key={index} className="mr-2">
-                      <NavLink
-                        to={`products/laptop/brand/${brand}`}
-                        key={index}
-                        className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
-                      >
-                        {brand}
-                      </NavLink>
-                    </div>
-                  )
-                )}
+                {getBrandNamesByProducts(laptops).map((brand, index) => (
+                  <div key={index} className="mr-2">
+                    <NavLink
+                      to={`products/laptop/brand/${brand}`}
+                      key={index}
+                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                    >
+                      {brand}
+                    </NavLink>
+                  </div>
+                ))}
                 <div className="">
                   <NavLink
                     to={`products/laptop/brand/all`}
@@ -348,19 +372,17 @@ const Home = () => {
               <div className="text-2xl font-bold ml-3">Màn hình </div>
               <div className="flex">
                 {/* Dynamically render brand buttons */}
-                {[...new Set(screens.map((s) => s.brand))].map(
-                  (brand, index) => (
-                    <div key={index} className="mr-2">
-                      <NavLink
-                        to={`products/man-hinh/brand/${brand}`}
-                        key={index}
-                        className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
-                      >
-                        {brand}
-                      </NavLink>
-                    </div>
-                  )
-                )}
+                {getBrandNamesByProducts(screens).map((brand, index) => (
+                  <div key={index} className="mr-2">
+                    <NavLink
+                      to={`products/man-hinh/brand/${brand}`}
+                      key={index}
+                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                    >
+                      {brand}
+                    </NavLink>
+                  </div>
+                ))}
                 <div className="">
                   <NavLink
                     to={`products/man-hinh/brand/all`}
@@ -394,7 +416,7 @@ const Home = () => {
             <div className="flex justify-between items-center mb-6">
               <div className="text-2xl font-bold ml-3">Máy tính để bàn</div>
               <div className="flex">
-                {[...new Set(pcs.map((m) => m.brand))].map((brand, index) => (
+                {getBrandNamesByProducts(pcs).map((brand, index) => (
                   <div key={index} className="mr-2">
                     <NavLink
                       to={`products/pc-gvn/brand/${brand}`}
@@ -438,7 +460,7 @@ const Home = () => {
             <div className="flex justify-between items-center mb-6">
               <div className="text-2xl font-bold ml-3">Chuột nổi bật</div>
               <div className="flex">
-                {[...new Set(mouse.map((m) => m.brand))].map((brand, index) => (
+                {getBrandNamesByProducts(mouse).map((brand, index) => (
                   <div key={index} className="mr-2">
                     <NavLink
                       to={`products/chuot-lot-chuot/brand/${brand}`}

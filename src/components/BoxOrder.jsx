@@ -5,6 +5,23 @@ import { Link } from "react-router-dom";
 
 export default function BoxOrder({ order }) {
   const [showAllProducts, setShowAllProducts] = useState(false);
+  const statusColorMap = {
+    PENDING: "processing",
+    CONFIRMED: "cyan",
+    SHIPPED: "blue",
+    DELIVERED: "green",
+    CANCELLED: "red",
+  };
+
+  const statusLabelMap = {
+    PENDING: "Mới",
+    CONFIRMED: "Đang xử lý",
+    SHIPPED: "Đang vận chuyển",
+    DELIVERED: "Hoàn thành",
+    CANCELLED: "Huỷ",
+  };
+
+  const status = order.status?.current;
 
   const handleToggleProducts = () => {
     setShowAllProducts(!showAllProducts);
@@ -14,25 +31,8 @@ export default function BoxOrder({ order }) {
     <Card className="!mb-5">
       <div className="flex items-start mb-4">
         <div className="flex !justify-between w-full border-b border-line-border pb-5">
-          <Tag
-            color={
-              order.status === "PENDING"
-                ? "processing"
-                : order.status === "SUCESS"
-                ? "success"
-                : order.status === "CANCEL"
-                ? "error"
-                : "default"
-            }
-            className="mr-2"
-          >
-            {order.status === "PENDING"
-              ? "Đang xử lý"
-              : order.status === "SUCESS"
-              ? "Hoàn thành"
-              : order.status === "CANCEL"
-              ? "Huỷ"
-              : "default"}
+          <Tag color={statusColorMap[status] || "default"} className="mr-2">
+            {statusLabelMap[status] || "Không xác định"}
           </Tag>
 
           <div className="font-semibold">#{order.id}</div>

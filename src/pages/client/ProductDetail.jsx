@@ -14,7 +14,7 @@ import ProductCard from "../../components/ProductCard";
 import { useCart } from "../../hooks/useCart";
 import ReviewsModal from "../../components/ReviewsModal";
 import { ProductContext } from "../../hooks/ProductContext";
-import { productService } from './../../services/product.service';
+import { productService } from "./../../services/product.service";
 import { reviewService } from "../../services/review.service";
 
 const initItemsBreadcum = [
@@ -62,10 +62,10 @@ const ProductDetail = () => {
     };
 
     try {
-      const updatedReview = await addReplyToReview(currentReviewId, [
-        ...reviews.find((r) => r.id === currentReviewId).replies,
-        replyData,
-      ]);
+      const updatedReview = await reviewService.addReplyToReview(
+        currentReviewId,
+        [...reviews.find((r) => r.id === currentReviewId).replies, replyData]
+      );
 
       setReviews((prev) =>
         prev.map((review) =>
@@ -128,13 +128,13 @@ const ProductDetail = () => {
           //       .replace(/\b\w/g, (c) => c.toUpperCase());
           //   }
           // } else {
-            const productCategory = categories.find(
-              (c) => c.id.toString() === foundProduct.category_id.toString()
-            );
-            if (productCategory) {
-              categoryLink = `/products/${productCategory.slug}/brand/all`;
-              categoryTitle = productCategory.name;
-            }
+          const productCategory = categories.find(
+            (c) => c.id.toString() === foundProduct.category_id.toString()
+          );
+          if (productCategory) {
+            categoryLink = `/products/${productCategory.slug}/brand/all`;
+            categoryTitle = productCategory.name;
+          }
           // }
 
           breadcrumbItems.push({
@@ -170,7 +170,9 @@ const ProductDetail = () => {
 
     const fetchReviews = async () => {
       try {
-        const productReviews = await reviewService.getReviewsByProductID(product.id);
+        const productReviews = await reviewService.getReviewsByProductID(
+          product.id
+        );
         if (productReviews && Array.isArray(productReviews)) {
           setReviews(productReviews);
         } else {
