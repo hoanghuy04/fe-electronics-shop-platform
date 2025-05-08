@@ -5,10 +5,11 @@
       "price": 19999999,
       "discount": 0.09,
       "category_id": 1,
-      "brand": "LENOVO",
+      "brand_id": "12",
       "stock": 0,
       "total_sales": 10,
       "status": "inactive",
+      "slug": "laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531047/products/product_1_0.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531049/products/product_1_1.png",
@@ -31,8 +32,9 @@
       "price": 28400000,
       "discount": 0.07,
       "category_id": 1,
-      "brand": "ASUS",
+      "brand_id": "2",
       "stock": 10,
+      "slug": "laptop-asus-zenbook-14-ux425ea",
       "total_sales": 0,
       "status": "active",
       "image_url": [
@@ -62,7 +64,7 @@
       },
       "price": 28990000,
       "discount": 0.15,
-      "brand": "MSI",
+      "brand_id": "16",
       "slug": "laptop-gaming-msi-katana-gf66-12ud",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531072/products/product_3_0.png",
@@ -92,7 +94,7 @@
       },
       "price": 15990000,
       "discount": 0.08,
-      "brand": "GVN",
+      "brand_id": "7",
       "slug": "pc-gvn-intel-i5-13400f",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531084/products/product_4_0.jpg"
@@ -114,7 +116,7 @@
       },
       "price": 10990000,
       "discount": 0.05,
-      "brand": "ASUS",
+      "brand_id": "2",
       "slug": "mainboard-asus-rog-strix-z790-e",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531086/products/product_5_0.jpg",
@@ -143,7 +145,7 @@
       },
       "price": 2490000,
       "discount": 0.1,
-      "brand": "COOLER MASTER",
+      "brand_id": "3",
       "slug": "case-cooler-master-masterbox-td500",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531100/products/product_6_0.png",
@@ -172,7 +174,7 @@
       },
       "price": 3990000,
       "discount": 0.07,
-      "brand": "SAMSUNG",
+      "brand_id": "18",
       "slug": "ssd-samsung-990-pro-1tb",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531107/products/product_7_0.png",
@@ -201,7 +203,7 @@
       },
       "price": 2990000,
       "discount": 0.2,
-      "brand": "JBL",
+      "brand_id": "11",
       "slug": "loa-bluetooth-jbl-flip-6",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531114/products/product_8_0.png",
@@ -230,7 +232,7 @@
       },
       "price": 3490000,
       "discount": 0.15,
-      "brand": "LOGITECH",
+      "brand_id": "14",
       "slug": "ban-phim-co-logitech-g-pro-x",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531122/products/product_10_0.png",
@@ -259,7 +261,7 @@
       },
       "price": 8990000,
       "discount": 0.05,
-      "brand": "SONY",
+      "brand_id": "19",
       "slug": "tai-nghe-sony-wh-1000xm5",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531129/products/product_12_0.png",
@@ -288,7 +290,7 @@
       },
       "price": 64990000,
       "discount": 0.08,
-      "brand": "HP - Pavilion",
+      "brand_id": "9",
       "slug": "laptop-gaming-hp-omen-16-wf0129tx-8w943pa",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531138/products/product_13_0.png",
@@ -314,7 +316,7 @@
       },
       "price": 34990000,
       "discount": 0.1,
-      "brand": "ACER",
+      "brand_id": "1",
       "slug": "laptop-gaming-acer-nitro-5-an515-58",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531146/products/product_14_0.png",
@@ -345,7 +347,7 @@
       },
       "price": 25990000,
       "discount": 0.07,
-      "brand": "GVN",
+      "brand_id": "7",
       "slug": "pc-gvn-amd-ryzen-5-7600x",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531167/products/product_15_0.png",
@@ -374,7 +376,7 @@
       },
       "price": 22990000,
       "discount": 0.12,
-      "brand": "MSI",
+      "brand_id": "16",
       "slug": "vga-msi-geforce-rtx-4070-ti",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531174/products/product_16_0.png",
@@ -402,7 +404,7 @@
       },
       "price": 3990000,
       "discount": 0.05,
-      "brand": "CORSAIR",
+      "brand_id": "4",
       "slug": "nguon-corsair-rm850x",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531181/products/product_17_0.png",
@@ -431,7 +433,7 @@
       },
       "price": 4990000,
       "discount": 0.08,
-      "brand": "CORSAIR",
+      "brand_id": "4",
       "slug": "ram-corsair-vengeance-32gb-ddr5",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531189/products/product_18_0.png",
@@ -459,7 +461,7 @@
       },
       "price": 3990000,
       "discount": 0.15,
-      "brand": "HYPERX",
+      "brand_id": "10",
       "slug": "micro-hyperx-quadcast-s",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531196/products/product_19_0.png",
@@ -488,7 +490,7 @@
       },
       "price": 5990000,
       "discount": 0.12,
-      "brand": "RAZER",
+      "brand_id": "17",
       "slug": "ban-phim-razer-blackwidow-v4-pro",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531204/products/product_21_0.png",
@@ -517,7 +519,7 @@
       },
       "price": 2490000,
       "discount": 0.08,
-      "brand": "RAZER",
+      "brand_id": "17",
       "slug": "tai-nghe-razer-barracuda-x",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531211/products/product_23_0.png",
@@ -546,7 +548,7 @@
       },
       "price": 12990000,
       "discount": 0.1,
-      "brand": "ASUS",
+      "brand_id": "2",
       "slug": "laptop-asus-vivobook-14-a1407ca-ly008ws",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531219/products/product_24_0.png",
@@ -575,7 +577,7 @@
       },
       "price": 15990000,
       "discount": 0.05,
-      "brand": "ACER",
+      "brand_id": "1",
       "slug": "laptop-acer-aspire-5-a515-45",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531234/products/product_25_0.png",
@@ -602,7 +604,7 @@
       },
       "price": 32990000,
       "discount": 0.15,
-      "brand": "MSI",
+      "brand_id": "16",
       "slug": "laptop-msi-prestige-14-ai-studio-c1veg-056vn",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531242/products/product_26_0.png",
@@ -629,7 +631,7 @@
       },
       "price": 10990000,
       "discount": 0.12,
-      "brand": "LENOVO",
+      "brand_id": "12",
       "slug": "laptop-lenovo-ideapad-3-15ada6",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531255/products/product_27_0.png",
@@ -653,7 +655,7 @@
       },
       "price": 16990000,
       "discount": 0.1,
-      "brand": "DELL",
+      "brand_id": "5",
       "slug": "laptop-dell-inspiron-15-5000",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531262/products/product_28_0.png",
@@ -681,7 +683,7 @@
       },
       "price": 17990000,
       "discount": 0.08,
-      "brand": "HP - Pavilion",
+      "brand_id": "9",
       "slug": "laptop-hp-pavilion-14",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531279/products/product_29_0.jpg",
@@ -708,7 +710,7 @@
       },
       "price": 21990000,
       "discount": 0.12,
-      "brand": "LG - Gram",
+      "brand_id": "13",
       "slug": "laptop-lg-gram-14",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531290/products/product_30_0.png",
@@ -734,7 +736,7 @@
       },
       "price": 21990000,
       "discount": 0.05,
-      "brand": "ASUS",
+      "brand_id": "2",
       "slug": "laptop-asus-zenbook-14",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531302/products/product_31_0.jpg",
@@ -760,7 +762,7 @@
       },
       "price": 24990000,
       "discount": 0.1,
-      "brand": "ACER",
+      "brand_id": "1",
       "slug": "laptop-acer-nitro-5-an515-45",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531310/products/product_32_0.png",
@@ -789,7 +791,7 @@
       },
       "price": 42990000,
       "discount": 0.13,
-      "brand": "MSI",
+      "brand_id": "16",
       "slug": "laptop-msi-creator-m16-hx-c14vfg-040vn",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531319/products/product_33_0.png",
@@ -817,7 +819,7 @@
       },
       "price": 18990000,
       "discount": 0.05,
-      "brand": "GVN",
+      "brand_id": "7",
       "slug": "pc-gvn-amd-ryzen-5-5600x",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531330/products/product_34_0.webp",
@@ -840,7 +842,7 @@
       },
       "price": 34990000,
       "discount": 0.1,
-      "brand": "ASUS",
+      "brand_id": "2",
       "slug": "pc-asus-rog-intel-i7-13700kf",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531333/products/product_35_0.png"
@@ -861,7 +863,7 @@
       },
       "price": 27990000,
       "discount": 0.07,
-      "brand": "MSI",
+      "brand_id": "16",
       "slug": "pc-msi-gaming-amd-ryzen-7-5800x",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531335/products/product_36_0.png"
@@ -883,7 +885,7 @@
       },
       "price": 14990000,
       "discount": 0.06,
-      "brand": "HP",
+      "brand_id": "8",
       "slug": "pc-hp-pavilion-intel-i5-12400f",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531336/products/product_37_0.png"
@@ -905,7 +907,7 @@
       },
       "price": 49990000,
       "discount": 0.12,
-      "brand": "DELL",
+      "brand_id": "5",
       "slug": "pc-dell-alienware-amd-ryzen-9-5900x",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531338/products/product_38_0.png"
@@ -927,7 +929,7 @@
       },
       "price": 59990000,
       "discount": 0.15,
-      "brand": "ACER",
+      "brand_id": "1",
       "slug": "pc-acer-predator-intel-i9-13900kf",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531340/products/product_39_0.png"
@@ -949,7 +951,7 @@
       },
       "price": 22990000,
       "discount": 0.09,
-      "brand": "LENOVO",
+      "brand_id": "12",
       "slug": "pc-lenovo-legion-amd-ryzen-5-7600",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531341/products/product_40_0.png"
@@ -971,7 +973,7 @@
       },
       "price": 31990000,
       "discount": 0.08,
-      "brand": "GIGABYTE",
+      "brand_id": "6",
       "slug": "pc-gigabyte-aorus-intel-i7-12700f",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531342/products/product_41_0.png"
@@ -993,7 +995,7 @@
       },
       "price": 2690000,
       "discount": 0.1,
-      "brand": "LOGITECH",
+      "brand_id": "14",
       "slug": "chuot-logitech-mx-master-3s",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531344/products/product_42_0.png"
@@ -1015,7 +1017,7 @@
       },
       "price": 3290000,
       "discount": 0.15,
-      "brand": "LOGITECH",
+      "brand_id": "14",
       "slug": "chuot-logitech-g-pro-x-superlight",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531345/products/product_43_0.png"
@@ -1037,7 +1039,7 @@
       },
       "price": 1390000,
       "discount": 0.2,
-      "brand": "RAZER",
+      "brand_id": "17",
       "slug": "chuot-razer-deathadder-v2",
       "image_url": [
         "//product.hstatic.net/200000722513/product/1-2_d48628cb79b3407cbc7b5c8e81c9db08_medium.png"
@@ -1059,7 +1061,7 @@
       },
       "price": 1090000,
       "discount": 0.1,
-      "brand": "CORSAIR",
+      "brand_id": "4",
       "slug": "chuot-corsair-harpoon-rgb-wireless",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531369/products/product_45_0.png"
@@ -1081,7 +1083,7 @@
       },
       "price": 890000,
       "discount": 0.05,
-      "brand": "LOGITECH",
+      "brand_id": "14",
       "slug": "chuot-logitech-m650-l",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531370/products/product_46_0.jpg"
@@ -1103,7 +1105,7 @@
       },
       "price": 990000,
       "discount": 0.1,
-      "brand": "MICROSOFT",
+      "brand_id": "15",
       "slug": "chuot-microsoft-bluetooth-ergonomic",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531372/products/product_47_0.png"
@@ -1125,7 +1127,7 @@
       },
       "price": 1590000,
       "discount": 0.15,
-      "brand": "STEELSERIES",
+      "brand_id": "20",
       "slug": "chuot-steelseries-rival-3-wireless",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531374/products/product_48_0.png"
@@ -1147,7 +1149,7 @@
       },
       "price": 19990000,
       "discount": 0.1,
-      "brand": "LG - Gram",
+      "brand_id": "13",
       "slug": "man-hinh-lg-ultragear-27gp950-b",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531376/products/product_49_0.jpg"
@@ -1169,7 +1171,7 @@
       },
       "price": 25990000,
       "discount": 0.1,
-      "brand": "ASUS",
+      "brand_id": "2",
       "slug": "man-hinh-asus-rog-swift-pg32uq",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531377/products/product_50_0.jpg"
@@ -1191,7 +1193,7 @@
       },
       "price": 14990000,
       "discount": 0.05,
-      "brand": "DELL",
+      "brand_id": "5",
       "slug": "man-hinh-dell-ultrasharp-u2723qe",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531378/products/product_51_0.jpg"
@@ -1213,7 +1215,7 @@
       },
       "price": 11990000,
       "discount": 0.12,
-      "brand": "SAMSUNG",
+      "brand_id": "18",
       "slug": "man-hinh-samsung-smart-monitor-m8",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531380/products/product_52_0.jpg"
@@ -1235,7 +1237,7 @@
       },
       "price": 9990000,
       "discount": 0.1,
-      "brand": "GIGABYTE",
+      "brand_id": "6",
       "slug": "man-hinh-gigabyte-m27q-x",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531381/products/product_53_0.jpg"
@@ -1247,181 +1249,223 @@
   ],
   "brands": [
     {
-      "id": 1,
+      "id": "1",
       "name": "ACER",
       "slug": "acer",
-      "createdAt": "2025-01-01T00:00:00.000Z"
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "ASUS",
       "slug": "asus",
-      "createdAt": "202-01-01T00:00:00.000Z"
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "COOLER MASTER",
       "slug": "cooler-master",
-      "createdAt": "2025-05-07T00:00:00.000Z"
+      "created_date": "2025-05-07T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "CORSAIR",
       "slug": "corsair",
-      "createdAt": "2025-04-07T00:00:00.000Z"
+      "created_date": "2025-04-07T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "DELL",
       "slug": "dell",
-      "createdAt": "2025-04-07T00:00:00.000Z"
+      "created_date": "2025-04-07T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "GIGABYTE",
       "slug": "gigabyte",
-      "createdAt": "2025-04-07T00:00:00.000Z"
+      "created_date": "2025-04-07T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "GVN",
       "slug": "gvn",
-      "createdAt": "2025-05-07T00:00:00.000Z"
+      "created_date": "2025-05-07T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "HP",
       "slug": "hp",
-      "createdAt": "2025-05-07T00:00:00.000Z"
+      "created_date": "2025-05-07T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "HP - Pavilion",
       "slug": "hp-pavilion",
-      "createdAt": "2025-05-07T00:00:00.000Z"
+      "created_date": "2025-05-07T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "HYPERX",
       "slug": "hyperx",
-      "createdAt": "2025-05-07T00:00:00.000Z"
+      "created_date": "2025-05-07T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "JBL",
       "slug": "jbl",
-      "createdAt": "2025-05-07T00:00:00.000Z"
+      "created_date": "2025-05-07T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "LENOVO",
       "slug": "lenovo",
-      "createdAt": "2025-05-07T00:00:00.000Z"
+      "created_date": "2025-05-07T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "LG - Gram",
       "slug": "lg-gram",
-      "createdAt": "2025-01-01T00:00:00.000Z"
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "LOGITECH",
       "slug": "logitech",
-      "createdAt": "2025-01-01T00:00:00.000Z"
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "MICROSOFT",
       "slug": "microsoft",
-      "createdAt": "2025-01-01T00:00:00.000Z"
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "MSI",
       "slug": "msi",
-      "createdAt": "2025-01-01T00:00:00.000Z"
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 17,
+      "id": "17",
       "name": "RAZER",
       "slug": "razer",
-      "createdAt": "2025-01-01T00:00:00.000Z"
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "SAMSUNG",
       "slug": "samsung",
-      "createdAt": "2025-01-01T00:00:00.000Z"
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "SONY",
       "slug": "sony",
-      "createdAt": "2025-01-01T00:00:00.000Z"
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
-      "id": 20,
+      "id": "20",
       "name": "STEELSERIES",
       "slug": "steelseries",
-      "createdAt": "2025-01-01T00:00:00.000Z"
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     }
   ],
   "categories": [
     {
       "id": "1",
       "name": "Laptop",
-      "slug": "laptop"
+      "slug": "laptop",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
       "id": "2",
       "name": "Laptop Gaming",
-      "slug": "laptop-gaming"
+      "slug": "laptop-gaming",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
       "id": "3",
       "name": "PC GVN",
-      "slug": "pc-gvn"
+      "slug": "pc-gvn",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
       "id": "4",
       "name": "Main, CPU, VGA",
-      "slug": "main-cpu-vga"
+      "slug": "main-cpu-vga",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
       "id": "5",
       "name": "Case, Nguồn, Tản",
-      "slug": "case-nguon-tan"
+      "slug": "case-nguon-tan",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
       "id": "6",
       "name": "Ổ cứng, RAM, Thẻ nhớ",
-      "slug": "o-cung-ram-thenho"
+      "slug": "o-cung-ram-thenho",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
       "id": "7",
       "name": "Loa, Micro, Webcam",
-      "slug": "loa-micro-webcam"
+      "slug": "loa-micro-webcam",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
       "id": "8",
       "name": "Màn hình",
-      "slug": "man-hinh"
+      "slug": "man-hinh",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
       "id": "9",
       "name": "Bàn phím",
-      "slug": "ban-phim"
+      "slug": "ban-phim",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
       "id": "10",
       "name": "Chuột + Lót chuột",
-      "slug": "chuot-lot-chuot"
+      "slug": "chuot-lot-chuot",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     },
     {
       "id": "11",
       "name": "Tai Nghe",
-      "slug": "tai-nghe"
+      "slug": "tai-nghe",
+      "created_date": "2025-01-01T00:00:00.000Z",
+      "active": 1
     }
   ],
   "orders": [

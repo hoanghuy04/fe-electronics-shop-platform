@@ -24,6 +24,7 @@ import {
 } from "./RouteGuard";
 import LoginAdmin from "../pages/auth/LoginAdmin";
 import BrandManagement from "../pages/admin/BrandManagement";
+import CategoryManagement from "../pages/admin/CategoryManagement";
 
 // Lazy loading client pages
 const Home = lazy(() => import("../pages/client/Home"));
@@ -70,6 +71,7 @@ const routes = [
           { path: path.report, element: <Reports /> },
           { path: path.userManagement, element: <UserManagement /> },
           { path: path.brandManagement, element: <BrandManagement /> },
+          { path: path.categoryManagement, element: <CategoryManagement /> },
         ],
       },
       { path: "*", element: <Navigate to={path.notFound} /> },

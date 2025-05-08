@@ -90,7 +90,7 @@ const ListProduct = () => {
         if (brand) {
           setSelectedBrands([brand.name]);
           initialFilteredProducts = initialFilteredProducts.filter(
-            (p) => p.brand === brand.name
+            (p) => p.brand_id === brand.id
           );
         }
 

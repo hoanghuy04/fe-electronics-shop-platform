@@ -25,4 +25,5 @@ export const path = {
   userManagement: "users",
   loginAdmin: "/loginAdmin",
   brandManagement: "brands",
+  categoryManagement: "categories",
 };
