@@ -27,13 +27,13 @@ export const UserProtectedRoute = () => {
     return <Navigate to={path.login} />;
   }
   
-  if (user.role !== "USER") {
-    return user.role === "ADMIN" ? (
-      <Navigate to={path.homeAdmin} />
-    ) : (
-      <Navigate to={path.home} />
-    );
-  }
+  // if (user.role !== "USER") {
+  //   return user.role === "ADMIN" ? (
+  //     <Navigate to={path.homeAdmin} />
+  //   ) : (
+  //     <Navigate to={path.home} />
+  //   );
+  // }
   
   return <Outlet />;
 };

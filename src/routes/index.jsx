@@ -99,12 +99,12 @@ const routes = [
     ],
   },
   {
-    path: path.homeAdmin,
-    element: <DefaultLayoutAdmin />,
+    path: "",
+    element: <AdminProtectedRoute />,
     children: [
       {
-        path: "",
-        element: <AdminProtectedRoute />,
+        path: path.homeAdmin,
+        element: <DefaultLayoutAdmin />,
         children: [
           { path: "", element: <Overview /> },
           { path: path.productManagement, element: <ProductManagement /> },
