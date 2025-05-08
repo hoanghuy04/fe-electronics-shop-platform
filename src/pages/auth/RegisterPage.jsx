@@ -1,14 +1,15 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Form, Input, Button, Typography, Card } from "antd"
-import { UserOutlined, LockOutlined, PhoneOutlined, RocketOutlined } from "@ant-design/icons"
+import { Form, Input, Button, Typography, Card, Select } from "antd"
+import { UserOutlined, LockOutlined, PhoneOutlined, RocketOutlined, ManOutlined } from "@ant-design/icons"
 import { Link } from "react-router-dom"
 import { useAuth } from "../../hooks/AuthContext"
 import { path } from "../../constants/path"
 import { motion } from "framer-motion"
 
 const { Title } = Typography
+const { Option } = Select
 
 const RegisterPage = () => {
   const { register } = useAuth()
@@ -129,7 +130,7 @@ const RegisterPage = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="z-10 w-full max-w-md px-4"
+        className="z-10 w-full max-w-xl px-4"
       >
         <Card
           className="w-full overflow-hidden backdrop-blur-md bg-white/10 border border-white/20 shadow-2xl"
@@ -152,7 +153,7 @@ const RegisterPage = () => {
 
             <Title level={2} className="text-center text-white mb-8">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-red-400">
-                Đăng Ký Hệ Thống
+                Đăng Ký
               </span>
             </Title>
 
@@ -162,104 +163,123 @@ const RegisterPage = () => {
               onFinish={onFinish}
               autoComplete="off"
               size="large"
-              className="space-y-6"
             >
-              <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
-                <Form.Item
-                  name="firstName"
-                  rules={[{ required: true, message: "Vui lòng nhập họ!" }]}
-                >
-                  <Input
-                    prefix={<UserOutlined className="text-gray-400" />}
-                    placeholder="Họ"
-                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                  />
-                </Form.Item>
-              </motion.div>
+              <div className="grid grid-cols-2 gap-2">
+                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 }} >
+                  <Form.Item
+                    name="firstName"
+                    rules={[{ required: true, message: "Vui lòng nhập họ!" }]}
+                  >
+                    <Input
+                      prefix={<UserOutlined className="text-gray-400" />}
+                      placeholder="Họ"
+                      className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </Form.Item>
+                </motion.div>
 
-              <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
-                <Form.Item
-                  name="lastName"
-                  rules={[{ required: true, message: "Vui lòng nhập tên!" }]}
-                >
-                  <Input
-                    prefix={<UserOutlined className="text-gray-400" />}
-                    placeholder="Tên"
-                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                  />
-                </Form.Item>
-              </motion.div>
+                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
+                  <Form.Item
+                    name="lastName"
+                    rules={[{ required: true, message: "Vui lòng nhập tên!" }]}
+                  >
+                    <Input
+                      prefix={<UserOutlined className="text-gray-400" />}
+                      placeholder="Tên"
+                      className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </Form.Item>
+                </motion.div>
 
-              <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.4 }}>
-                <Form.Item
-                  name="email"
-                  rules={[
-                    { required: true, message: "Vui lòng nhập email!" },
-                    { type: "email", message: "Email không hợp lệ!" },
-                  ]}
-                >
-                  <Input
-                    prefix={<UserOutlined className="text-gray-400" />}
-                    placeholder="Email"
-                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                  />
-                </Form.Item>
-              </motion.div>
+                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.4 }}>
+                  <Form.Item
+                    name="email"
+                    rules={[
+                      { required: true, message: "Vui lòng nhập email!" },
+                      { type: "email", message: "Email không hợp lệ!" },
+                    ]}
+                  >
+                    <Input
+                      prefix={<UserOutlined className="text-gray-400" />}
+                      placeholder="Email"
+                      className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </Form.Item>
+                </motion.div>
 
-              <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.5 }}>
-                <Form.Item
-                  name="phone"
-                  rules={[
-                    { required: true, message: "Vui lòng nhập số điện thoại!" },
-                    { pattern: /^[0-9]{10}$/, message: "Số điện thoại phải có 10 chữ số!" },
-                  ]}
-                >
-                  <Input
-                    prefix={<PhoneOutlined className="text-gray-400" />}
-                    placeholder="Số điện thoại"
-                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                  />
-                </Form.Item>
-              </motion.div>
+                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.5 }}>
+                  <Form.Item
+                    name="phone"
+                    rules={[
+                      { required: true, message: "Vui lòng nhập số điện thoại!" },
+                      { pattern: /^[0-9]{10}$/, message: "Số điện thoại phải có 10 chữ số!" },
+                    ]}
+                  >
+                    <Input
+                      prefix={<PhoneOutlined className="text-gray-400" />}
+                      placeholder="Số điện thoại"
+                      className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </Form.Item>
+                </motion.div>
 
-              <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.6 }}>
-                <Form.Item
-                  name="password"
-                  rules={[{ required: true, message: "Vui lòng nhập mật khẩu!" }]}
-                >
-                  <Input.Password
-                    prefix={<LockOutlined className="text-gray-400" />}
-                    placeholder="Mật khẩu"
-                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                  />
-                </Form.Item>
-              </motion.div>
+                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.6 }}>
+                  <Form.Item
+                    name="gender"
+                    rules={[{ required: true, message: "Vui lòng chọn giới tính!" }]}
+                  >
+                    <Select
+                      prefix={<ManOutlined className="text-gray-400" />}
+                      placeholder="Giới tính"
+                      className=" text-white"
+                      dropdownStyle={{ backgroundColor: "#fff", color: "#000" }}
+                      style={{height: "48px"}}
+                    >
+                      <Option value="0">Nam</Option>
+                      <Option value="1">Nữ</Option>
+                    </Select>
+                  </Form.Item>
+                </motion.div>
 
-              <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.7 }}>
-                <Form.Item
-                  name="confirmPassword"
-                  dependencies={["password"]}
-                  rules={[
-                    { required: true, message: "Vui lòng nhập lại mật khẩu!" },
-                    ({ getFieldValue }) => ({
-                      validator(_, value) {
-                        if (!value || getFieldValue("password") === value) {
-                          return Promise.resolve()
-                        }
-                        return Promise.reject(new Error("Mật khẩu nhập lại không khớp!"))
-                      },
-                    }),
-                  ]}
-                >
-                  <Input.Password
-                    prefix={<LockOutlined className="text-gray-400" />}
-                    placeholder="Nhập lại mật khẩu"
-                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                  />
-                </Form.Item>
-              </motion.div>
+                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.7 }}>
+                  <Form.Item
+                    name="password"
+                    rules={[{ required: true, message: "Vui lòng nhập mật khẩu!" }]}
+                  >
+                    <Input.Password
+                      prefix={<LockOutlined className="text-gray-400" />}
+                      placeholder="Mật khẩu"
+                      className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </Form.Item>
+                </motion.div>
 
-              <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.8 }}>
+                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.8 }} className="col-span-2">
+                  <Form.Item
+                    name="confirmPassword"
+                    dependencies={["password"]}
+                    rules={[
+                      { required: true, message: "Vui lòng nhập lại mật khẩu!" },
+                      ({ getFieldValue }) => ({
+                        validator(_, value) {
+                          if (!value || getFieldValue("password") === value) {
+                            return Promise.resolve()
+                          }
+                          return Promise.reject(new Error("Mật khẩu nhập lại không khớp!"))
+                        },
+                      }),
+                    ]}
+                  >
+                    <Input.Password
+                      prefix={<LockOutlined className="text-gray-400" />}
+                      placeholder="Nhập lại mật khẩu"
+                      className="h-12 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                    />
+                  </Form.Item>
+                </motion.div>
+              </div>
+
+              <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.9 }}>
                 <Form.Item>
                   <Button
                     type="primary"
@@ -273,7 +293,7 @@ const RegisterPage = () => {
               </motion.div>
 
               <div className="flex justify-between text-white/70 text-sm">
-                <Link to={path.loginAdmin} className="hover:text-blue-400 transition-colors">
+                <Link to={path.login} className="hover:text-blue-400 transition-colors">
                   Đã có tài khoản? Đăng nhập
                 </Link>
               </div>

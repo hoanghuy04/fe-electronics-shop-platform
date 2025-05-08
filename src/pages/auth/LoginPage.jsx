@@ -207,7 +207,7 @@ const LoginPage = () => {
                 <Link to={path.forgotPassword} className="hover:text-blue-400 transition-colors">
                   Quên mật khẩu?
                 </Link>
-                <Link to={path.registerAdmin} className="hover:text-red-400 transition-colors">
+                <Link to={path.register} className="hover:text-red-400 transition-colors">
                   Đăng ký tài khoản
                 </Link>
               </div>

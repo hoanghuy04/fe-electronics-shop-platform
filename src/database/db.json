@@ -1632,7 +1632,7 @@
     {
       "id": "1",
       "name": "Trần Ngọc Huyền",
-      "gender": 0,
+      "gender": 1,
       "email": "tranngochuyenn1909@gmail.com",
       "password": "123456789",
       "phone": "0964424149",
@@ -1678,7 +1678,7 @@
       "id": "2",
       "email": "daolinh28102004@gmail.com",
       "name": "Đào Linh",
-      "gender": 0,
+      "gender": 1,
       "phone": "",
       "dob": "",
       "address": [],
@@ -1690,10 +1690,43 @@
       "email": "12@gmail.com",
       "password": "123",
       "name": "Dương Hoàng Huy",
-      "gender": 1,
+      "gender": 0,
       "phone": "0364635032",
       "dob": "06/12/2004",
       "role": "ADMIN",
+      "address": []
+    },
+    {
+      "id": "3424",
+      "name": "Nguyen van A",
+      "email": "1@gmail.com",
+      "password": "123",
+      "gender": 0,
+      "phone": "0123456789",
+      "dob": "",
+      "role": "USER",
+      "address": []
+    },
+    {
+      "id": "9ad0",
+      "name": "Nguyen Van  B",
+      "email": "2@gmail.com",
+      "password": "123",
+      "gender": 0,
+      "phone": "0123456789",
+      "dob": "",
+      "role": "USER",
+      "address": []
+    },
+    {
+      "id": "7660",
+      "name": "Nguyen Van C",
+      "email": "3@gmail.com",
+      "password": "123",
+      "gender": 0,
+      "phone": "0123456789",
+      "dob": "",
+      "role": "USER",
       "address": []
     }
   ],

@@ -44,7 +44,10 @@ export const AuthProvider = ({ children }) => {
     const newUser = await authApi.register(user);
     if (newUser) {
       toast.success("Tài khoản đã được tạo");
-      navigate(path.login);
+      setUser(newUser);
+      setIsAuthenticated(true);
+      localStorage.setItem("user", JSON.stringify(newUser));
+      navigate(path.home);
     }
   };
 

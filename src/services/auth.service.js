@@ -33,7 +33,7 @@ export const authApi = {
         name: user.firstName + " " + user.lastName,
         email: user.email,
         password: user.password,
-        gender: user.gender ?? "1",
+        gender: parseInt(user.gender) ?? 1,
         phone: user.phone ?? "",
         dob: user.dob ?? "",
         role: "USER",

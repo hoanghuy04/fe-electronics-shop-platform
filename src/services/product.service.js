@@ -51,6 +51,12 @@ export const productService = {
       const category = categories.find((cat) => cat.slug === categorySlug);
       const categoryId = category ? category.id : null;
 
+      //Lấy ra id của các hãng theo brands
+      const brandsList = await productService.getListOfBrands();
+      const brandIds = brandsList
+        .filter((brand) => brands.includes(brand.name))
+        .map((brand) => brand.id);
+
       return products.filter((product) => {
         // Lọc theo danh mục
         const matchCategory =
@@ -65,8 +71,10 @@ export const productService = {
             : true;
 
         // Lọc theo hãng
-        const matchBrand =
-          brands?.length > 0 ? brands.includes(product.brand) : true;
+        const matchBrand = 
+          !brands?.length || brands.includes("all")
+            ? true
+            : brandIds.includes(product.brand_id);
 
         // Lọc theo thuộc tính động trong descriptionFilters
         const matchDescription = Object.keys(descriptionFilters || {}).every(
