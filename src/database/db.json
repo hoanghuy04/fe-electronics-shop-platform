@@ -2774,7 +2774,6 @@
           "ward": "26725"
         }
       },
-      "note": "",
       "customer_id": "1",
       "products": [
         {
@@ -2787,12 +2786,17 @@
       ],
       "total_price": 197132000,
       "status": {
-        "current": "PENDING",
+        "current": "PROCESSING",
         "history": [
           {
             "status": "PENDING",
             "updated_at": "2025-05-09T06:00:56.856Z",
             "note": "Đơn hàng được tạo"
+          },
+          {
+            "status": "PROCESSING",
+            "updated_at": "2025-05-09T15:04:15.367Z",
+            "note": "Cập nhật trạng thái đơn hàng"
           }
         ]
       },
@@ -4134,8 +4138,8 @@
   "users": [
     {
       "id": "1",
-      "name": "Trần Ngọc Huyền",
-      "gender": 1,
+      "name": "Huyền",
+      "gender": "Nam",
       "email": "tranngochuyenn1909@gmail.com",
       "password": "123456789",
       "phone": "0964424149",
@@ -4183,7 +4187,7 @@
       "email": "daolinh28102004@gmail.com",
       "name": "Đào Linh",
       "gender": 1,
-      "phone": "",
+      "phone": "0123456789",
       "dob": "",
       "address": [],
       "password": "123",
@@ -4195,7 +4199,7 @@
       "email": "12@gmail.com",
       "password": "123",
       "name": "Dương Hoàng Huy",
-      "gender": "Nam",
+      "gender": 0,
       "phone": "0364635032",
       "dob": "06/12/2004",
       "role": "ADMIN",
