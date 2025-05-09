@@ -15,7 +15,7 @@ const CartContext = createContext();
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [justAdded, setJustAdded] = useState(null);
-  const [order, setOrder] = useState(null);
+  const [order, setOrder] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {

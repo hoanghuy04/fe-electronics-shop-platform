@@ -12,24 +12,29 @@ export const orderService = {
     try {
       const response = await post("orders", order);
 
-      for (const item of order.products) {
-        const productId = item.id;
-        const quantity = item.quantity;
+      // for (const item of order.products) {
+      //   const productId = item.id;
+      //   const quantity = item.quantity;
 
-        const product = await productService.getProductById(productId);
+      //   try {
+      //     const product = await productService.getProductById(productId);
 
-        if (product.stock >= quantity) {
-          const updatedProduct = {
-            ...product,
-            stock: product.stock - quantity,
-            total_sales: product.total_sales + quantity,
-          };
+      //     if (product.stock >= quantity) {
+      //       const updatedProduct = {
+      //         ...product,
+      //         stock: product.stock - quantity,
+      //         total_sales: product.total_sales + quantity,
+      //       };
 
-          await productService.updateProduct(productId, updatedProduct);
-        } else {
-          console.error(`Sản phẩm "${item.title}" không đủ hàng trong kho.`);
-        }
-      }
+      //       await productService.updateProduct(productId, updatedProduct);
+      //     } else {
+      //       console.warn(`Sản phẩm "${item.title}" không đủ hàng.`);
+      //     }
+      //   } catch (err) {
+      //     console.error(`Lỗi cập nhật sản phẩm "${item.title}":`, err.message);
+      //     break;
+      //   }
+      // }
 
       return response;
     } catch (error) {
@@ -264,8 +269,8 @@ export const orderService = {
           orderKey === currentKey
             ? currentStats
             : orderKey === prevKey
-              ? prevStats
-              : null;
+            ? prevStats
+            : null;
 
         if (orderKey === currentKey) {
           filtered.push(order);
@@ -373,10 +378,10 @@ export const orderService = {
       const allOrders = await get("orders");
       if (!Array.isArray(allOrders)) throw new Error("Invalid order data");
 
-      return allOrders
+      return allOrders;
     } catch (error) {
       console.error("Lỗi khi lấy tất cả đơn hàng:", error);
       return [];
     }
   },
-}
+};

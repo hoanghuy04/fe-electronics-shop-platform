@@ -71,7 +71,7 @@ export const productService = {
             : true;
 
         // Lọc theo hãng
-        const matchBrand = 
+        const matchBrand =
           !brands?.length || brands.includes("all")
             ? true
             : brandIds.includes(product.brand_id);
