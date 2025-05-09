@@ -875,9 +875,9 @@ const Dashboard = () => {
             <h3 className="text-lg font-semibold text-gray-700">
               Đơn hàng gần đây
             </h3>
-            <NavLink to={path.orderManagement} className="text-blue-600 hover:underline">
+            <a href={`${path.homeAdmin}/${path.orderManagement}`} className="text-blue-600 hover:underline">
               Xem tất cả
-            </NavLink>
+            </a>
           </div>
           <Table
             columns={recentOrdersColumns}
@@ -891,9 +891,9 @@ const Dashboard = () => {
             <h3 className="text-lg font-semibold text-gray-700">
               Sản phẩm hết hàng
             </h3>
-            <NavLink to={path.productManagement} className="text-blue-600 hover:underline">
+            <a href={`${path.homeAdmin}/${path.productManagement}`} className="text-blue-600 hover:underline">
               Xem tất cả
-            </NavLink>
+            </a>
           </div>
           <Table
             columns={outOfStockColumns}
