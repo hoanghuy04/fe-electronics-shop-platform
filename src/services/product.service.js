@@ -1,5 +1,5 @@
 import { toast } from "sonner";
-import { get, post, put } from "./request";
+import { get, patch, post, put } from "./request";
 
 export const productService = {
   getProducts: async () => {
@@ -71,7 +71,7 @@ export const productService = {
             : true;
 
         // Lọc theo hãng
-        const matchBrand = 
+        const matchBrand =
           !brands?.length || brands.includes("all")
             ? true
             : brandIds.includes(product.brand_id);
@@ -145,7 +145,7 @@ export const productService = {
 
   updateProduct: async (id, productData) => {
     try {
-      const response = await put(`products/${id}`, productData);
+      const response = await patch(`products/${id}`, productData);
       return response.data;
     } catch (error) {
       console.error(
