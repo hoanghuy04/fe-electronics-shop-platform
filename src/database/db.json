@@ -1676,16 +1676,6 @@
       ]
     },
     {
-      "id": "2",
-      "email": "daolinh28102004@gmail.com",
-      "name": "Đào Linh",
-      "gender": 0,
-      "phone": "",
-      "dob": "",
-      "address": [],
-      "password": "123"
-    },
-    {
       "id": "3",
       "email": "12@gmail.com",
       "password": "123",
@@ -1694,7 +1684,82 @@
       "phone": "0364635032",
       "dob": "06/12/2004",
       "role": "ADMIN",
+      "created_at": "2025-03-06:00:00Z",
       "address": []
+    },
+    {
+      "id": "3424",
+      "name": "Nguyen van A",
+      "email": "1@gmail.com",
+      "password": "123",
+      "gender": "Nam",
+      "phone": "0123456789",
+      "dob": "",
+      "role": "USER",
+      "address": [
+        {
+          "street": "a",
+          "default": 1
+        }
+      ],
+      "createdAt": "2025-05-09T13:26:30.119Z",
+      "status": "active"
+    },
+    {
+      "id": "9ad0",
+      "name": "Nguyen Van  B",
+      "email": "2@gmail.com",
+      "password": "123",
+      "gender": "Nữ",
+      "phone": "0123456789",
+      "dob": "",
+      "role": "USER",
+      "created_at": "2025-05-09:00:00Z",
+      "address": [
+        {
+          "street": "bbbb",
+          "default": 1
+        }
+      ],
+      "createdAt": "2025-05-09T13:26:17.583Z",
+      "status": "active"
+    },
+    {
+      "id": "7660",
+      "name": "Nguyen Van C",
+      "email": "3@gmail.com",
+      "password": "123",
+      "gender": "Nam",
+      "phone": "0123456789",
+      "dob": "",
+      "role": "USER",
+      "created_at": "2025-05-09:00:00Z",
+      "address": [
+        {
+          "street": "b",
+          "default": 1
+        }
+      ],
+      "createdAt": "2025-05-09T13:26:06.327Z",
+      "status": "active"
+    },
+    {
+      "id": "1b28",
+      "name": "Trần Nguyễn Hoài Thu",
+      "email": "thu12@gmail.com",
+      "password": "123",
+      "gender": "Nữ",
+      "phone": "0235661156",
+      "dob": "",
+      "role": "USER",
+      "address": [
+        {
+          "street": "hồ chí minh ",
+          "default": 1
+        }
+      ],
+      "createdAt": "2025-05-09T13:32:20.007Z",
+      "status": "active"
     }
   ],
   "reviews": [

@@ -1,11 +1,11 @@
-import { Button, Tag, Modal, Form, Input, Checkbox } from 'antd';
+import { Button, Tag, Modal, Form, Input, Checkbox, Radio } from 'antd';
 import { PencilLine } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { userApi } from '../../services/user.service';
 import { authApi } from '../../services/auth.service';
 import { DashboardOutlined, PlusOutlined, CaretUpOutlined } from '@ant-design/icons';
-
+import dayjs from "dayjs";
 export default function UserManagement() {
   const [tableData, setTableData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,6 +44,7 @@ export default function UserManagement() {
   };
 
   const handleAddOk = () => {
+    console.log("Handle OK clicked");
     form.submit();
   };
 
@@ -54,11 +55,14 @@ export default function UserManagement() {
   };
 
   const onFinish = async (values) => {
+    
     try {
+      const genderValue = values.gender || 'Nam';
       if (selectedUser.id) {
         // Update existing user
         const response = await userApi.updateProfile(selectedUser.id, {
           ...values,
+          gender: genderValue,
           status: values.status ? "active" : "inactive",
           address: [{ street: values.address, default: 1 }],
         });
@@ -76,9 +80,10 @@ export default function UserManagement() {
           firstName,
           lastName,
           email: values.email,
-          password: "defaultPassword123", // Replace with a secure default or prompt
+          password: values.password, // Replace with a secure default or prompt
           phone: values.phone || "",
           address: [{ street: values.address, default: 1 }],
+          gender: genderValue,
           status: values.status ? "active" : "inactive",
         });
         if (response) {
@@ -185,6 +190,7 @@ export default function UserManagement() {
     }
   }, [selectedUser, isModalOpen, form]);
 
+
   return (
     <div className="p-6 bg-gray-100">
       <div className="space-y-6">
@@ -229,7 +235,13 @@ export default function UserManagement() {
             <Form.Item
               label="Phone"
               name="phone"
-              rules={[{ required: true, message: "Vui lòng nhập số điện thoại" }]}
+              rules={[
+                { required: true, message: "Vui lòng nhập số điện thoại" },
+                {
+                  pattern: /^0\d{9}$/,
+                  message: "Số điện thoại phải gồm đúng 10 chữ số",
+                },
+              ]}
             >
               <Input />
             </Form.Item>
@@ -243,11 +255,26 @@ export default function UserManagement() {
             </Form.Item>
 
             <Form.Item
+              label="Giới tính"
+              name="gender"
+              rules={[{ required: true, message: "Vui lòng chọn giới tính!" }
+                
+              ]}
+              initialValue={selectedUser.gender || 'Nam'}
+            >
+              <Radio.Group disabled>
+                <Radio value="Nam">Nam</Radio>
+                <Radio value="Nữ">Nữ</Radio>
+              </Radio.Group>
+            </Form.Item>
+
+            <Form.Item
               label="Created Date"
               name="createdAt"
-              rules={[{ required: true, message: "Vui lòng nhập ngày tạo" }]}
+              initialValue={dayjs()}
+
             >
-              <Input />
+              <Input disabled />
             </Form.Item>
 
             <Form.Item name="status" valuePropName="checked" label="Active">
@@ -297,7 +324,13 @@ export default function UserManagement() {
             <Form.Item
               label="Phone"
               name="phone"
-              rules={[{ required: true, message: "Vui lòng nhập số điện thoại" }]}
+              rules={[
+                { required: true, message: "Vui lòng nhập số điện thoại" },
+                {
+                  pattern: /^0\d{9}$/,
+                  message: "Số điện thoại phải gồm đúng 10 chữ số",
+                },
+              ]}
             >
               <Input />
             </Form.Item>
@@ -308,6 +341,17 @@ export default function UserManagement() {
               rules={[{ required: true, message: "Vui lòng nhập địa chỉ" }]}
             >
               <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="Giới tính"
+              name="gender"
+              rules={[{ required: true, message: "Vui lòng chọn giới tính!" }]}
+            >
+              <Radio.Group>
+                <Radio value="Nam">Nam</Radio>
+                <Radio value="Nữ">Nữ</Radio>
+              </Radio.Group>
             </Form.Item>
 
             <Form.Item
@@ -331,20 +375,31 @@ export default function UserManagement() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white p-10 rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold text-gray-700">Total Users</h3>
-            <p className="text-3xl font-bold text-blue-600">{totalUsers()}</p>
-            <p className="text-green-500 text-sm">
-              <CaretUpOutlined className="mr-2" />
-              5.39% period of change
-            </p>
+            <div className="bg-white p-6 rounded-lg flex items-center">
+              <div class="bg-cyan-100 p-3 rounded-full mr-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-6 w-6 text-cyan-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-700">Total Users</h3>
+                <p className="text-3xl font-bold text-blue-600">{totalUsers()}</p>
+                <p className="text-green-500 text-sm">
+                  <CaretUpOutlined className="mr-2" />
+                  5.39% period of change
+                </p>
+              </div>
+            </div>
           </div>
           <div className="bg-white p-10 rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold text-gray-700">New Users</h3>
-            <p className="text-3xl font-bold text-blue-600">{newUsers()}</p>
-            <p className="text-green-500 text-sm">
-              <CaretUpOutlined className="mr-2" />
-              6.8% period of change
-            </p>
+            <div className="bg-white p-6 rounded-lg flex items-center">
+              <div class="bg-cyan-100 p-3 rounded-full mr-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-6 w-6 text-cyan-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-700">New Users</h3>
+                <p className="text-3xl font-bold text-blue-600">{newUsers()}</p>
+                <p className="text-green-500 text-sm">
+                  <CaretUpOutlined className="mr-2" />
+                  6.8% period of change
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
 

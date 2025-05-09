@@ -33,11 +33,11 @@ export const authApi = {
         name: user.firstName + " " + user.lastName,
         email: user.email,
         password: user.password,
-        gender: user.gender ?? "1",
+        gender: user.gender,
         phone: user.phone ?? "",
         dob: user.dob ?? "",
         role: "USER",
-        address: [],
+        address: user.address ?? [],
       });
 
       return response;

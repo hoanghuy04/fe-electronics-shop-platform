@@ -11,4 +11,8 @@ export const localStorageService = {
     getViewedProducts: () => {
       return JSON.parse(localStorage.getItem("viewedProducts")) || [];
     },
+    
+    clearViewedProducts: () => {
+      localStorage.removeItem("viewedProducts");
+    },
   };

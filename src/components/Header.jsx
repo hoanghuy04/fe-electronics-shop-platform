@@ -280,7 +280,6 @@ const Header = () => {
             </div>
           </Dropdown>
         ) : (
-
           <LoginDropdown />
         )}
 

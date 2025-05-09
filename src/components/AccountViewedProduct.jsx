@@ -15,7 +15,7 @@ export default function AccountViewedProduct() {
       }
     }
   }, []);
-
+  
   return (
     <div className="max-w-4xl mx-auto bg-white py-8 px-5 shadow-md rounded-lg">
       <h2 className="text-lg !font-bold text-left pb-6">SẢN PHẨM ĐÃ XEM</h2>
