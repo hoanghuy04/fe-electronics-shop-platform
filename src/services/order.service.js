@@ -70,4 +70,13 @@ export const orderService = {
       return { data: [], total: 0 };
     }
   },
+  getAllOrders: async () => {
+    try {
+      const response = await get("orders?_sort=order_date&_order=desc");
+      return { data: response };
+    } catch (error) {
+      toast.error("Lỗi khi lấy tất cả đơn hàng:", error);
+      return { data: [] };
+    }
+  }
 };

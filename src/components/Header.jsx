@@ -14,7 +14,7 @@ import CartMini from "./CartMini";
 import { useAuth } from "../hooks/AuthContext";
 import { ProductContext } from "../hooks/ProductContext";
 import { path } from "../constants/path";
-
+import LoginDropdown from "../components/LoginDropdown";
 const { Search } = Input;
 
 const stickyBanners = [
@@ -280,13 +280,8 @@ const Header = () => {
             </div>
           </Dropdown>
         ) : (
-          <Link
-            to="/login"
-            className="flex items-center hover:text-orange-500 font-medium text-lg transition-colors duration-200"
-          >
-            <UserOutlined className="mr-2 text-xl" />
-            <span>Đăng nhập</span>
-          </Link>
+
+          <LoginDropdown />
         )}
 
         <div className="hidden lg:block">
