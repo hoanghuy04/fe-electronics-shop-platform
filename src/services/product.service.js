@@ -188,4 +188,8 @@ export const productService = {
       return [];
     }
   },
+
+  //lấy ra tất cả products
+  
+  
 };

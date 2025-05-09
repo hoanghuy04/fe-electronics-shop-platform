@@ -1,4 +1,4 @@
-const API_DOMAIN = "http://localhost:3000/";
+const API_DOMAIN = import.meta.env.VITE_API_URL;
 
 export const get = async (path) => {
   try {
