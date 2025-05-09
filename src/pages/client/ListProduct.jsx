@@ -26,7 +26,7 @@ const initItemsBreadcum = [
 
 const ListProduct = () => {
   const { categorySlug, brandSlug } = useParams();
-  const { brands, categories, products, loading } = useContext(ProductContext);
+  const { brands, categories, products, loading, setLoading } = useContext(ProductContext);
   const { state } = useLocation();
 
   // State declarations
@@ -50,10 +50,6 @@ const ListProduct = () => {
 
   // Initial data fetch and setup
   useEffect(() => {
-
-    console.log(brandSlug);
-    
-
     // Set breadcrumb items based on categorySlug
     const category = categories.find((c) => c.slug === categorySlug);
     const breadcrumbItems = [...initItemsBreadcum];
@@ -84,6 +80,8 @@ const ListProduct = () => {
         let brand = null;
         
         brand = brands.find((b) => b.name == brandSlug) || null;
+        console.log(brandSlug);
+        
         console.log(brand);
         
 
@@ -92,6 +90,8 @@ const ListProduct = () => {
           initialFilteredProducts = initialFilteredProducts.filter(
             (p) => p.brand_id === brand.id
           );
+        } else {
+          setSelectedBrands([]);
         }
 
         if (!isAllCategory && categories?.length) {
@@ -102,7 +102,9 @@ const ListProduct = () => {
             initialFilteredProducts = initialFilteredProducts.filter(
               (p) => p.category_id.toString() === category.id
             );
-          }
+          } 
+        } else {
+          setSelectedCategory(null);
         }
 
         setFilteredProducts(initialFilteredProducts);
@@ -148,11 +150,13 @@ const ListProduct = () => {
         if (matchedCategory) {
           setSelectedCategories([matchedCategory.slug]);
         }
+      } else {
+        setSelectedCategories([]);
       }
     };
 
     fetchData();
-  }, [products, brandSlug, categorySlug, categories]);
+  }, [products, brandSlug, categorySlug, categories, loading]);
 
   // Handle filter button click
   const handleFilter = async () => {

@@ -14,40 +14,38 @@ import {
   SettingOutlined,
   ProductOutlined,
 } from "@ant-design/icons";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { path } from "../constants/path";
 import { useAuth } from "../hooks/AuthContext";
+import { useEffect, useState } from "react";
 
 const menuItems = [
   {
     key: path.homeAdmin,
     icon: <DashboardOutlined />,
-    label: <NavLink to={path.homeAdmin}>Overview</NavLink>,
+    label: <NavLink to={path.homeAdmin}>Tổng quan</NavLink>,
   },
   {
     key: `${path.homeAdmin}/${path.brandManagement}`,
     icon: <HddOutlined />,
     label: (
       <NavLink to={`${path.homeAdmin}/${path.brandManagement}`}>
-        Brand Management
+        Quản lý thương hiệu
       </NavLink>
     ),
   },
   {
     key: `${path.homeAdmin}/${path.productManagement}`,
     icon: <ProjectOutlined />,
-    label: (
-      <NavLink to={`${path.homeAdmin}/${path.productManagement}`}>
-        Product Management
-      </NavLink>
-    ),
+    label: <NavLink to={`${path.homeAdmin}/${path.productManagement}`}>Quản lý Sản phẩm</NavLink>,
+
   },
   {
     key: `${path.homeAdmin}/${path.userManagement}`,
     icon: <TeamOutlined />,
     label: (
       <NavLink to={`${path.homeAdmin}/${path.userManagement}`}>
-        User Management
+        Quản lý người dùng
       </NavLink>
     ),
   },
@@ -62,16 +60,11 @@ const menuItems = [
     ),
   },
   {
-    key: `${path.homeAdmin}/${path.report}`,
-    icon: <BarChartOutlined />,
-    label: <NavLink to={`${path.homeAdmin}/${path.report}`}>Reports</NavLink>,
-  },
-  {
     key: `${path.homeAdmin}/${path.orderManagement}`,
     icon: <MessageOutlined />,
     label: (
       <NavLink to={`${path.homeAdmin}/${path.orderManagement}`}>
-        Order Management
+        Quản lý đơn hàng
       </NavLink>
     ),
   },
@@ -80,8 +73,8 @@ const menuItems = [
 export default function DefaultLayoutAdmin() {
   const navigate = useNavigate();
   const { logout, user } = useAuth();
+  const location = useLocation()
 
-  // Handle logout function
   const handleLogout = () => {
     logout();
   };
@@ -140,7 +133,7 @@ export default function DefaultLayoutAdmin() {
           </a>
         </div>
         <Menu
-          defaultSelectedKeys={[path.homeAdmin]}
+          defaultSelectedKeys={[location.pathname]}
           mode="inline"
           theme="light"
           items={menuItems}

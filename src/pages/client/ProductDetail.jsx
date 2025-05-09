@@ -9,6 +9,7 @@ import {
   Rate,
   Input,
   Button,
+  Tooltip,
 } from "antd";
 import ProductCard from "../../components/ProductCard";
 import { useCart } from "../../hooks/useCart";
@@ -16,6 +17,7 @@ import ReviewsModal from "../../components/ReviewsModal";
 import { ProductContext } from "../../hooks/ProductContext";
 import { productService } from "./../../services/product.service";
 import { reviewService } from "../../services/review.service";
+import { useAuth } from "../../hooks/AuthContext";
 
 const initItemsBreadcum = [
   {
@@ -24,6 +26,8 @@ const initItemsBreadcum = [
 ];
 
 const ProductDetail = () => {
+
+  const { user } = useAuth();
   const { slug } = useParams();
   const { state } = useLocation();
   const [product, setProduct] = useState(null);
@@ -43,6 +47,8 @@ const ProductDetail = () => {
   const [currentReviewId, setCurrentReviewId] = useState(null);
   const [replyForm] = Form.useForm();
 
+  const [isOutOfStock, setOutOfStock] = useState(false);
+
   const handleReplyClick = (reviewId) => {
     setCurrentReviewId(reviewId);
     setIsReplyModalVisible(true);
@@ -56,7 +62,7 @@ const ProductDetail = () => {
   const handleReplySubmit = async (values) => {
     const replyData = {
       id: Date.now().toString(),
-      user_name: "Trần Ngọc Huyền (Nhân viên)",
+      user_name: user ? user.name : "Nhân viên",
       reply_text: values.reply_text,
       reply_date: new Date().toISOString().split("T")[0],
     };
@@ -107,12 +113,13 @@ const ProductDetail = () => {
         const foundProduct = allProducts.find((p) => p.slug === slug);
         if (foundProduct) {
           setProduct(foundProduct);
+          setOutOfStock(foundProduct.stock === 0);
           setMainImage(foundProduct.image_url[0]);
 
-          // Update breadcrumb
           const breadcrumbItems = [...initItemsBreadcum];
           let categoryLink = "/products/all/brand/all";
           let categoryTitle = "Danh sách sản phẩm";
+
 
           // if (state?.categorySlug) {
           //   const category = categories.find(
@@ -205,12 +212,10 @@ const ProductDetail = () => {
   };
 
   const handleSubmitReview = async (values) => {
-    const userId = 1;
-    const username = "Trần Ngọc Huyền";
     const reviewData = {
       product_id: product.id,
-      user_id: userId,
-      user_name: username,
+      user_id: user.id,
+      user_name: user.name,
       rating: values.rating,
       comment: values.comment,
     };
@@ -260,9 +265,8 @@ const ProductDetail = () => {
                 {thumbnailImages.map((img, index) => (
                   <div
                     key={index}
-                    className={`w-20 h-20 rounded-md overflow-hidden cursor-pointer border-2 ${
-                      mainImage === img ? "border-blue-500" : "border-gray-300"
-                    }`}
+                    className={`w-20 h-20 rounded-md overflow-hidden cursor-pointer border-2 ${mainImage === img ? "border-blue-500" : "border-gray-300"
+                      }`}
                     onClick={() => setMainImage(img)}
                   >
                     <img
@@ -283,9 +287,9 @@ const ProductDetail = () => {
                 <span className="text-yellow-400">
                   {reviews.length > 0
                     ? (
-                        reviews.reduce((sum, r) => sum + r.rating, 0) /
-                        reviews.length
-                      ).toFixed(1) + " ★"
+                      reviews.reduce((sum, r) => sum + r.rating, 0) /
+                      reviews.length
+                    ).toFixed(1) + " ★"
                     : "0.0 ★"}
                 </span>
                 <a href="/" className="ml-2 text-gray-500">
@@ -308,12 +312,21 @@ const ProductDetail = () => {
               </div>
 
               <div className="mt-5">
-                <button
-                  onClick={() => addToCart(product)}
-                  className="bg-primary !text-white px-4 py-3 rounded-md cursor-pointer"
-                >
-                  MUA NGAY - GIAO NHANH TỐC HÀNH
-                </button>
+                <Tooltip title={isOutOfStock ? "Tạm thời hết hàng" : ""}>
+                  <Button
+                    onClick={() => addToCart(product)}
+                    className={`px-4 py-3 rounded-md cursor-pointer ${isOutOfStock ? "bg-gray-300 !text-gray-600" : "bg-primary !text-white"
+                      }`}
+                    style={{
+                      background: isOutOfStock ? "#d9d9d9" : "#E30019",
+                      padding: "20px 12px",
+                      border: "none",
+                    }}
+                    disabled={isOutOfStock}
+                  >
+                    MUA NGAY - GIAO NHANH TỐC HÀNH
+                  </Button>
+                </Tooltip>
                 <div className="mt-10 text-gray-700">
                   <p className="font-semibold">Thông tin chung:</p>
                   <ul className="list-disc list-inside">
@@ -369,9 +382,9 @@ const ProductDetail = () => {
                 <span className="text-yellow-500 text-lg">
                   {reviews.length > 0
                     ? (
-                        reviews.reduce((sum, r) => sum + r.rating, 0) /
-                        reviews.length
-                      ).toFixed(1) + " ★"
+                      reviews.reduce((sum, r) => sum + r.rating, 0) /
+                      reviews.length
+                    ).toFixed(1) + " ★"
                     : "0.0 ★"}
                 </span>
                 <span className="ml-2 text-gray-500">
@@ -444,13 +457,15 @@ const ProductDetail = () => {
                         </Form.Item>
                       </Form>
                     </Modal>
-                    <Button
-                      type="link"
-                      onClick={() => handleReplyClick(review.id)}
-                      className="text-blue-500 mt-2"
-                    >
-                      Trả lời
-                    </Button>
+                    {(user?.role === "ADMIN" || user.id == review.user_id) && (
+                      <Button
+                        type="link"
+                        onClick={() => handleReplyClick(review.id)}
+                        className="text-blue-500 mt-2"
+                      >
+                        Trả lời
+                      </Button>
+                    )}
                   </div>
                 ))}
               </div>

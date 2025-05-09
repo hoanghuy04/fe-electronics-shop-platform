@@ -5,72 +5,20 @@ import { ProductContext } from "../../hooks/ProductContext";
 import { categoryColor } from "../../constants/categoryColor";
 import { Link } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
-import laptopgaming from "/public/laptop-gaming.png";
-import chuotgaming from "/public/chuot-gaming.png";
+import laptopgaming from "/laptop-gaming.png";
+import chuotgaming from "/chuot-gaming.png";
+import { BannerService } from "../../services/banner.service";
 
 const Home = () => {
   const [laptops, setLaptops] = useState([]);
   const [pcs, setPCs] = useState([]);
   const [mouse, setMouse] = useState([]);
   const [screens, setScreens] = useState([]);
-  const {
-    viewedProducts,
-    setViewedProducts,
-    products,
-    categories,
-    brands,
-    loading,
-  } = useContext(ProductContext);
+  const { viewedProducts, setViewedProducts, products, categories, brands, loading } = useContext(ProductContext);
+  const [carouselImages, setCarouselImages] = useState([]);
+  const [rightBanners, setRightBanners] = useState([]);
+  const [bottomBanners, setBottomBanners] = useState([]);
 
-  // Dữ liệu giả lập cho carousel và banner
-  const carouselImages = [
-    {
-      src: "https://file.hstatic.net/200000722513/file/thang_02_pc_gvn_banner_web_slider_800x400.jpg",
-      navigation: "products/pc-gvn/brand/all",
-    },
-    {
-      src: "https://file.hstatic.net/200000722513/file/thang_04_laptop_gaming_banner_web_slider_800x400.jpg",
-      navigation: "products/laptop/brand/all",
-    },
-    {
-      src: "https://file.hstatic.net/200000722513/file/thang_03_laptop_rtx_5090_800x400.jpg",
-      navigation: "products/all",
-    },
-  ];
-
-  const rightBanners = [
-    {
-      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-01.png",
-      navigation: "products/pc-gvn/brand/all",
-    },
-    {
-      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-02.png",
-      navigation: "products/ban-phim/brand/all",
-    },
-    {
-      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-03.png",
-      navigation: "products/ban-phim/brand/all",
-    },
-  ];
-
-  const bottomBanners = [
-    {
-      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-09_acdc7c6d37584f0eb1ce8d35ba45507e.png",
-      navigation: "products/loa-micro-webcam/brand/all",
-    },
-    {
-      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-08.png",
-      navigation: "products/man-hinh/brand/all",
-    },
-    {
-      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-07.png",
-      navigation: "products/chuot-lot-chuot/brand/all",
-    },
-    {
-      src: "https://file.hstatic.net/200000722513/file/thang_02_layout_web_-06.png",
-      navigation: "products/pc-gvn/brand/all",
-    },
-  ];
 
   const searchProductsByTitle = (keyword) => {
     try {
@@ -108,6 +56,33 @@ const Home = () => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        const carouselBanners = await BannerService.getBannersByType("banner_carousel");
+        
+        setCarouselImages(carouselBanners);
+      } catch (error) {
+        console.error(error);
+      }
+
+      try {
+        const rightBanner = await BannerService.getBannersByType("banner_right_carousel");
+        setRightBanners(rightBanner);
+      } catch (error) {
+        console.error(error);
+      }
+
+      try {
+        const bottomBanner = await BannerService.getBannersByType("banner_bottom_carousel");
+        setBottomBanners(bottomBanner);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchBanners();
+  }, [loading]);
 
   useEffect(() => {
     try {
@@ -153,7 +128,7 @@ const Home = () => {
                   {carouselImages.map((image, index) => (
                     <NavLink key={index} to={image.navigation}>
                       <img
-                        src={image.src}
+                        src={image.link}
                         alt={`Carousel ${index + 1}`}
                         className="w-full object-cover p-2 rounded-2xl "
                       />
@@ -171,7 +146,7 @@ const Home = () => {
                     className="block rounded-lg overflow-hidden transition-shadow duration-200"
                   >
                     <img
-                      src={banner.src}
+                      src={banner.link}
                       alt={`Right Banner ${index + 1}`}
                       className=" object-cover"
                     />
@@ -189,7 +164,7 @@ const Home = () => {
                   className="block rounded-lg overflow-hidden transition-shadow duration-200"
                 >
                   <img
-                    src={banner.src}
+                    src={banner.link}
                     alt={`Bottom Banner ${index + 1}`}
                     className="object-cover"
                   />

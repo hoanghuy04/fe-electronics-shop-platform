@@ -44,7 +44,10 @@ export const AuthProvider = ({ children }) => {
     const newUser = await authApi.register(user);
     if (newUser) {
       toast.success("Tài khoản đã được tạo");
-      navigate(path.login);
+      setUser(newUser);
+      setIsAuthenticated(true);
+      localStorage.setItem("user", JSON.stringify(newUser));
+      navigate(path.home);
     }
   };
 
@@ -55,9 +58,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("user");
     
     if (role === "ADMIN") {
-      navigate(path.loginAdmin);
-    } else {
-      navigate(path.home);
+      navigate(path.login);
     }
   };
 

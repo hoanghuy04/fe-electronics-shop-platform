@@ -2,14 +2,13 @@
   "products": [
     {
       "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
-      "price": 19999999,
+      "price": 123,
       "discount": 0.09,
-      "category_id": 1,
-      "brand_id": "12",
-      "stock": 0,
-      "total_sales": 10,
-      "status": "inactive",
-      "slug": "laptop-lenovo-ideapad-slim-5-14imh9-83da001yvn",
+      "category_id": "1",
+      "brand_id": "1",
+      "stock": 1,
+      "total_sales": 5,
+      "status": "active",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531047/products/product_1_0.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531049/products/product_1_1.png",
@@ -390,7 +389,7 @@
       ],
       "total_sales": 0,
       "stock": 0,
-      "status": "inactive"
+      "status": "active"
     },
     {
       "id": "17",
@@ -1399,7 +1398,7 @@
       "name": "Laptop",
       "slug": "laptop",
       "created_date": "2025-01-01T00:00:00.000Z",
-      "active": 1
+      "active": 0
     },
     {
       "id": "2",
@@ -1593,12 +1592,13 @@
     {
       "id": "1",
       "name": "Trần Ngọc Huyền",
-      "gender": 0,
+      "gender": 1,
       "email": "tranngochuyenn1909@gmail.com",
       "password": "123456789",
       "phone": "0964424149",
       "dob": "07/07/2023",
       "role": "USER",
+      "created_at": "2024-08-05:00:00Z",
       "address": [
         {
           "id": "DC20250409171555333",
@@ -1639,21 +1639,59 @@
       "id": "2",
       "email": "daolinh28102004@gmail.com",
       "name": "Đào Linh",
-      "gender": 0,
+      "gender": 1,
       "phone": "",
       "dob": "",
       "address": [],
-      "password": "123"
+      "password": "123",
+      "created_at": "2025-04-09:00:00Z",
+      "role": "USER"
     },
     {
       "id": "3",
       "email": "12@gmail.com",
       "password": "123",
       "name": "Dương Hoàng Huy",
-      "gender": 1,
+      "gender": "Nam",
       "phone": "0364635032",
       "dob": "06/12/2004",
       "role": "ADMIN",
+      "created_at": "2025-03-06:00:00Z",
+      "address": []
+    },
+    {
+      "id": "3424",
+      "name": "Nguyen van A",
+      "email": "1@gmail.com",
+      "password": "123",
+      "gender": 0,
+      "phone": "0123456789",
+      "dob": "",
+      "role": "USER",
+      "address": []
+    },
+    {
+      "id": "9ad0",
+      "name": "Nguyen Van  B",
+      "email": "2@gmail.com",
+      "password": "123",
+      "gender": 0,
+      "phone": "0123456789",
+      "dob": "",
+      "role": "USER",
+      "created_at": "2025-05-09:00:00Z",
+      "address": []
+    },
+    {
+      "id": "7660",
+      "name": "Nguyen Van C",
+      "email": "3@gmail.com",
+      "password": "123",
+      "gender": 0,
+      "phone": "0123456789",
+      "dob": "",
+      "role": "USER",
+      "created_at": "2025-05-09:00:00Z",
       "address": []
     }
   ],
@@ -2134,6 +2172,78 @@
       "date": "2025-04-30",
       "amount": 70000000,
       "id": "22b5"
+    }
+  ],
+  "banners": [
+    {
+      "id": "1",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708413/banners/banner_1.jpg",
+      "type": "banner_header"
+    },
+    {
+      "id": "2",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708415/banners/banner_2.jpg",
+      "type": "banner_header"
+    },
+    {
+      "id": "3",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708417/banners/banner_3.jpg",
+      "type": "banner_carousel",
+      "navigation": "products/pc-gvn/brand/all"
+    },
+    {
+      "id": "4",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708420/banners/banner_4.jpg",
+      "type": "banner_carousel",
+      "navigation": "products/laptop/brand/all"
+    },
+    {
+      "id": "5",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708422/banners/banner_5.jpg",
+      "type": "banner_carousel",
+      "navigation": "products/all"
+    },
+    {
+      "id": "6",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708424/banners/banner_6.png",
+      "type": "banner_right_carousel",
+      "navigation": "products/pc-gvn/brand/all"
+    },
+    {
+      "id": "7",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708426/banners/banner_7.png",
+      "type": "banner_right_carousel",
+      "navigation": "products/ban-phim/brand/all"
+    },
+    {
+      "id": "8",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708428/banners/banner_8.png",
+      "type": "banner_right_carousel",
+      "navigation": "products/ban-phim/brand/all"
+    },
+    {
+      "id": "9",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708430/banners/banner_9.png",
+      "type": "banner_bottom_carousel",
+      "navigation": "products/loa-micro-webcam/brand/all"
+    },
+    {
+      "id": "10",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708432/banners/banner_10.png",
+      "type": "banner_bottom_carousel",
+      "navigation": "products/man-hinh/brand/all"
+    },
+    {
+      "id": "11",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708434/banners/banner_11.png",
+      "type": "banner_bottom_carousel",
+      "navigation": "products/chuot-lot-chuot/brand/all"
+    },
+    {
+      "id": "12",
+      "link": "https://res.cloudinary.com/dnsallii0/image/upload/v1746708436/banners/banner_12.png",
+      "type": "banner_bottom_carousel",
+      "navigation": "products/pc-gvn/brand/all"
     }
   ]
 }

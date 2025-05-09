@@ -1,14 +1,5 @@
-import {
-  Button,
-  Tag,
-  Modal,
-  Form,
-  Input,
-  Select,
-  Upload,
-  message,
-  Checkbox,
-} from "antd";
+import { Button, Tag, Modal, Form, Input, Select, Upload, message, Checkbox, Tooltip } from "antd";
+
 import {
   PencilLine,
   BarChart3,
@@ -21,8 +12,9 @@ import {
   CloudUpload,
   Search,
   PackagePlus,
-  PackageMinus,
   PackageX,
+  EyeOff,
+  Eye,
 } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
@@ -42,7 +34,6 @@ export default function ProductManagement() {
   const [form] = Form.useForm();
   const [fileList, setFileList] = useState([]);
 
-  // Search filters
   const [filters, setFilters] = useState({
     name: "",
     category: "",
@@ -50,10 +41,8 @@ export default function ProductManagement() {
     stock: "",
   });
 
-  // Card 1: Total products
-  const totalProducts = () => tableData.length;
+  const totalProducts = () => products.length;
 
-  // Card 2: In stock / out of stock products
   const stockStatus = () => {
     const inStock = tableData.filter((product) => product.stock > 0).length;
     const outOfStock = tableData.filter(
@@ -62,7 +51,6 @@ export default function ProductManagement() {
     return { inStock, outOfStock };
   };
 
-  // Card 3: Products by category
   const productsByCategory = () => {
     const categoryCounts = {};
     tableData.forEach((product) => {
@@ -80,14 +68,12 @@ export default function ProductManagement() {
       }, {});
   };
 
-  // Card 4: Top products
   const topProducts = () => {
     return [...tableData]
       .sort((a, b) => b.total_sales - a.total_sales)
       .slice(0, 5);
   };
 
-  // Card 5: Price range or average price
   const priceMetrics = () => {
     if (tableData.length === 0) return { avg: 0, min: 0, max: 0 };
 
@@ -118,7 +104,6 @@ export default function ProductManagement() {
       );
       const updatedProducts = await Promise.all(updatePromises);
 
-      // Cập nhật tableData với các sản phẩm đã được cập nhật
       setTableData((prevData) =>
         prevData.map((product) => {
           const updatedProduct = updatedProducts.find(
@@ -128,7 +113,6 @@ export default function ProductManagement() {
         })
       );
 
-      // Reset selectedRows
       setSelectedRows([]);
       message.success(
         `Đã ngừng bán ${updatedProducts.length} sản phẩm thành công`
@@ -146,7 +130,6 @@ export default function ProductManagement() {
     }
   }, [loading, products]);
 
-  // Apply filters to data
   useEffect(() => {
     let result = [...tableData];
 
@@ -181,7 +164,7 @@ export default function ProductManagement() {
     }
 
     setFilteredData(result);
-  }, [filters, tableData, categories]);
+  }, [filters, tableData, categories, brands]);
 
   const showModal = (product = {}) => {
     setSelectedProduct(product);
@@ -190,11 +173,11 @@ export default function ProductManagement() {
     setFileList(
       product.image_url
         ? product.image_url.map((url, index) => ({
-            uid: index,
-            name: `image-${index}.jpg`,
-            status: "done",
-            url,
-          }))
+          uid: index,
+          name: `image-${index}.jpg`,
+          status: "done",
+          url,
+        }))
         : []
     );
     if (!product.id) {
@@ -269,23 +252,24 @@ export default function ProductManagement() {
   };
 
   const onFinish = async (values) => {
-    console.log(values);
 
     try {
-      // Chuyển description từ chuỗi thành object
-      const descriptionObj = parseDescription(values.description);
-
-      // Lấy danh sách URL ảnh từ fileList
-      const imageUrls = fileList
-        .filter((file) => file.status === "done")
-        .map((file) => file.response?.url || file.url)
-        .filter(Boolean);
-
+      // Chuyển đổi kiểu dữ liệu
       const productData = {
         ...values,
+        price: parseFloat(values.price) || 0,
+        discount: parseFloat(values.discount) || 0,
+        stock: parseInt(values.stock, 10) || 0,
+        total_sales: modalMode === "edit" ? parseInt(values.total_sales, 10) || 0 : 0,
+        category_id: values.category_id ? String(values.category_id) : values.category_id,
+        brand_id: values.brand ? String(values.brand_id) : values.brand_id, 
         status: values.status ? "active" : "inactive",
-        description: descriptionObj,
-        image_url: imageUrls.length > 0 ? imageUrls : ["/placeholder.svg"],
+        description: parseDescription(values.description),
+        image_url: fileList
+          .filter((file) => file.status === "done")
+          .map((file) => file.response?.url || file.url)
+          .filter(Boolean) || ["/placeholder.svg"],
+        slug: modalMode === "add" ? values.slug : undefined, 
       };
 
       if (modalMode === "edit" && selectedProduct.id) {
@@ -302,9 +286,15 @@ export default function ProductManagement() {
         setIsModalOpen(false);
       } else {
         // Thêm sản phẩm mới
-        const newProduct = await productService.addProduct(productData);
-        console.log("Added new product:", newProduct);
-        setTableData([newProduct, ...tableData]);
+        const newProduct = {
+          id: String(products.length + 1),
+          ...productData,
+        };
+
+        const createdProduct = await productService.addProduct(newProduct);
+        // Cập nhật danh sách sản phẩm
+        console.log("Added new product:", createdProduct);
+        setTableData([createdProduct, ...tableData]);
         setIsModalOpen(false);
       }
       form.resetFields();
@@ -404,7 +394,7 @@ export default function ProductManagement() {
       sortable: true,
       cell: (row) => (
         <Tag color={row.status === "active" ? "orange" : "red"}>
-          {row.status === "active" ? "Đang bán" : "Ngừng bán"}
+          {row.status === "active" ? "Đang hoạt động" : "Đã ẩn"}
         </Tag>
       ),
     },
@@ -413,30 +403,67 @@ export default function ProductManagement() {
       width: columnWidth,
       center: true,
       cell: (row) => (
-        <div className="flex justify-center">
-          <PencilLine
-            className="cursor-pointer"
-            onClick={() => {
-              setSelectedProduct(row);
-              showModal(row);
-            }}
-          />
-          <span style={{ display: "none" }}>{row.id}</span>
+        <div className="flex justify-center space-x-2">
+          <Tooltip title="Chỉnh sửa">
+            <PencilLine
+              className="cursor-pointer text-blue-500"
+              size={18}
+              onClick={() => {
+                setSelectedProduct(row);
+                showModal(row);
+              }}
+            />
+          </Tooltip>
+          <Tooltip title={row.status === "active" ? "Ẩn sản phẩm" : "Hiện sản phẩm"}>
+            {row.status === "active" ? (
+              <EyeOff
+                className="cursor-pointer text-red-500"
+                size={18}
+                onClick={async () => {
+                  try {
+                    const updatedProduct = { ...row, status: "inactive" };
+                    await productService.updateProduct(row.id, updatedProduct);
+                    setTableData((prevData) =>
+                      prevData.map((product) =>
+                        product.id === row.id ? updatedProduct : product
+                      )
+                    );
+                    message.success("Sản phẩm đã được ẩn thành công");
+                  } catch (error) {
+                    message.error("Đã xảy ra lỗi khi ẩn sản phẩm");
+                  }
+                }}
+              />
+            ) : (
+              <Eye
+                className="cursor-pointer text-green-500"
+                size={18}
+                onClick={async () => {
+                  try {
+                    const updatedProduct = { ...row, status: "active" };
+                    await productService.updateProduct(row.id, updatedProduct);
+                    setTableData((prevData) =>
+                      prevData.map((product) =>
+                        product.id === row.id ? updatedProduct : product
+                      )
+                    );
+                    message.success("Sản phẩm đã được hiện thành công");
+                  } catch (error) {
+                    message.error("Đã xảy ra lỗi khi hiện sản phẩm");
+                  }
+                }}
+              />
+            )}
+          </Tooltip>
         </div>
       ),
     },
   ];
 
   useEffect(() => {
-    setFilteredData(tableData);
-  }, [tableData]);
-
-  useEffect(() => {
     if (isModalOpen && modalMode === "edit" && selectedProduct.id) {
       form.setFieldsValue({
         ...selectedProduct,
-        category_id: selectedProduct.category_id,
-        brand: selectedProduct.brand,
         status: selectedProduct.status === "active",
         description: formatDescription(selectedProduct.description),
       });
@@ -491,7 +518,7 @@ export default function ProductManagement() {
                 wrapperCol={{ span: 16 }}
                 rules={[{ required: true, message: "Vui lòng nhập giá" }]}
               >
-                <Input type="number" min="0" />
+                <Input type="number" min="0" step="0.01" />
               </Form.Item>
 
               <Form.Item
@@ -515,7 +542,7 @@ export default function ProductManagement() {
               >
                 <Select>
                   {categories.map((category) => (
-                    <Select.Option key={category.id} value={category.id}>
+                    <Select.Option key={category.id} value={String(category.id)}>
                       {category.name}
                     </Select.Option>
                   ))}
@@ -524,7 +551,7 @@ export default function ProductManagement() {
 
               <Form.Item
                 label="Thương hiệu"
-                name="brand"
+                name="brand_id"
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
                 rules={[
@@ -533,7 +560,7 @@ export default function ProductManagement() {
               >
                 <Select>
                   {brands.map((brand) => (
-                    <Select.Option key={brand.id} value={brand.id}>
+                    <Select.Option key={brand.id} value={String(brand.id)}>
                       {brand.name}
                     </Select.Option>
                   ))}
@@ -732,10 +759,11 @@ SSD: 512GB"
                     </span>
                   </div>
                   <div className="flex-grow min-w-0">
-                    <p className="text-sm font-medium text-gray-900 truncate">
-                      {product.title}
+                    <p className="text-sm font-medium text-gray-900 truncate">{product.title}</p>
+                    <p className="text-xs text-gray-500">
+                      {brands.find((brand) => brand.id == product.brand_id)?.name || "Khác"}
                     </p>
-                    <p className="text-xs text-gray-500">{product.brand}</p>
+
                   </div>
                   <div className="flex-shrink-0 text-right">
                     <p className="text-sm font-medium text-gray-900">
@@ -819,18 +847,21 @@ SSD: 512GB"
 
             <div className="text-end mb-4">
               <div className="space-x-2 flex items-center justify-end gap-2">
-                <Button onClick={showAddProductModal} className="">
-                  <PackagePlus />
-                </Button>
+                <Tooltip title="Thêm sản phẩm mới">
+                  <Button onClick={showAddProductModal} type="primary">
+                    <PackagePlus />
+                  </Button>
+                </Tooltip>
 
-                <Button
-                  onClick={inactiveProducts}
-                  className=""
-                  disabled={selectedRows.length === 0}
-                  danger
-                >
-                  <PackageX />
-                </Button>
+                <Tooltip title="Ẩn sản phẩm đã chọn">
+                  <Button
+                    onClick={inactiveProducts}
+                    disabled={selectedRows.length === 0}
+                    danger
+                  >
+                    <PackageX />
+                  </Button>
+                </Tooltip>
               </div>
             </div>
           </div>

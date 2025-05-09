@@ -256,18 +256,16 @@ export const orderService = {
       const filtered = [];
 
       for (const order of allOrders) {
-        console.log("orderdate", order.order_date);
         const orderKey = dayjs.utc(order.order_date).local().format(format);
 
-        console.log("orderke y", orderKey);
         const revenue = order.total_price;
 
         const stats =
           orderKey === currentKey
             ? currentStats
             : orderKey === prevKey
-            ? prevStats
-            : null;
+              ? prevStats
+              : null;
 
         if (orderKey === currentKey) {
           filtered.push(order);
@@ -300,4 +298,85 @@ export const orderService = {
       throw e;
     }
   },
-};
+
+  getOrdersByYear: async (year) => {
+    try {
+      const allOrders = await get("orders");
+
+      const filtered = allOrders.filter((order) => {
+        const orderDate = new Date(order.order_date);
+        return orderDate.getFullYear() === year;
+      });
+
+      const sorted = filtered.sort(
+        (a, b) => new Date(b.order_date) - new Date(a.order_date)
+      );
+
+      return sorted;
+    } catch (error) {
+      console.error("Lỗi khi lấy đơn hàng theo năm:", error);
+      return [];
+    }
+  },
+
+  getRecentOrders: async () => {
+    try {
+      const allOrders = await get("orders");
+
+      if (!Array.isArray(allOrders)) throw new Error("Invalid order data");
+
+      const sortedOrders = allOrders.sort(
+        (a, b) => new Date(b.order_date) - new Date(a.order_date)
+      );
+
+      const recentOrders = sortedOrders.slice(0, 10);
+
+      const result = await Promise.all(
+        recentOrders.map(async (order) => {
+          let addressString = "";
+          try {
+            const addr = order.shipping_address?.address;
+            const [province, district, ward] = await Promise.all([
+              addressService.getProvinceById(addr?.province),
+              addressService.getDistrictById(addr?.district, addr?.province),
+              addressService.getWardById(addr?.ward, addr?.district),
+            ]);
+
+            addressString = [
+              addr.street,
+              ward?.full_name,
+              district?.full_name,
+              province?.full_name,
+            ]
+              .filter(Boolean)
+              .join(", ");
+          } catch (err) {
+            console.warn("Không thể lấy địa chỉ đầy đủ:", err);
+          }
+
+          return {
+            ...order,
+            addressString,
+          };
+        })
+      );
+
+      return result;
+    } catch (error) {
+      console.error("Lỗi khi lấy 10 đơn hàng gần nhất:", error);
+      return [];
+    }
+  },
+
+  getListOrders: async () => {
+    try {
+      const allOrders = await get("orders");
+      if (!Array.isArray(allOrders)) throw new Error("Invalid order data");
+
+      return allOrders
+    } catch (error) {
+      console.error("Lỗi khi lấy tất cả đơn hàng:", error);
+      return [];
+    }
+  },
+}

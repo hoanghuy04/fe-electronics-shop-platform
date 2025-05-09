@@ -11,8 +11,6 @@ import Account from "../pages/client/Account";
 import { AccountProfile } from "../components/AccountProfile";
 import { AccountAddress } from "../components/AccountAddress";
 import { AccountOrderHistory } from "../components/AccountOrderHistory";
-import LoginPage from "../pages/auth/Login";
-import RegisterPage from "../pages/auth/Register";
 import PaymentInstructions from "../pages/client/PaymentInstructions";
 import AccountViewedProduct from "../components/AccountViewedProduct";
 import AccountOrderHistoryDetail from "../components/AccountOrderHistoryDetail";
@@ -22,9 +20,10 @@ import {
   RejectedRoute,
   UserProtectedRoute,
 } from "./RouteGuard";
-import LoginAdmin from "../pages/auth/LoginAdmin";
 import BrandManagement from "../pages/admin/BrandManagement";
 import CategoryManagement from "../pages/admin/CategoryManagement";
+import LoginPage from "../pages/auth/LoginPage";
+import RegisterPage from "../pages/auth/RegisterPage";
 
 // Lazy loading client pages
 const Home = lazy(() => import("../pages/client/Home"));
@@ -42,41 +41,7 @@ const OrderManagement = lazy(() => import("../pages/admin/OrderManagement"));
 const Reports = lazy(() => import("../pages/admin/Reports"));
 const UserManagement = lazy(() => import("../pages/admin/UserManagement"));
 
-// function ProtectedRoute() {
-//   const { isAuthenticated } = useAuth();
-//   return isAuthenticated ? <Outlet /> : <Navigate to={path.login} />;
-// }
-
-// function RejectedRoute() {
-//   const { isAuthenticated } = useAuth();
-//   return !isAuthenticated ? <Outlet /> : <Navigate to={path.home} />;
-// }
-
 const routes = [
-  {
-    path: path.loginAdmin,
-    element: <LoginAdmin />,
-  },
-  {
-    path: path.homeAdmin,
-    element: <DefaultLayoutAdmin />,
-    children: [
-      {
-        path: "",
-        element: <AdminProtectedRoute />,
-        children: [
-          { path: "", element: <Overview /> },
-          { path: path.productManagement, element: <ProductManagement /> },
-          { path: path.orderManagement, element: <OrderManagement /> },
-          { path: path.report, element: <Reports /> },
-          { path: path.userManagement, element: <UserManagement /> },
-          { path: path.brandManagement, element: <BrandManagement /> },
-          { path: path.categoryManagement, element: <CategoryManagement /> },
-        ],
-      },
-      { path: "*", element: <Navigate to={path.notFound} /> },
-    ],
-  },
   {
     path: path.home,
     element: <DefaultLayout />,
@@ -123,13 +88,31 @@ const routes = [
       },
       { path: path.contact, element: <Contact /> },
       { path: path.paymentInstruction, element: <PaymentInstructions /> },
+      { path: "*", element: <Navigate to={path.notFound} /> },
+    ],
+  }, {
+    path: "",
+    element: <RejectedRoute />,
+    children: [
+      { path: path.login, element: <LoginPage /> },
+      { path: path.register, element: <RegisterPage /> },
+    ],
+  },
+  {
+    path: "",
+    element: <AdminProtectedRoute />,
+    children: [
       {
-        path: "",
-        element: <RejectedRoute />,
+        path: path.homeAdmin,
+        element: <DefaultLayoutAdmin />,
         children: [
-          { path: path.login, element: <LoginPage /> },
-          { path: path.loginAdmin, element: <LoginPage /> },
-          { path: path.register, element: <RegisterPage /> },
+          { path: "", element: <Overview /> },
+          { path: path.productManagement, element: <ProductManagement /> },
+          { path: path.orderManagement, element: <OrderManagement /> },
+          { path: path.report, element: <Reports /> },
+          { path: path.userManagement, element: <UserManagement /> },
+          { path: path.brandManagement, element: <BrandManagement /> },
+          { path: path.categoryManagement, element: <CategoryManagement /> },
         ],
       },
       { path: "*", element: <Navigate to={path.notFound} /> },
