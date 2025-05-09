@@ -75,7 +75,9 @@ const CustomTooltip = ({ active, payload, label, formatter }) => {
         <p className="text-gray-700 font-medium">{`${label}`}</p>
         {payload.map((entry, index) => (
           <p key={`item-${index}`} style={{ color: entry.color }}>
-            {`${entry.name}: ${formatter ? formatter(entry.value) : entry.value}`}
+            {`${entry.name}: ${
+              formatter ? formatter(entry.value) : entry.value
+            }`}
           </p>
         ))}
       </div>
@@ -98,10 +100,12 @@ const orderStatuses = [
 const Dashboard = () => {
   const [timeRange, setTimeRange] = useState("month");
   const [revenueChartTimeRange, setRevenueChartTimeRange] = useState("month");
-  const [userGrowthChartTimeRange, setUserGrowthChartTimeRange] = useState("month");
+  const [userGrowthChartTimeRange, setUserGrowthChartTimeRange] =
+    useState("month");
   const [data, setData] = useState(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
-  const { users, orders, products, loading, brands, categories } = useContext(AdminContext);
+  const { users, orders, products, loading, brands, categories } =
+    useContext(AdminContext);
 
   const fetchRevenueData = async (range) => {
     const responseRevenue = await orderService.getOrdersByYear(currentyear);
@@ -224,7 +228,10 @@ const Dashboard = () => {
             const monthName = new Date(year, month, 1).toLocaleString("vi-VN", {
               month: "short",
             });
-            const newUsers = await userApi.getNoUsersByMonthYear(month + 1, year);
+            const newUsers = await userApi.getNoUsersByMonthYear(
+              month + 1,
+              year
+            );
             const totalUsers = await userApi.getTotalUsersBeforeYear(year + 1);
             return {
               month: `${monthName} ${year}`,
@@ -242,12 +249,8 @@ const Dashboard = () => {
       setIsRefreshing(true);
       let responseRevenue;
       if (timeRange === "day") {
-        const { data: orders, currentStats } = await orderService.getOrdersAndStats(
-          "day",
-          dayjs(),
-          1,
-          1000
-        );
+        const { data: orders, currentStats } =
+          await orderService.getOrdersAndStats("day", dayjs(), 1, 1000);
         responseRevenue = orders;
       } else if (timeRange === "week") {
         const startOfWeek = dayjs().startOf("week");
@@ -293,7 +296,8 @@ const Dashboard = () => {
       const recentOrdersData = recentOrders.map((order) => ({
         key: order.id,
         id: order.id,
-        customer: users.find((cust) => cust.id == order.customer_id)?.name || "N/A",
+        customer:
+          users.find((cust) => cust.id == order.customer_id)?.name || "N/A",
         date: new Date(order.order_date).toLocaleDateString("vi-VN"),
         amount: order.total_price || 0,
         status:
@@ -313,9 +317,9 @@ const Dashboard = () => {
         id: product.id,
         name: product.title,
         category:
-          categories.find((cat) => cat.id == product.category_id)?.name || "N/A",
-        brand:
-          brands.find((b) => b.id == product.brand_id)?.name || "N/A",
+          categories.find((cat) => cat.id == product.category_id)?.name ||
+          "N/A",
+        brand: brands.find((b) => b.id == product.brand_id)?.name || "N/A",
       }));
 
       // Tổng số đơn hàng
@@ -399,7 +403,10 @@ const Dashboard = () => {
   };
 
   const exportReport = () => {
-    exportDashboardToExcel(data, `Dashboard_Report_${dayjs().format("YYYYMMDD")}.xlsx`);
+    exportDashboardToExcel(
+      data,
+      `Dashboard_Report_${dayjs().format("YYYYMMDD")}.xlsx`
+    );
   };
 
   useEffect(() => {
@@ -650,7 +657,9 @@ const Dashboard = () => {
               Sản phẩm hết hàng
             </h3>
             <div className="flex items-center">
-              <p className="text-3xl font-bold text-red-600">{data.outOfStock}</p>
+              <p className="text-3xl font-bold text-red-600">
+                {data.outOfStock}
+              </p>
               <Tooltip title="Tăng 2 sản phẩm so với tuần trước">
                 <span className="ml-2 text-sm text-red-500 flex items-center">
                   <ArrowUp size={14} /> 2
@@ -699,7 +708,9 @@ const Dashboard = () => {
                   tickFormatter={(value) => `${(value / 1000000).toFixed(0)}M`}
                 />
                 <RechartsTooltip
-                  content={<CustomTooltip formatter={(value) => formatVND(value)} />}
+                  content={
+                    <CustomTooltip formatter={(value) => formatVND(value)} />
+                  }
                 />
                 <Area
                   type="monotone"
@@ -733,7 +744,10 @@ const Dashboard = () => {
                   dataKey="value"
                   nameKey="type"
                   label={({ type, value }) =>
-                    `${type}: ${value} (${((value / totalOrdersPie) * 100).toFixed(0)}%)`
+                    `${type}: ${value} (${(
+                      (value / totalOrdersPie) *
+                      100
+                    ).toFixed(0)}%)`
                   }
                 >
                   {data.orderStatusData.map((entry, index) => {
@@ -875,7 +889,10 @@ const Dashboard = () => {
             <h3 className="text-lg font-semibold text-gray-700">
               Đơn hàng gần đây
             </h3>
-            <a href={`${path.homeAdmin}/${path.orderManagement}`} className="text-blue-600 hover:underline">
+            <a
+              href={`${path.homeAdmin}/${path.orderManagement}`}
+              className="text-blue-600 hover:underline"
+            >
               Xem tất cả
             </a>
           </div>
@@ -891,7 +908,10 @@ const Dashboard = () => {
             <h3 className="text-lg font-semibold text-gray-700">
               Sản phẩm hết hàng
             </h3>
-            <a href={`${path.homeAdmin}/${path.productManagement}`} className="text-blue-600 hover:underline">
+            <a
+              href={`${path.homeAdmin}/${path.productManagement}`}
+              className="text-blue-600 hover:underline"
+            >
               Xem tất cả
             </a>
           </div>

@@ -236,13 +236,7 @@ export const orderService = {
       };
     }
   },
-
-  getOrdersAndStats: async (
-    type = "day",
-    date = dayjs(),
-    page = 1,
-    limit = 5
-  ) => {
+  getOrdersAndStats: async (type = "day", date = dayjs(), page, limit) => {
     try {
       const allOrders = await get("orders");
 
@@ -263,7 +257,7 @@ export const orderService = {
       for (const order of allOrders) {
         const orderKey = dayjs.utc(order.order_date).local().format(format);
 
-        const revenue = order.total_price;
+        const revenue = order.total_price ?? 0;
 
         const stats =
           orderKey === currentKey
@@ -291,7 +285,7 @@ export const orderService = {
       const total = sorted.length;
       const start = (page - 1) * limit;
       const paginated = sorted.slice(start, start + limit);
-
+      console.log(paginated);
       return {
         data: paginated,
         total,
