@@ -1,25 +1,67 @@
-import { Skeleton } from "antd";
-import React from "react";
+import { Card, Typography } from "antd";
+import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 
-export default function OverviewItem({
+export const OverviewItem = ({
   title,
   value,
   icon,
-  iconBgClass,
-  valueColorClass,
-  loading = false,
-}) {
+  change,
+  className,
+  iconClassName,
+}) => {
+  const isPositive = change.value > 0;
+  const isNegative = change.value < 0;
+
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-      <div className={`${iconBgClass} p-3 rounded-full mr-4`}>{icon}</div>
-      <div>
-        <h3 className="text-lg font-semibold text-gray-700">{title}</h3>
-        {loading ? (
-          <Skeleton.Input active size="default" style={{ width: 80 }} />
-        ) : (
-          <p className={`text-3xl font-bold ${valueColorClass}`}>{value}</p>
-        )}
+    <Card className={("rounded-lg border shadow-sm h-full", className)}>
+      <div className="flex justify-between items-start">
+        <div>
+          <Typography.Text className=" text-gray-500 font-medium !text-xl">
+            {title}
+          </Typography.Text>
+          <Typography.Title
+            level={3}
+            className="!my-5 !text-3xl !p-0 !font-bold"
+          >
+            {value}
+          </Typography.Title>
+
+          <div className="!flex !items-center mt-2">
+            {isPositive && <ArrowUpOutlined className="!text-green-600 mr-1" />}
+            {isNegative && <ArrowDownOutlined className="!text-red-600 mr-1" />}
+            <Typography.Text
+              className={
+                ("text-xs font-medium !flex !items-center",
+                isPositive ? "text-green-500" : "",
+                isNegative ? "text-red-500" : "")
+              }
+            >
+              <div className="flex items-center">
+                {isPositive && (
+                  <div className="text-green-600 font-bold">
+                    {change.value}%
+                  </div>
+                )}
+                {isNegative && (
+                  <div className="text-red-600 font-bold">{change.value}%</div>
+                )}
+              </div>
+            </Typography.Text>
+            {change.text && (
+              <Typography.Text className="text-xs text-gray-500 ml-1">
+                {change.text}
+              </Typography.Text>
+            )}
+          </div>
+        </div>
+
+        <div
+          className={`flex items-center justify-center text-2xl ${iconClassName}
+          `}
+        >
+          {icon}
+        </div>
       </div>
-    </div>
+    </Card>
   );
-}
+};

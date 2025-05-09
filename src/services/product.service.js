@@ -129,22 +129,63 @@ export const productService = {
       const response = await post(`products`, {
         ...productData,
         created_at: new Date().toISOString(),
-        total_sales: productData.total_sales || 0, 
+        total_sales: productData.total_sales || 0,
       });
-      return response.data; 
+      return response.data;
     } catch (error) {
-      console.error('Error adding product:', error.response?.data || error.message);
-      throw new Error(error.response?.data?.message || 'Không thể thêm sản phẩm');
+      console.error(
+        "Error adding product:",
+        error.response?.data || error.message
+      );
+      throw new Error(
+        error.response?.data?.message || "Không thể thêm sản phẩm"
+      );
     }
   },
-  
- updateProduct: async (id, productData) => {
+
+  updateProduct: async (id, productData) => {
     try {
       const response = await put(`products/${id}`, productData);
-      return response.data; 
+      return response.data;
     } catch (error) {
-      console.error('Error updating product:', error.response?.data || error.message);
-      throw new Error(error.response?.data?.message || 'Không thể cập nhật sản phẩm');
+      console.error(
+        "Error updating product:",
+        error.response?.data || error.message
+      );
+      throw new Error(
+        error.response?.data?.message || "Không thể cập nhật sản phẩm"
+      );
+    }
+  },
+
+  getProductById: async (id) => {
+    try {
+      return await get(`products/${id}`);
+    } catch (error) {
+      console.error("Lỗi khi lấy thông tin sản phẩm:", error);
+      return null;
+    }
+  },
+
+  getProductsByBrandId: async (brandId) => {
+    try {
+      return await get(`products?brand_id=${brandId}`);
+    } catch (error) {
+      console.error("Lỗi khi lấy sản phẩm theo brand:", error);
+      return [];
+    }
+  },
+
+  getOutOfStockProducts: async () => {
+    try {
+      const products = await get("products");
+      if (!Array.isArray(products)) {
+        throw new Error("Dữ liệu sản phẩm không hợp lệ");
+      }
+      return products.filter((product) => product.stock <= 0);
+    } catch (error) {
+      toast.error("Lỗi khi lấy danh sách sản phẩm hết hàng:", error);
+      return [];
     }
   },
 };

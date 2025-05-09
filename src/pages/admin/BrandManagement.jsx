@@ -1,46 +1,110 @@
-import { Button, Form, Input, Modal, message, Skeleton, Tag } from "antd";
-import { Plus, LayoutDashboard, PencilLine, PackagePlus } from "lucide-react";
+import {
+  Button,
+  Form,
+  Input,
+  Modal,
+  message,
+  Skeleton,
+  Tag,
+  Switch,
+} from "antd";
+import {
+  Plus,
+  LayoutDashboard,
+  PencilLine,
+  PackagePlus,
+  PlusCircle,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { generateSlug } from "../../utils/slugUtils";
 import { brandService } from "../../services/brand.service";
+import { orderService } from "../../services/order.service";
+import { OverviewItem } from "../../components/OverviewItem";
+import {
+  DollarOutlined,
+  ShoppingCartOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { DatePicker, Select } from "antd";
+import dayjs from "dayjs";
 
 export default function BrandManagement() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [brands, setBrands] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loadingTable, setLoadingTable] = useState(true);
+  const [, setLoadingStats] = useState(true);
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [form] = Form.useForm();
+  const [revenue, setRevenue] = useState({ value: 0, change: 0 });
+  const [totalSold, setTotalSold] = useState({ value: 0, change: 0 });
+  const [newBrands, setNewBrands] = useState({ value: 0, change: 0 });
+  const [filterType, setFilterType] = useState("day");
+  const [selectedDate, setSelectedDate] = useState(dayjs());
+
+  const handleFilterChange = (type) => {
+    setFilterType(type);
+    fetchBrands(type, selectedDate);
+  };
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    fetchBrands(filterType, date);
+  };
 
   useEffect(() => {
+    fetchBrandTableData();
     fetchBrands();
   }, []);
 
-  const fetchBrands = async () => {
-    setLoading(true);
-
-    const [brands, countMap, salesMap] = await Promise.all([
+  const fetchBrandTableData = async () => {
+    setLoadingTable(true);
+    const [allBrands, countMap, salesMap] = await Promise.all([
       brandService.getAllBrands(),
       brandService.countProductsPerBrand(),
       brandService.sumTotalSalesPerBrand(),
     ]);
+    const revenueMap = await orderService.getRevenueGroupedByBrand();
 
     const updated = await Promise.all(
-      brands.map(async (b) => {
-        const avgPrice = await brandService.getAveragePriceByBrand(b.name);
-        const totalRevenue = await brandService.getRevenueByBrand(b.name);
+      allBrands.map(async (b) => {
+        const avgPrice = await brandService.getAveragePriceByBrand(b.id);
         return {
           ...b,
-          totalProducts: countMap[b.name.toUpperCase()] || 0,
-          totalSales: salesMap[b.name.toUpperCase()] || 0,
+          totalProducts: countMap[b.id] || 0,
+          totalSales: salesMap[b.id] || 0,
           avgPrice,
-          totalRevenue,
+          totalRevenue: revenueMap[b.id] || 0,
         };
       })
     );
     setBrands(updated);
-    setLoading(false);
+    setLoadingTable(false);
+  };
+
+  const fetchBrands = async (type = filterType, date = selectedDate) => {
+    setLoadingStats(true);
+
+    const stats = await brandService.getOverviewStatsByFilter(type, date);
+    const prevDate = dayjs(date).subtract(1, type);
+    const prevStats = await brandService.getOverviewStatsByFilter(
+      type,
+      prevDate
+    );
+
+    const calcChange = (current, prev) => {
+      if (prev === 0) return current === 0 ? 0 : 100;
+      return Number((((current - prev) / prev) * 100).toFixed(2));
+    };
+
+    const revenueChange = calcChange(stats.revenue, prevStats.revenue);
+    const totalSoldChange = calcChange(stats.totalSold, prevStats.totalSold);
+    const newBrandsChange = calcChange(stats.newBrands, prevStats.newBrands);
+    setRevenue({ value: stats.revenue, change: revenueChange });
+    setTotalSold({ value: stats.totalSold, change: totalSoldChange });
+    setNewBrands({ value: stats.newBrands, change: newBrandsChange });
+
+    setLoadingStats(false);
   };
 
   const handleSearch = (e) => {
@@ -68,7 +132,6 @@ export default function BrandManagement() {
 
   const onFinish = async (values) => {
     if (selectedBrand) {
-      console.log(selectedBrand.id);
       values.created_date = selectedBrand.created_date;
       const result = await brandService.updateBrand(selectedBrand.id, values);
       if (result) message.success("Cập nhật thương hiệu thành công");
@@ -82,12 +145,13 @@ export default function BrandManagement() {
       }
     }
     fetchBrands();
+    fetchBrandTableData();
     handleCancel();
   };
 
   const columns = [
     {
-      name: "Tên thương hiệu",
+      name: "Tên",
       selector: (row) => row.name,
       sortable: true,
     },
@@ -110,7 +174,7 @@ export default function BrandManagement() {
       sortable: true,
     },
     {
-      name: "Tổng sản phẩm",
+      name: "Tổng SP",
       selector: (row) => row.totalProducts ?? 0,
       sortable: true,
     },
@@ -149,20 +213,62 @@ export default function BrandManagement() {
 
   return (
     <div className="p-6 bg-gray-100">
-      <h2 className="font-bold text-xl flex items-center space-x-2 mb-4">
-        <LayoutDashboard className="h-6 w-6 text-blue-600 mr-2" />
-        <span className="text-gray-800 text-2xl">Tổng quan</span>
+      <h2 className="font-bold text-xl flex items-center justify-between space-x-2 mb-4">
+        <div className="flex items-center">
+          <LayoutDashboard className="h-6 w-6 text-blue-600 mr-2" />
+          <span className="text-gray-800 text-2xl">Tổng quan</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <Select
+            value={filterType}
+            onChange={handleFilterChange}
+            options={[
+              { label: "Theo ngày", value: "day" },
+              { label: "Theo tháng", value: "month" },
+              { label: "Theo năm", value: "year" },
+            ]}
+          />
+          <DatePicker
+            picker={filterType}
+            value={selectedDate}
+            onChange={handleDateChange}
+            disabledDate={(current) =>
+              current && current > dayjs().endOf("day")
+            }
+          />
+        </div>
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-        {/* <OverviewItem
-          title="Top thương hiệu bán chạy"
-          value={topBrand ? `${topBrand.name} - ${topBrand.total}` : "—"}
-          icon={<ShoppingCart className="h-6 w-6 text-orange-600" />}
-          iconBgClass="bg-orange-100"
-          valueColorClass="text-orange-600"
-          loading={loading}
-        /> */}
+        <OverviewItem
+          title="Doanh thu"
+          value={revenue.value.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          })}
+          icon={<ShoppingCartOutlined className="text-pink-500" />}
+          change={{ value: revenue.change, text: "so với kỳ trước" }}
+          className="bg-pink-50"
+          iconClassName="bg-white text-pink-500"
+        />
+
+        <OverviewItem
+          title="Tổng sản phẩm bán được"
+          value={totalSold.value.toLocaleString("en-US")}
+          icon={<DollarOutlined className="text-blue-500" />}
+          change={{ value: totalSold.change, text: "so với kỳ trước" }}
+          className="bg-blue-50"
+          iconClassName="bg-white text-blue-500"
+        />
+
+        <OverviewItem
+          title="Thương hiệu mới"
+          value={newBrands.value}
+          icon={<UserOutlined className="text-indigo-500" />}
+          change={{ value: newBrands.change, text: "so với kỳ trước" }}
+          className="bg-indigo-50"
+          iconClassName="bg-white text-indigo-500"
+        />
       </div>
 
       <h2 className="font-bold text-xl flex items-center space-x-2 mt-8 mb-2 pb-2">
@@ -188,7 +294,7 @@ export default function BrandManagement() {
           </div>
         </div>
 
-        {loading ? (
+        {loadingTable ? (
           <Skeleton active paragraph={{ rows: 4 }} />
         ) : (
           <DataTable
@@ -256,6 +362,10 @@ export default function BrandManagement() {
             rules={[{ required: true, message: "Vui lòng nhập slug" }]}
           >
             <Input />
+          </Form.Item>
+
+          <Form.Item label="Trạng thái" name="active" valuePropName="checked">
+            <Switch checkedChildren="Đang bán" unCheckedChildren="Ngừng bán" />
           </Form.Item>
         </Form>
       </Modal>

@@ -8,6 +8,7 @@ import {
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { path } from "../constants/path";
+import { toast } from "sonner";
 
 const CartContext = createContext();
 
@@ -31,15 +32,27 @@ export default function CartProvider({ children }) {
   const addToCart = (product) => {
     const existingItem = cart.find((it) => it.id == product.id);
     let tmp;
+
     if (existingItem) {
+      if (existingItem.quantity + 1 > product.stock) {
+        toast.error("Không đủ hàng trong kho để thêm sản phẩm!");
+        return;
+      }
+
       tmp = cart.map((item) =>
         item.id == product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
       setJustAdded({ ...existingItem, quantity: existingItem.quantity + 1 });
     } else {
+      if (product.stock < 1) {
+        toast.error("Sản phẩm đã hết hàng.");
+        return;
+      }
+
       tmp = [...cart, { ...product, quantity: 1 }];
       setJustAdded({ ...product, quantity: 1 });
     }
+
     setCart(tmp);
   };
 
@@ -67,9 +80,17 @@ export default function CartProvider({ children }) {
   };
 
   const increaseQuantity = (id) => {
-    const updatedCart = cart.map((item) =>
-      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-    );
+    const updatedCart = cart.map((item) => {
+      if (item.id === id) {
+        if (item.quantity + 1 > item.stock) {
+          toast.error("Không đủ hàng trong kho để thêm sản phẩm!");
+          return item;
+        }
+        return { ...item, quantity: item.quantity + 1 };
+      }
+      return item;
+    });
+
     setCart(updatedCart);
   };
 

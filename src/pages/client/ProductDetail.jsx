@@ -15,7 +15,7 @@ import ProductCard from "../../components/ProductCard";
 import { useCart } from "../../hooks/useCart";
 import ReviewsModal from "../../components/ReviewsModal";
 import { ProductContext } from "../../hooks/ProductContext";
-import { productService } from './../../services/product.service';
+import { productService } from "./../../services/product.service";
 import { reviewService } from "../../services/review.service";
 import { useAuth } from "../../hooks/AuthContext";
 
@@ -68,10 +68,10 @@ const ProductDetail = () => {
     };
 
     try {
-      const updatedReview = await addReplyToReview(currentReviewId, [
-        ...reviews.find((r) => r.id === currentReviewId).replies,
-        replyData,
-      ]);
+      const updatedReview = await reviewService.addReplyToReview(
+        currentReviewId,
+        [...reviews.find((r) => r.id === currentReviewId).replies, replyData]
+      );
 
       setReviews((prev) =>
         prev.map((review) =>
@@ -120,6 +120,21 @@ const ProductDetail = () => {
           let categoryLink = "/products/all/brand/all";
           let categoryTitle = "Danh sách sản phẩm";
 
+
+          // if (state?.categorySlug) {
+          //   const category = categories.find(
+          //     (c) => c.slug === state.categorySlug
+          //   );
+          //   if (category) {
+          //     categoryLink = `/products/${category.slug}/brand/all`;
+          //     categoryTitle = category.name;
+          //   } else {
+          //     categoryLink = `/products/${state.categorySlug}/brand/all`;
+          //     categoryTitle = state.categorySlug
+          //       .replace(/-/g, " ")
+          //       .replace(/\b\w/g, (c) => c.toUpperCase());
+          //   }
+          // } else {
           const productCategory = categories.find(
             (c) => c.id.toString() === foundProduct.category_id.toString()
           );
@@ -127,6 +142,7 @@ const ProductDetail = () => {
             categoryLink = `/products/${productCategory.slug}/brand/all`;
             categoryTitle = productCategory.name;
           }
+          // }
 
           breadcrumbItems.push({
             title: <a href={categoryLink}>{categoryTitle}</a>,
@@ -161,7 +177,9 @@ const ProductDetail = () => {
 
     const fetchReviews = async () => {
       try {
-        const productReviews = await reviewService.getReviewsByProductID(product.id);
+        const productReviews = await reviewService.getReviewsByProductID(
+          product.id
+        );
         if (productReviews && Array.isArray(productReviews)) {
           setReviews(productReviews);
         } else {

@@ -35,7 +35,7 @@
       "stock": 10,
       "slug": "laptop-asus-zenbook-14-ux425ea",
       "total_sales": 0,
-      "status": "active",
+      "status": "inactive",
       "image_url": [
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531065/products/product_2_0.jpg",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531067/products/product_2_1.png",
@@ -76,9 +76,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531083/products/product_3_7.jpg",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531084/products/product_3_8.jpg"
       ],
-      "total_sales": 1,
-      "stock": 10,
-      "status": "active"
+      "total_sales": 3,
+      "stock": 8,
+      "status": "inactive"
     },
     {
       "id": "4",
@@ -100,7 +100,7 @@
       ],
       "total_sales": 1,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "5",
@@ -129,7 +129,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "6",
@@ -158,7 +158,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "7",
@@ -187,7 +187,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "8",
@@ -216,7 +216,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "10",
@@ -245,7 +245,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "12",
@@ -274,7 +274,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "13",
@@ -300,7 +300,7 @@
       ],
       "total_sales": 1,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "14",
@@ -329,9 +329,9 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531164/products/product_14_8.png",
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531166/products/product_14_9.png"
       ],
-      "total_sales": 1,
-      "stock": 10,
-      "status": "active"
+      "total_sales": 5,
+      "stock": 6,
+      "status": "inactive"
     },
     {
       "id": "15",
@@ -360,7 +360,7 @@
       ],
       "total_sales": 1,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "16",
@@ -388,7 +388,8 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531180/products/product_16_7.png"
       ],
       "total_sales": 0,
-      "stock": 0
+      "stock": 0,
+      "status": "active"
     },
     {
       "id": "17",
@@ -417,7 +418,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "18",
@@ -445,7 +446,8 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531195/products/product_18_7.png"
       ],
       "total_sales": 0,
-      "stock": 0
+      "stock": 0,
+      "status": "inactive"
     },
     {
       "id": "19",
@@ -474,7 +476,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "21",
@@ -503,7 +505,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "23",
@@ -532,7 +534,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "24",
@@ -561,7 +563,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "25",
@@ -588,7 +590,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "26",
@@ -615,7 +617,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "27",
@@ -639,7 +641,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "28",
@@ -667,7 +669,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "29",
@@ -694,7 +696,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "30",
@@ -721,7 +723,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "31",
@@ -747,7 +749,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "32",
@@ -775,7 +777,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "33",
@@ -803,7 +805,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "34",
@@ -826,7 +828,8 @@
         "https://lh3.googleusercontent.com/grCw1LnhwMvYcBD4…XeQqGqgvbWkqjmpJW97S56ngjc4r6UTS-u3YMbEE=w1000-rw"
       ],
       "total_sales": 0,
-      "stock": 0
+      "stock": 0,
+      "status": "inactive"
     },
     {
       "id": "35",
@@ -847,7 +850,8 @@
         "https://res.cloudinary.com/dnsallii0/image/upload/v1746531333/products/product_35_0.png"
       ],
       "total_sales": 1,
-      "stock": 0
+      "stock": 0,
+      "status": "inactive"
     },
     {
       "id": "36",
@@ -869,7 +873,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "37",
@@ -891,7 +895,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "38",
@@ -913,7 +917,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "39",
@@ -935,7 +939,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "40",
@@ -957,7 +961,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "41",
@@ -979,7 +983,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "42",
@@ -1001,7 +1005,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "43",
@@ -1023,7 +1027,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "44",
@@ -1045,7 +1049,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "45",
@@ -1067,7 +1071,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "46",
@@ -1089,7 +1093,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "47",
@@ -1111,7 +1115,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "48",
@@ -1133,7 +1137,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "49",
@@ -1155,7 +1159,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "50",
@@ -1177,7 +1181,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "51",
@@ -1199,7 +1203,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "52",
@@ -1221,7 +1225,7 @@
       ],
       "total_sales": 0,
       "stock": 10,
-      "status": "active"
+      "status": "inactive"
     },
     {
       "id": "53",
@@ -1469,7 +1473,7 @@
   ],
   "orders": [
     {
-      "id": "HD20250504231103433",
+      "id": "HD20250509004154186",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1480,9 +1484,15 @@
           "ward": "26725"
         }
       },
-      "note": "",
       "customer_id": "1",
       "products": [
+        {
+          "id": "14",
+          "title": "Laptop Gaming Acer Nitro 5 AN515-58",
+          "quantity": 2,
+          "price": 34990000,
+          "discount": 0.1
+        },
         {
           "id": "3",
           "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
@@ -1491,14 +1501,39 @@
           "discount": 0.15
         }
       ],
-      "total_price": 24641500,
-      "status": "PENDING",
-      "order_date": "2025-05-04T16:11:03.070Z",
+      "total_price": 87623500,
+      "status": {
+        "current": "DELIVERED",
+        "history": [
+          {
+            "status": "PENDING",
+            "updated_at": "2025-05-08T17:41:54.443Z",
+            "note": "Đơn hàng được tạo"
+          },
+          {
+            "status": "PROCESSING",
+            "updated_at": "2025-05-08T17:47:02.782Z",
+            "note": "Cập nhật trạng thái đơn hàng"
+          },
+          {
+            "status": "SHIPPED",
+            "updated_at": "2025-05-08T17:47:15.070Z",
+            "note": "Đơn hàng đang vận chuyển"
+          },
+          {
+            "status": "DELIVERED",
+            "updated_at": "2025-05-08T17:48:30.918Z",
+            "note": "Đơn hàng đã hoàn thành"
+          }
+        ]
+      },
+      "order_date": "2025-05-08T17:41:54.443Z",
       "payment_method": "Thanh toán khi nhận hàng",
-      "payment_status": "UNPAID"
+      "payment_status": "PAID",
+      "addressString": "Ho Chi Minh, Phường Hắc Dịch, Thị xã Phú Mỹ, Tỉnh Bà Rịa - Vũng Tàu"
     },
     {
-      "id": "HD20250504231126333",
+      "id": "HD202505090041544654",
       "shipping_address": {
         "full_name": "Trần Ngọc Huyền",
         "phone": "0964424149",
@@ -1509,123 +1544,48 @@
           "ward": "26725"
         }
       },
-      "note": "",
       "customer_id": "1",
       "products": [
-        {
-          "id": "1",
-          "title": "Laptop Lenovo IdeaPad Slim 5 14IMH9 83DA001YVN",
-          "quantity": 1,
-          "price": 24490000,
-          "discount": 0.09
-        },
-        {
-          "id": "13",
-          "title": "Laptop gaming HP OMEN 16 wf0129TX 8W943PA",
-          "quantity": 1,
-          "price": 64990000,
-          "discount": 0.08
-        },
         {
           "id": "14",
           "title": "Laptop Gaming Acer Nitro 5 AN515-58",
-          "quantity": 1,
-          "price": 34990000,
-          "discount": 0.1
-        }
-      ],
-      "total_price": 113567700,
-      "status": "PENDING",
-      "order_date": "2025-05-04T16:11:26.334Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "payment_status": "UNPAID"
-    },
-    {
-      "id": "HD20250504231136773",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": {
-          "street": "Ho Chi Minh",
-          "province": "77",
-          "district": "754",
-          "ward": "26725"
-        }
-      },
-      "note": "",
-      "customer_id": "1",
-      "products": [
-        {
-          "id": "4",
-          "title": "PC GVN Intel i5-13400F",
-          "quantity": 1,
-          "price": 15990000,
-          "discount": 0.08
-        }
-      ],
-      "total_price": 14710800,
-      "status": "PENDING",
-      "order_date": "2025-05-04T16:11:36.190Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "payment_status": "UNPAID"
-    },
-    {
-      "id": "HD20250505205346482",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": {
-          "street": "1",
-          "province": "79",
-          "district": "760",
-          "ward": "26761"
-        }
-      },
-      "note": "",
-      "customer_id": "1",
-      "products": [
-        {
-          "id": "15",
-          "title": "PC GVN AMD Ryzen 5 7600X",
           "quantity": 2,
-          "price": 25990000,
-          "discount": 0.07
-        }
-      ],
-      "total_price": 48341400,
-      "status": "PENDING",
-      "order_date": "2025-05-05T13:53:46.407Z",
-      "payment_method": "Thanh toán khi nhận hàng",
-      "payment_status": "UNPAID"
-    },
-    {
-      "id": "HD20250505205852416",
-      "shipping_address": {
-        "full_name": "Trần Ngọc Huyền",
-        "phone": "0964424149",
-        "address": {
-          "street": "1",
-          "province": "79",
-          "district": "760",
-          "ward": "26761"
-        }
-      },
-      "note": "",
-      "customer_id": "1",
-      "products": [
-        {
-          "id": "35",
-          "title": "PC ASUS ROG Intel i7-13700KF",
-          "quantity": 1,
           "price": 34990000,
           "discount": 0.1
+        },
+        {
+          "id": "3",
+          "title": "Laptop gaming MSI Katana 15 B13VEK 252VN",
+          "quantity": 1,
+          "price": 28990000,
+          "discount": 0.15
         }
       ],
-      "total_price": 31491000,
-      "status": "PENDING",
-      "order_date": "2025-05-05T13:58:52.319Z",
+      "total_price": 87623500,
+      "status": {
+        "current": "CANCELLED",
+        "history": [
+          {
+            "status": "PENDING",
+            "updated_at": "2025-05-08T17:41:54.443Z",
+            "note": "Đơn hàng được tạo"
+          },
+          {
+            "status": "PROCESSING",
+            "updated_at": "2025-05-08T17:47:02.782Z",
+            "note": "Cập nhật trạng thái đơn hàng"
+          },
+          {
+            "status": "CANCELLED",
+            "updated_at": "2025-05-08T17:47:15.070Z",
+            "note": "Khách yêu cầu huỷ"
+          }
+        ]
+      },
+      "order_date": "2025-05-08T17:41:54.443Z",
       "payment_method": "Thanh toán khi nhận hàng",
-      "payment_status": "UNPAID"
+      "payment_status": "PAID",
+      "addressString": "Ho Chi Minh, Phường Hắc Dịch, Thị xã Phú Mỹ, Tỉnh Bà Rịa - Vũng Tàu"
     }
   ],
   "users": [
@@ -1638,6 +1598,7 @@
       "phone": "0964424149",
       "dob": "07/07/2023",
       "role": "USER",
+      "created_at": "2024-08-05:00:00Z",
       "address": [
         {
           "id": "DC20250409171555333",
@@ -1683,6 +1644,7 @@
       "dob": "",
       "address": [],
       "password": "123",
+      "created_at": "2025-04-09:00:00Z",
       "role": "USER"
     },
     {
@@ -1694,6 +1656,7 @@
       "phone": "0364635032",
       "dob": "06/12/2004",
       "role": "ADMIN",
+      "created_at": "2025-03-06:00:00Z",
       "address": []
     },
     {
@@ -1716,6 +1679,7 @@
       "phone": "0123456789",
       "dob": "",
       "role": "USER",
+      "created_at": "2025-05-09:00:00Z",
       "address": []
     },
     {
@@ -1727,6 +1691,7 @@
       "phone": "0123456789",
       "dob": "",
       "role": "USER",
+      "created_at": "2025-05-09:00:00Z",
       "address": []
     }
   ],

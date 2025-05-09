@@ -30,4 +30,42 @@ export const userApi = {
       throw error;
     }
   },
+
+  getNoUsersByMonthYear: async (month, year) => {
+    try {
+      const response = await get("users");
+      if (!response || !Array.isArray(response)) {
+        throw new Error("Invalid response format");
+      }
+
+      const filteredUsers = response.filter((user) => {
+        const date = new Date(user.created_at);
+        return date.getMonth() + 1 === month && date.getFullYear() === year;
+      });
+
+      return filteredUsers.length;
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      throw error;
+    }
+  },
+
+  getTotalUsersBeforeYear: async (year) => {
+    try {
+      const response = await get("users");
+      if (!response || !Array.isArray(response)) {
+        throw new Error("Invalid response format");
+      }
+
+      const filteredUsers = response.filter((user) => {
+        const date = new Date(user.created_at);
+        return date.getFullYear() < year;
+      });
+
+      return filteredUsers.length;
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      throw error;
+    }
+  },
 };

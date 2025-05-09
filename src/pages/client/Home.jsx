@@ -18,7 +18,7 @@ const Home = () => {
   const [carouselImages, setCarouselImages] = useState([]);
   const [rightBanners, setRightBanners] = useState([]);
   const [bottomBanners, setBottomBanners] = useState([]);
-  const navigate = useNavigate();
+
 
   const searchProductsByTitle = (keyword) => {
     try {
@@ -100,13 +100,14 @@ const Home = () => {
     } catch (error) {
       console.error(error);
     }
-
   }, [products, loading]);
 
   if (loading) {
-    return <div className="flex items-center justify-center">
-      <Spin />
-    </div>;
+    return (
+      <div className="flex items-center justify-center">
+        <Spin />
+      </div>
+    );
   }
 
   return (
@@ -200,19 +201,17 @@ const Home = () => {
               <div className="text-2xl font-bold ml-3">Laptop</div>
               <div className="flex">
                 {/* Dynamically render brand buttons */}
-                {getBrandNamesByProducts(laptops).map(
-                  (brand, index) => (
-                    <div key={index} className="mr-2">
-                      <NavLink
-                        to={`products/laptop/brand/${brand}`}
-                        key={index}
-                        className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
-                      >
-                        {brand}
-                      </NavLink>
-                    </div>
-                  )
-                )}
+                {getBrandNamesByProducts(laptops).map((brand, index) => (
+                  <div key={index} className="mr-2">
+                    <NavLink
+                      to={`products/laptop/brand/${brand}`}
+                      key={index}
+                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                    >
+                      {brand}
+                    </NavLink>
+                  </div>
+                ))}
                 <div className="">
                   <NavLink
                     to={`products/laptop/brand/all`}
@@ -331,8 +330,9 @@ const Home = () => {
                   <NavLink
                     key={index}
                     to={`products/all/brand/${brand.name}`}
-                    className={`${categoryColor[index % 6]
-                      } rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
+                    className={`${
+                      categoryColor[index % 6]
+                    } rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
                   >
                     <div className="flex justify-center mb-4">{brand.icon}</div>
                     <h3 className="font-medium">{brand.name}</h3>
@@ -347,19 +347,17 @@ const Home = () => {
               <div className="text-2xl font-bold ml-3">Màn hình </div>
               <div className="flex">
                 {/* Dynamically render brand buttons */}
-                {getBrandNamesByProducts(screens).map(
-                  (brand, index) => (
-                    <div key={index} className="mr-2">
-                      <NavLink
-                        to={`products/man-hinh/brand/${brand}`}
-                        key={index}
-                        className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
-                      >
-                        {brand}
-                      </NavLink>
-                    </div>
-                  )
-                )}
+                {getBrandNamesByProducts(screens).map((brand, index) => (
+                  <div key={index} className="mr-2">
+                    <NavLink
+                      to={`products/man-hinh/brand/${brand}`}
+                      key={index}
+                      className="px-4 py-2 text-primary border-1 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer"
+                    >
+                      {brand}
+                    </NavLink>
+                  </div>
+                ))}
                 <div className="">
                   <NavLink
                     to={`products/man-hinh/brand/all`}

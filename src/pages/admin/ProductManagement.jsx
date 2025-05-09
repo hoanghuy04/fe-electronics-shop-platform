@@ -1,4 +1,5 @@
 import { Button, Tag, Modal, Form, Input, Select, Upload, message, Checkbox, Tooltip } from "antd";
+
 import {
   PencilLine,
   BarChart3,
@@ -44,14 +45,18 @@ export default function ProductManagement() {
 
   const stockStatus = () => {
     const inStock = tableData.filter((product) => product.stock > 0).length;
-    const outOfStock = tableData.filter((product) => product.stock === 0).length;
+    const outOfStock = tableData.filter(
+      (product) => product.stock === 0
+    ).length;
     return { inStock, outOfStock };
   };
 
   const productsByCategory = () => {
     const categoryCounts = {};
     tableData.forEach((product) => {
-      const categoryName = categories.find((category) => category.id == product.category_id)?.name || "Khác";
+      const categoryName =
+        categories.find((category) => category.id == product.category_id)
+          ?.name || "Khác";
       categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1;
     });
 
@@ -64,7 +69,9 @@ export default function ProductManagement() {
   };
 
   const topProducts = () => {
-    return [...tableData].sort((a, b) => b.total_sales - a.total_sales).slice(0, 5);
+    return [...tableData]
+      .sort((a, b) => b.total_sales - a.total_sales)
+      .slice(0, 5);
   };
 
   const priceMetrics = () => {
@@ -90,19 +97,26 @@ export default function ProductManagement() {
 
     try {
       const updatePromises = selectedRows.map((product) =>
-        productService.updateProduct(product.id, { ...product, status: "inactive" })
+        productService.updateProduct(product.id, {
+          ...product,
+          status: "inactive",
+        })
       );
       const updatedProducts = await Promise.all(updatePromises);
 
       setTableData((prevData) =>
         prevData.map((product) => {
-          const updatedProduct = updatedProducts.find((up) => up.id === product.id);
+          const updatedProduct = updatedProducts.find(
+            (up) => up.id === product.id
+          );
           return updatedProduct || product;
         })
       );
 
       setSelectedRows([]);
-      message.success(`Đã ngừng bán ${updatedProducts.length} sản phẩm thành công`);
+      message.success(
+        `Đã ngừng bán ${updatedProducts.length} sản phẩm thành công`
+      );
     } catch (error) {
       console.error("Failed to update products:", error);
       message.error("Đã xảy ra lỗi khi ngừng bán sản phẩm, vui lòng thử lại");
@@ -120,19 +134,25 @@ export default function ProductManagement() {
     let result = [...tableData];
 
     if (filters.name) {
-      result = result.filter((item) => item.title.toLowerCase().includes(filters.name.toLowerCase()));
+      result = result.filter((item) =>
+        item.title.toLowerCase().includes(filters.name.toLowerCase())
+      );
     }
 
     if (filters.category) {
       result = result.filter((item) => {
-        const categoryName = categories.find((cat) => cat.id == item.category_id)?.name || "";
-        return categoryName.toLowerCase().includes(filters.category.toLowerCase());
+        const categoryName =
+          categories.find((cat) => cat.id == item.category_id)?.name || "";
+        return categoryName
+          .toLowerCase()
+          .includes(filters.category.toLowerCase());
       });
     }
 
     if (filters.brand) {
       result = result.filter((item) => {
-        const brandName = brands.find((brand) => brand.id == item.brand_id)?.name || "";
+        const brandName =
+          brands.find((brand) => brand.id == item.brand_id)?.name || "";
         return brandName.toLowerCase().includes(filters.brand.toLowerCase());
       });
     }
@@ -207,10 +227,13 @@ export default function ProductManagement() {
     formData.append("folder", "products");
 
     try {
-      const response = await fetch("https://api.cloudinary.com/v1_1/dnsallii0/image/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/dnsallii0/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       const data = await response.json();
       if (data.secure_url) {
         onSuccess({ url: data.secure_url }, file);
@@ -229,6 +252,7 @@ export default function ProductManagement() {
   };
 
   const onFinish = async (values) => {
+
     try {
       // Chuyển đổi kiểu dữ liệu
       const productData = {
@@ -250,7 +274,10 @@ export default function ProductManagement() {
 
       if (modalMode === "edit" && selectedProduct.id) {
         // Cập nhật sản phẩm
-        const updatedProduct = await productService.updateProduct(selectedProduct.id, productData);
+        const updatedProduct = await productService.updateProduct(
+          selectedProduct.id,
+          productData
+        );
         console.log("Updated product:", updatedProduct);
         const updatedProducts = tableData.map((product) =>
           product.id === selectedProduct.id ? updatedProduct : product
@@ -272,7 +299,11 @@ export default function ProductManagement() {
       }
       form.resetFields();
       setFileList([]);
-      message.success(modalMode === "edit" ? "Cập nhật sản phẩm thành công" : "Thêm sản phẩm thành công");
+      message.success(
+        modalMode === "edit"
+          ? "Cập nhật sản phẩm thành công"
+          : "Thêm sản phẩm thành công"
+      );
     } catch (error) {
       console.log("Operation failed:", error);
       message.error(error.message || "Đã xảy ra lỗi, vui lòng thử lại");
@@ -293,7 +324,11 @@ export default function ProductManagement() {
       cell: (row) => (
         <div className="flex items-center space-x-2">
           <img
-            src={row.image_url && row.image_url[0] ? row.image_url[0] : "/placeholder.svg"}
+            src={
+              row.image_url && row.image_url[0]
+                ? row.image_url[0]
+                : "/placeholder.svg"
+            }
             alt={row.title}
             className="w-10 h-10 object-cover rounded"
           />
@@ -308,9 +343,13 @@ export default function ProductManagement() {
       sortable: true,
       cell: (row) => (
         <div>
-          <div className="font-semibold">{(row.price * (1 - row.discount)).toLocaleString("vi-VN")}đ</div>
+          <div className="font-semibold">
+            {(row.price * (1 - row.discount)).toLocaleString("vi-VN")}đ
+          </div>
           {row.discount > 0 && (
-            <div className="text-sm text-gray-500 line-through">{row.price.toLocaleString("vi-VN")}đ</div>
+            <div className="text-sm text-gray-500 line-through">
+              {row.price.toLocaleString("vi-VN")}đ
+            </div>
           )}
         </div>
       ),
@@ -318,13 +357,16 @@ export default function ProductManagement() {
     {
       name: "Danh mục",
       width: columnWidth,
-      selector: (row) => categories.find((category) => category.id == row.category_id)?.name || "Khác",
+      selector: (row) =>
+        categories.find((category) => category.id == row.category_id)?.name ||
+        "Khác",
       sortable: true,
     },
     {
       name: "Thương hiệu",
       width: columnWidth,
-      selector: (row) => brands.find((brand) => brand.id == row.brand_id)?.name || "Khác",
+      selector: (row) =>
+        brands.find((brand) => brand.id == row.brand_id)?.name || "Khác",
       sortable: true,
     },
     {
@@ -333,7 +375,9 @@ export default function ProductManagement() {
       selector: (row) => row.stock,
       sortable: true,
       cell: (row) => (
-        <Tag color={row.stock > 0 ? "green" : "red"}>{row.stock > 0 ? `${row.stock} sản phẩm` : "Hết hàng"}</Tag>
+        <Tag color={row.stock > 0 ? "green" : "red"}>
+          {row.stock > 0 ? `${row.stock} sản phẩm` : "Hết hàng"}
+        </Tag>
       ),
     },
     {
@@ -431,7 +475,11 @@ export default function ProductManagement() {
       <div className="space-y-6">
         {/* Modal for Adding/Editing */}
         <Modal
-          title={modalMode === "edit" ? "Cập nhật thông tin sản phẩm" : "Thêm sản phẩm mới"}
+          title={
+            modalMode === "edit"
+              ? "Cập nhật thông tin sản phẩm"
+              : "Thêm sản phẩm mới"
+          }
           width={800}
           open={isModalOpen}
           onOk={handleOk}
@@ -442,7 +490,11 @@ export default function ProductManagement() {
             name="ProductForm"
             labelCol={{ span: 4 }}
             wrapperCol={{ span: 20 }}
-            initialValues={modalMode === "add" ? { discount: 0, stock: 0, total_sales: 0, status: true } : {}}
+            initialValues={
+              modalMode === "add"
+                ? { discount: 0, stock: 0, total_sales: 0, status: true }
+                : {}
+            }
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
@@ -451,7 +503,9 @@ export default function ProductManagement() {
             <Form.Item
               label="Tên sản phẩm"
               name="title"
-              rules={[{ required: true, message: "Vui lòng nhập tên sản phẩm" }]}
+              rules={[
+                { required: true, message: "Vui lòng nhập tên sản phẩm" },
+              ]}
             >
               <Input />
             </Form.Item>
@@ -500,7 +554,9 @@ export default function ProductManagement() {
                 name="brand_id"
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
-                rules={[{ required: true, message: "Vui lòng chọn thương hiệu" }]}
+                rules={[
+                  { required: true, message: "Vui lòng chọn thương hiệu" },
+                ]}
               >
                 <Select>
                   {brands.map((brand) => (
@@ -518,7 +574,9 @@ export default function ProductManagement() {
                 name="stock"
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
-                rules={[{ required: true, message: "Vui lòng nhập số lượng tồn kho" }]}
+                rules={[
+                  { required: true, message: "Vui lòng nhập số lượng tồn kho" },
+                ]}
               >
                 <Input type="number" min="0" />
               </Form.Item>
@@ -528,9 +586,19 @@ export default function ProductManagement() {
                 name={modalMode === "edit" ? "total_sales" : "slug"}
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
-                rules={[{ required: true, message: `Vui lòng nhập ${modalMode === "edit" ? "số lượng đã bán" : "slug"}` }]}
+                rules={[
+                  {
+                    required: true,
+                    message: `Vui lòng nhập ${
+                      modalMode === "edit" ? "số lượng đã bán" : "slug"
+                    }`,
+                  },
+                ]}
               >
-                <Input type={modalMode === "edit" ? "number" : "text"} min={modalMode === "edit" ? "0" : undefined} />
+                <Input
+                  type={modalMode === "edit" ? "number" : "text"}
+                  min={modalMode === "edit" ? "0" : undefined}
+                />
               </Form.Item>
             </div>
 
@@ -590,8 +658,12 @@ SSD: 512GB"
               <Package className="h-6 w-6 text-green-600" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-700">Tổng sản phẩm</h3>
-              <p className="text-3xl font-bold text-green-600">{totalProducts()}</p>
+              <h3 className="text-lg font-semibold text-gray-700">
+                Tổng sản phẩm
+              </h3>
+              <p className="text-3xl font-bold text-green-600">
+                {totalProducts()}
+              </p>
             </div>
           </div>
 
@@ -600,13 +672,17 @@ SSD: 512GB"
               <ShoppingBag className="h-6 w-6 text-blue-600" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-700">Tình trạng kho</h3>
+              <h3 className="text-lg font-semibold text-gray-700">
+                Tình trạng kho
+              </h3>
               <div className="flex gap-4">
                 <p className="text-xl font-bold text-blue-600">
-                  {stockStatus().inStock} <span className="text-sm font-normal">còn hàng</span>
+                  {stockStatus().inStock}{" "}
+                  <span className="text-sm font-normal">còn hàng</span>
                 </p>
                 <p className="text-xl font-bold text-red-500">
-                  {stockStatus().outOfStock} <span className="text-sm font-normal">hết hàng</span>
+                  {stockStatus().outOfStock}{" "}
+                  <span className="text-sm font-normal">hết hàng</span>
                 </p>
               </div>
             </div>
@@ -617,7 +693,9 @@ SSD: 512GB"
               <DollarSign className="h-6 w-6 text-red-600" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-700">Khoảng giá</h3>
+              <h3 className="text-lg font-semibold text-gray-700">
+                Khoảng giá
+              </h3>
               <p className="text-xl font-bold text-red-600">
                 {priceMetrics().avg.toLocaleString("vi-VN").split(",")[0]} ₫{" "}
                 <span className="text-sm font-normal">trung bình</span>
@@ -636,11 +714,16 @@ SSD: 512GB"
               <div className="bg-yellow-100 p-3 rounded-full mr-4">
                 <TagIcon className="h-6 w-6 text-yellow-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-700">Số lượng theo danh mục</h3>
+              <h3 className="text-lg font-semibold text-gray-700">
+                Số lượng theo danh mục
+              </h3>
             </div>
             <div className="space-y-3">
               {Object.entries(productsByCategory()).map(([category, count]) => (
-                <div key={category} className="flex items-center justify-between">
+                <div
+                  key={category}
+                  className="flex items-center justify-between"
+                >
                   <span className="text-gray-700">{category}</span>
                   <div className="flex items-center">
                     <div className="w-40 bg-gray-200 rounded-full h-2.5 mr-2">
@@ -649,7 +732,9 @@ SSD: 512GB"
                         style={{ width: `${(count / totalProducts()) * 100}%` }}
                       ></div>
                     </div>
-                    <span className="text-sm font-medium text-gray-700">{count}</span>
+                    <span className="text-sm font-medium text-gray-700">
+                      {count}
+                    </span>
                   </div>
                 </div>
               ))}
@@ -661,24 +746,34 @@ SSD: 512GB"
               <div className="bg-purple-100 p-3 rounded-full mr-4">
                 <BarChart3 className="h-6 w-6 text-purple-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-700">Top sản phẩm</h3>
+              <h3 className="text-lg font-semibold text-gray-700">
+                Top sản phẩm
+              </h3>
             </div>
             <div className="space-y-4">
               {topProducts().map((product, index) => (
                 <div key={product.id} className="flex items-center">
                   <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="font-bold text-purple-600">{index + 1}</span>
+                    <span className="font-bold text-purple-600">
+                      {index + 1}
+                    </span>
                   </div>
                   <div className="flex-grow min-w-0">
                     <p className="text-sm font-medium text-gray-900 truncate">{product.title}</p>
                     <p className="text-xs text-gray-500">
                       {brands.find((brand) => brand.id == product.brand_id)?.name || "Khác"}
                     </p>
+
                   </div>
                   <div className="flex-shrink-0 text-right">
-                    <p className="text-sm font-medium text-gray-900">({product.total_sales}) đã bán</p>
+                    <p className="text-sm font-medium text-gray-900">
+                      ({product.total_sales}) đã bán
+                    </p>
                     <p className="text-xs text-gray-500">
-                      {(product.price * (1 - product.discount)).toLocaleString("vi-VN")}đ
+                      {(product.price * (1 - product.discount)).toLocaleString(
+                        "vi-VN"
+                      )}
+                      đ
                     </p>
                   </div>
                 </div>
@@ -702,7 +797,9 @@ SSD: 512GB"
                 placeholder="Tìm kiếm theo tên sản phẩm"
                 className="pl-10"
                 value={filters.name}
-                onChange={(e) => setFilters({ ...filters, name: e.target.value })}
+                onChange={(e) =>
+                  setFilters({ ...filters, name: e.target.value })
+                }
               />
             </div>
 
@@ -710,7 +807,9 @@ SSD: 512GB"
               placeholder="Lọc theo danh mục"
               allowClear
               className="w-full col-span-2"
-              onChange={(value) => setFilters({ ...filters, category: value || "" })}
+              onChange={(value) =>
+                setFilters({ ...filters, category: value || "" })
+              }
             >
               {categories.map((category) => (
                 <Select.Option key={category.id} value={category.name}>
@@ -723,7 +822,9 @@ SSD: 512GB"
               placeholder="Lọc theo thương hiệu"
               allowClear
               className="w-full col-span-2"
-              onChange={(value) => setFilters({ ...filters, brand: value || "" })}
+              onChange={(value) =>
+                setFilters({ ...filters, brand: value || "" })
+              }
             >
               {brands.map((brand) => (
                 <Select.Option key={brand.id} value={brand.name}>
@@ -736,7 +837,9 @@ SSD: 512GB"
               placeholder="Lọc theo tồn kho"
               allowClear
               className="w-full col-span-2"
-              onChange={(value) => setFilters({ ...filters, stock: value || "" })}
+              onChange={(value) =>
+                setFilters({ ...filters, stock: value || "" })
+              }
             >
               <Select.Option value="inStock">Còn hàng</Select.Option>
               <Select.Option value="outOfStock">Hết hàng</Select.Option>
