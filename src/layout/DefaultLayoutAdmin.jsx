@@ -171,7 +171,7 @@ export default function DefaultLayoutAdmin() {
 
       {/* Footer */}
       <Footer className="text-center text-gray-500 bg-gray-200 shadow-md">
-        Footer
+        <p>&copy; {new Date().getFullYear()} Công ty TNHH Thương Mại 2LG. All rights reserved.</p>
       </Footer>
     </div>
   );

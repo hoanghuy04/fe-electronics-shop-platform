@@ -9,8 +9,8 @@ export const OverviewItem = ({
   className,
   iconClassName,
 }) => {
-  const isPositive = change.value > 0;
-  const isNegative = change.value < 0;
+  const isPositive = change?.value >= 0;
+  const isNegative = change?.value < 0;
 
   return (
     <Card className={("rounded-lg border shadow-sm h-full", className)}>

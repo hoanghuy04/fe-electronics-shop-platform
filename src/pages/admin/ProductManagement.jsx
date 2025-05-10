@@ -18,8 +18,9 @@ import {
 } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import { ProductContext } from "../../hooks/ProductContext";
 import { productService } from "../../services/product.service";
+import { categoryService } from "../../services/category.service";
+import { brandService } from "../../services/brand.service";
 
 const columnWidth = "calc(100% / 9)";
 
@@ -28,7 +29,10 @@ export default function ProductManagement() {
   const [modalMode, setModalMode] = useState("add"); // "add" hoặc "edit"
   const [selectedProduct, setSelectedProduct] = useState({});
   const [selectedRows, setSelectedRows] = useState([]);
-  const { categories, products, brands, loading } = useContext(ProductContext);
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [tableData, setTableData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [form] = Form.useForm();
@@ -40,6 +44,25 @@ export default function ProductManagement() {
     brand: "",
     stock: "",
   });
+
+  const fetchInitialData = async () => {
+    try {
+      setLoading(true);
+      const [categoriesResponse, productsResponse, brandsResponse] = await Promise.all([
+        categoryService.getListOfCategories(),
+        productService.getProducts(),
+        brandService.getAllBrands(),
+      ]);
+      setCategories(categoriesResponse);
+      setProducts(productsResponse);
+      setBrands(brandsResponse);
+    } catch (error) {
+      console.error("Error fetching initial data:", error);
+      message.error("Lỗi khi tải dữ liệu, vui lòng thử lại.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const totalProducts = () => products.length;
 
@@ -122,6 +145,10 @@ export default function ProductManagement() {
       message.error("Đã xảy ra lỗi khi ngừng bán sản phẩm, vui lòng thử lại");
     }
   };
+
+  useEffect(() => {
+    fetchInitialData();
+  }, []);
 
   useEffect(() => {
     if (!loading) {
@@ -252,7 +279,6 @@ export default function ProductManagement() {
   };
 
   const onFinish = async (values) => {
-
     try {
       // Chuyển đổi kiểu dữ liệu
       const productData = {
@@ -262,14 +288,14 @@ export default function ProductManagement() {
         stock: parseInt(values.stock, 10) || 0,
         total_sales: modalMode === "edit" ? parseInt(values.total_sales, 10) || 0 : 0,
         category_id: values.category_id ? String(values.category_id) : values.category_id,
-        brand_id: values.brand ? String(values.brand_id) : values.brand_id, 
+        brand_id: values.brand_id ? String(values.brand_id) : values.brand_id,
         status: values.status ? "active" : "inactive",
         description: parseDescription(values.description),
         image_url: fileList
           .filter((file) => file.status === "done")
           .map((file) => file.response?.url || file.url)
           .filter(Boolean) || ["/placeholder.svg"],
-        slug: modalMode === "add" ? values.slug : undefined, 
+        slug: modalMode === "add" ? values.slug : undefined,
       };
 
       if (modalMode === "edit" && selectedProduct.id) {
@@ -279,6 +305,9 @@ export default function ProductManagement() {
           productData
         );
         console.log("Updated product:", updatedProduct);
+        if (!updatedProduct) {
+          throw new Error("Cập nhật sản phẩm thất bại: Không nhận được dữ liệu sản phẩm");
+        }
         const updatedProducts = tableData.map((product) =>
           product.id === selectedProduct.id ? updatedProduct : product
         );
@@ -286,14 +315,11 @@ export default function ProductManagement() {
         setIsModalOpen(false);
       } else {
         // Thêm sản phẩm mới
-        const newProduct = {
-          id: String(products.length + 1),
-          ...productData,
-        };
-
-        const createdProduct = await productService.addProduct(newProduct);
-        // Cập nhật danh sách sản phẩm
+        const createdProduct = await productService.addProduct(productData);
         console.log("Added new product:", createdProduct);
+        if (!createdProduct || !createdProduct.id) {
+          throw new Error("Thêm sản phẩm thất bại: Không nhận được dữ liệu sản phẩm");
+        }
         setTableData([createdProduct, ...tableData]);
         setIsModalOpen(false);
       }
@@ -305,11 +331,10 @@ export default function ProductManagement() {
           : "Thêm sản phẩm thành công"
       );
     } catch (error) {
-      console.log("Operation failed:", error);
+      console.error("Operation failed:", error.message, error);
       message.error(error.message || "Đã xảy ra lỗi, vui lòng thử lại");
     }
   };
-
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
     message.error("Vui lòng kiểm tra lại thông tin");
@@ -589,9 +614,8 @@ export default function ProductManagement() {
                 rules={[
                   {
                     required: true,
-                    message: `Vui lòng nhập ${
-                      modalMode === "edit" ? "số lượng đã bán" : "slug"
-                    }`,
+                    message: `Vui lòng nhập ${modalMode === "edit" ? "số lượng đã bán" : "slug"
+                      }`,
                   },
                 ]}
               >

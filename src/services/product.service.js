@@ -71,7 +71,7 @@ export const productService = {
             : true;
 
         // Lọc theo hãng
-        const matchBrand = 
+        const matchBrand =
           !brands?.length || brands.includes("all")
             ? true
             : brandIds.includes(product.brand_id);
@@ -98,65 +98,39 @@ export const productService = {
     }
   },
 
-  getListOfCategories: async () => {
-    try {
-      const categories = await get("categories");
-      if (!Array.isArray(categories)) {
-        throw new Error("Dữ liệu danh mục không hợp lệ");
-      }
-      return categories;
-    } catch (error) {
-      toast.error("Lỗi khi lấy danh sách danh mục:", error);
-      return [];
-    }
-  },
-
-  getListOfBrands: async () => {
-    try {
-      const brands = await get("brands");
-      if (!Array.isArray(brands)) {
-        throw new Error("Dữ liệu hãng không hợp lệ");
-      }
-      return brands;
-    } catch (error) {
-      toast.error("Lỗi khi lấy danh sách hãng:", error);
-      return [];
-    }
-  },
-
   addProduct: async (productData) => {
+    console.log("Adding product with data:", productData); // Debug log
     try {
       const response = await post(`products`, {
         ...productData,
         created_at: new Date().toISOString(),
         total_sales: productData.total_sales || 0,
       });
-      return response.data;
+      console.log("Add product response:", response); // Debug log
+      return response;
     } catch (error) {
       console.error(
         "Error adding product:",
-        error.response?.data || error.message
+        error.response?.message || error.message
       );
       throw new Error(
-        error.response?.data?.message || "Không thể thêm sản phẩm"
+        error.response?.message || "Không thể thêm sản phẩm"
       );
     }
   },
 
   updateProduct: async (id, productData) => {
-    try {
-      const response = await patch(`products/${id}`, productData);
-      return response.data;
-    } catch (error) {
-      console.error(
-        "Error updating product:",
-        error.response?.data || error.message
-      );
-      throw new Error(
-        error.response?.data?.message || "Không thể cập nhật sản phẩm"
-      );
+  try {
+    const response = await patch(`products/${id}`, productData);
+    console.log("Update product response:", response); // Debug log
+    if (!response) {
+      throw new Error("No data returned from update operation");
     }
-  },
+    return response;
+  } catch (error) {
+    console.error("Error updating product:", error.response?.data || error.message);
+  }
+},
 
   getProductById: async (id) => {
     try {
@@ -178,18 +152,10 @@ export const productService = {
 
   getOutOfStockProducts: async () => {
     try {
-      const products = await get("products");
-      if (!Array.isArray(products)) {
-        throw new Error("Dữ liệu sản phẩm không hợp lệ");
-      }
-      return products.filter((product) => product.stock <= 0);
+      return await get("products?stock_lte=0");
     } catch (error) {
       toast.error("Lỗi khi lấy danh sách sản phẩm hết hàng:", error);
       return [];
     }
   },
-
-  //lấy ra tất cả products
-  
-  
 };

@@ -301,18 +301,9 @@ export const orderService = {
 
   getOrdersByYear: async (year) => {
     try {
-      const allOrders = await get("orders");
-
-      const filtered = allOrders.filter((order) => {
-        const orderDate = new Date(order.order_date);
-        return orderDate.getFullYear() === year;
-      });
-
-      const sorted = filtered.sort(
-        (a, b) => new Date(b.order_date) - new Date(a.order_date)
-      );
-
-      return sorted;
+      const startDate = `${year}-01-01`;
+      const endDate = `${year}-12-31`;
+      return await get(`orders?order_date_gte=${startDate}&order_date_lte=${endDate}&_sort=order_date&_order=desc`);
     } catch (error) {
       console.error("Lỗi khi lấy đơn hàng theo năm:", error);
       return [];
@@ -377,6 +368,37 @@ export const orderService = {
     } catch (error) {
       console.error("Lỗi khi lấy tất cả đơn hàng:", error);
       return [];
+    }
+  },
+
+  getRevenueGroupedByCategory: async () => {
+    try {
+      const orders = await get("orders");
+      if (!Array.isArray(orders) || orders.length === 0) return {};
+
+      const revenueMap = {};
+
+      for (const order of orders) {
+        for (const product of order.products) {
+          const fullProduct = await productService.getProductById(product.id);
+          const categoryId = fullProduct?.category_id;
+
+          if (!categoryId) continue;
+
+          const revenue = product.price * product.quantity * (1 - product.discount);
+
+          if (revenueMap[categoryId]) {
+            revenueMap[categoryId] += revenue;
+          } else {
+            revenueMap[categoryId] = revenue;
+          }
+        }
+      }
+
+      return revenueMap;
+    } catch (error) {
+      console.error("Lỗi khi tính doanh thu theo danh mục:", error);
+      return {};
     }
   },
 }

@@ -1,25 +1,13 @@
-import { useState, useEffect, useContext } from "react";
-import { Typography, Table, Tag, Button, Select, Spin, Tooltip } from "antd";
-import {
-  ShoppingCart,
-  DollarSign,
-  Package,
-  Users,
-  Calendar,
-  Star,
-  AlertTriangle,
-  ArrowUp,
-  ArrowDown,
-  RefreshCw,
-  Download,
-} from "lucide-react";
+"use client"
+
+import { useState, useEffect } from "react"
+import { Typography, Table, Tag, Button, Select, Spin } from "antd"
+import { ShoppingCart, DollarSign, Calendar, Star, RefreshCw, Download, ArrowUp, ArrowDown } from "lucide-react"
 import {
   AreaChart,
   Area,
   BarChart,
   Bar,
-  PieChart,
-  Pie,
   Cell,
   XAxis,
   YAxis,
@@ -29,22 +17,24 @@ import {
   ResponsiveContainer,
   LineChart,
   Line,
-} from "recharts";
-import dayjs from "dayjs";
+} from "recharts"
+import dayjs from "dayjs"
+import { orderService } from "../../services/order.service"
+import { userApi } from "../../services/user.service"
+import { productService } from "../../services/product.service"
+import { reviewService } from "../../services/review.service"
+import { path } from "../../constants/path"
+import { NavLink } from "react-router-dom"
+import { exportDashboardToExcel } from "../../utils/exportUtil"
+import { OverviewItem } from "../../components/OverviewItem"
+import { categoryService } from "../../services/category.service"
+import { brandService } from "../../services/brand.service"
+import { debounce } from "../../utils/debounce"
+import { get } from "../../services/request"
 
-import { orderService } from "../../services/order.service";
-import { userApi } from "../../services/user.service";
-import { productService } from "../../services/product.service";
-import { reviewService } from "../../services/review.service";
-import { AdminContext } from "../../hooks/AdminContext";
-import { path } from "../../constants/path";
-import { NavLink } from "react-router-dom";
-import { exportDashboardToExcel } from "../../utils/exportUtil";
+const { Text } = Typography
+const { Option } = Select
 
-const { Title, Text } = Typography;
-const { Option } = Select;
-
-// Định nghĩa các màu
 const colors = {
   blue: "#1890ff",
   green: "#52c41a",
@@ -56,18 +46,16 @@ const colors = {
   pink: "#eb2f96",
   lime: "#a0d911",
   gold: "#faad14",
-};
+}
 
-// Custom formatter for VND
 const formatVND = (value) => {
   return new Intl.NumberFormat("vi-VN", {
     style: "currency",
     currency: "VND",
     minimumFractionDigits: 0,
-  }).format(value);
-};
+  }).format(value)
+}
 
-// Custom tooltip for Recharts
 const CustomTooltip = ({ active, payload, label, formatter }) => {
   if (active && payload && payload.length) {
     return (
@@ -79,207 +67,287 @@ const CustomTooltip = ({ active, payload, label, formatter }) => {
           </p>
         ))}
       </div>
-    );
+    )
   }
-  return null;
-};
+  return null
+}
 
-const currentyear = new Date().getFullYear();
-const currentmonth = new Date().getMonth();
+const currentYear = new Date().getFullYear()
+const currentMonth = new Date().getMonth()
 
-const orderStatuses = [
-  "DELIVERED",
-  "PENDING",
-  "CANCELLED",
-  "RETURNED",
-  "PROCESSING",
-];
+const orderStatuses = ["DELIVERED", "PENDING", "CANCELLED", "RETURNED", "PROCESSING"]
 
 const Dashboard = () => {
-  const [timeRange, setTimeRange] = useState("month");
-  const [revenueChartTimeRange, setRevenueChartTimeRange] = useState("month");
-  const [userGrowthChartTimeRange, setUserGrowthChartTimeRange] = useState("month");
-  const [data, setData] = useState(null);
-  const [isRefreshing, setIsRefreshing] = useState(false);
-  const { users, orders, products, loading, brands, categories } = useContext(AdminContext);
+  const [timeRange, setTimeRange] = useState("month")
+  const [revenueChartTimeRange, setRevenueChartTimeRange] = useState("month")
+  const [userGrowthChartTimeRange, setUserGrowthChartTimeRange] = useState("month")
+  const [data, setData] = useState(null)
+  const [isRefreshing, setIsRefreshing] = useState(false)
+  const [users, setUsers] = useState([])
+  const [brands, setBrands] = useState([])
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  // In-memory cache
+  let cache = {
+    users: null,
+    brands: null,
+    categories: null,
+    lastFetched: null,
+  };
+
+  // Cache expiration time (e.g., 5 minutes)
+  const CACHE_DURATION = 5 * 60 * 1000;
+
+  const fetchInitialData = async () => {
+    try {
+      setLoading(true);
+
+      // Check if cached data is valid
+      if (
+        cache.users &&
+        cache.brands &&
+        cache.categories &&
+        cache.lastFetched &&
+        Date.now() - cache.lastFetched < CACHE_DURATION
+      ) {
+        setUsers(cache.users);
+        setBrands(cache.brands);
+        setCategories(cache.categories);
+        setLoading(false);
+        return;
+      }
+
+      const [usersResponse, brandsResponse, categoriesResponse] = await Promise.all([
+        userApi.getAllUsers(),
+        brandService.getAllBrands(),
+        categoryService.getListOfCategories(),
+      ]);
+
+      // Update cache
+      cache = {
+        users: usersResponse,
+        brands: brandsResponse,
+        categories: categoriesResponse,
+        lastFetched: Date.now(),
+      };
+
+      setUsers(usersResponse);
+      setBrands(brandsResponse);
+      setCategories(categoriesResponse);
+    } catch (error) {
+      console.error("Error fetching initial data:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchInitialData()
+  }, [])
 
   const fetchRevenueData = async (range) => {
-    const responseRevenue = await orderService.getOrdersByYear(currentyear);
-    if (range === "week") {
-      const startOfWeek = dayjs().startOf("week");
-      const weekData = Array(7)
-        .fill(0)
-        .map((_, i) => {
-          const date = startOfWeek.add(i, "day");
-          const dailyRevenue = responseRevenue
-            .filter(
-              (order) =>
-                dayjs(order.order_date).format("YYYY-MM-DD") ===
-                date.format("YYYY-MM-DD")
-            )
-            .reduce((sum, order) => sum + (order.total_price || 0), 0);
-          return {
-            month: date.format("DD/MM"),
-            value: dailyRevenue,
-            category: "Doanh thu",
-          };
-        });
-      return weekData;
-    } else if (range === "month") {
-      const startOfMonth = dayjs().startOf("month");
-      const daysInMonth = dayjs().daysInMonth();
-      const monthData = Array(daysInMonth)
-        .fill(0)
-        .map((_, i) => {
-          const date = startOfMonth.add(i, "day");
-          const dailyRevenue = responseRevenue
-            .filter(
-              (order) =>
-                dayjs(order.order_date).format("YYYY-MM-DD") ===
-                date.format("YYYY-MM-DD")
-            )
-            .reduce((sum, order) => sum + (order.total_price || 0), 0);
-          return {
-            month: date.format("DD/MM"),
-            value: dailyRevenue,
-            category: "Doanh thu",
-          };
-        });
-      return monthData;
-    } else {
-      const yearData = Array(12)
-        .fill(0)
-        .map((_, i) => {
-          const month = i;
-          const year = currentyear;
-          const monthName = new Date(year, month, 1).toLocaleString("vi-VN", {
-            month: "short",
-          });
-          const monthlyRevenue = responseRevenue
-            .filter((order) => new Date(order.order_date).getMonth() === month)
-            .reduce((sum, order) => sum + (order.total_price || 0), 0);
-          return {
-            month: `${monthName} ${year}`,
-            value: monthlyRevenue,
-            category: "Doanh thu",
-          };
-        });
-      return yearData;
+    try {
+      const year = currentYear;
+      let startDate, endDate, format;
+
+      if (range === "week") {
+        startDate = dayjs().startOf("week").format("YYYY-MM-DD");
+        endDate = dayjs().endOf("week").format("YYYY-MM-DD");
+        format = "DD/MM";
+      } else if (range === "month") {
+        startDate = dayjs().startOf("month").format("YYYY-MM-DD");
+        endDate = dayjs().endOf("month").format("YYYY-MM-DD");
+        format = "DD/MM";
+      } else {
+        startDate = `${year}-01-01`;
+        endDate = `${year}-12-31`;
+        format = "MMM YYYY";
+      }
+
+      // Fetch orders within the date range
+      const orders = await get(
+        `orders?order_date_gte=${startDate}&order_date_lte=${endDate}`
+      );
+
+      // Aggregate revenue by date
+      const revenueMap = {};
+
+      if (range === "week" || range === "month") {
+        const days = dayjs(endDate).diff(dayjs(startDate), "day") + 1;
+        for (let i = 0; i < days; i++) {
+          const date = dayjs(startDate).add(i, "day");
+          const dateKey = date.format(format);
+          revenueMap[dateKey] = 0;
+        }
+      } else {
+        for (let i = 0; i < 12; i++) {
+          const date = dayjs().month(i).year(year);
+          const dateKey = date.format(format);
+          revenueMap[dateKey] = 0;
+        }
+      }
+
+      orders.forEach((order) => {
+        const date = dayjs(order.order_date);
+        const dateKey = date.format(format);
+        revenueMap[dateKey] = (revenueMap[dateKey] || 0) + (order.total_price || 0);
+      });
+
+      return Object.entries(revenueMap).map(([month, value]) => ({
+        month,
+        value,
+        category: "Doanh thu",
+      }));
+    } catch (error) {
+      console.error("Error fetching revenue data:", error);
+      return [];
     }
   };
 
   const fetchUserGrowthData = async (range) => {
-    if (range === "week") {
-      const startOfWeek = dayjs().startOf("week");
-      const weekData = await Promise.all(
-        Array(7)
+    try {
+      const users = await userApi.getAllUsers();
+      let data = [];
+
+      if (range === "week") {
+        const startOfWeek = dayjs().startOf("week");
+        data = Array(7)
           .fill(0)
-          .map(async (_, i) => {
+          .map((_, i) => {
             const date = startOfWeek.add(i, "day");
-            const newUsers = await userApi.getNoUsersByMonthYear(
-              date.month() + 1,
-              date.year()
-            );
-            const totalUsers = await userApi.getTotalUsersBeforeYear(
-              date.year() + 1
-            );
+            const newUsers = users.filter(
+              (user) =>
+                dayjs(user.created_at).format("YYYY-MM-DD") === date.format("YYYY-MM-DD")
+            ).length;
+            const totalUsers = users.filter(
+              (user) => dayjs(user.created_at).isBefore(date.endOf("day"))
+            ).length;
             return {
               month: date.format("DD/MM"),
               newUsers,
               totalUsers,
             };
-          })
-      );
-      return weekData;
-    } else if (range === "month") {
-      const startOfMonth = dayjs().startOf("month");
-      const daysInMonth = dayjs().daysInMonth();
-      const monthData = await Promise.all(
-        Array(daysInMonth)
+          });
+      } else if (range === "month") {
+        const startOfMonth = dayjs().startOf("month");
+        const daysInMonth = dayjs().daysInMonth();
+        data = Array(daysInMonth)
           .fill(0)
-          .map(async (_, i) => {
+          .map((_, i) => {
             const date = startOfMonth.add(i, "day");
-            const newUsers = await userApi.getNoUsersByMonthYear(
-              date.month() + 1,
-              date.year()
-            );
-            const totalUsers = await userApi.getTotalUsersBeforeYear(
-              date.year() + 1
-            );
+            const newUsers = users.filter(
+              (user) =>
+                dayjs(user.created_at).format("YYYY-MM-DD") === date.format("YYYY-MM-DD")
+            ).length;
+            const totalUsers = users.filter(
+              (user) => dayjs(user.created_at).isBefore(date.endOf("day"))
+            ).length;
             return {
               month: date.format("DD/MM"),
               newUsers,
               totalUsers,
             };
-          })
-      );
-      return monthData;
-    } else {
-      const yearData = await Promise.all(
-        Array(12)
+          });
+      } else {
+        data = Array(12)
           .fill(0)
-          .map(async (_, i) => {
+          .map((_, i) => {
             const month = i;
-            const year = currentyear - (month > currentmonth ? 1 : 0);
-            const monthName = new Date(year, month, 1).toLocaleString("vi-VN", {
-              month: "short",
-            });
-            const newUsers = await userApi.getNoUsersByMonthYear(month + 1, year);
-            const totalUsers = await userApi.getTotalUsersBeforeYear(year + 1);
+            const year = currentYear - (month > currentMonth ? 1 : 0);
+            const date = dayjs().month(month).year(year);
+            const newUsers = users.filter(
+              (user) =>
+                dayjs(user.created_at).month() === month &&
+                dayjs(user.created_at).year() === year
+            ).length;
+            const totalUsers = users.filter(
+              (user) => dayjs(user.created_at).isBefore(date.endOf("month"))
+            ).length;
             return {
-              month: `${monthName} ${year}`,
+              month: date.format("MMM YYYY"),
               newUsers,
               totalUsers,
             };
-          })
-      );
-      return yearData;
+          });
+      }
+
+      return data;
+    } catch (error) {
+      console.error("Error fetching user growth data:", error);
+      return [];
     }
   };
+
+  const calcChange = (current, prev) => {
+    if (prev === 0) return current === 0 ? 0 : 100
+    return Number((((current - prev) / prev) * 100).toFixed(2))
+  }
 
   const fetchData = async () => {
     try {
       setIsRefreshing(true);
-      let responseRevenue;
-      if (timeRange === "day") {
-        const { data: orders, currentStats } = await orderService.getOrdersAndStats(
-          "day",
-          dayjs(),
-          1,
-          1000
-        );
-        responseRevenue = orders;
-      } else if (timeRange === "week") {
-        const startOfWeek = dayjs().startOf("week");
-        const endOfWeek = dayjs().endOf("week");
-        responseRevenue = await orderService.getOrdersByYear(currentyear);
-        responseRevenue = responseRevenue.filter(
-          (order) =>
-            dayjs(order.order_date).isAfter(startOfWeek) &&
-            dayjs(order.order_date).isBefore(endOfWeek)
-        );
-      } else if (timeRange === "month") {
-        const { data: orders } = await orderService.getOrdersAndStats(
-          "month",
-          dayjs(),
-          1,
-          1000
-        );
-        responseRevenue = orders;
-      } else {
-        responseRevenue = await orderService.getOrdersByYear(currentyear);
-      }
 
-      // Đơn hàng theo trạng thái
+      // Fetch all core data in parallel
+      const [
+        allOrders,
+        allProducts,
+        recentOrdersResponse,
+        outOfStockProducts,
+        avgRating,
+      ] = await Promise.all([
+        get("orders?_sort=order_date&_order=desc"), // Fetch all orders
+        get("products"), // Fetch all products
+        get("orders?_sort=order_date&_order=desc&_limit=10"), // Recent orders
+        get("products?stock_lte=0"), // Out-of-stock products
+        reviewService.getAvgRating(), // Average rating
+      ]);
+
+      // Determine date ranges
+      const prevDate = {
+        day: dayjs().subtract(1, "day"),
+        week: dayjs().subtract(1, "week"),
+        month: dayjs().subtract(1, "month"),
+        year: dayjs().subtract(1, "year"),
+      }[timeRange];
+
+      // Filter orders for current and previous periods
+      const format = {
+        day: "YYYY-MM-DD",
+        week: "YYYY-MM-DD",
+        month: "YYYY-MM",
+        year: "YYYY",
+      }[timeRange];
+
+      const currentKey = dayjs().format(format);
+      const prevKey = prevDate.format(format);
+
+      const currentOrders = allOrders.filter((order) =>
+        dayjs(order.order_date).format(format) === currentKey
+      );
+      const prevOrders = allOrders.filter((order) =>
+        dayjs(order.order_date).format(format) === prevKey
+      );
+
+      // Calculate stats
+      const currentStats = {
+        revenue: currentOrders.reduce((sum, order) => sum + (order.total_price || 0), 0),
+        totalOrders: currentOrders.length,
+        pendingOrders: currentOrders.filter((order) => order.status?.current === "PENDING").length,
+      };
+      const prevStats = {
+        revenue: prevOrders.reduce((sum, order) => sum + (order.total_price || 0), 0),
+        totalOrders: prevOrders.length,
+        pendingOrders: prevOrders.filter((order) => order.status?.current === "PENDING").length,
+      };
+
+      // Process order status data
       const orderStatusData = orderStatuses.map((status) => ({
         type: status,
-        value: responseRevenue.filter(
-          (order) => order.status?.current === status
-        ).length,
+        value: currentOrders.filter((order) => order.status?.current === status).length,
       }));
 
-      // Top 10 sản phẩm bán chạy
-      const allProducts = await productService.getProducts();
+      // Process top products
       const topProductsData = allProducts
         .sort((a, b) => (b.total_sales || 0) - (a.total_sales || 0))
         .slice(0, 10)
@@ -288,9 +356,8 @@ const Dashboard = () => {
           sales: product.total_sales || 0,
         }));
 
-      // Đơn hàng gần đây
-      const recentOrders = await orderService.getRecentOrders();
-      const recentOrdersData = recentOrders.map((order) => ({
+      // Process recent orders
+      const recentOrdersData = recentOrdersResponse.map((order) => ({
         key: order.id,
         id: order.id,
         customer: users.find((cust) => cust.id == order.customer_id)?.name || "N/A",
@@ -306,57 +373,42 @@ const Dashboard = () => {
           }[order.status?.current] || "N/A",
       }));
 
-      // Sản phẩm hết hàng
-      const outOfStockProducts = await productService.getOutOfStockProducts();
+      // Process out-of-stock products
       const outOfStockData = outOfStockProducts.map((product) => ({
         key: product.id,
         id: product.id,
         name: product.title,
-        category:
-          categories.find((cat) => cat.id == product.category_id)?.name || "N/A",
-        brand:
-          brands.find((b) => b.id == product.brand_id)?.name || "N/A",
+        category: categories.find((cat) => cat.id == product.category_id)?.name || "N/A",
+        brand: brands.find((b) => b.id == product.brand_id)?.name || "N/A",
       }));
 
-      // Tổng số đơn hàng
-      const totalOrders = responseRevenue.length;
-
-      // Tổng doanh thu
-      const totalRevenue = responseRevenue.reduce(
-        (sum, order) => sum + (order.total_price || 0),
-        0
-      );
-
-      // Tổng số sản phẩm
+      // Calculate metrics
+      const totalOrders = currentOrders.length;
+      const totalRevenue = currentStats.revenue;
       const totalProducts = allProducts.length;
-
-      // Tổng số người dùng
       const totalUsers = users.length;
-
-      // Đơn hàng hôm nay
-      const { data: todayOrdersList, currentStats } =
-        await orderService.getOrdersAndStats("day", dayjs(), 1, 1000);
-      const todayOrders = todayOrdersList.length;
-
-      // Đánh giá trung bình
-      const averageRating = await reviewService.getAvgRating();
-
-      // Số sản phẩm hết hàng
+      const todayOrders = allOrders.filter(
+        (order) => dayjs(order.order_date).format("YYYY-MM-DD") === dayjs().format("YYYY-MM-DD")
+      ).length;
+      const monthlyRevenue = allOrders
+        .filter((order) => dayjs(order.order_date).format("YYYY-MM") === dayjs().format("YYYY-MM"))
+        .reduce((sum, order) => sum + (order.total_price || 0), 0);
       const outOfStock = outOfStockProducts.length;
 
-      // Doanh thu hôm nay
-      const dailyRevenue = currentStats.revenue || 0;
+      // Previous period metrics
+      const prevTotalOrders = prevOrders.length;
+      const prevTotalRevenue = prevStats.revenue;
+      const prevTotalProducts = allProducts.length; // Assuming products don't change
+      const prevTotalUsers = users.filter(
+        (user) => dayjs(user.created_at).isBefore(prevDate.endOf(timeRange))
+      ).length;
+      const prevTodayOrders = allOrders.filter(
+        (order) => dayjs(order.order_date).format("YYYY-MM-DD") === prevDate.format("YYYY-MM-DD")
+      ).length;
+      const prevAverageRating = avgRating; // Assuming rating doesn't change significantly
+      const prevOutOfStock = outOfStockProducts.length;
 
-      // Doanh thu tháng này
-      const { currentStats: monthStats } = await orderService.getOrdersAndStats(
-        "month",
-        dayjs(),
-        1,
-        1000
-      );
-      const monthlyRevenue = monthStats.revenue || 0;
-
-      // Cập nhật state data
+      // Set data
       setData({
         revenueData: await fetchRevenueData(revenueChartTimeRange),
         orderStatusData,
@@ -369,10 +421,21 @@ const Dashboard = () => {
         totalProducts,
         totalUsers,
         todayOrders,
-        averageRating: averageRating.toFixed(1),
+        averageRating: avgRating.toFixed(1),
         outOfStock,
-        dailyRevenue,
+        dailyRevenue: todayOrders
+          ? allOrders
+            .filter((order) => dayjs(order.order_date).format("YYYY-MM-DD") === dayjs().format("YYYY-MM-DD"))
+            .reduce((sum, order) => sum + (order.total_price || 0), 0)
+          : 0,
         monthlyRevenue,
+        totalOrdersChange: calcChange(totalOrders, prevTotalOrders),
+        totalRevenueChange: calcChange(totalRevenue, prevTotalRevenue),
+        totalProductsChange: calcChange(totalProducts, prevTotalProducts),
+        totalUsersChange: calcChange(totalUsers, prevTotalUsers),
+        todayOrdersChange: calcChange(todayOrders, prevTodayOrders),
+        averageRatingChange: calcChange(avgRating, prevAverageRating),
+        outOfStockChange: calcChange(outOfStock, prevOutOfStock),
       });
     } catch (error) {
       console.error("Lỗi khi lấy dữ liệu dashboard:", error);
@@ -392,29 +455,39 @@ const Dashboard = () => {
         outOfStock: 0,
         dailyRevenue: 0,
         monthlyRevenue: 0,
+        totalOrdersChange: 0,
+        totalRevenueChange: 0,
+        totalProductsChange: 0,
+        totalUsersChange: 0,
+        todayOrdersChange: 0,
+        averageRatingChange: 0,
+        outOfStockChange: 0,
       });
     } finally {
       setIsRefreshing(false);
     }
   };
 
+  const debouncedFetchData = debounce(fetchData, 500);
+
   const exportReport = () => {
-    exportDashboardToExcel(data, `Dashboard_Report_${dayjs().format("YYYYMMDD")}.xlsx`);
-  };
+    exportDashboardToExcel(data, `Dashboard_Report_${dayjs().format("YYYYMMDD")}.xlsx`)
+  }
 
   useEffect(() => {
-    fetchData();
-  }, [loading, timeRange, revenueChartTimeRange, userGrowthChartTimeRange]);
+    if (!loading) {
+      debouncedFetchData()
+    }
+  }, [loading, timeRange, revenueChartTimeRange, userGrowthChartTimeRange])
 
   if (loading || !data) {
     return (
       <div className="flex justify-center items-center h-screen">
         <Spin size="large" tip="Đang tải dữ liệu..." />
       </div>
-    );
+    )
   }
 
-  // Recent orders columns
   const recentOrdersColumns = [
     {
       title: "Mã đơn",
@@ -442,17 +515,16 @@ const Dashboard = () => {
       dataIndex: "status",
       key: "status",
       render: (status) => {
-        let color = "green";
-        if (status === "Đang xử lý") color = "blue";
-        else if (status === "Bị hủy") color = "red";
-        else if (status === "Trả hàng") color = "orange";
-        else if (status === "Đang chờ") color = "yellow";
-        return <Tag color={color}>{status}</Tag>;
+        let color = "green"
+        if (status === "Đang xử lý") color = "blue"
+        else if (status === "Bị hủy") color = "red"
+        else if (status === "Trả hàng") color = "orange"
+        else if (status === "Đang chờ") color = "yellow"
+        return <Tag color={color}>{status}</Tag>
       },
     },
-  ];
+  ]
 
-  // Out of stock products columns
   const outOfStockColumns = [
     {
       title: "Mã SP",
@@ -474,192 +546,119 @@ const Dashboard = () => {
       dataIndex: "brand",
       key: "brand",
     },
-  ];
+  ]
 
-  // Calculate total for pie chart
-  const totalOrdersPie = data.orderStatusData.reduce(
-    (sum, item) => sum + item.value,
-    0
-  );
+  const changeText = {
+    day: "so với ngày trước",
+    week: "so với tuần trước",
+    month: "so với tháng trước",
+    year: "so với năm trước",
+  }[timeRange]
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
+      {/* Header */}
       <div className="mb-6 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-800 m-0">
-          Tổng quan hệ thống
-        </h1>
+        <h1 className="text-2xl font-bold text-gray-800 m-0">Tổng quan hệ thống</h1>
         <div className="flex space-x-3">
-          {/* <Select
-            value={timeRange}
-            style={{ width: 120 }}
-            onChange={setTimeRange}
-            popupMatchSelectWidth={false}
-            className="mr-2"
-          >
-            <Option value="day">Hôm nay</Option>
-            <Option value="week">Tuần này</Option>
-            <Option value="month">Tháng này</Option>
-            <Option value="year">Năm nay</Option>
-          </Select> */}
+          <Select value={timeRange} style={{ width: 120 }} onChange={setTimeRange} >
+            <Option value="day">Ngày</Option>
+            <Option value="week">Tuần</Option>
+            <Option value="month">Tháng</Option>
+            <Option value="year">Năm</Option>
+          </Select>
           <Button
             icon={<RefreshCw size={16} />}
-            onClick={() => fetchData()}
+            onClick={debouncedFetchData}
             loading={isRefreshing}
-            style={{ marginRight: "10px" }}
+            style={{ marginRight: "10px" , marginLeft: "10px"}}
           >
             Làm mới
           </Button>
-          <Button
-            type="primary"
-            icon={<Download size={16} />}
-            onClick={exportReport}
-          >
+          <Button type="primary" icon={<Download size={16} />} onClick={exportReport}>
             Xuất báo cáo
           </Button>
         </div>
       </div>
 
-      {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-        {/* Total Orders */}
-        <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-          <div className="bg-blue-100 p-3 rounded-full mr-4">
-            <ShoppingCart className="h-6 w-6 text-blue-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-700">
-              Tổng đơn hàng
-            </h3>
-            <div className="flex items-center">
-              <p className="text-3xl font-bold text-blue-600">
-                {data.totalOrders}
-              </p>
-              <Tooltip title="Tăng 12% so với tháng trước">
-                <span className="ml-2 text-sm text-green-500 flex items-center">
-                  <ArrowUp size={14} /> 12%
-                </span>
-              </Tooltip>
-            </div>
-          </div>
-        </div>
+      {/* Overview Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <OverviewItem
+          title="Tổng đơn hàng"
+          value={data.totalOrders}
+          icon={<ShoppingCart className="text-blue-600" />}
+          change={{
+            value: data.totalOrdersChange,
+            text: changeText,
+          }}
+          className="bg-blue-50"
+          iconClassName="bg-white text-blue-600"
+        />
 
-        {/* Total Revenue */}
-        <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-          <div className="bg-green-100 p-3 rounded-full mr-4">
-            <DollarSign className="h-6 w-6 text-green-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-700">
-              Tổng doanh thu
-            </h3>
-            <div className="flex items-center">
-              <p className="text-3xl font-bold text-green-600">
-                {(data.totalRevenue / 1000000000).toFixed(2)} tỷ
-              </p>
-              <Tooltip title="Tăng 8% so với tháng trước">
-                <span className="ml-2 text-sm text-green-500 flex items-center">
-                  <ArrowUp size={14} /> 8%
-                </span>
-              </Tooltip>
-            </div>
-            <div className="mt-2 text-sm text-gray-500">
-              <p>Hôm nay: {(data.dailyRevenue / 1000000).toFixed(1)}M</p>
-              <p>Tháng này: {(data.monthlyRevenue / 1000000).toFixed(1)}M</p>
-            </div>
-          </div>
-        </div>
+        <OverviewItem
+          title="Tổng doanh thu"
+          value={`${(data.totalRevenue / 1000000000).toFixed(2)} tỷ`}
+          icon={<DollarSign className="text-green-600" />}
+          change={{
+            value: data.totalRevenueChange,
+            text: changeText,
+            // text: (
+            //   <div className="flex space-x-4">
+            //     <div>Hôm nay: {(data.dailyRevenue / 1000000).toFixed(1)}M</div>
+            //     <div>Tháng này: {(data.monthlyRevenue / 1000000).toFixed(1)}M</div>
+            //   </div>
+            // ),
+          }}
+          className="bg-green-50"
+          iconClassName="bg-white text-green-600"
+        />
 
-        {/* Total Users */}
-        <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-          <div className="bg-cyan-100 p-3 rounded-full mr-4">
-            <Users className="h-6 w-6 text-cyan-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-700">
-              Tổng người dùng
-            </h3>
-            <div className="flex items-center">
-              <p className="text-3xl font-bold text-cyan-600">
-                {data.totalUsers}
-              </p>
-              <Tooltip title="Tăng 5% so với tháng trước">
-                <span className="ml-2 text-sm text-green-500 flex items-center">
-                  <ArrowUp size={14} /> 5%
-                </span>
-              </Tooltip>
-            </div>
-          </div>
-        </div>
+        <OverviewItem
+          title="Đơn hàng hôm nay"
+          value={data.todayOrders}
+          icon={<Calendar className="text-orange-600" />}
+          change={{
+            value: data.todayOrdersChange ? data.todayOrdersChange : 0,
+            text: timeRange === "day" ? "so với ngày trước" : changeText,
+          }}
+          className="bg-orange-50"
+          iconClassName="bg-white text-orange-600"
+        />
 
-        {/* Today's Orders */}
-        <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-          <div className="bg-orange-100 p-3 rounded-full mr-4">
-            <Calendar className="h-6 w-6 text-orange-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-700">
-              Đơn hàng hôm nay
-            </h3>
-            <div className="flex items-center">
-              <p className="text-3xl font-bold text-orange-600">
-                {data.todayOrders}
-              </p>
-              <Tooltip title="Giảm 3% so với hôm qua">
-                <span className="ml-2 text-sm text-red-500 flex items-center">
-                  <ArrowDown size={14} /> 3%
-                </span>
-              </Tooltip>
-            </div>
-          </div>
-        </div>
-
-        {/* Average Rating */}
+        {/* Rating Card */}
         <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
           <div className="bg-yellow-100 p-3 rounded-full mr-4">
             <Star className="h-6 w-6 text-yellow-600" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-gray-700">
-              Đánh giá trung bình
-            </h3>
+            <h3 className="text-lg font-semibold text-gray-700">Đánh giá trung bình</h3>
             <div className="flex items-center">
-              <p className="text-3xl font-bold text-yellow-600">
-                {data.averageRating}
-              </p>
+              <p className="text-3xl font-bold text-yellow-600">{data.averageRating}</p>
               <span className="ml-1 text-lg text-yellow-600">/5</span>
               <Star className="h-4 w-4 text-yellow-500 ml-1" fill="#facc15" />
             </div>
             <div className="mt-2 w-full">
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div
-                  className="bg-yellow-500 h-2 rounded-full"
-                  style={{ width: `${data.averageRating * 20}%` }}
-                ></div>
+                <div className="bg-yellow-500 h-2 rounded-full" style={{ width: `${data.averageRating * 20}%` }}></div>
+              </div>
+              <div className="flex items-center mt-2">
+                {data.averageRatingChange > 0 ? (
+                  <ArrowUp className="text-green-600 mr-1 h-4 w-4" />
+                ) : data.averageRatingChange < 0 ? (
+                  <ArrowDown className="text-red-600 mr-1 h-4 w-4" />
+                ) : null}
+                {/* <Text
+                  className={`text-xs font-medium ${data.averageRatingChange > 0
+                    ? "text-green-500"
+                    : data.averageRatingChange < 0
+                      ? "text-red-500"
+                      : "text-gray-500"
+                    }`}
+                >
+                  {Math.abs(data.averageRatingChange)}% {changeText}
+                </Text> */}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Out of Stock */}
-        <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-          <div className="bg-red-100 p-3 rounded-full mr-4">
-            <AlertTriangle className="h-6 w-6 text-red-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-700">
-              Sản phẩm hết hàng
-            </h3>
-            <div className="flex items-center">
-              <p className="text-3xl font-bold text-red-600">{data.outOfStock}</p>
-              <Tooltip title="Tăng 2 sản phẩm so với tuần trước">
-                <span className="ml-2 text-sm text-red-500 flex items-center">
-                  <ArrowUp size={14} /> 2
-                </span>
-              </Tooltip>
-            </div>
-            <button className="mt-2 text-blue-600 text-sm hover:underline">
-              Xem danh sách
-            </button>
           </div>
         </div>
       </div>
@@ -667,16 +666,10 @@ const Dashboard = () => {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         {/* Revenue Chart */}
-        <div className="bg-white p-6 rounded-lg shadow-md lg:col-span-2">
+        <div className="bg-white p-6 rounded-lg shadow-md lg:col-span-3">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-gray-700">
-              Doanh thu theo thời gian
-            </h3>
-            <Select
-              value={revenueChartTimeRange}
-              style={{ width: 120 }}
-              onChange={setRevenueChartTimeRange}
-            >
+            <h3 className="text-lg font-semibold text-gray-700">Doanh thu theo thời gian</h3>
+            <Select value={revenueChartTimeRange} style={{ width: 120 }} onChange={setRevenueChartTimeRange}>
               <Option value="week">Tuần</Option>
               <Option value="month">Tháng</Option>
               <Option value="year">Năm</Option>
@@ -695,12 +688,8 @@ const Dashboard = () => {
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
-                <YAxis
-                  tickFormatter={(value) => `${(value / 1000000).toFixed(0)}M`}
-                />
-                <RechartsTooltip
-                  content={<CustomTooltip formatter={(value) => formatVND(value)} />}
-                />
+                <YAxis tickFormatter={(value) => `${(value / 1000000).toFixed(0)}M`} />
+                <RechartsTooltip content={<CustomTooltip formatter={(value) => formatVND(value)} />} />
                 <Area
                   type="monotone"
                   dataKey="value"
@@ -713,59 +702,13 @@ const Dashboard = () => {
             </ResponsiveContainer>
           </div>
         </div>
-
-        {/* Order Status Chart */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-lg font-semibold text-gray-700 mb-4">
-            Đơn hàng theo trạng thái
-          </h3>
-          <div className="h-80 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={data.orderStatusData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  outerRadius={80}
-                  innerRadius={60}
-                  fill="#8884d8"
-                  dataKey="value"
-                  nameKey="type"
-                  label={({ type, value }) =>
-                    `${type}: ${value} (${((value / totalOrdersPie) * 100).toFixed(0)}%)`
-                  }
-                >
-                  {data.orderStatusData.map((entry, index) => {
-                    const COLORS = [
-                      colors.green,
-                      colors.blue,
-                      colors.red,
-                      colors.yellow,
-                      colors.purple,
-                    ];
-                    return (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                      />
-                    );
-                  })}
-                </Pie>
-                <RechartsTooltip />
-                <Legend />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
       </div>
 
+      {/* Products and Users Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Top Products Chart */}
         <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-lg font-semibold text-gray-700 mb-4">
-            Top 10 sản phẩm bán chạy
-          </h3>
+          <h3 className="text-lg font-semibold text-gray-700 mb-4">Top 10 sản phẩm bán chạy</h3>
           <div className="h-96 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
@@ -783,12 +726,7 @@ const Dashboard = () => {
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis type="number" />
-                <YAxis
-                  type="category"
-                  dataKey="name"
-                  width={160}
-                  tick={{ fontSize: 12 }}
-                />
+                <YAxis type="category" dataKey="name" width={160} tick={{ fontSize: 12 }} />
                 <RechartsTooltip />
                 <Bar dataKey="sales" name="Số lượng đã bán">
                   {data.topProductsData.map((entry, index) => {
@@ -803,13 +741,8 @@ const Dashboard = () => {
                       colors.orange,
                       colors.red,
                       colors.gold,
-                    ];
-                    return (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={colorArray[index % colorArray.length]}
-                      />
-                    );
+                    ]
+                    return <Cell key={`cell-${index}`} fill={colorArray[index % colorArray.length]} />
                   })}
                 </Bar>
               </BarChart>
@@ -820,14 +753,8 @@ const Dashboard = () => {
         {/* User Growth Chart */}
         <div className="bg-white p-6 rounded-lg shadow-md">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-gray-700">
-              Tỷ lệ người dùng mới
-            </h3>
-            <Select
-              value={userGrowthChartTimeRange}
-              style={{ width: 120 }}
-              onChange={setUserGrowthChartTimeRange}
-            >
+            <h3 className="text-lg font-semibold text-gray-700">Tỷ lệ người dùng mới</h3>
+            <Select value={userGrowthChartTimeRange} style={{ width: 120 }} onChange={setUserGrowthChartTimeRange}>
               <Option value="week">Tuần</Option>
               <Option value="month">Tháng</Option>
               <Option value="year">Năm</Option>
@@ -856,12 +783,7 @@ const Dashboard = () => {
                   stroke={colors.cyan}
                   activeDot={{ r: 8 }}
                 />
-                <Line
-                  type="monotone"
-                  dataKey="totalUsers"
-                  name="Tổng người dùng"
-                  stroke={colors.purple}
-                />
+                <Line type="monotone" dataKey="totalUsers" name="Tổng người dùng" stroke={colors.purple} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -870,41 +792,30 @@ const Dashboard = () => {
 
       {/* Tables Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Recent Orders Table */}
         <div className="bg-white p-6 rounded-lg shadow-md lg:col-span-2">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-gray-700">
-              Đơn hàng gần đây
-            </h3>
-            <a href={`${path.homeAdmin}/${path.orderManagement}`} className="text-blue-600 hover:underline">
+            <h3 className="text-lg font-semibold text-gray-700">Đơn hàng gần đây</h3>
+            <NavLink to={`${path.homeAdmin}/${path.orderManagement}`} className="text-blue-600 hover:underline">
               Xem tất cả
-            </a>
+            </NavLink>
           </div>
-          <Table
-            columns={recentOrdersColumns}
-            dataSource={data.recentOrders}
-            pagination={false}
-            size="middle"
-          />
+          <Table columns={recentOrdersColumns} dataSource={data.recentOrders} pagination={false} size="middle" />
         </div>
+
+        {/* Out of Stock Table */}
         <div className="bg-white p-6 rounded-lg shadow-md">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-gray-700">
-              Sản phẩm hết hàng
-            </h3>
-            <a href={`${path.homeAdmin}/${path.productManagement}`} className="text-blue-600 hover:underline">
+            <h3 className="text-lg font-semibold text-gray-700">Sản phẩm hết hàng</h3>
+            <NavLink to={`${path.homeAdmin}/${path.productManagement}`} className="text-blue-600 hover:underline">
               Xem tất cả
-            </a>
+            </NavLink>
           </div>
-          <Table
-            columns={outOfStockColumns}
-            dataSource={data.outOfStockProducts}
-            pagination={false}
-            size="small"
-          />
+          <Table columns={outOfStockColumns} dataSource={data.outOfStockProducts} pagination={false} size="small" />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

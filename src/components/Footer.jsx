@@ -189,7 +189,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <p>&copy; {new Date().getFullYear()} Công ty TNHH Thương Mại XYZ. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Công ty TNHH Thương Mại 2LG. All rights reserved.</p>
       </div>
     </footer>
   );

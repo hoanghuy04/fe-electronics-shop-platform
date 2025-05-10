@@ -6,18 +6,15 @@ import "antd/dist/reset.css";
 import { ProductProvider } from "./hooks/ProductContext.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./hooks/AuthContext.jsx";
-import { AdminProvider } from "./hooks/AdminContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <AuthProvider>
-      <AdminProvider>
         <ProductProvider>
           <CartProvider>
             <App />
           </CartProvider>
         </ProductProvider>
-      </AdminProvider>
     </AuthProvider>
   </BrowserRouter>
 );
