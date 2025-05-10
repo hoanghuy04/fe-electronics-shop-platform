@@ -6,14 +6,15 @@ import { orderService } from "../services/order.service";
 import HistoryDetail from "./HistoryDetail";
 import { path } from "../constants/path";
 import { formatVietnameseDate } from "../utils/helpers";
-import useAddress from "../hooks/useAddress";
 
 const AccountOrderHistoryDetail = () => {
   const params = useParams();
   const [order, setOrder] = useState();
-  const { province, district, ward } = useAddress(
-    order?.shipping_address?.address
-  );
+  const {
+    shipping_address: {
+      address: { province, ward, district, street } = {},
+    } = {},
+  } = order || {};
 
   useEffect(() => {
     const findByOrder = async () => {
@@ -103,7 +104,7 @@ const AccountOrderHistoryDetail = () => {
             </p>
             <p>
               <strong>Địa chỉ nhận hàng:</strong>{" "}
-              {`${order?.shipping_address?.address.street}, ${ward?.full_name}, ${district?.full_name}, ${province?.full_name}`}
+              {`${street}, ${ward}, ${district}, ${province}`}
             </p>
             <p>
               <strong>Thời gian nhận hàng:</strong>

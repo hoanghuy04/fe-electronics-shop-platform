@@ -7,6 +7,7 @@ import useAddress from "../hooks/useAddress";
 import BoxPrice from "./BoxPrice";
 import { useAuth } from "../hooks/AuthContext";
 import { orderService } from "../services/order.service";
+import { addressService } from "../services/address.service";
 
 export default function CartStepThree() {
   const { cart, totalPrice, handlePlaceOrder, order, setOrder } = useCart();
@@ -17,6 +18,18 @@ export default function CartStepThree() {
   );
 
   const handleClick = async () => {
+    const province = await addressService.getProvinceById(
+      order.shipping_address.address.province
+    );
+    const district = await addressService.getDistrictById(
+      order.shipping_address.address.district,
+      order.shipping_address.address.province
+    );
+    const ward = await addressService.getWardById(
+      order.shipping_address.address.ward,
+      order.shipping_address.address.district
+    );
+
     const products = cart.map((item) => ({
       id: item.id,
       title: item.title,
@@ -44,6 +57,15 @@ export default function CartStepThree() {
       order_date: new Date().toISOString(),
       payment_method: "Thanh toán khi nhận hàng",
       payment_status: "UNPAID",
+      shipping_address: {
+        ...order.shipping_address,
+        address: {
+          ...order.shipping_address.address,
+          province: province?.full_name || "",
+          district: district?.full_name || "",
+          ward: ward?.full_name || "",
+        },
+      },
     };
 
     const response = await orderService.createOrder(completedOrder);

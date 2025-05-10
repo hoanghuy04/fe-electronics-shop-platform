@@ -1,8 +1,7 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CircleCheckBig } from "lucide-react";
 import { Button } from "antd";
-import useAddress from "../hooks/useAddress";
 import { useCart } from "../hooks/useCart";
 import { orderService } from "../services/order.service";
 import { useAuth } from "../hooks/AuthContext";
@@ -10,18 +9,11 @@ import { useAuth } from "../hooks/AuthContext";
 export default function CartStepFour() {
   const { order, setOrder } = useCart();
   const { user } = useAuth();
-
-  const address = useMemo(
-    () => ({
-      province: order?.shipping_address.address?.province,
-      ward: order?.shipping_address.address?.ward,
-      district: order?.shipping_address.address?.district,
-      street: order?.shipping_address.address?.street,
-    }),
-    [order]
-  );
-
-  const { province, district, ward } = useAddress(address);
+  const {
+    shipping_address: {
+      address: { province, ward, district, street } = {},
+    } = {},
+  } = order || {};
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -81,7 +73,7 @@ export default function CartStepFour() {
           <div className="grid grid-cols-3 gap-4 mb-7">
             <div className="font-semibold ">&#8226; Địa chỉ nhận hàng:</div>
             <div className="col-span-2">
-              {`${address.street}, ${ward?.full_name}, ${district?.full_name}, ${province?.full_name}`}
+              {`${street}, ${ward}, ${district}, ${province}`}
             </div>
           </div>
 

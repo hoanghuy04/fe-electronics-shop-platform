@@ -22,7 +22,6 @@ import {
 } from "@ant-design/icons";
 import dayjs from "dayjs";
 import TagStatus from "../../components/TagStatus";
-import AddressDisplay from "../../components/AddressDisplay";
 import HistoryCartItem from "../../components/HistoryCartItem";
 import { formatVietnameseDate } from "../../utils/helpers";
 
@@ -42,6 +41,11 @@ export default function OrderManagement() {
   const [totalItems, setTotalItems] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
+  const {
+    shipping_address: {
+      address: { province, ward, district, street } = {},
+    } = {},
+  } = selectedOrder || {};
 
   const ORDER_FLOW = [
     { key: "PENDING", label: "Chờ xác nhận" },
@@ -193,7 +197,7 @@ export default function OrderManagement() {
     },
     {
       name: "Địa chỉ",
-      selector: (row) => row.addressString,
+      selector: (row) => row.full_address,
       sortable: false,
       width: "300px",
       wrap: true,
@@ -396,9 +400,7 @@ export default function OrderManagement() {
               </p>
               <p className="col-span-2">
                 <strong>Địa chỉ:</strong>{" "}
-                <AddressDisplay
-                  address={selectedOrder.shipping_address.address}
-                />
+                {`${street}, ${ward}, ${district}, ${province}`}
               </p>
             </div>
 
