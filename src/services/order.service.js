@@ -60,6 +60,7 @@ export const orderService = {
         ...order,
         ...updatedFields,
         payment_status: isDelivered ? "PAID" : order.payment_status,
+        delivered_date: isDelivered ? now : order.delivered_date, // 👉 thêm dòng này
         status: {
           current: updatedStatus,
           history: [...(order.status?.history || []), newStatusHistory],
@@ -124,7 +125,7 @@ export const orderService = {
       return null;
     }
   },
-  getOrdersByStatus: async (userId, status, page = 1, limit = 5) => {
+  getOrdersByStatus: async (userId, status = "ALL", page = 1, limit = 5) => {
     try {
       const allOrders = await get(`orders?customer_id=${userId}`);
 
@@ -266,6 +267,16 @@ export const orderService = {
             ? prevStats
             : null;
 
+        const {
+          street = "",
+          ward = "",
+          district = "",
+          province = "",
+        } = order.shipping_address?.address || {};
+        order.full_address = [street, ward, district, province]
+          .filter(Boolean)
+          .join(", ");
+
         if (orderKey === currentKey) {
           filtered.push(order);
         }
@@ -302,7 +313,9 @@ export const orderService = {
     try {
       const startDate = `${year}-01-01`;
       const endDate = `${year}-12-31`;
-      return await get(`orders?order_date_gte=${startDate}&order_date_lte=${endDate}&_sort=order_date&_order=desc`);
+      return await get(
+        `orders?order_date_gte=${startDate}&order_date_lte=${endDate}&_sort=order_date&_order=desc`
+      );
     } catch (error) {
       console.error("Lỗi khi lấy đơn hàng theo năm:", error);
       return [];
@@ -384,7 +397,8 @@ export const orderService = {
 
           if (!categoryId) continue;
 
-          const revenue = product.price * product.quantity * (1 - product.discount);
+          const revenue =
+            product.price * product.quantity * (1 - product.discount);
 
           if (revenueMap[categoryId]) {
             revenueMap[categoryId] += revenue;
@@ -400,4 +414,4 @@ export const orderService = {
       return {};
     }
   },
-}
+};

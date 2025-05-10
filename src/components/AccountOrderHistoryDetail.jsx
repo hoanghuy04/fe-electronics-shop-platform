@@ -6,14 +6,16 @@ import { orderService } from "../services/order.service";
 import HistoryDetail from "./HistoryDetail";
 import { path } from "../constants/path";
 import { formatVietnameseDate } from "../utils/helpers";
-import useAddress from "../hooks/useAddress";
+import StepOrderStatus from "./StepOrderStatus";
 
 const AccountOrderHistoryDetail = () => {
   const params = useParams();
   const [order, setOrder] = useState();
-  const { province, district, ward } = useAddress(
-    order?.shipping_address?.address
-  );
+  const {
+    shipping_address: {
+      address: { province, ward, district, street } = {},
+    } = {},
+  } = order || {};
 
   useEffect(() => {
     const findByOrder = async () => {
@@ -37,7 +39,11 @@ const AccountOrderHistoryDetail = () => {
         <div className="flex justify-between items-center">
           <span className="text-lg">
             Chi tiết đơn hàng #{order?.id || params.id} -{" "}
-            <span className="text-state-question">Chưa nhận hàng</span>
+            <span className="text-state-question">
+              {order?.status.current !== "DELIVERED"
+                ? "Chưa nhận hàng"
+                : "Nhận hàng"}
+            </span>
           </span>
           <span className="text-sm font-normal">
             Đặt lúc: {formatVietnameseDate(order?.order_date)}
@@ -46,7 +52,7 @@ const AccountOrderHistoryDetail = () => {
       }
       className="w-full"
     >
-      {order?.status === "CANCEL" && (
+      {order?.status.current === "CANCELLED" && (
         <div className="bg-[#dee7cd] p-3 rounded-sm mb-5">
           <div className="font-semibold">
             Đơn hàng bị hủy vào: {formatVietnameseDate(order?.order_date)}
@@ -54,7 +60,16 @@ const AccountOrderHistoryDetail = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-4 mb-4">
+        <div className="col-span-2">
+          <Card>
+            <StepOrderStatus
+              currentStatus={order?.status.current}
+              history={order?.status.history}
+            />
+          </Card>
+        </div>
+
         <Card
           className="!border-line-border"
           size="small"
@@ -103,7 +118,7 @@ const AccountOrderHistoryDetail = () => {
             </p>
             <p>
               <strong>Địa chỉ nhận hàng:</strong>{" "}
-              {`${order?.shipping_address?.address.street}, ${ward?.full_name}, ${district?.full_name}, ${province?.full_name}`}
+              {`${street}, ${ward}, ${district}, ${province}`}
             </p>
             <p>
               <strong>Thời gian nhận hàng:</strong>
@@ -144,7 +159,11 @@ const AccountOrderHistoryDetail = () => {
             </div>
           }
         >
-          <p className="text-state-question font-medium">Chưa thanh toán</p>
+          <p className="text-state-question font-medium">
+            {order?.payment_status === "UNPAID"
+              ? "Chưa thanh toán"
+              : "Đã thanh toán"}
+          </p>
         </Card>
       </div>
 
@@ -197,7 +216,13 @@ const AccountOrderHistoryDetail = () => {
               <CircleCheck size={20} color="green" />
               Số tiền đã thanh toán:
             </div>
-            <span className="text-primary">0₫</span>
+            <span className="text-primary">
+              {order?.payment_status === "PAID" ? (
+                <span>{order?.total_price.toLocaleString()} đ</span>
+              ) : (
+                "0đ"
+              )}
+            </span>
           </div>
         </div>
       </div>

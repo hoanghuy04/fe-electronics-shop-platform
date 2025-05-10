@@ -22,7 +22,6 @@ import {
 } from "@ant-design/icons";
 import dayjs from "dayjs";
 import TagStatus from "../../components/TagStatus";
-import AddressDisplay from "../../components/AddressDisplay";
 import HistoryCartItem from "../../components/HistoryCartItem";
 import { formatVietnameseDate } from "../../utils/helpers";
 
@@ -42,31 +41,11 @@ export default function OrderManagement() {
   const [totalItems, setTotalItems] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
-
-  const ORDER_FLOW = [
-    { key: "PENDING", label: "Chờ xác nhận" },
-    { key: "PROCESSING", label: "Đang xử lý" },
-    { key: "SHIPPED", label: "Đã gửi hàng" },
-    { key: "DELIVERED", label: "Đã giao hàng" },
-  ];
-
-  const CANCEL_STEP = { key: "CANCELLED", label: "Đã huỷ" };
-
-  const historyMap = {};
-  (selectedOrder?.status.history || []).forEach((item) => {
-    historyMap[item.status] = item;
-  });
-
-  const stepsToRender = [...ORDER_FLOW];
-  if (selectedOrder?.status.current === "CANCELLED") {
-    const lastStatusBeforeCancel = selectedOrder?.status.history
-      .reverse()
-      .find((h) => h.status !== "CANCELLED")?.status;
-
-    const insertIndex =
-      ORDER_FLOW.findIndex((s) => s.key === lastStatusBeforeCancel) + 1;
-    stepsToRender.splice(insertIndex, 0, CANCEL_STEP);
-  }
+  const {
+    shipping_address: {
+      address: { province, ward, district, street } = {},
+    } = {},
+  } = selectedOrder || {};
 
   const handleFilterChange = (type) => {
     setFilterType(type);
@@ -193,7 +172,7 @@ export default function OrderManagement() {
     },
     {
       name: "Địa chỉ",
-      selector: (row) => row.addressString,
+      selector: (row) => row.full_address,
       sortable: false,
       width: "300px",
       wrap: true,
@@ -396,9 +375,7 @@ export default function OrderManagement() {
               </p>
               <p className="col-span-2">
                 <strong>Địa chỉ:</strong>{" "}
-                <AddressDisplay
-                  address={selectedOrder.shipping_address.address}
-                />
+                {`${street}, ${ward}, ${district}, ${province}`}
               </p>
             </div>
 
@@ -421,38 +398,10 @@ export default function OrderManagement() {
                 <p>
                   <strong>Lịch sử trạng thái:</strong>
                 </p>
-                <Steps
-                  size="small"
-                  current={stepsToRender.findIndex(
-                    (s) => s.key === selectedOrder.status.current
-                  )}
-                >
-                  {stepsToRender.map((step) => {
-                    const historyItem = historyMap[step.key];
-                    const isCancelled = step.key === "CANCELLED";
-
-                    return (
-                      <Steps.Step
-                        key={step.key}
-                        status={
-                          isCancelled
-                            ? "error"
-                            : historyItem
-                            ? "finish"
-                            : "wait"
-                        }
-                        title={step.label}
-                        description={
-                          historyItem
-                            ? `${dayjs(historyItem.updated_at).format(
-                                "HH:mm:ss D/M/YYYY"
-                              )}: ${historyItem.note}`
-                            : "Chưa có dữ liệu"
-                        }
-                      />
-                    );
-                  })}
-                </Steps>
+                <StepOrderStatus
+                  currentStatus={selectedOrder.status.current}
+                  history={selectedOrder.status.history}
+                />
               </>
             )}
 
