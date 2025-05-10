@@ -35,21 +35,6 @@ const menuItems = [
     ),
   },
   {
-    key: `${path.homeAdmin}/${path.productManagement}`,
-    icon: <ProjectOutlined />,
-    label: <NavLink to={`${path.homeAdmin}/${path.productManagement}`}>Quản lý Sản phẩm</NavLink>,
-
-  },
-  {
-    key: `${path.homeAdmin}/${path.userManagement}`,
-    icon: <TeamOutlined />,
-    label: (
-      <NavLink to={`${path.homeAdmin}/${path.userManagement}`}>
-        Quản lý người dùng
-      </NavLink>
-    ),
-  },
-  {
     key: `${path.homeAdmin}/${path.categoryManagement}`,
     icon: <ProductOutlined />,
     label: (
@@ -60,11 +45,26 @@ const menuItems = [
     ),
   },
   {
+    key: `${path.homeAdmin}/${path.productManagement}`,
+    icon: <ProjectOutlined />,
+    label: <NavLink to={`${path.homeAdmin}/${path.productManagement}`}>Quản lý Sản phẩm</NavLink>,
+
+  },
+  {
     key: `${path.homeAdmin}/${path.orderManagement}`,
     icon: <MessageOutlined />,
     label: (
       <NavLink to={`${path.homeAdmin}/${path.orderManagement}`}>
         Quản lý đơn hàng
+      </NavLink>
+    ),
+  },
+  {
+    key: `${path.homeAdmin}/${path.userManagement}`,
+    icon: <TeamOutlined />,
+    label: (
+      <NavLink to={`${path.homeAdmin}/${path.userManagement}`}>
+        Quản lý người dùng
       </NavLink>
     ),
   },
@@ -88,18 +88,18 @@ export default function DefaultLayoutAdmin() {
 
   // User dropdown menu items
   const userMenuItems = [
-    {
-      key: "profile",
-      icon: <UserOutlined />,
-      label: "Hồ sơ của tôi",
-      onClick: () => navigate("/admin/profile"),
-    },
-    {
-      key: "settings",
-      icon: <SettingOutlined />,
-      label: "Cài đặt",
-      onClick: () => navigate("/admin/settings"),
-    },
+    // {
+    //   key: "profile",
+    //   icon: <UserOutlined />,
+    //   label: "Hồ sơ của tôi",
+    //   onClick: () => navigate("/admin/profile"),
+    // },
+    // {
+    //   key: "settings",
+    //   icon: <SettingOutlined />,
+    //   label: "Cài đặt",
+    //   onClick: () => navigate("/admin/settings"),
+    // },
     {
       type: "divider",
     },

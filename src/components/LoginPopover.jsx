@@ -4,16 +4,23 @@ import {
   EyeOutlined,
   QuestionCircleOutlined,
   ShoppingOutlined,
+  HomeOutlined,
 } from "@ant-design/icons";
 import { Button, Popover } from "antd";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useAuth } from "../hooks/AuthContext";
 import { path } from "../constants/path";
 
 export default function LoginPopover() {
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, logout, loading } = useAuth();
   const [popoverOpen, setPopoverOpen] = useState(false);
+
+  useEffect(() => {
+    console.log("Loading state:", loading);
+    
+    console.log("User data:", user);
+  }, [user, loading]);
 
   const handleLogout = () => {
     logout();
@@ -52,7 +59,20 @@ export default function LoginPopover() {
             Đã xem gần đây
           </span>
         </Link>
-        <div className="border-t border-line-border my-1"></div>
+        {
+          user?.role === "ADMIN" && (
+            <Link
+              to={path.homeAdmin}
+              onClick={() => setPopoverOpen(false)}
+              className="flex items-center gap-2 py-2"
+            >
+              <HomeOutlined className="!text-title text-xl" />
+              <span className="hover:underline font-semibold !text-title">
+                Quản trị viên
+              </span>
+            </Link>
+          )
+        }
         <div
           onClick={handleLogout}
           className="flex items-center gap-2 py-2 cursor-pointer"
