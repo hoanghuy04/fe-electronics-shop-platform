@@ -52,7 +52,10 @@ export default function CartStepFour() {
           <h2 className=" text-title py-3 ">
             ĐƠN HÀNG <strong className="ml-1">#{order?.id}</strong>
           </h2>
-          <Link to="/" className="text-sub font-semibold">
+          <Link
+            to={`/account/order-history/${order.id}`}
+            className="text-sub font-semibold"
+          >
             Quản lý đơn hàng
           </Link>
         </div>

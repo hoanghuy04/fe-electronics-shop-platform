@@ -55,6 +55,7 @@ export default function CartStepThree() {
         ],
       },
       order_date: new Date().toISOString(),
+      delivered_date: "",
       payment_method: "Thanh toán khi nhận hàng",
       payment_status: "UNPAID",
       shipping_address: {

@@ -35,7 +35,7 @@ const HistoryDetail = ({ product }) => {
       </div>
       <div className="text-right">
         <p className="font-medium text-primary">
-          {product.price?.toLocaleString()}₫
+          {(product.price * (1 - product.discount)).toLocaleString()}₫
         </p>
       </div>
     </div>
