@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Button,
   Form,
@@ -12,14 +10,7 @@ import {
   Divider,
   Steps,
 } from "antd";
-import {
-  Plus,
-  LayoutDashboard,
-  PencilLine,
-  Eye,
-  FileText,
-  ShoppingBag,
-} from "lucide-react";
+import { LayoutDashboard, PencilLine, Eye, ShoppingBag } from "lucide-react";
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { orderService } from "../../services/order.service";
@@ -31,16 +22,14 @@ import {
 } from "@ant-design/icons";
 import dayjs from "dayjs";
 import TagStatus from "../../components/TagStatus";
-import useAddress from "../../hooks/useAddress";
 import AddressDisplay from "../../components/AddressDisplay";
 import HistoryCartItem from "../../components/HistoryCartItem";
+import { formatVietnameseDate } from "../../utils/helpers";
 
 export default function OrderManagement() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [orders, setOrders] = useState([]);
   const [loadingTable, setLoadingTable] = useState(true);
-  const [, setLoadingStats] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [form] = Form.useForm();
@@ -50,17 +39,9 @@ export default function OrderManagement() {
   const [pendingOrders, setPendingOrders] = useState({ value: 0, change: 0 });
   const [filterType, setFilterType] = useState("day");
   const [selectedDate, setSelectedDate] = useState(dayjs());
+  const [totalItems, setTotalItems] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(5);
-  const [totalRows, setTotalRows] = useState(0);
-
-  const statusOptions = [
-    { label: "Pending", value: "pending" },
-    { label: "Processing", value: "processing" },
-    { label: "Shipped", value: "shipped" },
-    { label: "Delivered", value: "delivered" },
-    { label: "Cancelled", value: "cancelled" },
-  ];
+  const [perPage, setPerPage] = useState(10);
 
   const ORDER_FLOW = [
     { key: "PENDING", label: "Chờ xác nhận" },
@@ -71,16 +52,10 @@ export default function OrderManagement() {
 
   const CANCEL_STEP = { key: "CANCELLED", label: "Đã huỷ" };
 
-  useEffect(() => {
-    fetchData(currentPage, perPage);
-  }, [selectedDate, filterType, currentPage, perPage]);
-
   const historyMap = {};
   (selectedOrder?.status.history || []).forEach((item) => {
     historyMap[item.status] = item;
   });
-
-  // const completedKeys = selectedOrder?.status.history.map((h) => h.status);
 
   const stepsToRender = [...ORDER_FLOW];
   if (selectedOrder?.status.current === "CANCELLED") {
@@ -95,41 +70,25 @@ export default function OrderManagement() {
 
   const handleFilterChange = (type) => {
     setFilterType(type);
-    fetchData(type, selectedDate);
   };
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    fetchData(filterType, date);
   };
 
-  useEffect(() => {
-    fetchData(currentPage, perPage);
-  }, []);
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-    fetchData(page, perPage);
-  };
-
-  const handlePerRowsChange = (newPerPage, page) => {
-    setPerPage(newPerPage);
-    fetchData(page, newPerPage);
-  };
-
-  const fetchData = async (page = 1, limit = 5) => {
+  const fetchData = async () => {
     setLoadingTable(true);
     try {
       const { data, total, currentStats, prevStats } =
         await orderService.getOrdersAndStats(
           filterType,
           selectedDate,
-          page,
-          limit
+          currentPage,
+          perPage
         );
 
       setOrders(data);
-      setTotalRows(total);
+      setTotalItems(total);
 
       const calcChange = (current, prev) => {
         if (prev === 0) return current === 0 ? 0 : 100;
@@ -156,13 +115,24 @@ export default function OrderManagement() {
     setLoadingTable(false);
   };
 
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value.toLowerCase());
+  useEffect(() => {
+    fetchData();
+  }, [selectedDate, filterType, currentPage, perPage, searchTerm]);
+
+  const handlePageChange = (page) => {
+    if (!loadingTable) {
+      setCurrentPage(page);
+    }
   };
 
-  const filteredOrders = orders.filter((order) =>
-    order.id.toLowerCase().includes(searchTerm)
-  );
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value.toLowerCase());
+    setCurrentPage(1);
+  };
+
+  const filteredOrders = searchTerm
+    ? orders.filter((order) => order.id.toLowerCase().includes(searchTerm))
+    : orders;
 
   const showModal = (order = null) => {
     setSelectedOrder(order);
@@ -195,7 +165,7 @@ export default function OrderManagement() {
 
       setIsStatusModalOpen(false);
       form.resetFields();
-      fetchData(currentPage, perPage);
+      fetchData();
     } catch (error) {
       console.error(error);
       message.error("Cập nhật thất bại");
@@ -204,11 +174,6 @@ export default function OrderManagement() {
 
   const columns = [
     {
-      name: "STT",
-      cell: (row, index) => (currentPage - 1) * perPage + index + 1,
-      width: "70px",
-    },
-    {
       name: "Mã",
       selector: (row) => row.id,
       sortable: true,
@@ -216,12 +181,9 @@ export default function OrderManagement() {
     },
     {
       name: "Ngày đặt đơn",
-      selector: (row) => {
-        const [year, month, day] = row.order_date.split("T")[0].split("-");
-        return `${day}/${month}/${year}`;
-      },
+      selector: (row) => formatVietnameseDate(row.order_date),
       sortable: true,
-      width: "150px",
+      width: "200px",
     },
     {
       name: "Tên KH",
@@ -238,7 +200,11 @@ export default function OrderManagement() {
     },
     {
       name: "Tổng tiền",
-      selector: (row) => row.total_price.toLocaleString("vi-VN") ?? "0",
+      selector: (row) => (
+        <span>
+          {row.total_price ? row.total_price.toLocaleString("vi-VN") : "0"}
+        </span>
+      ),
       sortable: true,
     },
     {
@@ -283,9 +249,8 @@ export default function OrderManagement() {
             picker={filterType}
             value={selectedDate}
             onChange={handleDateChange}
-            disabledDate={(current) =>
-              current && current > dayjs().endOf("day")
-            }
+            allowClear={false}
+            disabledDate={(current) => current && current > dayjs()}
           />
         </div>
       </h2>
@@ -293,7 +258,7 @@ export default function OrderManagement() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         <OverviewItem
           title="Tổng doanh thu"
-          value={totalRevenue.value.toLocaleString("en-US", {
+          value={totalRevenue?.value.toLocaleString("en-US", {
             style: "currency",
             currency: "USD",
           })}
@@ -345,19 +310,18 @@ export default function OrderManagement() {
           <Skeleton active paragraph={{ rows: 4 }} />
         ) : (
           <DataTable
+            key={`table-${currentPage}`}
             columns={columns}
             data={filteredOrders}
             pagination
             paginationServer
-            paginationTotalRows={totalRows}
+            paginationTotalRows={totalItems}
             paginationPerPage={perPage}
-            paginationRowsPerPageOptions={[5, 10, 15, 20]}
-            noDataComponent="Không tìm thấy order nào nào"
-            // selectableRows
-            // onSelectedRowsChange={handleRowSelected}
-            // selectableRowsHighlight
             onChangePage={handlePageChange}
-            onChangeRowsPerPage={handlePerRowsChange}
+            onChangeRowsPerPage={(newPerPage, page) => {
+              setPerPage(newPerPage);
+              setCurrentPage(page);
+            }}
             highlightOnHover
             customStyles={{
               headCells: {

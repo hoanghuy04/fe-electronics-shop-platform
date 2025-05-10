@@ -46,10 +46,9 @@ export default function CartStepThree() {
       payment_status: "UNPAID",
     };
 
-    setOrder(completedOrder);
-
     const response = await orderService.createOrder(completedOrder);
     if (response) {
+      setOrder(completedOrder);
       handlePlaceOrder(path.cartStepFour);
       localStorage.removeItem("cart");
     }

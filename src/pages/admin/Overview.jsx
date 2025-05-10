@@ -63,7 +63,9 @@ const CustomTooltip = ({ active, payload, label, formatter }) => {
         <p className="text-gray-700 font-medium">{`${label}`}</p>
         {payload.map((entry, index) => (
           <p key={`item-${index}`} style={{ color: entry.color }}>
-            {`${entry.name}: ${formatter ? formatter(entry.value) : entry.value}`}
+            {`${entry.name}: ${
+              formatter ? formatter(entry.value) : entry.value
+            }`}
           </p>
         ))}
       </div>
@@ -360,7 +362,8 @@ const Dashboard = () => {
       const recentOrdersData = recentOrdersResponse.map((order) => ({
         key: order.id,
         id: order.id,
-        customer: users.find((cust) => cust.id == order.customer_id)?.name || "N/A",
+        customer:
+          users.find((cust) => cust.id == order.customer_id)?.name || "N/A",
         date: new Date(order.order_date).toLocaleDateString("vi-VN"),
         amount: order.total_price || 0,
         status:

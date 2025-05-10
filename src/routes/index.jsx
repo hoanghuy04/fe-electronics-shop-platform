@@ -89,7 +89,8 @@ const routes = [
       { path: path.paymentInstruction, element: <PaymentInstructions /> },
       { path: "*", element: <Navigate to={path.notFound} /> },
     ],
-  }, {
+  },
+  {
     path: "",
     element: <RejectedRoute />,
     children: [

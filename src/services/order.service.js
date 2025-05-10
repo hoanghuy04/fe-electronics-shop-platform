@@ -12,24 +12,29 @@ export const orderService = {
     try {
       const response = await post("orders", order);
 
-      for (const item of order.products) {
-        const productId = item.id;
-        const quantity = item.quantity;
+      // for (const item of order.products) {
+      //   const productId = item.id;
+      //   const quantity = item.quantity;
 
-        const product = await productService.getProductById(productId);
+      //   try {
+      //     const product = await productService.getProductById(productId);
 
-        if (product.stock >= quantity) {
-          const updatedProduct = {
-            ...product,
-            stock: product.stock - quantity,
-            total_sales: product.total_sales + quantity,
-          };
+      //     if (product.stock >= quantity) {
+      //       const updatedProduct = {
+      //         ...product,
+      //         stock: product.stock - quantity,
+      //         total_sales: product.total_sales + quantity,
+      //       };
 
-          await productService.updateProduct(productId, updatedProduct);
-        } else {
-          console.error(`Sản phẩm "${item.title}" không đủ hàng trong kho.`);
-        }
-      }
+      //       await productService.updateProduct(productId, updatedProduct);
+      //     } else {
+      //       console.warn(`Sản phẩm "${item.title}" không đủ hàng.`);
+      //     }
+      //   } catch (err) {
+      //     console.error(`Lỗi cập nhật sản phẩm "${item.title}":`, err.message);
+      //     break;
+      //   }
+      // }
 
       return response;
     } catch (error) {
@@ -231,13 +236,7 @@ export const orderService = {
       };
     }
   },
-
-  getOrdersAndStats: async (
-    type = "day",
-    date = dayjs(),
-    page = 1,
-    limit = 5
-  ) => {
+  getOrdersAndStats: async (type = "day", date = dayjs(), page, limit) => {
     try {
       const allOrders = await get("orders");
 
@@ -258,14 +257,14 @@ export const orderService = {
       for (const order of allOrders) {
         const orderKey = dayjs.utc(order.order_date).local().format(format);
 
-        const revenue = order.total_price;
+        const revenue = order.total_price ?? 0;
 
         const stats =
           orderKey === currentKey
             ? currentStats
             : orderKey === prevKey
-              ? prevStats
-              : null;
+            ? prevStats
+            : null;
 
         if (orderKey === currentKey) {
           filtered.push(order);
@@ -286,7 +285,7 @@ export const orderService = {
       const total = sorted.length;
       const start = (page - 1) * limit;
       const paginated = sorted.slice(start, start + limit);
-
+      console.log(paginated);
       return {
         data: paginated,
         total,
@@ -364,7 +363,7 @@ export const orderService = {
       const allOrders = await get("orders");
       if (!Array.isArray(allOrders)) throw new Error("Invalid order data");
 
-      return allOrders
+      return allOrders;
     } catch (error) {
       console.error("Lỗi khi lấy tất cả đơn hàng:", error);
       return [];

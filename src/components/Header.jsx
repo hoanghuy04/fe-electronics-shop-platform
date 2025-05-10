@@ -14,6 +14,7 @@ import { useAuth } from "../hooks/AuthContext";
 import { ProductContext } from "../hooks/ProductContext";
 import { path } from "../constants/path";
 import { BannerService } from "../services/banner.service";
+import LoginPopover from "./LoginPopover";
 
 const { Search } = Input;
 
@@ -198,7 +199,9 @@ const Header = () => {
         : [
             {
               key: "no-results",
-              label: <p className="text-gray-500">Không tìm thấy sản phẩm nào</p>,
+              label: (
+                <p className="text-gray-500">Không tìm thấy sản phẩm nào</p>
+              ),
               disabled: true,
             },
           ],
@@ -223,6 +226,7 @@ const Header = () => {
                 key: "all",
                 onClick: () => handleCategoryFilter("all"),
               },
+              // eslint-disable-next-line no-unsafe-optional-chaining
               ...categories?.map((item) => ({
                 label: item.name,
                 key: item.id,
@@ -290,7 +294,7 @@ const Header = () => {
         </div>
 
         {/* Tên user */}
-        {Object.keys(user).length > 0 ? (
+        {/* {Object.keys(user).length > 0 ? (
           <Dropdown overlay={userMenu} trigger={["click"]}>
             <div className="flex items-center cursor-pointer">
               <UserOutlined className="mr-2 text-lg" />
@@ -305,7 +309,8 @@ const Header = () => {
             <UserOutlined className="mr-2 text-xl" />
             <span>Đăng nhập</span>
           </Link>
-        )}
+        )} */}
+        <LoginPopover />
 
         <div className="hidden lg:block">
           {/* Left Banner */}

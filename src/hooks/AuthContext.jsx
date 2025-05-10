@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
     }
     setLoading(false);
-    
   }, []);
 
   const login = async (userData) => {
@@ -56,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     setUser({});
     setIsAuthenticated(false);
     localStorage.removeItem("user");
-    
+
     if (role === "ADMIN") {
       navigate(path.login);
     }
@@ -67,6 +66,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         user,
         isAuthenticated,
+        setIsAuthenticated,
         login,
         register,
         logout,
