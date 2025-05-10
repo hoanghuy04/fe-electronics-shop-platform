@@ -60,6 +60,7 @@ export const orderService = {
         ...order,
         ...updatedFields,
         payment_status: isDelivered ? "PAID" : order.payment_status,
+        delivered_date: isDelivered ? now : order.delivered_date, // 👉 thêm dòng này
         status: {
           current: updatedStatus,
           history: [...(order.status?.history || []), newStatusHistory],
@@ -124,7 +125,7 @@ export const orderService = {
       return null;
     }
   },
-  getOrdersByStatus: async (userId, status, page = 1, limit = 5) => {
+  getOrdersByStatus: async (userId, status = "ALL", page = 1, limit = 5) => {
     try {
       const allOrders = await get(`orders?customer_id=${userId}`);
 

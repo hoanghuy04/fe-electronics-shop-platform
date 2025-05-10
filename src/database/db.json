@@ -1474,7 +1474,7 @@
   ],
   "orders": [
     {
-      "id": "HD20250510124007251",
+      "id": "HD20250510131743861",
       "shipping_address": {
         "full_name": "Huyền",
         "phone": "0964424149",
@@ -1485,34 +1485,35 @@
           "ward": "Phường Hắc Dịch"
         }
       },
-      "note": "hehe",
+      "note": "",
       "customer_id": "1",
       "products": [
         {
-          "id": "13",
-          "title": "Laptop gaming HP OMEN 16 wf0129TX 8W943PA",
+          "id": "53",
+          "title": "Màn hình Gigabyte M27Q X",
           "quantity": 1,
-          "price": 64990000,
-          "discount": 0.08
+          "price": 9990000,
+          "discount": 0.1
         }
       ],
-      "total_price": 59790800,
+      "total_price": 8991000,
       "status": {
         "current": "PENDING",
         "history": [
           {
             "status": "PENDING",
-            "updated_at": "2025-05-10T05:40:07.197Z",
+            "updated_at": "2025-05-10T06:17:43.475Z",
             "note": "Đơn hàng được tạo"
           }
         ]
       },
-      "order_date": "2025-05-10T05:40:07.197Z",
+      "order_date": "2025-05-10T06:17:43.475Z",
+      "delivered_date": "",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     },
     {
-      "id": "HD20250510124025158",
+      "id": "HD20250510131935049",
       "shipping_address": {
         "full_name": "Huyền",
         "phone": "0964424149",
@@ -1523,29 +1524,30 @@
           "ward": "Phường Hắc Dịch"
         }
       },
-      "note": "hehe",
+      "note": "",
       "customer_id": "1",
       "products": [
         {
-          "id": "14",
-          "title": "Laptop Gaming Acer Nitro 5 AN515-58",
+          "id": "32",
+          "title": "Laptop ACER Nitro 5 AN515-45",
           "quantity": 1,
-          "price": 34990000,
+          "price": 24990000,
           "discount": 0.1
         }
       ],
-      "total_price": 31491000,
+      "total_price": 22491000,
       "status": {
         "current": "PENDING",
         "history": [
           {
             "status": "PENDING",
-            "updated_at": "2025-05-10T05:40:25.659Z",
+            "updated_at": "2025-05-10T06:19:35.872Z",
             "note": "Đơn hàng được tạo"
           }
         ]
       },
-      "order_date": "2025-05-10T05:40:25.659Z",
+      "order_date": "2025-05-10T06:19:35.873Z",
+      "delivered_date": "",
       "payment_method": "Thanh toán khi nhận hàng",
       "payment_status": "UNPAID"
     }

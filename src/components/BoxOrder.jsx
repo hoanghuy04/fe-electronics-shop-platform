@@ -1,27 +1,11 @@
-import { Button, Card, Tag } from "antd";
-import React, { useState } from "react";
+import { Card } from "antd";
+import { useState } from "react";
 import HistoryCartItem from "./HistoryCartItem";
 import { Link } from "react-router-dom";
+import TagStatus from "./TagStatus";
 
 export default function BoxOrder({ order }) {
   const [showAllProducts, setShowAllProducts] = useState(false);
-  const statusColorMap = {
-    PENDING: "processing",
-    CONFIRMED: "cyan",
-    SHIPPED: "blue",
-    DELIVERED: "green",
-    CANCELLED: "red",
-  };
-
-  const statusLabelMap = {
-    PENDING: "Mới",
-    CONFIRMED: "Đang xử lý",
-    SHIPPED: "Đang vận chuyển",
-    DELIVERED: "Hoàn thành",
-    CANCELLED: "Huỷ",
-  };
-
-  const status = order.status?.current;
 
   const handleToggleProducts = () => {
     setShowAllProducts(!showAllProducts);
@@ -31,10 +15,7 @@ export default function BoxOrder({ order }) {
     <Card className="!mb-5">
       <div className="flex items-start mb-4">
         <div className="flex !justify-between w-full border-b border-line-border pb-5">
-          <Tag color={statusColorMap[status] || "default"} className="mr-2">
-            {statusLabelMap[status] || "Không xác định"}
-          </Tag>
-
+          <TagStatus status={order.status.current} />
           <div className="font-semibold">#{order.id}</div>
         </div>
       </div>
