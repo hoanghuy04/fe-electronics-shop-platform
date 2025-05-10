@@ -38,7 +38,6 @@ const ProductManagement = lazy(() =>
   import("../pages/admin/ProductManagement")
 );
 const OrderManagement = lazy(() => import("../pages/admin/OrderManagement"));
-const Reports = lazy(() => import("../pages/admin/Reports"));
 const UserManagement = lazy(() => import("../pages/admin/UserManagement"));
 
 const routes = [
@@ -110,7 +109,6 @@ const routes = [
           { path: "", element: <Overview /> },
           { path: path.productManagement, element: <ProductManagement /> },
           { path: path.orderManagement, element: <OrderManagement /> },
-          { path: path.report, element: <Reports /> },
           { path: path.userManagement, element: <UserManagement /> },
           { path: path.brandManagement, element: <BrandManagement /> },
           { path: path.categoryManagement, element: <CategoryManagement /> },

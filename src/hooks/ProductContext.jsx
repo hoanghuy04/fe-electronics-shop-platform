@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect } from "react";
 import { productService } from "../services/product.service";
 import { localStorageService } from "../services/localstorage.service";
+import { categoryService } from "../services/category.service";
+import { brandService } from "../services/brand.service";
 
 export const ProductContext = createContext();
 
@@ -27,13 +29,13 @@ export const ProductProvider = ({ children }) => {
             }
 
             try {
-                const categoriesData = await productService.getListOfCategories();
+                const categoriesData = await categoryService.getListOfCategories();
                 setCategories(categoriesData);
 
                 const productsData = await productService.getProducts();
                 setProducts(productsData);
 
-                const brandsData = await productService.getListOfBrands();
+                const brandsData = await brandService.getAllBrands();
                 setBrands(brandsData);
 
             } catch (error) {

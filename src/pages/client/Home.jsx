@@ -61,7 +61,7 @@ const Home = () => {
     const fetchBanners = async () => {
       try {
         const carouselBanners = await BannerService.getBannersByType("banner_carousel");
-        
+
         setCarouselImages(carouselBanners);
       } catch (error) {
         console.error(error);
@@ -173,28 +173,26 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
-            <div className="flex justify-between items-center mb-6">
-              <div className="text-2xl font-bold ml-3">Sản phẩm đã xem</div>
-            </div>
-            <Carousel
-              slidesToShow={5}
-              slidesToScroll={1}
-              arrows
-              autoplay
-              className="p-6"
-            >
-              {viewedProducts.length > 0 ? (
-                viewedProducts.map((p) => (
+          {viewedProducts.length > 0 && (
+            <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
+              <div className="flex justify-between items-center mb-6">
+                <div className="text-2xl font-bold ml-3">Sản phẩm đã xem</div>
+              </div>
+              <Carousel
+                slidesToShow={5}
+                slidesToScroll={1}
+                arrows
+                autoplay
+                className="p-6"
+              >
+                {viewedProducts.map((p) => (
                   <div key={p.id}>
                     <ProductCard product={p} />
                   </div>
-                ))
-              ) : (
-                <div>Không có sản phẩm nào để hiển thị</div>
-              )}
-            </Carousel>
-          </div>
+                ))}
+              </Carousel>
+            </div>
+          )}
 
           <div className="mt-6 rounded-lg shadow-lg bg-white py-12 px-8">
             <div className="flex justify-between items-center mb-6">
@@ -330,9 +328,8 @@ const Home = () => {
                   <NavLink
                     key={index}
                     to={`products/all/brand/${brand.name}`}
-                    className={`${
-                      categoryColor[index % 6]
-                    } rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
+                    className={`${categoryColor[index % 6]
+                      } rounded-xl p-6 text-center transition-transform hover:scale-105 hover:shadow-md`}
                   >
                     <div className="flex justify-center mb-4">{brand.icon}</div>
                     <h3 className="font-medium">{brand.name}</h3>

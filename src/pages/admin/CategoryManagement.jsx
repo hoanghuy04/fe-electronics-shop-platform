@@ -1,217 +1,154 @@
-import { Button, Tag, Modal, Form, Input, message, Checkbox, Tooltip, Select } from "antd"
+import { Button, Form, Input, Modal, message, Skeleton, Tag, Switch, Select, DatePicker } from "antd";
 import {
-  PencilLine,
-  BarChart3,
-  Package,
-  FolderOpen,
-  LayoutDashboard,
   Plus,
+  LayoutDashboard,
+  PencilLine,
+  PackagePlus,
   Search,
-  FolderX,
-  FolderPlus,
   Eye,
   EyeOff,
-  TagIcon,
-} from "lucide-react"
-import { use, useContext, useEffect, useState } from "react"
-import DataTable from "react-data-table-component"
-import { ProductContext } from './../../hooks/ProductContext';
-import { DualAxes } from '@ant-design/plots';
-import { categoryService } from './../../services/category.service';
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import DataTable from "react-data-table-component";
+import { categoryService } from "../../services/category.service";
+import { productService } from "../../services/product.service";
+import { orderService } from "../../services/order.service";
+import { OverviewItem } from "../../components/OverviewItem";
+import {
+  DollarOutlined,
+  ShoppingCartOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import dayjs from "dayjs";
+import { generateSlug } from "../../utils/slugUtils";
 
 export default function CategoryManagement() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [modalMode, setModalMode] = useState("add") // "add" hoặc "edit"
-  const [selectedCategory, setSelectedCategory] = useState({})
-  const [selectedRows, setSelectedRows] = useState([])
-  const { products, categories } = useContext(ProductContext)
-  const [tableData, setTableData] = useState([])
-  const [filteredData, setFilteredData] = useState([])
-  const [form] = Form.useForm()
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [loadingTable, setLoadingTable] = useState(true);
+  const [loadingStats, setLoadingStats] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [form] = Form.useForm();
+  const [revenue, setRevenue] = useState({ value: 0, change: 0 });
+  const [totalSold, setTotalSold] = useState({ value: 0, change: 0 });
+  const [newCategories, setNewCategories] = useState({ value: 0, change: 0 });
+  const [filterType, setFilterType] = useState("day");
+  const [selectedDate, setSelectedDate] = useState(dayjs());
 
-  // Search filters
-  const [filters, setFilters] = useState({
-    name: "",
-    status: "",
-  })
-
-  // Card 2: Category status
-  const categoryStatus = () => {
-    const active = tableData.filter((category) => category.active === 1).length
-    const inactive = tableData.filter((category) => category.active === 0).length
-    return { active, inactive }
-  }
-
-  // Card 3: Top categories by sales
-  const topCategories = () => {
-    // Calculate total sales for each category
-    const categorySales = {}
-
-    categories.forEach((category) => {
-      const sales = products
-        .filter((product) => product.category_id == category.id)
-        .reduce((sum, product) => sum + product.total_sales, 0)
-
-      categorySales[category.id] = {
-        id: category.id,
-        name: category.name,
-        totalSales: sales,
-        active: category.active,
-      }
-    })
-
-    // Sort by total sales and get top 5
-    return Object.values(categorySales)
-      .sort((a, b) => b.totalSales - a.totalSales)
-      .slice(0, 5)
-  }
-
-  // Card 4: Product distribution by category
-  const productsByCategory = () => {
-    const categoryCounts = {};
-    products.forEach((product) => {
-      const categoryName = categories.find((category) => category.id == product.category_id)?.name || "Khác";
-      categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1;
-    });
-
-    return Object.entries(categoryCounts)
-      .sort((a, b) => b[1] - a[1])
-      .reduce((acc, [category, count]) => {
-        acc[category] = count;
-        return acc;
-      }, {});
+  const handleFilterChange = (type) => {
+    setFilterType(type);
+    fetchCategories(type, selectedDate);
   };
 
-  const handleRowSelected = ({ selectedRows }) => {
-    setSelectedRows(selectedRows)
-  }
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    fetchCategories(filterType, date);
+  };
 
-  const toggleCategoryStatus = async () => {
-    if (selectedRows.length === 0) {
-      message.warning("Vui lòng chọn ít nhất một danh mục!")
-      return
-    }
+  useEffect(() => {
+    fetchCategoryTableData();
+    fetchCategories();
+  }, []);
 
-    try {
-      // Toggle active status for selected categories
-      const updatedCategories = tableData.map((category) => {
-        if (selectedRows.some((row) => row.id === category.id)) {
-          return { ...category, active: category.active === 1 ? 0 : 1 }
-        }
-        return category
+  const fetchCategoryTableData = async () => {
+    setLoadingTable(true);
+    const [allCategories, countMap, salesMap] = await Promise.all([
+      categoryService.getListOfCategories(),
+      categoryService.countProductsPerCategory(),
+      categoryService.sumTotalSalesPerCategory(),
+    ]);
+    const revenueMap = await orderService.getRevenueGroupedByCategory();
+
+    const updated = await Promise.all(
+      allCategories.map(async (c) => {
+        const avgPrice = await categoryService.getAveragePriceByCategory(c.id);
+        return {
+          ...c,
+          totalProducts: countMap[c.id] || 0,
+          totalSales: salesMap[c.id] || 0,
+          avgPrice,
+          totalRevenue: revenueMap[c.id] || 0,
+        };
       })
+    );
+    setCategories(updated);
+    setLoadingTable(false);
+  };
 
-      setTableData(updatedCategories)
-      setSelectedRows([])
-      message.success(`Đã cập nhật trạng thái ${selectedRows.length} danh mục thành công`)
-    } catch (error) {
-      console.error("Failed to update categories:", error)
-      message.error("Đã xảy ra lỗi khi cập nhật danh mục, vui lòng thử lại")
-    }
-  }
+  const fetchCategories = async (type = filterType, date = selectedDate) => {
+    setLoadingStats(true);
 
-  useEffect(() => {
-    setTableData(categories)
-    setFilteredData(categories)
-  }, [categories])
+    const stats = await categoryService.getOverviewStatsByFilter(type, date);
+    const prevDate = dayjs(date).subtract(1, type);
+    const prevStats = await categoryService.getOverviewStatsByFilter(type, prevDate);
 
-  // Apply filters to data
-  useEffect(() => {
-    let result = [...tableData]
+    const calcChange = (current, prev) => {
+      if (prev === 0) return current === 0 ? 0 : 100;
+      return Number((((current - prev) / prev) * 100).toFixed(2));
+    };
 
-    if (filters.name) {
-      result = result.filter((item) => item.name.toLowerCase().includes(filters.name.toLowerCase()))
-    }
+    const revenueChange = calcChange(stats.revenue, prevStats.revenue);
+    const totalSoldChange = calcChange(stats.totalSold, prevStats.totalSold);
+    const newCategoriesChange = calcChange(stats.newCategories, prevStats.newCategories);
+    setRevenue({ value: stats.revenue, change: revenueChange });
+    setTotalSold({ value: stats.totalSold, change: totalSoldChange });
+    setNewCategories({ value: stats.newCategories, change: newCategoriesChange });
 
-    if (filters.status === "active") {
-      result = result.filter((item) => item.active === 1)
-    } else if (filters.status === "inactive") {
-      result = result.filter((item) => item.active === 0)
-    }
+    setLoadingStats(false);
+  };
 
-    setFilteredData(result)
-  }, [filters, tableData])
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value.toLowerCase());
+  };
 
-  const showModal = (category = {}) => {
-    setSelectedCategory(category)
-    setModalMode(category.id ? "edit" : "add")
-    setIsModalOpen(true)
+  const filteredCategories = categories.filter((category) =>
+    category.name.toLowerCase().includes(searchTerm)
+  );
 
-    if (!category.id) {
-      form.resetFields()
-    }
-  }
-
-  const showAddCategoryModal = () => {
-    showModal()
-  }
-
-  const handleOk = () => {
-    form.submit()
-  }
+  const showModal = (category = null) => {
+    setSelectedCategory(category);
+    setIsModalOpen(true);
+    form.setFieldsValue(category || { name: "", slug: "", active: true });
+  };
 
   const handleCancel = () => {
-    setIsModalOpen(false)
-    setModalMode("add")
-    form.resetFields()
-  }
+    setIsModalOpen(false);
+    form.resetFields();
+  };
+
+  const handleOk = () => {
+    form.submit();
+  };
 
   const onFinish = async (values) => {
     try {
-      const categoryData = {
-        ...values,
-        active: values.active ? 1 : 0,
-        created_date: new Date().toISOString(),
-      }
-
-      if (modalMode === "edit" && selectedCategory.id) {
-        // Update existing category
-        const updatedCategory = categoryService.updateCategory(selectedCategory.id, categoryData)
-        console.log("Updated category:", updatedCategory);
-        const updatedCategories = tableData.map((category) =>
-          category.id === selectedCategory.id ? { ...category, ...categoryData } : category,
-        )
-        setTableData(updatedCategories)
-        setIsModalOpen(false)
+      if (selectedCategory) {
+        values.created_date = selectedCategory.created_date;
+        const result = await categoryService.updateCategory(selectedCategory.id, values);
+        if (result) message.success("Cập nhật danh mục thành công");
       } else {
-        // Add new category
         const newCategory = {
-          id: String(tableData.length + 1),
-          ...categoryData,
-        }
-
-        const createdCategory = await categoryService.addCategory(newCategory)
-        console.log("Created category:", createdCategory);
-        // Add new category to the table data
-        setTableData([newCategory, ...tableData])
-        setIsModalOpen(false)
+          ...values,
+          active: values.active ? 1 : 0,
+          created_date: new Date().toISOString(),
+        };
+        await categoryService.addCategory(newCategory);
+        message.success("Thêm danh mục thành công");
       }
-
-      form.resetFields()
-      setFilters([])
-      message.success(modalMode === "edit" ? "Cập nhật danh mục thành công" : "Thêm danh mục thành công")
-    } catch (error) {
-      console.log("Operation failed:", error)
-      message.error("Đã xảy ra lỗi, vui lòng thử lại")
+      fetchCategories();
+      fetchCategoryTableData();
+      handleCancel();
+    } catch (err) {
+      message.error(err.message || "Đã xảy ra lỗi");
     }
-  }
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo)
-    message.error("Vui lòng kiểm tra lại thông tin")
-  }
+  };
 
   const columns = [
     {
-      name: "Tên danh mục",
+      name: "Tên",
       selector: (row) => row.name,
       sortable: true,
-      cell: (row) => (
-        <div className="flex items-center py-2">
-          <FolderOpen className="mr-2 text-blue-500" size={18} />
-          <span>{row.name}</span>
-        </div>
-      ),
     },
     {
       name: "Slug",
@@ -220,300 +157,176 @@ export default function CategoryManagement() {
     },
     {
       name: "Ngày tạo",
-      selector: (row) => row.created_date,
-      sortable: true,
-      cell: (row) => new Date(row.created_date).toLocaleDateString("vi-VN"),
-    },
-    {
-      name: "Số sản phẩm",
       selector: (row) => {
-        const count = products.filter((product) => product.category_id == row.id).length
-        return count
+        const [year, month, day] = row.created_date.split("T")[0].split("-");
+        return `${day}/${month}/${year}`;
       },
       sortable: true,
     },
     {
-      name: "Tổng doanh số",
-      selector: (row) => {
-        const sales = products
-          .filter((product) => product.category_id === row.id)
-          .reduce((sum, product) => sum + product.total_sales, 0)
-        return sales
-      },
+      name: "Giá trung bình",
+      selector: (row) => row.avgPrice?.toLocaleString("vi-VN") ?? "0",
       sortable: true,
-      cell: (row) => {
-        const sales = products
-          .filter((product) => product.category_id === row.id)
-          .reduce((sum, product) => sum + product.total_sales, 0)
-        return <span>{sales} sản phẩm</span>
-      },
+    },
+    {
+      name: "Tổng SP",
+      selector: (row) => row.totalProducts ?? 0,
+      sortable: true,
+    },
+    {
+      name: "Tổng đã bán",
+      selector: (row) => row.totalSales ?? 0,
+      sortable: true,
+    },
+    {
+      name: "Doanh thu",
+      selector: (row) => row.totalRevenue?.toLocaleString("vi-VN") ?? "0",
+      sortable: true,
     },
     {
       name: "Trạng thái",
-      selector: (row) => row.active,
+      selector: (row) =>
+        row.active ? (
+          <Tag color="orange">Đang hoạt động</Tag>
+        ) : (
+          <Tag color="red">Đã ẩn</Tag>
+        ),
       sortable: true,
-      cell: (row) => (
-        <Tag color={row.active === 1 ? "green" : "red"}>{row.active === 1 ? "Đang hoạt động" : "Đã ẩn"}</Tag>
-      ),
     },
     {
-      name: "",
+      name: "Hành động",
+      center: "true",
       cell: (row) => (
-        <div className="flex justify-center">
-          <Tooltip title="Chỉnh sửa">
-            <PencilLine
-              className="cursor-pointer text-blue-500 mr-2"
-              size={18}
-              onClick={() => {
-                setSelectedCategory(row)
-                showModal(row)
-              }}
-            />
-          </Tooltip>
-          <Tooltip title={row.active === 1 ? "Ẩn danh mục" : "Hiện danh mục"}>
-            {row.active === 1 ? (
-              <EyeOff
-                className="cursor-pointer text-red-500"
-                size={18}
-                onClick={() => {
-                  const updatedCategory = { ...row, active: 0 }
-                  categoryService.updateCategory(updatedCategory.id, updatedCategory)
-                  .then(() => {
-                    message.success("Cập nhật trạng thái danh mục thành công")
-                  })
-
-
-                  const updatedCategories = tableData.map((category) =>
-                    category.id === row.id ? updatedCategory : category,
-                  )
-                  setTableData(updatedCategories)
-                }}
-              />
+        <div className="flex items-center">
+          <Button type="link" onClick={() => showModal(row)}>
+            <PencilLine className="text-title w-4 h-4" />
+          </Button>
+          <Button
+            type="link"
+            onClick={async () => {
+              const updatedCategory = { ...row, active: row.active ? 0 : 1 };
+              await categoryService.updateCategory(row.id, updatedCategory);
+              message.success("Cập nhật trạng thái danh mục thành công");
+              fetchCategoryTableData();
+            }}
+          >
+            {row.active ? (
+              <EyeOff className="text-red-500 w-4 h-4" />
             ) : (
-              <Eye
-                className="cursor-pointer text-green-500"
-                size={18}
-                onClick={() => {
-                  const updatedCategory = { ...row, active: 1 }
-                  categoryService.updateCategory(updatedCategory.id, updatedCategory)
-                  .then(() => {
-                    message.success("Cập nhật trạng thái danh mục thành công")
-                  })
-                  const updatedCategories = tableData.map((category) =>
-                    category.id === row.id ? updatedCategory : category,
-                  )
-                  setTableData(updatedCategories)
-                }}
-              />
+              <Eye className="text-green-500 w-4 h-4" />
             )}
-          </Tooltip>
+          </Button>
         </div>
       ),
     },
-  ]
-
-  useEffect(() => {
-    if (isModalOpen && modalMode === "edit" && selectedCategory.id) {
-      form.setFieldsValue({
-        ...selectedCategory,
-        active: selectedCategory.active === 1,
-      })
-    }
-  }, [selectedCategory, isModalOpen, modalMode, form])
+  ];
 
   return (
     <div className="p-6 bg-gray-100">
-      <div className="space-y-6">
-        {/* Modal for Adding/Editing */}
-        <Modal
-          title={modalMode === "edit" ? "Cập nhật danh mục" : "Thêm danh mục mới"}
-          width={600}
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <Form
-            form={form}
-            name="CategoryForm"
-            labelCol={{ span: 6 }}
-            wrapperCol={{ span: 18 }}
-            initialValues={modalMode === "add" ? { active: true } : {}}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-            layout="horizontal"
-          >
-            <Form.Item
-              label="Tên danh mục"
-              name="name"
-              rules={[{ required: true, message: "Vui lòng nhập tên danh mục" }]}
-            >
-              <Input />
-            </Form.Item>
-
-            <Form.Item label="Slug" name="slug" rules={[{ required: true, message: "Vui lòng nhập slug" }]}>
-              <Input />
-            </Form.Item>
-
-            <Form.Item label="Trạng thái" name="active" valuePropName="checked">
-              <Checkbox>Đang hoạt động</Checkbox>
-            </Form.Item>
-          </Form>
-        </Modal>
-
-        {/* Overview Section */}
-        <h2 className="font-bold text-xl flex items-center space-x-2 mb-2 pb-2 mt-2">
+      <h2 className="font-bold text-xl flex items-center justify-between space-x-2 mb-4">
+        <div className="flex items-center">
           <LayoutDashboard className="h-6 w-6 text-blue-600 mr-2" />
           <span className="text-gray-800 text-2xl">Tổng quan</span>
-        </h2>
+        </div>
+        <div className="flex items-center gap-4">
+          <Select
+            value={filterType}
+            onChange={handleFilterChange}
+            options={[
+              { label: "Theo ngày", value: "day" },
+              { label: "Theo tháng", value: "month" },
+              { label: "Theo năm", value: "year" },
+            ]}
+          />
+          <DatePicker
+            picker={filterType}
+            value={selectedDate}
+            onChange={handleDateChange}
+            disabledDate={(current) =>
+              current && current > dayjs().endOf("day")
+            }
+          />
+        </div>
+      </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Column 1: Metrics */}
-          {/* Card 1: Total Categories */}
-          <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <div className="bg-green-100 p-3 rounded-full mr-4">
-              <Package className="h-6 w-6 text-green-600" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-700">Tổng số danh mục</h3>
-              <p className="text-3xl font-bold text-green-600">{categories.length}</p>
-            </div>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+        {loadingStats ? (
+          <Skeleton active paragraph={{ rows: 3 }} />
+        ) : (
+          <>
+            <OverviewItem
+              title="Doanh thu"
+              value={revenue.value.toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+              })}
+              icon={<ShoppingCartOutlined className="text-pink-500" />}
+              change={{ value: revenue.change, text: "so với kỳ trước" }}
+              className="bg-pink-50"
+              iconClassName="bg-white text-pink-500"
+            />
+            <OverviewItem
+              title="Tổng sản phẩm bán được"
+              value={totalSold.value.toLocaleString("en-US")}
+              icon={<DollarOutlined className="text-blue-500" />}
+              change={{ value: totalSold.change, text: "so với kỳ trước" }}
+              className="bg-blue-50"
+              iconClassName="bg-white text-blue-500"
+            />
+            <OverviewItem
+              title="Danh mục mới"
+              value={newCategories.value}
+              icon={<UserOutlined className="text-indigo-500" />}
+              change={{ value: newCategories.change, text: "so với kỳ trước" }}
+              className="bg-indigo-50"
+              iconClassName="bg-white text-indigo-500"
+            />
+          </>
+        )}
+      </div>
 
-          {/* Card 2: Category Status */}
-          <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <div className="bg-blue-100 p-3 rounded-full mr-4">
-              <FolderOpen className="h-6 w-6 text-blue-600" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-700">Tình trạng danh mục</h3>
-              <div className="flex gap-4">
-                <p className="text-xl font-bold text-blue-600">
-                  {categoryStatus().active} <span className="text-sm font-normal">đang hoạt động</span>
-                </p>
-                <p className="text-xl font-bold text-red-500">
-                  {categoryStatus().inactive} <span className="text-sm font-normal">đã ẩn</span>
-                </p>
-              </div>
-            </div>
-          </div>
+      <h2 className="font-bold text-xl flex items-center space-x-2 mt-8 mb-2 pb-2">
+        <Plus className="h-6 w-6 text-blue-600 mr-2" />
+        <span className="text-gray-800 text-2xl">Chi tiết danh mục</span>
+      </h2>
 
-          {/* Card 3: Top Categories */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex items-center mb-4">
-              <div className="bg-purple-100 p-3 rounded-full mr-4">
-                <BarChart3 className="h-6 w-6 text-purple-600" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-700">Top danh mục hoạt động mạnh nhất</h3>
-            </div>
-            <div className="space-y-4">
-              {topCategories().map((category, index) => (
-                <div key={category.id} className="flex items-center">
-                  <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="font-bold text-purple-600">{index + 1}</span>
-                  </div>
-                  <div className="flex-grow min-w-0">
-                    <p className="text-sm font-medium text-gray-900 truncate">{category.name}</p>
-                    <p className="text-xs text-gray-500">{category.active === 1 ? "Đang hoạt động" : "Đã ẩn"}</p>
-                  </div>
-                  <div className="flex-shrink-0 text-right">
-                    <p className="text-sm font-medium text-gray-900">{category.totalSales} sản phẩm đã bán</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex items-center mb-4">
-              <div className="bg-yellow-100 p-3 rounded-full mr-4">
-                <TagIcon className="h-6 w-6 text-yellow-600" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-700">Số lượng theo danh mục</h3>
-            </div>
-            <div className="space-y-3">
-              {Object.entries(productsByCategory()).map(([category, count]) => (
-                <div key={category} className="flex items-center justify-between">
-                  <span className="text-gray-700">{category}</span>
-                  <div className="flex items-center">
-                    <div className="w-40 bg-gray-200 rounded-full h-2.5 mr-2">
-                      <div
-                        className="bg-yellow-500 h-2.5 rounded-full"
-                        style={{ width: `${(count / products.length) * 100}%` }}
-                      ></div>
-                    </div>
-                    <span className="text-sm font-medium text-gray-700">{count}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+      <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="grid grid-cols-12 gap-3">
+          <Input
+            placeholder="Tìm kiếm theo tên..."
+            allowClear
+            onChange={handleSearch}
+            className="col-span-2 h-8"
+          />
+          <div className="col-span-8"></div>
+          <div className="col-span-2 text-end mb-4">
+            <Button onClick={() => showModal()}>
+              <PackagePlus className="mr-2" />
+            </Button>
           </div>
         </div>
 
-        <h2 className="font-bold text-xl flex items-center space-x-2 mt-8 mb-2 pb-2">
-          <Plus className="h-6 w-6 text-blue-600 mr-2" />
-          <span className="text-gray-800 text-2xl">Chi tiết danh mục</span>
-        </h2>
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          {/* Search and Filter Section */}
-          <div className="mb-6 grid grid-cols-1 md:grid-cols-6 gap-4">
-            <div className="relative col-span-3">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <Search className="w-5 h-5 text-gray-500" />
-              </div>
-              <Input
-                placeholder="Tìm kiếm theo tên danh mục"
-                className="pl-10"
-                value={filters.name}
-                onChange={(e) => setFilters({ ...filters, name: e.target.value })}
-              />
-            </div>
-
-            <Select
-              placeholder="Lọc theo trạng thái"
-              allowClear
-              className="w-full col-span-2"
-              onChange={(value) => setFilters({ ...filters, status: value || "" })}
-            >
-              <Select.Option value="active">Đang hoạt động</Select.Option>
-              <Select.Option value="inactive">Đã ẩn</Select.Option>
-            </Select>
-
-            <div className="text-end mb-4">
-              <div className="space-x-2 flex items-center justify-end gap-2">
-                <Tooltip title="Thêm danh mục mới">
-                  <Button onClick={showAddCategoryModal} type="primary" icon={<FolderPlus size={18} />}>
-                  </Button>
-                </Tooltip>
-
-                <Tooltip title="Thay đổi trạng thái danh mục đã chọn">
-                  <Button
-                    onClick={toggleCategoryStatus}
-                    disabled={selectedRows.length === 0}
-                    icon={<FolderX size={18} />}
-                  >
-                  </Button>
-                </Tooltip>
-              </div>
-            </div>
-          </div>
-
+        {loadingTable ? (
+          <Skeleton active paragraph={{ rows: 4 }} />
+        ) : (
           <DataTable
             columns={columns}
-            data={filteredData}
+            data={filteredCategories}
             pagination
-            paginationPerPage={8}
-            paginationRowsPerPageOptions={[8, 16, 24]}
+            paginationPerPage={4}
+            paginationRowsPerPageOptions={[4, 8, 16]}
+            paginationComponentOptions={{
+              rowsPerPageText: "Số danh mục mỗi trang:",
+              rangeSeparatorText: "/",
+              selectAllRowsItem: false,
+            }}
             highlightOnHover
-            noDataComponent="Không tìm thấy danh mục nào"
-            selectableRows
-            onSelectedRowsChange={handleRowSelected}
-            selectableRowsHighlight
             customStyles={{
               headCells: {
                 style: {
                   fontWeight: "bold",
                   color: "#2563eb",
+                  fontSize: "15px",
                 },
               },
               cells: {
@@ -523,8 +336,47 @@ export default function CategoryManagement() {
               },
             }}
           />
-        </div>
+        )}
       </div>
+
+      <Modal
+        title={selectedCategory ? "Cập nhật danh mục" : "Thêm danh mục mới"}
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <Form
+          form={form}
+          layout="vertical"
+          onFinish={onFinish}
+          onValuesChange={(changed) => {
+            if ("name" in changed && !selectedCategory) {
+              const nameValue = changed.name || "";
+              form.setFieldsValue({
+                slug: nameValue ? generateSlug(nameValue) : "",
+              });
+            }
+          }}
+        >
+          <Form.Item
+            label="Tên danh mục"
+            name="name"
+            rules={[{ required: true, message: "Vui lòng nhập tên danh mục" }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Slug"
+            name="slug"
+            rules={[{ required: true, message: "Vui lòng nhập slug" }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item label="Trạng thái" name="active" valuePropName="checked">
+            <Switch checkedChildren="Đang hoạt động" unCheckedChildren="Đã ẩn" />
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
-  )
+  );
 }

@@ -19,7 +19,6 @@ export const userApi = {
   getAllUsers: async () => {
     try {
       const response = await get("users");
-      console.log("Response from getAllUsers:", response);
       if (!response || !Array.isArray(response)) {
         throw new Error("Invalid response format");
       }
